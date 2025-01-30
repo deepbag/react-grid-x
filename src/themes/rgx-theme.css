@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+.rgx-theme {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Lato", sans-serif;
+}
+
+.rgx-theme th,
+.rgx-theme td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.rgx-theme tr:nth-child(even) {
+  background-color: #f2f2f2; /* Even rows with a light gray background */
+}
+
+.rgx-theme tr:hover {
+  background-color: #ddd; /* Hover effect for rows */
+}
+
+.rgx-theme tr {
+  cursor: pointer; /* Pointer cursor for rows */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .rgx-theme {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .rgx-theme th,
+  .rgx-theme td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .rgx-theme th,
+  .rgx-theme td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .rgx-theme {
+    border: 0;
+  }
+
+  .rgx-theme tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .rgx-theme th,
+  .rgx-theme td {
+    display: block;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .rgx-theme th::before,
+  .rgx-theme td::before {
+    content: attr(data-label); /* Use the data-label attribute for headers */
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    text-align: left;
+    font-weight: bold;
+  }
+}

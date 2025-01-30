@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+.rgx-arrow-pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 10px; /* Space between elements when wrapped */
+}
+
+.rgx-arrow-pagination-info {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+.rgx-arrow-pagination-page-of {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin: 0 7px;
+}
+
+.rgx-arrow-pagination-row-per-page {
+  display: flex;
+  align-items: center;
+}
+
+.rgx-arrow-rows-per-page-select {
+  font-family: "Lato", sans-serif;
+  height: 30px;
+}
+
+.rgx-arrow-rows-per-page {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.rgx-arrow-rows-per-page label {
+  font-size: 16px;
+  color: #202020;
+  margin-right: 10px;
+}
+
+.rgx-arrow-rows-per-page select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rgx-arrow-pagination-controls {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 5px; /* Space between buttons */
+}
+
+.rgx-arrow-pagination-button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rgx-arrow-pagination-button:hover {
+  background-color: #ddd;
+}
+
+.rgx-arrow-pagination-button:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+.rgx-arrow-pagination-button.rgx-active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.rgx-arrow-pagination-ellipsis {
+  background-color: transparent;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .rgx-arrow-pagination-info {
+    font-size: 14px;
+  }
+
+  .rgx-arrow-rows-per-page label {
+    font-size: 14px;
+  }
+
+  .rgx-arrow-rows-per-page select {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .rgx-arrow-pagination-button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .rgx-arrow-pagination {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .rgx-arrow-pagination-controls {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .rgx-arrow-pagination-info {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .rgx-arrow-rows-per-page {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .rgx-arrow-rows-per-page label,
+  .rgx-arrow-rows-per-page select {
+    font-size: 12px;
+  }
+
+  .rgx-arrow-pagination-button {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+}
