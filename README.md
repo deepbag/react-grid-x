@@ -5,9 +5,9 @@
 
 ---
 
-# @deep/react-grid-x
+# @deepbag/react-grid-x
 
-`@deep/react-grid-x` is a customizable and flexible React table component that supports pagination, dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, and styling.
+`@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, and styling.
 
 ## Features
 
@@ -24,13 +24,13 @@ To install the library, you can use either npm or yarn:
 ### Using Yarn
 
 ```bash
-yarn add @deep/react-grid-x
+yarn add @deepbag/react-grid-x
 ```
 
 ### Using npm
 
 ```bash
-npm install @deep/react-grid-x
+npm install @deepbag/react-grid-x
 ```
 
 ## CSS Import
@@ -39,9 +39,9 @@ To use the component styles, you need to manually import the required CSS files.
 
 ```tsx
 // Import the necessary CSS files
-import "@deep/react-grid-x/dist/rgx-theme.css";            // Import the default theme
-import "@deep/react-grid-x/dist/rgx-table-pagination.css"; // Import the table pagination CSS
-import "@deep/react-grid-x/dist/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css";            // Import the default theme
+import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
+import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
 ```
 
 The above CSS files can be found in the `dist` folder after installation.
@@ -57,9 +57,9 @@ import React from "react";
 import ReactGridX from "@deep/react-grid-x";
 
 // Import the CSS files for styling
-import "@deep/react-grid-x/dist/rgx-theme.css";            // Import the default theme
-import "@deep/react-grid-x/dist/rgx-table-pagination.css"; // Import the table pagination CSS
-import "@deep/react-grid-x/dist/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css";            // Import the default theme
+import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
+import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
 
 const App = () => {
   const columns = [

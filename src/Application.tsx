@@ -1,5 +1,9 @@
-import ReactGridX from "components/ReactGridX";
+// import ReactGridX from "components/ReactGridX";
+import { ReactGridX } from "@deepbag/react-grid-x";
 import React from "react";
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css";            // Import the default theme
+import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
+
 const Application = () => {
   return (
     <>
