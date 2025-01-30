@@ -64,7 +64,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
 
   // Calculate the total number of pages for client-side pagination and server-side pagination
   const totalPages = serverSide
-    ? Math.ceil(totalRows ? totalRows : 0 / rowsPerPage) // total number of rows in database
+    ? Math.ceil((totalRows ?? 0) / rowsPerPage) // total number of rows in database
     : Math.ceil(data.length / rowsPerPage);
 
   // Slice the data for the current page (only for client-side pagination)
@@ -79,7 +79,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         rowsPerPage={rowsPerPage}
-        totalRows={data?.length}
+        totalRows={serverSide ? totalRows ?? 0 : data.length}
         onPageChange={onPageChange} // Trigger page change callback
         onRowsPerPageChange={onRowsPerPageChange} // Trigger rows per page change callback
         rowsPerPageOptions={rowsPerPageOptions}
@@ -91,7 +91,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         rowsPerPage={rowsPerPage}
-        totalRows={data?.length}
+        totalRows={serverSide ? totalRows ?? 0 : data.length}
         onPageChange={onPageChange} // Trigger page change callback
         onRowsPerPageChange={onRowsPerPageChange} // Trigger rows per page change callback
         rowsPerPageOptions={rowsPerPageOptions}
@@ -131,9 +131,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               {columns.map((column, colIndex) => (
                 <td key={colIndex} style={tableStyle["td"]}>
                   {/* Render cell data using custom render function if provided */}
-                  {column.render
-                    ? column.render(row)
-                    : row[column.name.toLowerCase()]}
+                  {column.render ? column.render(row) : row[column.name] ?? ""}
                 </td>
               ))}
             </tr>
