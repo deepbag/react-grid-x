@@ -158,21 +158,21 @@ For large datasets, server-side sorting can be enabled by setting `serverSideSor
 
 ## Props
 
-| Prop                 | Type                                  | Description                                                                                                   |
-| -------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `columns`            | `ReactGridXColumnProps[]`             | An array of column definitions, each containing a `name` and optional `render` function for custom rendering. |
-| `data`               | `any[]`                               | The data to be displayed in the table. Each object should correspond to a row.                                |
-| `theme`              | `string`                              | The theme for the table (default is `"rgx-theme"`).                                                           |
-| `rowsPerPageOptions` | `number[]`                            | Options for rows per page (default is `[5, 10, 15]`).                                                         |
-| `paginationType`     | `"rgx-table-pagination" \| "rgx-arrow-pagination"` | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                |
-| `paginationStyle`    | `Record<string, React.CSSProperties>` | Custom styles for pagination components.                                                                      |
-| `tableStyle`         | `Record<string, React.CSSProperties>` | Custom styles for the table and its elements.                                                                 |
-| `serverSide`         | `boolean`                             | Flag to indicate if server-side pagination should be used (default is `false`).                               |
-| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void` | Callback function for pagination and row size changes.                                                        |
-| `totalRows`          | `number`                              | The total number of rows in the database (required for server-side pagination).                               |
-| `sortable`           | `boolean`                           | Enables sorting on a column (default is `false`).                                                               |
-| `serverSideSorting`  | `boolean`                           | Enables server-side sorting (default is `false`).                                                               |
-| `onSortChange`       | `(sortKey: string, sortOrder: "asc" | "desc") => void`                                                                                                | Callback function to handle server-side sorting logic. |
+| Prop                           | Type                                               | Description                                                                                                   |
+| ------------------------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `columns`                      | `ReactGridXColumnProps[]`                          | An array of column definitions, each containing a `name` and optional `render` function for custom rendering. |
+| `data`                         | `any[]`                                            | The data to be displayed in the table. Each object should correspond to a row.                                |
+| `theme`                        | `string`                                           | The theme for the table (default is `"rgx-theme"`).                                                           |
+| `rowsPerPageOptions`           | `number[]`                                         | Options for rows per page (default is `[5, 10, 15]`).                                                         |
+| `paginationType`               | `"rgx-table-pagination" \| "rgx-arrow-pagination"` | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                 |
+| `paginationStyle`              | `Record<string, React.CSSProperties>`              | Custom styles for pagination components.                                                                      |
+| `tableStyle`                   | `Record<string, React.CSSProperties>`              | Custom styles for the table and its elements.                                                                 |
+| `serverSide`                   | `boolean`                                          | Flag to indicate if server-side pagination should be used (default is `false`).                               |
+| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`      | Callback function for pagination and row size changes.                                                        |
+| `totalRows`                    | `number`                                           | The total number of rows in the database (required for server-side pagination).                               |
+| `sortable`                     | `boolean`                                          | Enables sorting on a column (default is `false`).                                                             |
+| `serverSideSorting`            | `boolean`                                          | Enables server-side sorting (default is `false`).                                                             |
+| `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void`  | Callback function to handle server-side sorting logic. |                                                                                              | 
 
 ## Exports
 
