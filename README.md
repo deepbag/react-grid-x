@@ -40,14 +40,12 @@ To use the component styles, you need to manually import the required CSS files.
 
 ```tsx
 // Import the necessary CSS files
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css";            // Import the default theme
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme
 import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
 import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
 ```
 
 The above CSS files can be found in the `dist` folder after installation.
-
-> **Important**: If you're using a custom build process, ensure that these files are properly linked in your project to apply the styling.
 
 ## Usage
 
@@ -55,18 +53,28 @@ Here's a basic example of how to use the `ReactGridX` component in your React pr
 
 ```tsx
 import React from "react";
-import ReactGridX from "@deep/react-grid-x";
+import { ReactGridX } from "@deep/react-grid-x";
 
 // Import the CSS files for styling
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css";            // Import the default theme
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme
 import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
 import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
 
 const App = () => {
   const columns = [
     { name: "Name", key: "name", sortable: true },
-    { name: "Age", key: "age", sortable: true, render: (data) => <span>{data.age}</span> },
-    { name: "Country", key: "country", sortable: true, render: (data) => <span>{data.country}</span> },
+    {
+      name: "Age",
+      key: "age",
+      sortable: true,
+      render: (data) => <span>{data.age}</span>,
+    },
+    {
+      name: "Country",
+      key: "country",
+      sortable: true,
+      render: (data) => <span>{data.country}</span>,
+    },
   ];
 
   const data = [
@@ -125,7 +133,9 @@ const columns = [
     key: "age",
     sortable: true,
     onSort: (data, order) => {
-      return data.sort((a, b) => (order === "asc" ? a.age - b.age : b.age - a.age));
+      return data.sort((a, b) =>
+        order === "asc" ? a.age - b.age : b.age - a.age
+      );
     },
   },
 ];
@@ -150,13 +160,36 @@ For large datasets, server-side sorting can be enabled by setting `serverSideSor
 
 | Prop                 | Type                                  | Description                                                                                                   |
 | -------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `columns`            | `ReactGridXColumnProps[]`             | An array of column definitions, each containing a `name`, `key`, and optional `render` function for custom rendering. |
+| `columns`            | `ReactGridXColumnProps[]`             | An array of column definitions, each containing a `name` and optional `render` function for custom rendering. |
 | `data`               | `any[]`                               | The data to be displayed in the table. Each object should correspond to a row.                                |
-| `sortable`           | `boolean`                             | Enables sorting on a column (default is `false`).                                                             |
-| `serverSideSorting`  | `boolean`                             | Enables server-side sorting (default is `false`).                                                             |
-| `onSortChange`       | `(sortKey: string, sortOrder: "asc" | "desc") => void` | Callback function to handle server-side sorting logic.                                                         |
 | `theme`              | `string`                              | The theme for the table (default is `"rgx-theme"`).                                                           |
 | `rowsPerPageOptions` | `number[]`                            | Options for rows per page (default is `[5, 10, 15]`).                                                         |
+| `paginationType`     | `"rgx-table-pagination" \| "rgx-arrow-pagination"` | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                |
+| `paginationStyle`    | `Record<string, React.CSSProperties>` | Custom styles for pagination components.                                                                      |
+| `tableStyle`         | `Record<string, React.CSSProperties>` | Custom styles for the table and its elements.                                                                 |
+| `serverSide`         | `boolean`                             | Flag to indicate if server-side pagination should be used (default is `false`).                               |
+| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void` | Callback function for pagination and row size changes.                                                        |
+| `totalRows`          | `number`                              | The total number of rows in the database (required for server-side pagination).                               |
+| `sortable`           | `boolean`                           | Enables sorting on a column (default is `false`).                                                               |
+| `serverSideSorting`  | `boolean`                           | Enables server-side sorting (default is `false`).                                                               |
+| `onSortChange`       | `(sortKey: string, sortOrder: "asc" | "desc") => void`                                                                                                | Callback function to handle server-side sorting logic. |
+
+## Exports
+
+The package exports the following components and props interfaces:
+
+### Components
+
+- `ReactGridX`: The main table component.
+- `RGXTablePagination`: Pagination component with table-based navigation.
+- `RGXArrowPagination`: Pagination component with arrow-based navigation.
+
+### Interfaces (Props)
+
+- `ReactGridXProps`: Props for the `ReactGridX` component.
+- `RGXTablePaginationProps`: Props for the `RGXTablePagination` component.
+- `RGXArrowPaginationProps`: Props for the `RGXArrowPagination` component.
+- `ReactGridXColumnProps`: Column props for defining columns in the `ReactGridX` component.
 
 ## License
 

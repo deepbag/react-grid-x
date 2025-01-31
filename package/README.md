@@ -114,6 +114,9 @@ export default App;
 | `serverSide`         | `boolean`                             | Flag to indicate if server-side pagination should be used (default is `false`).                               |
 | `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void` | Callback function for pagination and row size changes.                                                        |
 | `totalRows`          | `number`                              | The total number of rows in the database (required for server-side pagination).                               |
+| `sortable`           | `boolean`                           | Enables sorting on a column (default is `false`).                                                               |
+| `serverSideSorting`  | `boolean`                           | Enables server-side sorting (default is `false`).                                                               |
+| `onSortChange`       | `(sortKey: string, sortOrder: "asc" | "desc") => void`                                                                                                | Callback function to handle server-side sorting logic. |
 
 ## Exports
 
