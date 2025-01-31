@@ -159,7 +159,7 @@ For large datasets, server-side sorting can be enabled by setting `serverSideSor
 ## Props
 
 | Prop                           | Type                                               | Description                                                                                                   |
-| ------------------------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| ------------------------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `columns`                      | `ReactGridXColumnProps[]`                          | An array of column definitions, each containing a `name` and optional `render` function for custom rendering. |
 | `data`                         | `any[]`                                            | The data to be displayed in the table. Each object should correspond to a row.                                |
 | `theme`                        | `string`                                           | The theme for the table (default is `"rgx-theme"`).                                                           |
