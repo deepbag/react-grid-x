@@ -5,6 +5,9 @@ import {
   faChevronRight,
   faAngleDoubleLeft,
   faAngleDoubleRight,
+  faSort,
+  faSortUp,
+  faSortDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const solidIcons = {
@@ -12,6 +15,9 @@ export const solidIcons = {
   faChevronRight,
   faAngleDoubleLeft,
   faAngleDoubleRight,
+  faSort,
+  faSortUp,
+  faSortDown,
 };
 
 export const brandIcons = {

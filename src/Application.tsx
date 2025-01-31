@@ -1,8 +1,8 @@
-// import ReactGridX from "components/ReactGridX";
-import { ReactGridX } from "@deepbag/react-grid-x";
+import ReactGridX from "components/ReactGridX";
+// import { ReactGridX } from "@deepbag/react-grid-x";
 import React from "react";
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css";            // Import the default theme
-import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
+// import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme
+// import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
 
 const Application = () => {
   return (
@@ -16,209 +16,52 @@ const Application = () => {
           columns={[
             {
               name: "Supplier Id",
+              key: "id",
+              // sortable: true,
               render: (_: { id: any }) => {
                 return _.id;
               },
             },
             {
               name: "Supplier Name",
+              sortable: true,
+              key: "name",
               render: (_: { name: any }) => {
                 return _.name;
               },
+              // onSort: (data, order) => {
+              //   return data.sort((a, b) => {
+              //     return order === "asc"
+              //       ? a.name.localeCompare(b.name)
+              //       : b.name.localeCompare(a.name);
+              //   });
+              // },
             },
           ]}
           data={[
             {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
+              name: "A",
+              id: 1,
             },
             {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
+              name: "B",
+              id: 2,
             },
             {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
+              name: "C",
+              id: 3,
             },
             {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
+              name: "D",
+              id: 4,
             },
             {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
+              name: "E",
+              id: 5,
             },
             {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
-            },
-            {
-              name: "Supplier Name",
-              id: "cc95ef48-cff7-4824-b1b6-39a882f47db4",
+              name: "F",
+              id: 6,
             },
           ]}
         />
