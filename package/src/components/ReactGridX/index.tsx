@@ -2,11 +2,16 @@ import React, { JSX, useState } from "react";
 import "../../themes/rgx-theme.css";
 import RGXArrowPagination from "../Paginations/RGXArrowPagination";
 import RGXTablePagination from "../Paginations/RGXTablePagination";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solidIcons } from "../Icons/FontAwesome";
 
 // Define the column properties for the table
 export interface ReactGridXColumnProps {
   name: string; // The column name to display
+  key: string; // key which match with data key
   render?: (data: any) => JSX.Element | string; // Optional custom render function for cell data
+  sortable?: boolean; // Whether the column is sortable
+  onSort?: (data: any[], order: "asc" | "desc") => any[]; // Custom sorting function
 }
 
 // Define the main props for the ReactGridX component
@@ -21,6 +26,8 @@ export interface ReactGridXProps {
   serverSide?: boolean; // Flag to indicate server-side pagination
   onPaginationAndRowSizeChange?: (page: number, rowsPerPage: number) => void; // Callback for pagination and row size changes
   totalRows?: number; // total number of rows in database
+  serverSideSorting?: boolean; // Whether sorting is handled on the server-side
+  onSorting?: (column: string, order: "asc" | "desc") => void; // Callback for sorting columns
 }
 
 // ReactGridX: A flexible, reusable table component with optional server-side pagination
@@ -35,12 +42,21 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   serverSide = false,
   onPaginationAndRowSizeChange,
   totalRows,
+  serverSideSorting,
+  onSorting,
 }) => {
   // State to manage the current page
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  // data
+  const [currentData, setCurrentData] = useState<any[]>(data);
+
+  // State to track the currently sorted column and order
+  const [sortColumn, setSortColumn] = useState<string | null>(null);
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
   // State to manage the number of rows per page
-  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
+  const [rowsPerPage, setRowsPerPage] = useState<number>(rowsPerPageOptions[0]);
 
   /**
    * Handle page change event
@@ -62,15 +78,46 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     onPaginationAndRowSizeChange && onPaginationAndRowSizeChange(1, rows); // Trigger the callback with the new rows and reset page
   };
 
+  /**
+   * Handle sorting event
+   * @param columnName - The column name to sort by
+   */
+  const onSortingHandler = (key: string) => {
+    const newSortOrder =
+      sortColumn === key && sortOrder === "asc" ? "desc" : "asc";
+    setSortColumn(key);
+    setSortOrder(newSortOrder);
+
+    if (serverSideSorting && onSorting) return onSorting(key, newSortOrder);
+
+    const column = columns.find((col) => col.key === key);
+    const sorted = column?.onSort
+      ? column.onSort([...data], newSortOrder)
+      : [...data].sort((a, b) =>
+          !isNaN(a[key]) && !isNaN(b[key])
+            ? newSortOrder === "asc"
+              ? a[key] - b[key]
+              : b[key] - a[key]
+            : newSortOrder === "asc"
+            ? String(a[key]).localeCompare(String(b[key]))
+            : String(b[key]).localeCompare(String(a[key]))
+        );
+
+    setCurrentData(sorted);
+  };
+
   // Calculate the total number of pages for client-side pagination and server-side pagination
   const totalPages = serverSide
     ? Math.ceil((totalRows ?? 0) / rowsPerPage) // total number of rows in database
-    : Math.ceil(data.length / rowsPerPage);
+    : Math.ceil(currentData.length / rowsPerPage);
 
   // Slice the data for the current page (only for client-side pagination)
   const currentPageData = serverSide
-    ? data // Use full data for server-side; parent handles slicing
-    : data.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
+    ? currentData // Use full data for server-side; parent handles slicing
+    : currentData.slice(
+        (currentPage - 1) * rowsPerPage,
+        currentPage * rowsPerPage
+      );
 
   // Define pagination components based on the pagination type
   const pagination: Record<string, JSX.Element> = {
@@ -79,7 +126,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         rowsPerPage={rowsPerPage}
-        totalRows={serverSide ? totalRows ?? 0 : data.length}
+        totalRows={serverSide ? totalRows ?? 0 : currentData.length}
         onPageChange={onPageChange} // Trigger page change callback
         onRowsPerPageChange={onRowsPerPageChange} // Trigger rows per page change callback
         rowsPerPageOptions={rowsPerPageOptions}
@@ -91,7 +138,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         rowsPerPage={rowsPerPage}
-        totalRows={serverSide ? totalRows ?? 0 : data.length}
+        totalRows={serverSide ? totalRows ?? 0 : currentData.length}
         onPageChange={onPageChange} // Trigger page change callback
         onRowsPerPageChange={onRowsPerPageChange} // Trigger rows per page change callback
         rowsPerPageOptions={rowsPerPageOptions}
@@ -112,10 +159,24 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                 key={index}
                 style={{
                   textAlign: "left",
+                  cursor: column.sortable ? "pointer" : "default",
                   ...tableStyle["th"],
                 }}
+                onClick={() => column.sortable && onSortingHandler(column.key)}
               >
                 {column.name}
+                {column.sortable && (
+                  <FontAwesomeIcon
+                    icon={
+                      sortColumn === column.key
+                        ? sortOrder === "asc"
+                          ? solidIcons.faSortUp
+                          : solidIcons.faSortDown
+                        : solidIcons.faSort
+                    }
+                    style={{ marginLeft: "8px" }}
+                  />
+                )}
               </th>
             ))}
           </tr>

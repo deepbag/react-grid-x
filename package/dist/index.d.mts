@@ -2,7 +2,10 @@ import React, { JSX } from 'react';
 
 interface ReactGridXColumnProps {
     name: string;
+    key: string;
     render?: (data: any) => JSX.Element | string;
+    sortable?: boolean;
+    onSort?: (data: any[], order: "asc" | "desc") => any[];
 }
 interface ReactGridXProps {
     columns: ReactGridXColumnProps[];
@@ -15,6 +18,8 @@ interface ReactGridXProps {
     serverSide?: boolean;
     onPaginationAndRowSizeChange?: (page: number, rowsPerPage: number) => void;
     totalRows?: number;
+    serverSideSorting?: boolean;
+    onSorting?: (column: string, order: "asc" | "desc") => void;
 }
 declare const ReactGridX: React.FC<ReactGridXProps>;
 
