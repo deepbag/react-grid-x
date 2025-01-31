@@ -172,6 +172,7 @@ For large datasets, server-side sorting can be enabled by setting `serverSideSor
 | `totalRows`                    | `number`                                           | The total number of rows in the database (required for server-side pagination).                               |
 | `sortable`                     | `boolean`                                          | Enables sorting on a column (default is `false`).                                                             |
 | `serverSideSorting`            | `boolean`                                          | Enables server-side sorting (default is `false`).                                                             |
+| `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void`  | Callback function to handle server-side sorting logic.                                                     |
 
 ## Exports
 
