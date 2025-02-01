@@ -4,6 +4,7 @@ import RGXArrowPagination from "components/Paginations/RGXArrowPagination";
 import RGXTablePagination from "components/Paginations/RGXTablePagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "components/Icons/FontAwesome";
+import Tooltip from "components/Tooltip";
 
 // Define the column properties for the table
 export interface ReactGridXColumnProps {
@@ -12,6 +13,8 @@ export interface ReactGridXColumnProps {
   render?: (data: any) => JSX.Element | string; // Optional custom render function for cell data
   sortable?: boolean; // Whether the column is sortable
   onSort?: (data: any[], order: "asc" | "desc") => any[]; // Custom sorting function
+  tooltip?: boolean; // Tooltip property for columns
+  tooltipCustomContent?: string | number; //  Tooltip custom content
 }
 
 // Define the main props for the ReactGridX component
@@ -83,26 +86,28 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
    * @param columnName - The column name to sort by
    */
   const onSortingHandler = (key: string) => {
-    const newSortOrder = sortColumn === key && sortOrder === "asc" ? "desc" : "asc";
+    const newSortOrder =
+      sortColumn === key && sortOrder === "asc" ? "desc" : "asc";
     setSortColumn(key);
     setSortOrder(newSortOrder);
-  
+
     if (serverSideSorting && onSorting) return onSorting(key, newSortOrder);
-  
-    const column = columns.find(col => col.key === key);
-    const sorted = column?.onSort 
+
+    const column = columns.find((col) => col.key === key);
+    const sorted = column?.onSort
       ? column.onSort([...data], newSortOrder)
-      : [...data].sort((a, b) => 
-          !isNaN(a[key]) && !isNaN(b[key]) 
-            ? (newSortOrder === "asc" ? a[key] - b[key] : b[key] - a[key]) 
+      : [...data].sort((a, b) =>
+          !isNaN(a[key]) && !isNaN(b[key])
+            ? newSortOrder === "asc"
+              ? a[key] - b[key]
+              : b[key] - a[key]
             : newSortOrder === "asc"
-              ? String(a[key]).localeCompare(String(b[key])) 
-              : String(b[key]).localeCompare(String(a[key]))
+            ? String(a[key]).localeCompare(String(b[key]))
+            : String(b[key]).localeCompare(String(a[key]))
         );
-  
+
     setCurrentData(sorted);
   };
-  
 
   // Calculate the total number of pages for client-side pagination and server-side pagination
   const totalPages = serverSide
@@ -190,7 +195,23 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               {columns.map((column, colIndex) => (
                 <td key={colIndex} style={tableStyle["td"]}>
                   {/* Render cell data using custom render function if provided */}
-                  {column.render ? column.render(row) : row[column.name] ?? ""}
+                  {column.tooltip ? (
+                    <Tooltip
+                      content={
+                        column.tooltipCustomContent
+                          ? column.tooltipCustomContent
+                          : row[column.key]
+                      }
+                    >
+                      {column.render
+                        ? column.render(row)
+                        : row[column.key] ?? ""}
+                    </Tooltip>
+                  ) : column.render ? (
+                    column.render(row)
+                  ) : (
+                    row[column.key] ?? ""
+                  )}
                 </td>
               ))}
             </tr>

@@ -4,6 +4,7 @@ import RGXArrowPagination from "../Paginations/RGXArrowPagination";
 import RGXTablePagination from "../Paginations/RGXTablePagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "../Icons/FontAwesome";
+import Tooltip from "../Tooltip";
 
 // Define the column properties for the table
 export interface ReactGridXColumnProps {
@@ -12,6 +13,8 @@ export interface ReactGridXColumnProps {
   render?: (data: any) => JSX.Element | string; // Optional custom render function for cell data
   sortable?: boolean; // Whether the column is sortable
   onSort?: (data: any[], order: "asc" | "desc") => any[]; // Custom sorting function
+  tooltip?: boolean; // Tooltip property for columns
+  tooltipCustomContent?: string | number; //  Tooltip custom content
 }
 
 // Define the main props for the ReactGridX component
@@ -192,7 +195,23 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               {columns.map((column, colIndex) => (
                 <td key={colIndex} style={tableStyle["td"]}>
                   {/* Render cell data using custom render function if provided */}
-                  {column.render ? column.render(row) : row[column.name] ?? ""}
+                  {column.tooltip ? (
+                    <Tooltip
+                      content={
+                        column.tooltipCustomContent
+                          ? column.tooltipCustomContent
+                          : row[column.key]
+                      }
+                    >
+                      {column.render
+                        ? column.render(row)
+                        : row[column.key] ?? ""}
+                    </Tooltip>
+                  ) : column.render ? (
+                    column.render(row)
+                  ) : (
+                    row[column.key] ?? ""
+                  )}
                 </td>
               ))}
             </tr>
