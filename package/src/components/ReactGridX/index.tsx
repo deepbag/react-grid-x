@@ -31,6 +31,7 @@ export interface ReactGridXProps {
   totalRows?: number; // total number of rows in database
   serverSideSorting?: boolean; // Whether sorting is handled on the server-side
   onSorting?: (column: string, order: "asc" | "desc") => void; // Callback for sorting columns
+  onRowClick?: (rowData: any) => void; // Callback when a row is clicked
 }
 
 // ReactGridX: A flexible, reusable table component with optional server-side pagination
@@ -47,6 +48,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   totalRows,
   serverSideSorting,
   onSorting,
+  onRowClick,
 }) => {
   // State to manage the current page
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -191,6 +193,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               key={row.id || rowIndex} // Use a unique key for each row
               className="rgx-row"
               style={tableStyle["row"]}
+              onClick={() => onRowClick && onRowClick(row)}
             >
               {columns.map((column, colIndex) => (
                 <td key={colIndex} style={tableStyle["td"]}>
