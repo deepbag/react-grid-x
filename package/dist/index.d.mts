@@ -6,6 +6,8 @@ interface ReactGridXColumnProps {
     render?: (data: any) => JSX.Element | string;
     sortable?: boolean;
     onSort?: (data: any[], order: "asc" | "desc") => any[];
+    tooltip?: boolean;
+    tooltipCustomContent?: string | number;
 }
 interface ReactGridXProps {
     columns: ReactGridXColumnProps[];

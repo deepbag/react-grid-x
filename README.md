@@ -16,6 +16,7 @@
 - **Pagination support**: Choose from different pagination types (`rgx-table-pagination` or `rgx-arrow-pagination`) with configurable rows per page and pagination controls.
 - **Customizable styling**: Apply custom themes and styles to the table and pagination components.
 - **Server-side pagination**: Optionally support server-side pagination for large datasets.
+- **Tooltip support**: Enable tooltips for column headers with customizable content for better user guidance.
 - **Under development**: More features coming soon!
 
 ## Installation
@@ -156,23 +157,56 @@ For large datasets, server-side sorting can be enabled by setting `serverSideSor
 />
 ```
 
-## Props
+## Tooltip
 
-| Prop                           | Type                                               | Description                                                                                                   |
-| ------------------------------ | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `columns`                      | `ReactGridXColumnProps[]`                          | An array of column definitions, each containing a `name` and optional `render` function for custom rendering. |
-| `data`                         | `any[]`                                            | The data to be displayed in the table. Each object should correspond to a row.                                |
-| `theme`                        | `string`                                           | The theme for the table (default is `"rgx-theme"`).                                                           |
-| `rowsPerPageOptions`           | `number[]`                                         | Options for rows per page (default is `[5, 10, 15]`).                                                         |
-| `paginationType`               | `"rgx-table-pagination" \| "rgx-arrow-pagination"` | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                 |
-| `paginationStyle`              | `Record<string, React.CSSProperties>`              | Custom styles for pagination components.                                                                      |
-| `tableStyle`                   | `Record<string, React.CSSProperties>`              | Custom styles for the table and its elements.                                                                 |
-| `serverSide`                   | `boolean`                                          | Flag to indicate if server-side pagination should be used (default is `false`).                               |
-| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`      | Callback function for pagination and row size changes.                                                        |
-| `totalRows`                    | `number`                                           | The total number of rows in the database (required for server-side pagination).                               |
-| `sortable`                     | `boolean`                                          | Enables sorting on a column (default is `false`).                                                             |
-| `serverSideSorting`            | `boolean`                                          | Enables server-side sorting (default is `false`).                                                             |
-| `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void`  | Callback function to handle server-side sorting logic.                                                     |
+`ReactGridX` supports tooltip functionality. You can enable tooltip on a column by setting the `tooltip` property to `true` and for custom content `tooltipCustomContent` proprty to `string or number`.
+
+### Example:
+
+```tsx
+const columns = [
+  { name: "Name", key: "name", tooltip: true },
+  {
+    name: "Age",
+    key: "age",
+    tooltip: true,
+    tooltipCustomContent: "write custom content",
+  },
+  { name: "Country", key: "country" },
+];
+```
+
+## Table Props
+
+| Prop                           | Type                                                 | Description                                                                                                   |
+| ------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `columns`                      | `ReactGridXColumnProps[]`                            | An array of column definitions, each containing a `name` and optional `render` function for custom rendering. |
+| `data`                         | `any[]`                                              | The data to be displayed in the table. Each object should correspond to a row.                                |
+| `theme`                        | `string`                                             | The theme for the table (default is `"rgx-theme"`).                                                           |
+| `rowsPerPageOptions`           | `number[]`                                           | Options for rows per page (default is `[5, 10, 15]`).                                                         |
+| `paginationType`               | `"rgx-table-pagination" \| "rgx-arrow-pagination"`   | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                 |
+| `paginationStyle`              | `Record<string, React.CSSProperties>`                | Custom styles for pagination components.                                                                      |
+| `tableStyle`                   | `Record<string, React.CSSProperties>`                | Custom styles for the table and its elements.                                                                 |
+| `serverSide`                   | `boolean`                                            | Flag to indicate if server-side pagination should be used (default is `false`).                               |
+| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`        | Callback function for pagination and row size changes.                                                        |
+| `totalRows`                    | `number`                                             | The total number of rows in the database (required for server-side pagination).                               |
+| `sortable`                     | `boolean`                                            | Enables sorting on a column (default is `false`).                                                             |
+| `serverSideSorting`            | `boolean`                                            | Enables server-side sorting (default is `false`).                                                             |
+| `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void` | Callback function to handle server-side sorting logic.                                                        |
+
+## Column Props (`ReactGridXColumnProps`)
+
+The `ReactGridXColumnProps` interface defines the properties that can be set for each column in the `ReactGridX` component.
+
+| Prop                   | Type                                             | Description                                                                 |
+|------------------------|--------------------------------------------------|-----------------------------------------------------------------------------|
+| `name`                 | `string`                                         | The column name displayed in the table header.                              |
+| `key`                  | `string`                                         | The unique key that matches the data field for this column.                 |
+| `render`               | `(data: any) => JSX.Element \| string`           | Optional function to customize how cell data is rendered.                   |
+| `sortable`             | `boolean`                                        | Determines whether sorting is enabled for this column.                      |
+| `onSort`               | `(data: any[], order: "asc" \| "desc") => any[]` | Optional custom sorting function. If provided, it overrides default sorting.|
+| `tooltip`              | `boolean`                                        | Enables tooltips for this column when set to `true`.                        |
+| `tooltipCustomContent` | `string \| number`                               | Defines custom tooltip content for the column header.                       |
 
 ## Exports
 
