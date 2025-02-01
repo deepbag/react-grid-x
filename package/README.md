@@ -163,7 +163,7 @@ For large datasets, server-side sorting can be enabled by setting `serverSideSor
 
 ## Tooltip
 
-`ReactGridX` supports tooltip functionality. You can enable tooltip on a column by setting the `tooltip` property to `true` and for custom content `tooltipCustomContent` proprty to `string or number`.
+`ReactGridX` supports tooltip functionality. You can enable tooltip on a column by setting the `tooltip` property to `true` and for custom content `tooltipCustomContent` proprty to `(rowData: any) => string`.
 
 ### Example:
 
@@ -174,7 +174,7 @@ const columns = [
     name: "Age",
     key: "age",
     tooltip: true,
-    tooltipCustomContent: "write custom content",
+    tooltipCustomContent: (rowData: any) => "write custom content",
   },
   { name: "Country", key: "country" },
 ];
@@ -240,7 +240,7 @@ The `ReactGridXColumnProps` interface defines the properties that can be set for
 | `sortable`             | `boolean`                                        | Determines whether sorting is enabled for this column.                       |
 | `onSort`               | `(data: any[], order: "asc" \| "desc") => any[]` | Optional custom sorting function. If provided, it overrides default sorting. |
 | `tooltip`              | `boolean`                                        | Enables tooltips for this column when set to `true`.                         |
-| `tooltipCustomContent` | `string \| number`                               | Defines custom tooltip content for the column header.                        |
+| `tooltipCustomContent` | `(data: any) => string`                          | Defines custom tooltip content for the column header.                        |
 
 ## Exports
 
@@ -274,9 +274,11 @@ We welcome contributions from the community! If you find a bug, have a feature r
 If you have any feature requests, bug reports, or would like to discuss any improvements, feel free to get in touch with me through the following options:
 
 ### GitHub Issues
+
 You can report bugs or request features by creating an issue in the [GitHub repository](https://github.com/deepbag/react-grid-x/issues).
 
 ### Social Media
+
 Follow me on [LinkedIn](https://www.linkedin.com/in/deepbag) for updates or to connect.
 
 ## License

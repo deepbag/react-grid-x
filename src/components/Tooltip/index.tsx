@@ -1,7 +1,7 @@
 import React, { JSX } from "react";
 import "../../themes/rgx-tooltip.css"
 
-interface TooltipProps {
+export interface TooltipProps {
   content: string | JSX.Element; // The content of the tooltip
   children: React.ReactNode; // The element that will trigger the tooltip
 }

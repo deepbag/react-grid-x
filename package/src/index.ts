@@ -9,3 +9,4 @@ export { default as RGXTablePaginationProps } from "./components/Paginations/RGX
 export { default as RGXArrowPaginationProps } from "./components/Paginations/RGXArrowPagination";
 export { default as ReactGridXColumnProps } from "./components/ReactGridX";
 export { default as ReactGridXProps } from "./components/ReactGridX";
+export { default as TooltipProps } from "./components/Tooltip";

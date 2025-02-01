@@ -14,7 +14,7 @@ export interface ReactGridXColumnProps {
   sortable?: boolean; // Whether the column is sortable
   onSort?: (data: any[], order: "asc" | "desc") => any[]; // Custom sorting function
   tooltip?: boolean; // Tooltip property for columns
-  tooltipCustomContent?: string | number; //  Tooltip custom content
+  tooltipCustomContent?: (rowData: any) => string; //  Tooltip custom content
 }
 
 // Define the main props for the ReactGridX component
@@ -237,7 +237,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                       <Tooltip
                         content={
                           column.tooltipCustomContent
-                            ? column.tooltipCustomContent
+                            ? column.tooltipCustomContent(row)
                             : row[column.key]
                         }
                       >
