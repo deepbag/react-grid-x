@@ -17,6 +17,7 @@
 - **Customizable styling**: Apply custom themes and styles to the table and pagination components.
 - **Server-side pagination**: Optionally support server-side pagination for large datasets.
 - **Tooltip support**: Enable tooltips for column headers with customizable content for better user guidance.
+- **Row click event**: Capture row clicks using the onRowClick callback to handle user interactions.
 - **Under development**: More features coming soon!
 
 ## Installation
@@ -178,6 +179,20 @@ const columns = [
 ];
 ```
 
+## Row Click Event
+
+You can handle row clicks by using the `onRowClick` prop, which receives the clicked row data.
+
+### Example:
+
+```tsx
+<ReactGridX
+  columns={columns}
+  data={data}
+  onRowClick={(rowData) => console.log(rowData)}
+/>
+```
+
 ## Table Props
 
 | Prop                           | Type                                                 | Description                                                                                                   |
@@ -195,6 +210,7 @@ const columns = [
 | `sortable`                     | `boolean`                                            | Enables sorting on a column (default is `false`).                                                             |
 | `serverSideSorting`            | `boolean`                                            | Enables server-side sorting (default is `false`).                                                             |
 | `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void` | Callback function to handle server-side sorting logic.                                                        |
+| `onRowClick`                   | `(rowData: any) => void`                             | Callback function triggered when a row is clicked, receiving the clicked row's data.                          |
 
 ## Column Props (`ReactGridXColumnProps`)
 
