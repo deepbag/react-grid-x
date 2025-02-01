@@ -78,6 +78,7 @@ const Application = () => {
               score: 30,
             },
           ]}
+          // expandedComponent={(row) => <div>{JSON.stringify(row)}</div>}
         />
       </div>
     </>

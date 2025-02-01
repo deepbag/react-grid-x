@@ -22,6 +22,8 @@ interface ReactGridXProps {
     totalRows?: number;
     serverSideSorting?: boolean;
     onSorting?: (column: string, order: "asc" | "desc") => void;
+    onRowClick?: (rowData: any) => void;
+    expandedComponent?: (row: any) => JSX.Element;
 }
 declare const ReactGridX: React.FC<ReactGridXProps>;
 

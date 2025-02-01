@@ -1,6 +1,6 @@
 # 🚧 **Under Development** 🚧
 
-> This library is currently under development. We are actively working on adding new features and improving the overall functionality. Stay tuned for future updates!
+> This library is currently under development. We are actively working on adding new features and improving the overall functionality. Stay tuned for future updates! You can report bugs or request features by creating an issue in the [GitHub repository](https://github.com/deepbag/react-grid-x/issues).
 
 ---
 
@@ -18,6 +18,7 @@
 - **Server-side pagination**: Optionally support server-side pagination for large datasets.
 - **Tooltip support**: Enable tooltips for column headers with customizable content for better user guidance.
 - **Row click event**: Capture row clicks using the onRowClick callback to handle user interactions.
+- **Expandable rows**: Expand rows with a customizable `expandedComponent` to show additional details or content within the same row.
 - **Under development**: More features coming soon!
 
 ## Installation
@@ -193,6 +194,20 @@ You can handle row clicks by using the `onRowClick` prop, which receives the cli
 />
 ```
 
+## Expanded Component
+
+You can display additional content when a row is expanded by using the `expandedComponent` prop, which receives the clicked row data and returns a JSX component to be rendered.
+
+### Example:
+
+```tsx
+<ReactGridX
+  columns={columns}
+  data={data}
+  expandedComponent={(rowData) => <div>{JSON.stringify(rowData)}</div> />}
+/>
+```
+
 ## Table Props
 
 | Prop                           | Type                                                 | Description                                                                                                   |
@@ -211,20 +226,21 @@ You can handle row clicks by using the `onRowClick` prop, which receives the cli
 | `serverSideSorting`            | `boolean`                                            | Enables server-side sorting (default is `false`).                                                             |
 | `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void` | Callback function to handle server-side sorting logic.                                                        |
 | `onRowClick`                   | `(rowData: any) => void`                             | Callback function triggered when a row is clicked, receiving the clicked row's data.                          |
+| `expandedComponent`            | `(rowData: any) => JSX.Element`                      | A function that returns a component to render when a row is expanded, receiving the clicked row's data.       |
 
 ## Column Props (`ReactGridXColumnProps`)
 
 The `ReactGridXColumnProps` interface defines the properties that can be set for each column in the `ReactGridX` component.
 
-| Prop                   | Type                                             | Description                                                                 |
-|------------------------|--------------------------------------------------|-----------------------------------------------------------------------------|
-| `name`                 | `string`                                         | The column name displayed in the table header.                              |
-| `key`                  | `string`                                         | The unique key that matches the data field for this column.                 |
-| `render`               | `(data: any) => JSX.Element \| string`           | Optional function to customize how cell data is rendered.                   |
-| `sortable`             | `boolean`                                        | Determines whether sorting is enabled for this column.                      |
-| `onSort`               | `(data: any[], order: "asc" \| "desc") => any[]` | Optional custom sorting function. If provided, it overrides default sorting.|
-| `tooltip`              | `boolean`                                        | Enables tooltips for this column when set to `true`.                        |
-| `tooltipCustomContent` | `string \| number`                               | Defines custom tooltip content for the column header.                       |
+| Prop                   | Type                                             | Description                                                                  |
+| ---------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------- |
+| `name`                 | `string`                                         | The column name displayed in the table header.                               |
+| `key`                  | `string`                                         | The unique key that matches the data field for this column.                  |
+| `render`               | `(data: any) => JSX.Element \| string`           | Optional function to customize how cell data is rendered.                    |
+| `sortable`             | `boolean`                                        | Determines whether sorting is enabled for this column.                       |
+| `onSort`               | `(data: any[], order: "asc" \| "desc") => any[]` | Optional custom sorting function. If provided, it overrides default sorting. |
+| `tooltip`              | `boolean`                                        | Enables tooltips for this column when set to `true`.                         |
+| `tooltipCustomContent` | `string \| number`                               | Defines custom tooltip content for the column header.                        |
 
 ## Exports
 
@@ -246,11 +262,22 @@ The package exports the following components and props interfaces:
 ## Contributers
 
 We welcome contributions from the community! If you find a bug, have a feature request, or would like to contribute code, please open an issue or pull request on our GitHub repository. [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deepbag/react-grid-x)
+
 <!-- https://contrib.rocks/preview?repo=angular%2Fangular-ja -->
 
 <a href="https://github.com/deepbag/react-grid-x/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=deepbag/react-grid-x" />
 </a>
+
+## Connect With Me
+
+If you have any feature requests, bug reports, or would like to discuss any improvements, feel free to get in touch with me through the following options:
+
+### GitHub Issues
+You can report bugs or request features by creating an issue in the [GitHub repository](https://github.com/deepbag/react-grid-x/issues).
+
+### Social Media
+Follow me on [LinkedIn](https://www.linkedin.com/in/deepbag) for updates or to connect.
 
 ## License
 

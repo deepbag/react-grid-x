@@ -8,6 +8,7 @@ import {
   faSort,
   faSortUp,
   faSortDown,
+  faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
 
 export const solidIcons = {
@@ -18,6 +19,7 @@ export const solidIcons = {
   faSort,
   faSortUp,
   faSortDown,
+  faChevronDown
 };
 
 export const brandIcons = {

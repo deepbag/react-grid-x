@@ -25,6 +25,34 @@
   cursor: pointer; /* Pointer cursor for rows */
 }
 
+/* Style for the expanded row */
+.rgx-theme .rgx-expanded {
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.rgx-theme .rgx-expanded-row {
+  background-color: #f9f9f9;
+  padding-left: 20px; /* Extra padding for expanded content */
+}
+
+.rgx-theme .rgx-expanded-row td {
+  padding: 20px; /* Padding for expanded content */
+  border-top: 0; /* Remove top border for expanded rows */
+}
+
+.rgx-theme .rgx-expanded-arrow {
+  cursor: pointer;
+  margin-right: 10px;
+  text-align: center;
+}
+.rgx-theme .rgx-expanded-row-td {
+  padding: 20px;
+}
+.rgx-theme .rgx-arrow-icon {
+  font-size: 14px;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
   .rgx-theme {
