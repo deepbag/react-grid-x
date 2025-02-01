@@ -41,9 +41,10 @@ To use the component styles, you need to manually import the required CSS files.
 
 ```tsx
 // Import the necessary CSS files
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme
-import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
-import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme (Required)
+import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
 ```
 
 The above CSS files can be found in the `dist` folder after installation.
@@ -57,9 +58,10 @@ import React from "react";
 import { ReactGridX } from "@deep/react-grid-x";
 
 // Import the CSS files for styling
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme
-import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
-import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS
+import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme (Required)
+import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
 
 const App = () => {
   const columns = [
