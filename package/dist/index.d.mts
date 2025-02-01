@@ -49,4 +49,10 @@ interface RGXArrowPaginationProps {
 }
 declare const RGXArrowPagination: React.FC<RGXArrowPaginationProps>;
 
-export { RGXArrowPagination, RGXArrowPagination as RGXArrowPaginationProps, RGXTablePagination, RGXTablePagination as RGXTablePaginationProps, ReactGridX, ReactGridX as ReactGridXColumnProps, ReactGridX as ReactGridXProps };
+interface TooltipProps {
+    content: string | JSX.Element;
+    children: React.ReactNode;
+}
+declare const Tooltip: React.FC<TooltipProps>;
+
+export { RGXArrowPagination, RGXArrowPagination as RGXArrowPaginationProps, RGXTablePagination, RGXTablePagination as RGXTablePaginationProps, Tooltip as RGXTooltip, ReactGridX, ReactGridX as ReactGridXColumnProps, ReactGridX as ReactGridXProps };

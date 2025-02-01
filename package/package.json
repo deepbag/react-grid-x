@@ -1,6 +1,6 @@
 {
   "name": "@deepbag/react-grid-x",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "ReactGridX is a customizable and flexible React table component that supports pagination, dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, and styling.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -14,6 +14,11 @@
     "build": "tsup && mkdir -p dist/themes && cp -R src/themes/*.css dist/themes/",
     "prepublishOnly": "yarn build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deepbag/react-grid-x"
+  },
+  "homepage": "https://github.com/deepbag/react-grid-x",
   "keywords": [
     "table",
     "pagination",
