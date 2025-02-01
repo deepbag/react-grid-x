@@ -7,7 +7,7 @@ interface ReactGridXColumnProps {
     sortable?: boolean;
     onSort?: (data: any[], order: "asc" | "desc") => any[];
     tooltip?: boolean;
-    tooltipCustomContent?: string | number;
+    tooltipCustomContent?: (rowData: any) => string;
 }
 interface ReactGridXProps {
     columns: ReactGridXColumnProps[];
@@ -57,4 +57,4 @@ interface TooltipProps {
 }
 declare const Tooltip: React.FC<TooltipProps>;
 
-export { RGXArrowPagination, RGXArrowPagination as RGXArrowPaginationProps, RGXTablePagination, RGXTablePagination as RGXTablePaginationProps, Tooltip as RGXTooltip, ReactGridX, ReactGridX as ReactGridXColumnProps, ReactGridX as ReactGridXProps };
+export { RGXArrowPagination, RGXArrowPagination as RGXArrowPaginationProps, RGXTablePagination, RGXTablePagination as RGXTablePaginationProps, Tooltip as RGXTooltip, ReactGridX, ReactGridX as ReactGridXColumnProps, ReactGridX as ReactGridXProps, Tooltip as TooltipProps };
