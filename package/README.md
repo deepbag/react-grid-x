@@ -227,6 +227,16 @@ The package exports the following components and props interfaces:
 - `RGXArrowPaginationProps`: Props for the `RGXArrowPagination` component.
 - `ReactGridXColumnProps`: Column props for defining columns in the `ReactGridX` component.
 
+
+## Contributers
+
+We welcome contributions from the community! If you find a bug, have a feature request, or would like to contribute code, please open an issue or pull request on our GitHub repository. [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deepbag/react-grid-x)
+<!-- https://contrib.rocks/preview?repo=angular%2Fangular-ja -->
+
+<a href="https://github.com/deepbag/react-grid-x/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=deepbag/react-grid-x" />
+</a>
+
 ## License
 
 MIT License - see the [LICENSE](LICENSE) file for details.
