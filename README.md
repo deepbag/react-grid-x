@@ -283,7 +283,7 @@ The package exports the following components and props interfaces:
 - `TooltipProps`: Props for the `RGXTooltip` component.
 - `LoaderProps`: Props for the `RGXLoader` component.
 
-### Changelog
+## Changelog
 
 You can view the full changelog of updates and changes in the [Changelog](https://github.com/deepbag/react-grid-x/blob/main/CHANGE_LOG.md).
 
