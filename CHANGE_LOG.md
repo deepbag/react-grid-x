@@ -1,7 +1,17 @@
 ```markdown
 # Changelog
 
-## [0.1.2] - 2025-02-02 - Added Changed Fixed
+## [0.1.3] - 2025-02-02 
+
+## Changed (Minor)
+- Renamed `serverSide` to `serverSidePagination` in `ReactGridXProps`.
+- Set default value of `serverSideSorting` to `false`.
+
+### Added (Major)
+- Added `loading` prop to indicate the loading state of the table.
+- Added `loaderComponent` to display a custom loader when the table is in a loading state. If not provided, the default loader will be used.
+
+## [0.1.2] - 2025-02-02 - Added Changed Fixed (Major)
 
 - Customizable columns: Define columns with dynamic rendering of data using custom render functions.
 - Sorting support: Supports sorting by column, including both numerical and alphabetical sorting.

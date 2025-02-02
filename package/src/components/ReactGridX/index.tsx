@@ -5,6 +5,7 @@ import RGXTablePagination from "../Paginations/RGXTablePagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "../Icons/FontAwesome";
 import Tooltip from "../Tooltip";
+import Loader from "../Loader";
 
 // Define the column properties for the table
 export interface ReactGridXColumnProps {
@@ -26,13 +27,15 @@ export interface ReactGridXProps {
   paginationType?: "rgx-table-pagination" | "rgx-arrow-pagination"; // Type of pagination to use (e.g., custom or default)
   paginationStyle?: Record<string, React.CSSProperties>; // Styles for pagination components
   tableStyle?: Record<string, React.CSSProperties>; // Styles for table components
-  serverSide?: boolean; // Flag to indicate server-side pagination
+  serverSidePagination?: boolean; // Flag to indicate server-side pagination
   onPaginationAndRowSizeChange?: (page: number, rowsPerPage: number) => void; // Callback for pagination and row size changes
   totalRows?: number; // total number of rows in database
   serverSideSorting?: boolean; // Whether sorting is handled on the server-side
   onSorting?: (column: string, order: "asc" | "desc") => void; // Callback for sorting columns
   onRowClick?: (rowData: any) => void; // Callback when a row is clicked
   expandedComponent?: (row: any) => JSX.Element; // Custom component to render when a row is expanded, passed the row data
+  loading?: boolean; // Added loading prop
+  loaderComponent?: () => JSX.Element; // Added loader component prop
 }
 
 // ReactGridX: A flexible, reusable table component with optional server-side pagination
@@ -44,13 +47,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   paginationType = "rgx-table-pagination",
   paginationStyle = {},
   tableStyle = {},
-  serverSide = false,
+  serverSidePagination = false,
   onPaginationAndRowSizeChange,
   totalRows,
-  serverSideSorting,
+  serverSideSorting = false,
   onSorting,
   onRowClick,
   expandedComponent,
+  loading = false,
+  loaderComponent = () => <Loader />,
 }) => {
   // State to manage the current page
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -117,12 +122,12 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   };
 
   // Calculate the total number of pages for client-side pagination and server-side pagination
-  const totalPages = serverSide
+  const totalPages = serverSidePagination
     ? Math.ceil((totalRows ?? 0) / rowsPerPage) // total number of rows in database
     : Math.ceil(currentData.length / rowsPerPage);
 
   // Slice the data for the current page (only for client-side pagination)
-  const currentPageData = serverSide
+  const currentPageData = serverSidePagination
     ? currentData // Use full data for server-side; parent handles slicing
     : currentData.slice(
         (currentPage - 1) * rowsPerPage,
@@ -136,11 +141,12 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         rowsPerPage={rowsPerPage}
-        totalRows={serverSide ? totalRows ?? 0 : currentData.length}
+        totalRows={serverSidePagination ? totalRows ?? 0 : currentData.length}
         onPageChange={onPageChange} // Trigger page change callback
         onRowsPerPageChange={onRowsPerPageChange} // Trigger rows per page change callback
         rowsPerPageOptions={rowsPerPageOptions}
         style={paginationStyle}
+        loading={loading}
       />
     ),
     "rgx-arrow-pagination": (
@@ -148,132 +154,143 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage}
         totalPages={totalPages}
         rowsPerPage={rowsPerPage}
-        totalRows={serverSide ? totalRows ?? 0 : currentData.length}
+        totalRows={serverSidePagination ? totalRows ?? 0 : currentData.length}
         onPageChange={onPageChange} // Trigger page change callback
         onRowsPerPageChange={onRowsPerPageChange} // Trigger rows per page change callback
         rowsPerPageOptions={rowsPerPageOptions}
         style={paginationStyle}
+        loading={loading}
       />
     ),
   };
 
   return (
     <div>
-      {/* Render the table */}
-      <table className={theme} style={tableStyle["table"]}>
-        <thead>
-          <tr style={tableStyle["thead-tr"]}>
-            {/* Render table headers based on column definitions */}
-            {columns?.map((column, index) => (
-              <th
-                key={index}
-                style={{
-                  textAlign: "left",
-                  cursor: column.sortable ? "pointer" : "default",
-                  ...tableStyle["th"],
-                }}
-                onClick={() => column.sortable && onSortingHandler(column.key)}
-              >
-                {column.name}
-                {column.sortable && (
-                  <FontAwesomeIcon
-                    icon={
-                      sortColumn === column.key
-                        ? sortOrder === "asc"
-                          ? solidIcons.faSortUp
-                          : solidIcons.faSortDown
-                        : solidIcons.faSort
-                    }
-                    style={{ marginLeft: "8px" }}
-                  />
-                )}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody style={tableStyle["tbody"]}>
-          {/* Render table rows for the current page */}
-          {currentPageData.map((row, rowIndex) => (
-            <>
-              <tr
-                key={row.id || rowIndex} // Use a unique key for each row
-                className={`rgx-row ${
-                  expandedRow === rowIndex ? "rgx-expanded" : ""
-                }`}
-                style={tableStyle["row"]}
-                onClick={() => {
-                  expandedComponent &&
-                    setExpandedRow(expandedRow === rowIndex ? null : rowIndex);
-                  onRowClick && onRowClick(row);
-                }}
-              >
-                {columns.map((column, colIndex) => (
-                  <td key={colIndex} style={tableStyle["td"]}>
-                    {/* Conditional rendering for the arrow icon if expandedComponent is passed */}
-                    {expandedComponent && colIndex === 0 && (
-                      <span
-                        className="rgx-expanded-arrow"
-                        style={tableStyle["rgx-expanded-arrow"]}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedRow(
-                            expandedRow === rowIndex ? null : rowIndex
-                          );
-                        }}
-                      >
-                        <FontAwesomeIcon
-                          icon={
-                            expandedRow === rowIndex
-                              ? solidIcons.faChevronDown
-                              : solidIcons.faChevronRight
-                          }
-                          className="rgx-arrow-icon"
-                          style={tableStyle["rgx-arrow-icon"]}
-                        />
-                      </span>
-                    )}
-                    {/* Render cell data using custom render function if provided */}
-                    {column.tooltip ? (
-                      <Tooltip
-                        content={
-                          column.tooltipCustomContent
-                            ? column.tooltipCustomContent(row)
-                            : row[column.key]
-                        }
-                      >
-                        {column.render
-                          ? column.render(row)
-                          : row[column.key] ?? ""}
-                      </Tooltip>
-                    ) : column.render ? (
-                      column.render(row)
-                    ) : (
-                      row[column.key] ?? ""
-                    )}
-                  </td>
-                ))}
-              </tr>
-              {/* Render expanded row content */}
-              {expandedRow === rowIndex && expandedComponent && (
-                <tr
-                  className="rgx-expanded-row"
-                  style={tableStyle["rgx-expanded-row"]}
+      <div className={loading ? "rgx-table-container" : ""}>
+        {/* Conditionally render the loader */}
+        {loading && loaderComponent && loaderComponent()}
+        {/* Render the table */}
+        <table className={theme} style={tableStyle["table"]}>
+          <thead>
+            <tr style={tableStyle["thead-tr"]}>
+              {/* Render table headers based on column definitions */}
+              {columns?.map((column, index) => (
+                <th
+                  key={index}
+                  style={{
+                    textAlign: "left",
+                    cursor: column.sortable ? "pointer" : "default",
+                    ...tableStyle["th"],
+                  }}
+                  onClick={() =>
+                    column.sortable && onSortingHandler(column.key)
+                  }
                 >
-                  <td
-                    colSpan={columns.length}
-                    className="rgx-expanded-row-td"
-                    style={tableStyle["rgx-expanded-row-td"]}
-                  >
-                    {/* Call the expanded component and pass the row data */}
-                    {expandedComponent(row)}
-                  </td>
+                  {column.name}
+                  {column.sortable && (
+                    <FontAwesomeIcon
+                      icon={
+                        sortColumn === column.key
+                          ? sortOrder === "asc"
+                            ? solidIcons.faSortUp
+                            : solidIcons.faSortDown
+                          : solidIcons.faSort
+                      }
+                      style={{ marginLeft: "8px" }}
+                    />
+                  )}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody
+            style={tableStyle["tbody"]}
+            className={`${loading ? "rgx-tobody-loading" : ""}`}
+          >
+            {/* Render table rows for the current page */}
+            {currentPageData.map((row, rowIndex) => (
+              <>
+                <tr
+                  key={row.id || rowIndex} // Use a unique key for each row
+                  className={`rgx-row ${
+                    expandedRow === rowIndex ? "rgx-expanded" : ""
+                  }`}
+                  style={tableStyle["row"]}
+                  onClick={() => {
+                    expandedComponent &&
+                      setExpandedRow(
+                        expandedRow === rowIndex ? null : rowIndex
+                      );
+                    onRowClick && onRowClick(row);
+                  }}
+                >
+                  {columns.map((column, colIndex) => (
+                    <td key={colIndex} style={tableStyle["td"]}>
+                      {/* Conditional rendering for the arrow icon if expandedComponent is passed */}
+                      {expandedComponent && colIndex === 0 && (
+                        <span
+                          className="rgx-expanded-arrow"
+                          style={tableStyle["rgx-expanded-arrow"]}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpandedRow(
+                              expandedRow === rowIndex ? null : rowIndex
+                            );
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={
+                              expandedRow === rowIndex
+                                ? solidIcons.faChevronDown
+                                : solidIcons.faChevronRight
+                            }
+                            className="rgx-arrow-icon"
+                            style={tableStyle["rgx-arrow-icon"]}
+                          />
+                        </span>
+                      )}
+                      {/* Render cell data using custom render function if provided */}
+                      {column.tooltip ? (
+                        <Tooltip
+                          content={
+                            column.tooltipCustomContent
+                              ? column.tooltipCustomContent(row)
+                              : row[column.key]
+                          }
+                        >
+                          {column.render
+                            ? column.render(row)
+                            : row[column.key] ?? ""}
+                        </Tooltip>
+                      ) : column.render ? (
+                        column.render(row)
+                      ) : (
+                        row[column.key] ?? ""
+                      )}
+                    </td>
+                  ))}
                 </tr>
-              )}
-            </>
-          ))}
-        </tbody>
-      </table>
-
+                {/* Render expanded row content */}
+                {expandedRow === rowIndex && expandedComponent && (
+                  <tr
+                    className="rgx-expanded-row"
+                    style={tableStyle["rgx-expanded-row"]}
+                  >
+                    <td
+                      colSpan={columns.length}
+                      className="rgx-expanded-row-td"
+                      style={tableStyle["rgx-expanded-row-td"]}
+                    >
+                      {/* Call the expanded component and pass the row data */}
+                      {expandedComponent(row)}
+                    </td>
+                  </tr>
+                )}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {/* Render the pagination component */}
       {pagination[paginationType as keyof typeof pagination]}
     </div>

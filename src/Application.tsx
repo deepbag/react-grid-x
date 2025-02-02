@@ -3,6 +3,7 @@ import ReactGridX from "components/ReactGridX";
 import React from "react";
 import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme
 import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS
+import Loader from "components/Loader";
 
 const Application = () => {
   return (
@@ -79,6 +80,9 @@ const Application = () => {
             },
           ]}
           // expandedComponent={(row) => <div>{JSON.stringify(row)}</div>}
+          loading={true}
+          loaderComponent={() => <Loader />}
+          paginationType="rgx-arrow-pagination"
         />
       </div>
     </>

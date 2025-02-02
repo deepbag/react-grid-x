@@ -13,6 +13,7 @@ export interface RGXArrowPaginationProps {
   onRowsPerPageChange: (rows: number) => void; // Callback function triggered when rows per page changes
   rowsPerPageOptions?: number[]; // Options for rows per page dropdown
   style?: Record<string, React.CSSProperties>; // Optional styles for pagination elements
+  loading: boolean; // Added loading prop
 }
 
 // RGXArrowPagination: A reusable pagination component for tables
@@ -25,6 +26,7 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
   onRowsPerPageChange,
   rowsPerPageOptions = [5, 10, 15],
   style = {},
+  loading = false,
 }) => {
   return (
     <div className="rgx-arrow-pagination" style={style["rgx-arrow-pagination"]}>
@@ -60,6 +62,7 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
             style={style["rgx-arrow-rows-per-page-select"]}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
+            disabled={loading}
           >
             {rowsPerPageOptions?.map((option) => (
               <option key={option} value={option}>
@@ -76,7 +79,7 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
         >
           {/* Previous First page button */}
           <button
-            disabled={currentPage === 1}
+            disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(1)}
             className="rgx-arrow-pagination-button"
             style={style["rgx-arrow-pagination-button"]}
@@ -85,7 +88,7 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           </button>
           {/* Previous page button */}
           <button
-            disabled={currentPage === 1}
+            disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)}
             className="rgx-arrow-pagination-button"
             style={style["rgx-arrow-pagination-button"]}
@@ -101,7 +104,7 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           </div>
           {/* Next page button */}
           <button
-            disabled={currentPage === totalPages}
+            disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)}
             className="rgx-arrow-pagination-button"
             style={style["rgx-arrow-pagination-button"]}
@@ -111,7 +114,7 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
 
           {/* Next Last page button */}
           <button
-            disabled={currentPage === totalPages}
+            disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(totalPages)}
             className="rgx-arrow-pagination-button"
             style={style["rgx-arrow-pagination-button"]}

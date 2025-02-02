@@ -13,6 +13,7 @@ export interface RGXTablePaginationProps {
   onRowsPerPageChange: (rows: number) => void; // Callback function triggered when rows per page changes
   rowsPerPageOptions?: number[]; // Options for rows per page dropdown
   style?: Record<string, React.CSSProperties>; // Optional styles for pagination elements
+  loading: boolean; // Added loading prop
 }
 
 // RGXTablePagination: A reusable pagination component for tables
@@ -25,6 +26,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   onRowsPerPageChange,
   rowsPerPageOptions = [5, 10, 15],
   style = {},
+  loading = false
 }) => {
   /**
    * Generates an array of page numbers with ellipsis for navigation
@@ -100,6 +102,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
             style={style["rgx-rows-per-page-select"]}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
+            disabled={loading}
           >
             {rowsPerPageOptions?.map((option) => (
               <option key={option} value={option}>
@@ -116,7 +119,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
         >
           {/* Previous page button */}
           <button
-            disabled={currentPage === 1}
+            disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)}
             className="rgx-table-pagination-button"
             style={style["rgx-table-pagination-button"]}
@@ -141,6 +144,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
                     : style["rgx-table-pagination-button"]
                 }
                 onClick={() => onPageChange(page)}
+                disabled={loading}
               >
                 {page}
               </button>
@@ -162,7 +166,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
 
           {/* Next page button */}
           <button
-            disabled={currentPage === totalPages}
+            disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)}
             className="rgx-table-pagination-button"
             style={style["rgx-table-pagination-button"]}
