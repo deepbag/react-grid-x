@@ -2,6 +2,7 @@
   "name": "react-grid-x",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://deepbag.github.io/react-grid-x",
   "dependencies": {
     "@deepbag/react-grid-x": "^0.0.6",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -9,6 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -36,7 +38,9 @@
   ],
   "scripts": {
     "start": "set PORT=1000 && react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +63,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react": "^19.0.8",
-    "@types/react-dom": "^18.3.5"
+    "@types/react-dom": "^18.3.5",
+    "gh-pages": "^6.3.0"
   }
 }

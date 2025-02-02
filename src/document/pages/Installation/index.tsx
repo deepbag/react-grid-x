@@ -1,7 +1,15 @@
 import React from "react";
 
 const Installation = () => {
-  return <div>Installation</div>;
+  return (
+    <div
+      style={{
+        color: "#fff",
+      }}
+    >
+      WE ARE WORKING!!
+    </div>
+  );
 };
 
 export default Installation;

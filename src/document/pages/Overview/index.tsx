@@ -1,7 +1,15 @@
 import React from "react";
 
 const Overview = () => {
-  return <div>OverviewGETTING_STARTED</div>;
+  return (
+    <div
+      style={{
+        color: "#fff",
+      }}
+    >
+      WE ARE WORKING!!
+    </div>
+  );
 };
 
 export default Overview;
