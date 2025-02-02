@@ -1,0 +1,32 @@
+/* Wrapper for the entire app */
+.rgx-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Take full height */
+}
+
+/* Main content area */
+.rgx-main-content {
+  margin-left: 250px;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+/* Page content styles */
+.rgx-page-content {
+}
+
+/* Make sure sidebar doesn't overlap on mobile */
+@media (max-width: 768px) {
+  .rgx-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+  }
+
+  .rgx-main-content {
+    margin-left: 0;
+    margin-top: 0;
+  }
+}

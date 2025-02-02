@@ -1,0 +1,63 @@
+/* Header styles */
+.rgx-header {
+  background-color: #0e1215;
+  padding: 10px 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff34;
+}
+
+/* Logo Section */
+.rgx-header-logo a {
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+  text-transform: uppercase;
+}
+.rgx-header-logo a span {
+  font-size: 11px;
+}
+
+/* Navigation Section */
+.rgx-header-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rgx-header-nav li {
+  margin-left: 20px;
+}
+
+.rgx-header-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+/* Hover effect for navigation links */
+.rgx-header-nav a:hover {
+  color: #f0a500;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .rgx-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rgx-header-nav ul {
+    flex-direction: column;
+  }
+
+  .rgx-header-nav li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}

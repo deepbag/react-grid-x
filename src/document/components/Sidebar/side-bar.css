@@ -1,0 +1,89 @@
+/* Sidebar styles */
+.rgx-sidebar {
+  width: 220px;
+  background-color: #0e1215;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 58px; /* Position below the header */
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: width 0.3s ease;
+  border-right: 1px solid #ffffff34;
+}
+
+.rgx-sidebar a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  /* margin: 10px 0; */
+}
+
+/* List and links */
+.rgx-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rgx-sidebar ul li {
+  margin-bottom: 10px;
+}
+
+/* Sidebar links */
+.rgx-sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 5px 10px;
+  display: block;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  /* width: 100%; */
+  margin: 4px 0;
+}
+.rgx-menu-button {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 8px 10px;
+  display: block;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 96%;
+}
+
+.rgx-sidebar ul li a:hover,
+.rgx-menu-button:hover {
+  background-color: #444;
+}
+
+/* Active Link */
+.rgx-sidebar ul li.active > a {
+  background-color: #555;
+  /* font-weight: bold; */
+}
+
+/* Submenu */
+.rgx-submenu {
+  /* margin-left: 20px; */
+  /* padding-left: 10px; */
+  border-left: 1px solid #ffffff34;
+  margin-top: 6px !important;
+}
+
+.rgx-submenu li {
+  margin: 0px 10px !important;
+}
+
+.rgx-submenu li a {
+}
