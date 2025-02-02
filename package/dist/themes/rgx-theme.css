@@ -6,6 +6,15 @@
   font-family: "Lato", sans-serif;
 }
 
+.rgx-theme .rgx-tobody-loading {
+  filter: blur(0.8px);
+  pointer-events: none;
+}
+
+.rgx-table-container {
+  position: relative;
+}
+
 .rgx-theme th,
 .rgx-theme td {
   padding: 10px;

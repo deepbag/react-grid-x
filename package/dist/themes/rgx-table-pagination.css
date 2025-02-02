@@ -26,6 +26,10 @@
   height: 30px;
 }
 
+.rgx-rows-per-page-select:disabled {
+  cursor: not-allowed;
+}
+
 .rgx-rows-per-page {
   display: flex;
   align-items: center;

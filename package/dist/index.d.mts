@@ -17,13 +17,15 @@ interface ReactGridXProps {
     paginationType?: "rgx-table-pagination" | "rgx-arrow-pagination";
     paginationStyle?: Record<string, React.CSSProperties>;
     tableStyle?: Record<string, React.CSSProperties>;
-    serverSide?: boolean;
+    serverSidePagination?: boolean;
     onPaginationAndRowSizeChange?: (page: number, rowsPerPage: number) => void;
     totalRows?: number;
     serverSideSorting?: boolean;
     onSorting?: (column: string, order: "asc" | "desc") => void;
     onRowClick?: (rowData: any) => void;
     expandedComponent?: (row: any) => JSX.Element;
+    loading?: boolean;
+    loaderComponent?: () => JSX.Element;
 }
 declare const ReactGridX: React.FC<ReactGridXProps>;
 
@@ -36,6 +38,7 @@ interface RGXTablePaginationProps {
     onRowsPerPageChange: (rows: number) => void;
     rowsPerPageOptions?: number[];
     style?: Record<string, React.CSSProperties>;
+    loading: boolean;
 }
 declare const RGXTablePagination: React.FC<RGXTablePaginationProps>;
 
@@ -48,6 +51,7 @@ interface RGXArrowPaginationProps {
     onRowsPerPageChange: (rows: number) => void;
     rowsPerPageOptions?: number[];
     style?: Record<string, React.CSSProperties>;
+    loading: boolean;
 }
 declare const RGXArrowPagination: React.FC<RGXArrowPaginationProps>;
 
@@ -57,4 +61,9 @@ interface TooltipProps {
 }
 declare const Tooltip: React.FC<TooltipProps>;
 
-export { RGXArrowPagination, RGXArrowPagination as RGXArrowPaginationProps, RGXTablePagination, RGXTablePagination as RGXTablePaginationProps, Tooltip as RGXTooltip, ReactGridX, ReactGridX as ReactGridXColumnProps, ReactGridX as ReactGridXProps, Tooltip as TooltipProps };
+interface LoaderProps {
+    message?: string;
+}
+declare const Loader: React.FC<LoaderProps>;
+
+export { Loader as LoaderProps, RGXArrowPagination, RGXArrowPagination as RGXArrowPaginationProps, Loader as RGXLoader, RGXTablePagination, RGXTablePagination as RGXTablePaginationProps, Tooltip as RGXTooltip, ReactGridX, ReactGridX as ReactGridXColumnProps, ReactGridX as ReactGridXProps, Tooltip as TooltipProps };
