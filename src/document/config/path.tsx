@@ -4,6 +4,7 @@ export const LABELS = {
   INSTALLATION: "Installation",
   SUPPORT: "Support",
   CHANGE_LOG: "Change Log",
+  DEVELOPMENT: "Development",
 };
 
 export const PATHS = {
@@ -11,4 +12,5 @@ export const PATHS = {
   INSTALLATION: "/installation",
   SUPPORT: "/support",
   CHANGE_LOG: "/change-log",
+  DEVELOPMENT: "/development",
 };

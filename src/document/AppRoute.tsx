@@ -1,6 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
-import { ChangeLog, Installation, Overview, Support } from "./pages";
+import {
+  ChangeLog,
+  Development,
+  Installation,
+  Overview,
+  Support,
+} from "./pages";
 import { Header, Sidebar } from "./components";
 import "./app-route.css";
 import { PATHS } from "./config/path";
@@ -11,6 +17,7 @@ const RoutesItem: React.FC = () => {
     { path: PATHS.INSTALLATION, element: <Installation /> },
     { path: PATHS.SUPPORT, element: <Support /> },
     { path: PATHS.CHANGE_LOG, element: <ChangeLog /> },
+    { path: PATHS.DEVELOPMENT, element: <Development /> },
   ]);
 };
 

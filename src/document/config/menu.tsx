@@ -28,4 +28,8 @@ export const menu: MenuItem[] = [
     label: LABELS.CHANGE_LOG,
     path: PATHS.CHANGE_LOG,
   },
+  {
+    label: LABELS.DEVELOPMENT,
+    path: PATHS.DEVELOPMENT,
+  },
 ];

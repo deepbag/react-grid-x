@@ -59,7 +59,7 @@ Here's a basic example of how to use the `ReactGridX` component in your React pr
 
 ```tsx
 import React from "react";
-import { ReactGridX } from "@deep/react-grid-x";
+import { ReactGridX } from "@deepbag/react-grid-x";
 
 // Import the CSS files for styling
 import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme (Required)
