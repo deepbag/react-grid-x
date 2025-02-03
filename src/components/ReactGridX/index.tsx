@@ -8,7 +8,6 @@ import Tooltip from "components/Tooltip";
 import Loader from "components/Loader";
 import { ReactGridXProps } from "components/types/react-grid-x-props";
 import RGXPopover from "components/Popover";
-import { ReactGridXColumnProps } from "components/types/react-grid-x-column-props";
 
 const ReactGridX: React.FC<ReactGridXProps> = ({
   columns,

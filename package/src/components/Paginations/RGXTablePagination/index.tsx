@@ -1,22 +1,27 @@
 import React from "react";
-import "../../../themes/rgx-table-pagination.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "../../Icons/FontAwesome";
+import { RGXTablePaginationProps } from "../../../types/table-pagination-props";
 
-// Props interface for RGXTablePagination component
-export interface RGXTablePaginationProps {
-  currentPage: number; // The current active page number
-  totalPages: number; // Total number of pages
-  rowsPerPage: number; // Number of rows displayed per page
-  totalRows: number; // Total number of rows in the dataset
-  onPageChange: (page: number) => void; // Callback function triggered when the page changes
-  onRowsPerPageChange: (rows: number) => void; // Callback function triggered when rows per page changes
-  rowsPerPageOptions?: number[]; // Options for rows per page dropdown
-  style?: Record<string, React.CSSProperties>; // Optional styles for pagination elements
-  loading: boolean; // Added loading prop
-}
-
-// RGXTablePagination: A reusable pagination component for tables
+/**
+ * RGXTablePagination Component:
+ * A reusable pagination component for displaying paginated data in a table.
+ * The component shows a dropdown for selecting the number of rows per page,
+ * page navigation buttons, and pagination information.
+ * It also dynamically generates page numbers with ellipsis when necessary.
+ *
+ * @param {number} currentPage - The current page being displayed.
+ * @param {number} totalPages - The total number of pages available.
+ * @param {number} rowsPerPage - The number of rows per page.
+ * @param {number} totalRows - The total number of rows across all pages.
+ * @param {Function} onPageChange - A callback function to handle page changes.
+ * @param {Function} onRowsPerPageChange - A callback function to handle changes in the number of rows per page.
+ * @param {number[]} rowsPerPageOptions - The available options for rows per page (default is [5, 10, 15]).
+ * @param {object} style - Custom style overrides for specific elements.
+ * @param {boolean} loading - A flag to disable pagination controls when loading data.
+ *
+ * @returns {JSX.Element} - Returns the pagination UI with navigation and control options.
+ */
 const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   currentPage,
   totalPages,
@@ -29,36 +34,39 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   loading = false,
 }) => {
   /**
-   * Generates an array of page numbers with ellipsis for navigation
-   * @returns {Array<number | string>} - Array of page numbers and ellipsis
+   * Generates an array of page numbers for pagination with ellipses if necessary.
+   * This ensures that the number of visible pages is limited, and ellipses are displayed when
+   * there are too many pages to show.
+   *
+   * @returns {Array<number | string>} - An array of page numbers and ellipsis for navigation.
    */
   const getPageNumbers = () => {
     const pageNumbers: (number | string)[] = [];
-    const maxVisiblePages = 4; // Maximum number of visible pages
+    const maxVisiblePages = 4; // Maximum number of pages to show at once
 
     if (totalPages <= maxVisiblePages) {
-      // If total pages are within the limit, show all page numbers
+      // If total pages are within the max visible, display all pages
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(i);
       }
     } else {
-      // Add the first page and ellipsis if necessary
+      // Add first page and ellipsis if necessary
       if (currentPage > 2) {
         pageNumbers.push(1, "...");
       } else {
         pageNumbers.push(1);
       }
 
-      // Calculate the range of visible pages
+      // Calculate the range of pages to display around the current page
       const startPage = Math.max(2, currentPage - 1);
       const endPage = Math.min(totalPages - 1, currentPage + 1);
 
-      // Add the range of visible pages
+      // Add the range of pages
       for (let i = startPage; i <= endPage; i++) {
         pageNumbers.push(i);
       }
 
-      // Add ellipsis and the last page if necessary
+      // Add ellipsis and last page if necessary
       if (currentPage < totalPages - 1) {
         pageNumbers.push("...", totalPages);
       } else {
@@ -69,11 +77,11 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
     return pageNumbers;
   };
 
-  const pageNumbers = getPageNumbers(); // Generate page numbers
+  const pageNumbers = getPageNumbers(); // Generate the page numbers
 
   return (
     <div className="rgx-table-pagination" style={style["rgx-table-pagination"]}>
-      {/* Display pagination information */}
+      {/* Display pagination information (current page range and total rows) */}
       <div
         className="rgx-table-pagination-info"
         style={style["rgx-table-pagination-info"]}
@@ -82,7 +90,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
         {Math.min(currentPage * rowsPerPage, totalRows)} of {totalRows}
       </div>
 
-      {/* Rows per page selector and navigation controls */}
+      {/* Rows per page selector and pagination controls */}
       <div
         className="rgx-table-pagination-row-per-page"
         style={style["rgx-table-pagination-row-per-page"]}
@@ -112,7 +120,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           </select>
         </div>
 
-        {/* Pagination controls */}
+        {/* Pagination controls (previous, page numbers, next) */}
         <div
           className="rgx-table-pagination-controls"
           style={style["rgx-table-pagination-controls"]}
@@ -179,4 +187,4 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   );
 };
 
-export default RGXTablePagination;
+export default RGXTablePagination; // Export RGXTablePagination for use in other components

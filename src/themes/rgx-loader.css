@@ -1,42 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
-/* Loader Container */
+/* Loader Container Styling */
 .rgx-loader-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  background-color: #e2e2e2;
-  padding: 8px 10px;
-  border-radius: 4px;
+  position: absolute; /* Positioning the loader container absolutely */
+  top: 50%; /* Vertically center */
+  left: 50%; /* Horizontally center */
+  transform: translate(-50%, -50%); /* Corrects the centering offset */
+  text-align: center; /* Centers text inside the container */
+  z-index: 9999; /* Ensures the loader appears on top of other elements */
+  display: flex; /* Use flexbox for aligning child elements */
+  align-items: center; /* Vertically align items in the center */
+  background-color: #e2e2e2; /* Light gray background for the loader container */
+  padding: 8px 10px; /* Padding around the loader and message */
+  border-radius: 4px; /* Rounded corners for the loader container */
 }
 
+/* Styling for the Spinner */
 .rgx-spinner {
-  border: 4px solid #ddd;
-  border-top: 4px solid #3498db;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  animation: spin 2s linear infinite;
+  border: 4px solid #ddd; /* Light gray border around the spinner */
+  border-top: 4px solid #3498db; /* Blue top border for spinner, creating the spinner effect */
+  border-radius: 50%; /* Make the spinner circular */
+  width: 10px; /* Set the width of the spinner */
+  height: 10px; /* Set the height of the spinner */
+  animation: spin 2s linear infinite; /* Apply the spin animation indefinitely */
 }
 
+/* Loader Message Styling */
 .rgx-loader-message {
-  font-size: 14px;
-  color: #333;
-  margin-left: 10px;
-  font-family: "DM Sans", sans-serif;
+  font-size: 14px; /* Set the font size for the loader message */
+  color: #333; /* Dark gray text color for the message */
+  margin-left: 10px; /* Space between the spinner and the loader message */
+  font-family: "DM Sans", sans-serif; /* Use DM Sans font for the message */
 }
 
-/* Spinner Animation */
+/* Spinner Animation Keyframes */
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Initial position of the spinner */
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(
+      360deg
+    ); /* Final position of the spinner after one rotation */
   }
 }
