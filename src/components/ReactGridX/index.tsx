@@ -8,6 +8,7 @@ import Tooltip from "components/Tooltip";
 import Loader from "components/Loader";
 import { ReactGridXProps } from "components/types/react-grid-x-props";
 import RGXPopover from "components/Popover";
+import { ReactGridXColumnProps } from "components/types/react-grid-x-column-props";
 
 const ReactGridX: React.FC<ReactGridXProps> = ({
   columns,
@@ -27,6 +28,8 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   loading = false,
   loaderComponent = () => <Loader />,
   multiColumnSort = true,
+  selectionCheckbox = false,
+  onSelectionCheck,
 }) => {
   // State to manage the current page of the table. Tracks the active page number for pagination purposes.
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -47,6 +50,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
 
   // State to manage the popover state for each column. Tracks which column's dot menu is active.
   const [isDotPopover, setIsDotPopover] = useState<string | null>(null);
+
+  // State to manage selection info: `selectedRows` for selected row IDs and `selectAllChecked` for the "select all" checkbox state
+  const [_selectionInfo, _setSelectionInfo] = useState<{
+    selectedRows: any[];
+    selectAllChecked: boolean;
+  }>({
+    selectedRows: [],
+    selectAllChecked: false,
+  });
 
   /**
    * Handle page change event for pagination.
@@ -72,6 +84,57 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     setRowsPerPage(rows); // Update the rows per page state with the new number of rows
     setCurrentPage(1); // Reset to the first page as the rows per page changed
     onPaginationAndRowSizeChange && onPaginationAndRowSizeChange(1, rows); // Trigger the callback with page 1 and the updated rows per page
+  };
+
+  /**
+   * Handles the "select all" checkbox functionality in the table header.
+   *
+   * This function toggles the state of the "select all" checkbox and updates
+   * the `selectedRows` state to select or deselect all rows. It calls the
+   * `onSelectionCheck` callback with the updated selection data.
+   *
+   * @note Triggered when the user interacts with the "select all" checkbox in the header.
+   */
+  const onHeaderCheckboxChange = () => {
+    const _newSelectAllChecked = !_selectionInfo.selectAllChecked;
+    const _newSelectedRows = _newSelectAllChecked
+      ? data.map((row) => row.id)
+      : [];
+
+    _setSelectionInfo({
+      selectedRows: _newSelectedRows,
+      selectAllChecked: _newSelectAllChecked,
+    });
+
+    onSelectionCheck &&
+      onSelectionCheck(_newSelectedRows, _newSelectAllChecked);
+  };
+
+  /**
+   * Handles the row-level checkbox functionality.
+   *
+   * This function updates the selection state of an individual row when its
+   * checkbox is toggled. It updates the `selectedRows` state accordingly and
+   * also checks if the "select all" checkbox needs to be updated based on the
+   * current selection. The `onSelectionCheck` callback is called with the updated selection data.
+   *
+   * @param rowId - The unique ID of the row that was selected or deselected.
+   * @note Triggered when the user interacts with an individual row checkbox.
+   */
+  const onRowCheckboxChange = (rowId: string | number) => {
+    const _newSelectedRows = _selectionInfo.selectedRows.includes(rowId)
+      ? _selectionInfo.selectedRows.filter((id) => id !== rowId)
+      : [..._selectionInfo.selectedRows, rowId];
+
+    const _newSelectAllChecked = _newSelectedRows.length === data.length;
+
+    _setSelectionInfo({
+      selectedRows: _newSelectedRows,
+      selectAllChecked: _newSelectAllChecked,
+    });
+
+    onSelectionCheck &&
+      onSelectionCheck(_newSelectedRows, _newSelectAllChecked);
   };
 
   /**
@@ -271,7 +334,17 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         {/* Render the table structure */}
         <table className={theme} style={tableStyle["table"]}>
           <thead>
+            {/* Render header checkbox if enabled */}
             <tr style={tableStyle["thead-tr"]}>
+              {selectionCheckbox && (
+                <th style={{ width: "20px" }}>
+                  <input
+                    type="checkbox"
+                    checked={_selectionInfo.selectAllChecked}
+                    onChange={onHeaderCheckboxChange}
+                  />
+                </th>
+              )}
               {/* Render table headers based on column definitions */}
               {columns?.map((column, index) => (
                 <th
@@ -481,6 +554,16 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                     onRowClick && onRowClick(row); // Call user-provided onRowClick handler
                   }}
                 >
+                  {/* Render row checkbox if enabled */}
+                  {selectionCheckbox && (
+                    <td style={{ width: "20px" }}>
+                      <input
+                        type="checkbox"
+                        checked={_selectionInfo.selectedRows.includes(row.id)}
+                        onChange={() => onRowCheckboxChange(row.id)}
+                      />
+                    </td>
+                  )}
                   {/* Render cells based on column definitions */}
                   {columns.map((column, colIndex) => (
                     <td

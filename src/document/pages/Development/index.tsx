@@ -83,6 +83,8 @@ const Development = () => {
         // loading={true}
         // loaderComponent={() => <Loader />}
         // paginationType="rgx-arrow-pagination"
+        selectionCheckbox={true}
+        onSelectionCheck={(a, b) => console.log(a, b)}
       />
     </div>
   );

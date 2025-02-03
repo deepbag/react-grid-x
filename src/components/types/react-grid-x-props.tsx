@@ -158,4 +158,22 @@ export interface ReactGridXProps {
    * @default false
    */
   multiColumnSort?: boolean;
+
+  /**
+   * Flag to enable or disable the selection checkbox.
+   * When `true`, a checkbox will be rendered in the header and each row to allow users to select/deselect rows.
+   *
+   * @default false
+   */
+  selectionCheckbox?: boolean;
+
+  /**
+   * Callback function that is called when the selection checkbox is toggled.
+   * This function receives the selected rows data as an argument, which contains the rows that are currently selected.
+   *
+   * @param selectedRows - An array of the rows that are selected, containing row data.
+   *
+   * @example (selectedRows) => { console.log(selectedRows); }
+   */
+  onSelectionCheck?: (selectedRows: any[], isAllChecked: boolean) => void;
 }

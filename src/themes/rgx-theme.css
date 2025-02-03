@@ -81,6 +81,86 @@
   background-color: #ededed;
 }
 
+/* Style for checkbox in header */
+.rgx-theme th input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.2s ease;
+  margin-bottom: -2px;
+}
+
+/* Style for checkbox in table rows */
+.rgx-theme td input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.2s ease;
+  margin-bottom: -2px;
+}
+
+/* Style for checked state of checkboxes */
+.rgx-theme td input[type="checkbox"]:checked,
+.rgx-theme th input[type="checkbox"]:checked {
+  background-color: #4caf50; /* Green background when checked */
+  border-color: #4caf50;
+  margin-bottom: -2px;
+}
+
+/* Style for checkbox when hovered */
+.rgx-theme td input[type="checkbox"]:hover,
+.rgx-theme th input[type="checkbox"]:hover {
+  background-color: #4caf4f55; /* Light gray on hover */
+}
+
+/* Custom checkbox appearance (optional) */
+.rgx-theme td input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: relative;
+  width: 17px;
+  height: 17px;
+}
+.rgx-theme th input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: relative;
+  width: 17px;
+  height: 17px;
+}
+
+.rgx-theme td input[type="checkbox"]:checked,
+.rgx-theme th input[type="checkbox"]:checked {
+  background-color: #4caf50;
+}
+
+.rgx-theme td input[type="checkbox"]:checked::before {
+  content: "✔"; /* Checkmark */
+  position: absolute;
+  top: 0;
+  left: 3px;
+  color: white;
+  font-size: 12px;
+  line-height: 16px;
+}
+.rgx-theme th input[type="checkbox"]:checked::before {
+  content: "✔"; /* Checkmark */
+  position: absolute;
+  top: 0;
+  left: 3px;
+  color: white;
+  font-size: 12px;
+  line-height: 16px;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
   .rgx-theme {
