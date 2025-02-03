@@ -1,6 +1,6 @@
 import React from "react";
 import "../../themes/rgx-loader.css"; // Import the custom CSS for loader styling
-import { LoaderProps } from "components/types/loader-props"; // Import the type definition for the loader props
+import { LoaderProps } from "types/loader-props"; // Import the type definition for the loader props
 
 /**
  * Loader Component:

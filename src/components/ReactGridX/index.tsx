@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "components/Icons/FontAwesome";
 import Tooltip from "components/Tooltip";
 import Loader from "components/Loader";
-import { ReactGridXProps } from "components/types/react-grid-x-props";
+import { ReactGridXProps } from "types/react-grid-x-props";
 import RGXPopover from "components/Popover";
 
 const ReactGridX: React.FC<ReactGridXProps> = ({

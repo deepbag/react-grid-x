@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { PopoverProps } from "components/types/pop-over-props";
+import { PopoverProps } from "types/pop-over-props";
 import "../../themes/rgx-popover.css";
 
 /**

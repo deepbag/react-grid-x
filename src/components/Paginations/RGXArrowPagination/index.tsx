@@ -2,7 +2,7 @@ import React from "react";
 import "../../../themes/rgx-arrow-pagination.css"; // Import custom styles for the arrow pagination component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon for pagination buttons
 import { solidIcons } from "components/Icons/FontAwesome"; // Import solid icons used in the pagination
-import { RGXArrowPaginationProps } from "components/types/arrow-pagination-props"; // Import the type definition for the props
+import { RGXArrowPaginationProps } from "types/arrow-pagination-props"; // Import the type definition for the props
 
 /**
  * RGXArrowPagination Component:

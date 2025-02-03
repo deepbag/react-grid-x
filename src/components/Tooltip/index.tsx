@@ -1,6 +1,6 @@
 import React from "react";
 import "../../themes/rgx-tooltip.css"; // Import the custom CSS for tooltip styling
-import { TooltipProps } from "components/types/tooltip-props"; // Import the type definition for the tooltip props
+import { TooltipProps } from "types/tooltip-props"; // Import the type definition for the tooltip props
 
 /**
  * Tooltip Component:
