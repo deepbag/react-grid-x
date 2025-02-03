@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 /**
  * Props for the Popover component
  */
-export interface PopoverProps {
+export interface RGXPopoverProps {
   /**
    * Content to be displayed inside the popover.
    * This can be text, JSX elements, or any ReactNode.

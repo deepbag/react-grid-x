@@ -7,7 +7,7 @@ import React, { JSX } from "react";
  * content is customizable, and the element that triggers the tooltip is provided
  * as children.
  */
-export interface TooltipProps {
+export interface RGXTooltipProps {
   /**
    * The content of the tooltip.
    * This can either be a string or a JSX element, which will be displayed when

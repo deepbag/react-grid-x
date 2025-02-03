@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { PopoverProps } from "types/pop-over-props";
+import { RGXPopoverProps } from "types/pop-over-props";
 import "../../themes/rgx-popover.css";
 
 /**
@@ -8,7 +8,7 @@ import "../../themes/rgx-popover.css";
  * This component provides a floating UI element that appears relative to its trigger.
  * It supports automatic closing when clicking outside.
  */
-const RGXPopover: React.FC<PopoverProps> = ({
+const RGXPopover: React.FC<RGXPopoverProps> = ({
   children,
   isOpen,
   onClose

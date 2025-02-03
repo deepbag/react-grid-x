@@ -1,5 +1,5 @@
 import React from "react";
-import { LoaderProps } from "../../types/loader-props";
+import { RGXLoaderProps } from "../../types/loader-props";
 
 /**
  * Loader Component:
@@ -10,7 +10,7 @@ import { LoaderProps } from "../../types/loader-props";
  *
  * @returns {JSX.Element} - Returns the loader component with a spinner and an optional message.
  */
-const Loader: React.FC<LoaderProps> = ({
+const Loader: React.FC<RGXLoaderProps> = ({
   message = "Loading, please wait...", // Default message if no custom message is passed
 }) => (
   <div className="rgx-loader-container">

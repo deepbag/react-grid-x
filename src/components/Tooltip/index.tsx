@@ -1,6 +1,6 @@
 import React from "react";
 import "../../themes/rgx-tooltip.css"; // Import the custom CSS for tooltip styling
-import { TooltipProps } from "types/tooltip-props"; // Import the type definition for the tooltip props
+import { RGXTooltipProps } from "types/tooltip-props"; // Import the type definition for the tooltip props
 
 /**
  * Tooltip Component:
@@ -13,7 +13,7 @@ import { TooltipProps } from "types/tooltip-props"; // Import the type definitio
  *
  * @returns {JSX.Element} - Returns the tooltip component wrapped around the children with a visible tooltip text.
  */
-const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
+const Tooltip: React.FC<RGXTooltipProps> = ({ content, children }) => {
   return (
     <div className="rgx-tooltip-container">
       {/* The element the tooltip is attached to */}

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { PopoverProps } from "../../types/pop-over-props";
+import { RGXPopoverProps } from "../../types/pop-over-props";
 
 /**
  * Reusable Popover Component
@@ -7,7 +7,7 @@ import { PopoverProps } from "../../types/pop-over-props";
  * This component provides a floating UI element that appears relative to its trigger.
  * It supports automatic closing when clicking outside.
  */
-const RGXPopover: React.FC<PopoverProps> = ({ children, isOpen, onClose }) => {
+const RGXPopover: React.FC<RGXPopoverProps> = ({ children, isOpen, onClose }) => {
   const popoverRef = useRef<HTMLDivElement | null>(null);
   // const [position, setPosition] = useState<{ top: number; left: number }>({
   //   top: 0,

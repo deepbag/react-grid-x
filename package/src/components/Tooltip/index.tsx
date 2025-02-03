@@ -1,5 +1,5 @@
 import React from "react";
-import { TooltipProps } from "../../types/tooltip-props";
+import { RGXTooltipProps } from "../../types/tooltip-props";
 
 /**
  * Tooltip Component:
@@ -12,7 +12,7 @@ import { TooltipProps } from "../../types/tooltip-props";
  *
  * @returns {JSX.Element} - Returns the tooltip component wrapped around the children with a visible tooltip text.
  */
-const Tooltip: React.FC<TooltipProps> = ({ content, children }) => {
+const Tooltip: React.FC<RGXTooltipProps> = ({ content, children }) => {
   return (
     <div className="rgx-tooltip-container">
       {/* The element the tooltip is attached to */}
