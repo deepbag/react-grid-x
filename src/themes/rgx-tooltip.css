@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 /* Tooltip container for elements with tooltips */
 .rgx-tooltip-container {
@@ -15,7 +15,7 @@
   color: #fff;
   text-align: center;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 5px 10px;
   position: absolute;
   z-index: 1;
   opacity: 0;
@@ -23,8 +23,9 @@
   bottom: 100%; /* Position above the element */
   left: 50%;
   transform: translateX(-50%); /* Center horizontally */
-  white-space: nowrap;
+  white-space: wrap;
   margin-bottom: 8px; /* Space between tooltip and element */
+  font-size: 14px;
 }
 
 /* Tooltip arrow */

@@ -9,6 +9,6 @@ Save column order, sorting, and filters in local storage or backend.
 
 change theme code
 theme builder
-row checkbox selection (single/all) (important)
+<!-- row checkbox selection (single/all) (important) -->
 
 <!-- column width (important) -->

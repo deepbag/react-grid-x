@@ -38,6 +38,16 @@ const Development = () => {
             //   });
             // },
           },
+          // {
+          //   name: "Description",
+          //   key: "description",
+          //   sortable: true,
+          //   // render: (_: { description: any }) => {
+          //   //   return _.description;
+          //   // },
+          //   width:'500px',
+          //   tooltip:true
+          // },
           {
             name: "Score",
             key: "score",
@@ -52,31 +62,43 @@ const Development = () => {
             name: "A",
             id: 1,
             score: 30,
+            description:
+              "To add CSS for checkboxes, you can style both the checkbox input elements and their container (like the table cells) to match the design of the rest of the table. Heres how you can modify the existing CSS to include styles for checkboxes:",
           },
           {
             name: "B",
             id: 2,
             score: 40,
+            description:
+              "To add CSS for checkboxes, you can style both the checkbox input elements and their container (like the table cells) to match the design of the rest of the table. Heres how you can modify the existing CSS to include styles for checkboxes:",
           },
           {
             name: "C",
             id: 3,
             score: 50,
+            description:
+              "To add CSS for checkboxes, you can style both the checkbox input elements and their container (like the table cells) to match the design of the rest of the table. Heres how you can modify the existing CSS to include styles for checkboxes:",
           },
           {
             name: "D",
             id: 4,
             score: 30,
+            description:
+              "To add CSS for checkboxes, you can style both the checkbox input elements and their container (like the table cells) to match the design of the rest of the table. Heres how you can modify the existing CSS to include styles for checkboxes:",
           },
           {
             name: "E",
             id: 5,
             score: 30,
+            description:
+              "To add CSS for checkboxes, you can style both the checkbox input elements and their container (like the table cells) to match the design of the rest of the table. Heres how you can modify the existing CSS to include styles for checkboxes:",
           },
           {
             name: "F",
             id: 6,
             score: 30,
+            description:
+              "To add CSS for checkboxes, you can style both the checkbox input elements and their container (like the table cells) to match the design of the rest of the table. Heres how you can modify the existing CSS to include styles for checkboxes:",
           },
         ]}
         // expandedComponent={(row) => <div>{JSON.stringify(row)}</div>}
