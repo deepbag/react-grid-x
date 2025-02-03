@@ -22,10 +22,4 @@ export interface RGXPopoverProps {
    * This should be triggered when clicking outside the popover.
    */
   onClose: () => void;
-
-  /**
-   * Reference to the element that triggers the popover.
-   * Used for positioning the popover correctly.
-   */
-  // anchorRef: React.RefObject<HTMLElement>;
 }
