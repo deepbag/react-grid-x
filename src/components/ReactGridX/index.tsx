@@ -278,6 +278,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   key={index}
                   style={{
                     textAlign: "left", // Align text to the left
+                    width: column.width || "auto",
                     ...tableStyle["th"], // Apply custom styles
                   }}
                 >
@@ -482,7 +483,13 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                 >
                   {/* Render cells based on column definitions */}
                   {columns.map((column, colIndex) => (
-                    <td key={colIndex} style={tableStyle["td"]}>
+                    <td
+                      key={colIndex}
+                      style={{
+                        width: column.width || "auto",
+                        ...tableStyle["td"],
+                      }}
+                    >
                       {/* Conditionally render the arrow icon if expandedComponent is passed */}
                       {expandedComponent && colIndex === 0 && (
                         <span
