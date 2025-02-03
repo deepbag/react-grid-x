@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 .rgx-theme {
   width: 100%;
   border-collapse: collapse;
-  font-family: "Lato", sans-serif;
+  /* font-family: "DM Sans", sans-serif; */
+  /* font-family: "Josefin Sans", serif; */
+  font-family: "DM Sans", serif;
 }
 
 .rgx-theme .rgx-tobody-loading {
@@ -25,13 +27,18 @@
 .rgx-theme tr:nth-child(even) {
   background-color: #f2f2f2; /* Even rows with a light gray background */
 }
-
+/* 
 .rgx-theme tr:hover {
-  background-color: #ddd; /* Hover effect for rows */
-}
+  background-color: #ddd; Hover effect for rows
+} */
 
 .rgx-theme tr {
   cursor: pointer; /* Pointer cursor for rows */
+}
+
+.rgx-theme thead {
+  background-color: #ededed;
+  cursor: "default";
 }
 
 /* Style for the expanded row */
@@ -60,6 +67,18 @@
 }
 .rgx-theme .rgx-arrow-icon {
   font-size: 14px;
+}
+
+.rgx-theme .rgx-popup-items {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.rgx-theme .rgx-popup-items:hover {
+  background-color: #ededed;
 }
 
 /* Responsive styles */

@@ -7,32 +7,8 @@ import { solidIcons } from "components/Icons/FontAwesome";
 import Tooltip from "components/Tooltip";
 import Loader from "components/Loader";
 import { ReactGridXProps } from "components/types/react-grid-x-props";
+import RGXPopover from "components/Popover";
 
-/**
- * ReactGridX: A flexible, reusable table component with optional server-side pagination and sorting.
- *
- * server-side pagination, sorting, multi-column sorting, customizable row rendering, and more.
- * It can handle large datasets by enabling server-side handling for pagination and sorting,
- * while also allowing for client-side customization and performance optimization.
- *
- * @param {ReactGridXColumnProps[]} columns - The column definitions that specify how each column should be rendered, including sorting behavior.
- * @param {any[]} data - The data to be displayed in the table, typically an array of objects where each object represents a row.
- * @param {string} [theme="rgx-theme"] - The CSS class to apply for custom table styling. Defaults to `"rgx-theme"`.
- * @param {number[]} [rowsPerPageOptions=[5, 10, 15]] - The available options for rows per page in pagination. Defaults to `[5, 10, 15]`.
- * @param {string} [paginationType="rgx-table-pagination"] - The type of pagination to use. Can be `"rgx-table-pagination"` (custom) or `"rgx-arrow-pagination"` (default).
- * @param {Record<string, React.CSSProperties>} [paginationStyle={}] - Custom styles for the pagination components.
- * @param {Record<string, React.CSSProperties>} [tableStyle={}] - Custom styles for the table itself.
- * @param {boolean} [serverSidePagination=false] - Flag indicating if pagination is handled server-side. Defaults to `false`.
- * @param {function} [onPaginationAndRowSizeChange] - Callback for handling changes in the page number or rows per page. Receives the new page and row size.
- * @param {number} [totalRows] - The total number of rows in the dataset, typically used with server-side pagination.
- * @param {boolean} [serverSideSorting=false] - Flag indicating whether sorting is handled server-side. Defaults to `false`.
- * @param {function} [onSorting] - Callback triggered when columns are sorted, providing the sorting configuration.
- * @param {function} [onRowClick] - Callback triggered when a row is clicked, providing the row data.
- * @param {function} [expandedComponent] - Custom component rendered when a row is expanded. Receives the row data as input.
- * @param {boolean} [loading=false] - Flag indicating whether the table is in a loading state. If `true`, a loader will be displayed.
- * @param {function} [loaderComponent=() => <Loader />] - Custom loader component to display when the table is in a loading state.
- * @param {boolean} [multiColumnSort=true] - Flag indicating whether multi-column sorting is enabled. Defaults to `true`.
- */
 const ReactGridX: React.FC<ReactGridXProps> = ({
   columns,
   data,
@@ -52,32 +28,25 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   loaderComponent = () => <Loader />,
   multiColumnSort = true,
 }) => {
-  // State to manage the current page of the table.
-  // Tracks the active page number for pagination purposes.
-  // Default is set to the first page (1).
+  // State to manage the current page of the table. Tracks the active page number for pagination purposes.
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // State to store the current dataset to display in the table.
-  // This can be updated when data is filtered, sorted, or paginated.
-  // Initially, it holds the full `data` passed as a prop.
+  // State to store the current dataset to display in the table. This can be updated when data is filtered, sorted, or paginated.
   const [currentData, setCurrentData] = useState<any[]>(data);
 
-  // State to manage the sorting configuration for multiple columns.
-  // It holds an array where each item is an object with a `key` (column name)
-  // and a `direction` (either "asc" or "desc"). It allows multi-column sorting.
+  // State to manage the sorting configuration for multiple columns. Allows multi-column sorting with a key and direction.
   const [sortConfig, setSortConfig] = useState<
     { key: string; direction: "asc" | "desc" }[]
   >([]);
 
-  // State to manage the number of rows per page for pagination.
-  // It tracks the number of rows displayed per page, which can be adjusted by the user.
-  // The default value is taken from the first option in the `rowsPerPageOptions` array.
+  // State to manage the number of rows per page for pagination. Default value is taken from rowsPerPageOptions.
   const [rowsPerPage, setRowsPerPage] = useState<number>(rowsPerPageOptions[0]);
 
-  // State to track which row is currently expanded.
-  // When a row is expanded, it holds the index of the expanded row.
-  // If no row is expanded, it holds `null`.
+  // State to track which row is currently expanded. Holds the index of the expanded row, or null if no row is expanded.
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
+
+  // State to manage the popover state for each column. Tracks which column's dot menu is active.
+  const [isDotPopover, setIsDotPopover] = useState<string | null>(null);
 
   /**
    * Handle page change event for pagination.
@@ -116,7 +85,10 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
    *
    * @param column - The column for which the sorting needs to be changed.
    */
-  const onSortingMultipleSupportHandler = (column: { key: string }) => {
+  const onSortingMultipleSupportHandler = (
+    column: { key: string },
+    customDirection?: "asc" | "desc" // Optional custom direction
+  ) => {
     setSortConfig((prev) => {
       if (!multiColumnSort) {
         // If multiSort is false, reset sorting to only one column (single-column sorting)
@@ -124,9 +96,10 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
           {
             key: column.key,
             direction:
-              prev[0]?.key === column.key && prev[0].direction === "asc"
+              customDirection ||
+              (prev[0]?.key === column.key && prev[0].direction === "asc"
                 ? "desc"
-                : ("asc" as "asc" | "desc"), // Toggle direction between 'asc' and 'desc'
+                : ("asc" as "asc" | "desc")), // Toggle direction or use custom direction
           },
         ];
       }
@@ -136,21 +109,22 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
       let newSortConfig;
 
       if (existingSort) {
-        // If the column is already in the sort config, toggle the sorting direction
+        // If the column is already in the sort config, toggle the sorting direction or use custom direction
         newSortConfig = prev.map((s) =>
           s.key === column.key
             ? {
                 key: s.key,
                 direction:
-                  s.direction === "asc" ? "desc" : ("asc" as "asc" | "desc"),
+                  customDirection ||
+                  (s.direction === "asc" ? "desc" : ("asc" as "asc" | "desc")),
               }
             : s
         );
       } else {
-        // If the column is not in the sort config, add it with the default sorting direction of 'asc'
+        // If the column is not in the sort config, add it with the custom direction or default to 'asc'
         newSortConfig = [
           ...prev,
-          { key: column.key, direction: "asc" as "asc" | "desc" },
+          { key: column.key, direction: customDirection || "asc" },
         ];
       }
 
@@ -167,6 +141,25 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
 
       return newSortConfig;
     });
+  };
+
+  /**
+   * Clears the sorting configuration and resets the table's sorting state.
+   *
+   * This function resets the `sortConfig` state to an empty array, effectively clearing any applied sorting.
+   * If server-side sorting is enabled, it also triggers a server-side reset by calling the `onSorting` callback
+   * with an empty array to reset sorting on the server.
+   *
+   * @returns {void} - No return value, the sorting is cleared.
+   */
+  const onClearSort = () => {
+    // Clear the sorting configuration by resetting the sortConfig state to an empty array
+    setSortConfig([]);
+
+    // If server-side sorting is used, trigger the server-side clear sort (optional)
+    if (serverSideSorting && onSorting) {
+      onSorting([]); // Send an empty array to reset sorting on the server
+    }
   };
 
   /**
@@ -215,9 +208,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     ? Math.ceil((totalRows ?? 0) / rowsPerPage) // For server-side pagination, calculate total pages based on totalRows (from server)
     : Math.ceil(currentData.length / rowsPerPage); // For client-side pagination, calculate total pages based on currentData
 
-  // Slice the data for the current page (only for client-side pagination)
-  // For server-side pagination, we use the full data set and the parent handles slicing
-  // For client-side pagination, slice the current data array to display only the data for the current page
+  // Slices the data for the current page based on the pagination method (client-side or server-side)
   const currentPageData = serverSidePagination
     ? currentData // Use full data for server-side pagination; parent component handles slicing
     : currentData.slice(
@@ -226,7 +217,6 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
       );
 
   // Define pagination components based on the selected pagination type
-  // The pagination type determines whether to show the default table pagination or custom arrow pagination
   const pagination: Record<string, JSX.Element> = {
     // "rgx-table-pagination": The default pagination with table-like controls
     "rgx-table-pagination": (
@@ -288,29 +278,180 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   key={index}
                   style={{
                     textAlign: "left", // Align text to the left
-                    cursor: column.sortable ? "pointer" : "default", // Show pointer cursor for sortable columns
                     ...tableStyle["th"], // Apply custom styles
                   }}
-                  onClick={
-                    () =>
-                      column.sortable && onSortingMultipleSupportHandler(column) // Trigger sorting on click
-                  }
                 >
-                  {column.name} {/* Render column name */}
-                  {column.sortable && (
-                    <FontAwesomeIcon
-                      icon={
-                        // Check if the column is part of the sortConfig and display appropriate icon
-                        sortConfig.some((sort) => sort.key === column.key)
-                          ? sortConfig.find((sort) => sort.key === column.key)
-                              ?.direction === "asc"
-                            ? solidIcons.faSortUp
-                            : solidIcons.faSortDown
-                          : solidIcons.faSort
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      onClick={
+                        () =>
+                          column.sortable &&
+                          onSortingMultipleSupportHandler(column) // Trigger sorting on click
                       }
-                      style={{ marginLeft: "8px" }} // Add margin to the icon
-                    />
-                  )}
+                      style={{
+                        cursor: column.sortable ? "pointer" : "default", // Show pointer cursor for sortable columns
+                      }}
+                    >
+                      {column.name} {/* Render column name */}
+                      {column.sortable && (
+                        <FontAwesomeIcon
+                          icon={
+                            // Check if the column is part of the sortConfig and display appropriate icon
+                            sortConfig.some((sort) => sort.key === column.key)
+                              ? sortConfig.find(
+                                  (sort) => sort.key === column.key
+                                )?.direction === "asc"
+                                ? solidIcons.faSortUp
+                                : solidIcons.faSortDown
+                              : solidIcons.faSort
+                          }
+                          style={{ marginLeft: "8px" }} // Add margin to the icon
+                        />
+                      )}
+                    </div>
+                    {column.sortable && (
+                      <div>
+                        <div
+                          style={{ cursor: "pointer", display: "inline-block" }} // Adding cursor for pointer
+                          onClick={() => {
+                            setIsDotPopover(
+                              isDotPopover === column.key ? null : column.key
+                            ); // Toggle popover visibility
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={solidIcons.faEllipsisVertical}
+                            style={{ marginRight: "8px" }} // Add margin to the icon
+                          />
+                        </div>
+                        {isDotPopover === column.key && (
+                          <RGXPopover
+                            isOpen={isDotPopover === column.key}
+                            onClose={() => {
+                              setIsDotPopover(null);
+                            }}
+                          >
+                            {sortConfig.find((sort) => sort.key === column.key)
+                              ?.direction === "desc" && (
+                              <div
+                                className="rgx-popup-items"
+                                onClick={() => {
+                                  column.sortable &&
+                                    onSortingMultipleSupportHandler(
+                                      column,
+                                      "asc"
+                                    ); // Trigger sorting on click
+                                }}
+                              >
+                                <FontAwesomeIcon
+                                  icon={solidIcons.faCircleArrowUp}
+                                  style={{
+                                    marginRight: "8px",
+                                    fontSize: "14px",
+                                  }} // Add margin to the icon
+                                />
+                                <span>Sort Ascending</span>
+                              </div>
+                            )}
+
+                            {sortConfig.find((sort) => sort.key === column.key)
+                              ?.direction === "asc" && (
+                              <div
+                                className="rgx-popup-items"
+                                onClick={() => {
+                                  column.sortable &&
+                                    onSortingMultipleSupportHandler(
+                                      column,
+                                      "desc"
+                                    ); // Trigger sorting on click
+                                }}
+                              >
+                                <FontAwesomeIcon
+                                  icon={solidIcons.faCircleArrowDown}
+                                  style={{
+                                    marginRight: "8px",
+                                    fontSize: "14px",
+                                  }} // Add margin to the icon
+                                />
+                                <span>Sort Descending</span>
+                              </div>
+                            )}
+
+                            {!Boolean(
+                              sortConfig.some((sort) => sort.key === column.key)
+                            ) && (
+                              <>
+                                <div
+                                  className="rgx-popup-items"
+                                  onClick={() => {
+                                    column.sortable &&
+                                      onSortingMultipleSupportHandler(
+                                        column,
+                                        "asc"
+                                      ); // Trigger sorting on click
+                                  }}
+                                >
+                                  <FontAwesomeIcon
+                                    icon={solidIcons.faCircleArrowUp}
+                                    style={{
+                                      marginRight: "8px",
+                                      fontSize: "14px",
+                                    }} // Add margin to the icon
+                                  />
+                                  <span>Sort Ascending</span>
+                                </div>
+                                <div
+                                  className="rgx-popup-items"
+                                  onClick={() => {
+                                    column.sortable &&
+                                      onSortingMultipleSupportHandler(
+                                        column,
+                                        "desc"
+                                      ); // Trigger sorting on click
+                                  }}
+                                >
+                                  <FontAwesomeIcon
+                                    icon={solidIcons.faCircleArrowDown}
+                                    style={{
+                                      marginRight: "8px",
+                                      fontSize: "14px",
+                                    }} // Add margin to the icon
+                                  />
+                                  <span>Sort Descending</span>
+                                </div>
+                              </>
+                            )}
+
+                            {Boolean(
+                              sortConfig.some((sort) => sort.key === column.key)
+                            ) && (
+                              <div
+                                className="rgx-popup-items"
+                                onClick={() => {
+                                  onClearSort();
+                                }}
+                              >
+                                <FontAwesomeIcon
+                                  icon={solidIcons.faSort}
+                                  style={{
+                                    marginRight: "8px",
+                                    fontSize: "14px",
+                                  }} // Add margin to the icon
+                                />
+                                <span>Clear Sort</span>
+                              </div>
+                            )}
+                          </RGXPopover>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </th>
               ))}
             </tr>
