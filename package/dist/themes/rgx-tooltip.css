@@ -1,46 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 /* Tooltip container for elements with tooltips */
 .rgx-tooltip-container {
-  position: relative;
-  display: inline-block;
+  position: relative; /* Positioned relative to the element */
+  display: inline-block; /* Makes it inline while allowing block-level styling */
 }
 
 /* Tooltip text container */
 .rgx-tooltip-text {
-  visibility: hidden;
-  width: fit-content;
-  max-width: 200px; /* Adjust max width as needed */
-  background-color: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px 15px;
-  position: absolute;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  bottom: 100%; /* Position above the element */
-  left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
-  white-space: nowrap;
-  margin-bottom: 8px; /* Space between tooltip and element */
+  visibility: hidden; /* Initially hidden */
+  width: fit-content; /* Adjust width based on content */
+  max-width: 200px; /* Max width for the tooltip */
+  background-color: rgba(0, 0, 0, 0.75); /* Dark background with transparency */
+  color: #fff; /* White text color */
+  text-align: center; /* Center text inside the tooltip */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Padding around the text */
+  position: absolute; /* Positioned relative to the parent container */
+  z-index: 1; /* Makes sure tooltip stays above other content */
+  opacity: 0; /* Tooltip is initially transparent */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade-in transition */
+  bottom: 100%; /* Positions tooltip above the element */
+  left: 50%; /* Horizontally centers the tooltip */
+  transform: translateX(-50%); /* Centers tooltip relative to the element */
+  white-space: wrap; /* Ensures the text wraps within the tooltip */
+  margin-bottom: 8px; /* Space between the tooltip and the element */
+  font-size: 14px; /* Text size inside the tooltip */
 }
 
 /* Tooltip arrow */
 .rgx-tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
+  content: ""; /* Empty content for the arrow */
+  position: absolute; /* Positioned relative to the tooltip */
+  top: 100%; /* Places the arrow at the bottom of the tooltip */
+  left: 50%; /* Horizontally centers the arrow */
+  transform: translateX(-50%); /* Centers arrow */
+  border-width: 6px; /* Size of the arrow */
+  border-style: solid; /* Solid arrow with border */
+  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent; /* Arrow color */
 }
 
 /* Show the tooltip on hover */
 .rgx-tooltip-container:hover .rgx-tooltip-text {
-  visibility: visible;
-  opacity: 1;
+  visibility: visible; /* Tooltip becomes visible */
+  opacity: 1; /* Tooltip fades in */
 }

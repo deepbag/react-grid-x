@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+/* Popover container, styled with background, border, shadow, padding, and positioning. */
+.popover-content {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  min-width: 150px;
+  z-index: 1000;
+  display: block;
+  margin-left: -152px;
+  margin-top: 6px;
+}
+
+/* Show popover when the "show" class is applied. */
+.popover-content.show {
+  display: block;
+}
+
+/* Small arrow pointing to the trigger element, created with a rotated square. */
+.popover-arrow {
+  position: absolute;
+  top: -5px;
+  left: 90%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}

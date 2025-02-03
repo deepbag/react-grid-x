@@ -9,6 +9,10 @@ type ChangelogEntry = {
     minor?: string[];
     major: string[];
   };
+  added: {
+    minor?: string[];
+    major: string[];
+  };
 };
 
 // Function to process text and style backtick-wrapped portions
@@ -40,7 +44,7 @@ const ChangeLog: React.FC = () => {
         <div key={index} className="rgx-change-log-entry">
           <h2>{`[${entry.version}] - ${entry.date}`}</h2>
 
-          {entry.changes.minor && (
+          {entry?.changes?.minor && (
             <>
               <h3>Changed (Minor)</h3>
               <ul>
@@ -51,12 +55,38 @@ const ChangeLog: React.FC = () => {
             </>
           )}
 
-          <h3>Added (Major)</h3>
-          <ul>
-            {entry.changes.major.map((change, idx) => (
-              <li key={idx}>{styleBackticks(change)}</li>
-            ))}
-          </ul>
+          {entry?.changes?.major && (
+            <>
+              <h3>Changed (Major)</h3>
+              <ul>
+                {entry.changes.major.map((change, idx) => (
+                  <li key={idx}>{styleBackticks(change)}</li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {entry?.added?.minor && (
+            <>
+              <h3>Added (Minor)</h3>
+              <ul>
+                {entry.added.minor.map((change, idx) => (
+                  <li key={idx}>{styleBackticks(change)}</li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {entry?.added?.major && (
+            <>
+              <h3>Added (Major)</h3>
+              <ul>
+                {entry.added.major.map((change, idx) => (
+                  <li key={idx}>{styleBackticks(change)}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       ))}
     </div>

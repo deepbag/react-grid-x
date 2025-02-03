@@ -3,17 +3,17 @@
     "version": "0.1.4",
     "date": "2025-02-04",
     "changes": {
-      "minor": [
-        "Added column width support with width: '100px'."
-      ],
+      "minor": ["Added column `width` support with width: '100px'."],
+      "major": ["Allowed users to `sort` by `multiple columns`."]
+    },
+    "added": {
       "major": [
         "Added Row Selection feature with individual and all-row selection using the `selectionCheckbox` prop set to `true`.",
         "Added `onSelectionCheck` callback to capture selection events.",
-        "Allowed users to sort by multiple columns.",
         "Added a popup menu to each column header when sorting is enabled with options to sort ascending, sort descending, or clear sorting."
       ]
     }
-  },  
+  },
   {
     "version": "0.1.3",
     "date": "2025-02-02",
@@ -21,7 +21,9 @@
       "minor": [
         "Renamed `serverSide` to `serverSidePagination` in `ReactGridXProps`.",
         "Set default value of `serverSideSorting` to `false`."
-      ],
+      ]
+    },
+    "added": {
       "major": [
         "Added `loading` prop to indicate the loading state of the table.",
         "Added `loaderComponent` to display a custom loader when the table is in a loading state. If not provided, the default loader will be used."
@@ -31,7 +33,7 @@
   {
     "version": "0.1.2",
     "date": "2025-02-01",
-    "changes": {
+    "added": {
       "major": [
         "Customizable columns: Define columns with dynamic rendering of data using custom render functions.",
         "Sorting support: Supports sorting by column, including both numerical and alphabetical sorting.",
