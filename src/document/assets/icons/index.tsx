@@ -1,4 +1,8 @@
-import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faGithub,
+  faNpm,
+} from "@fortawesome/free-brands-svg-icons";
 import { faSmile } from "@fortawesome/free-regular-svg-icons";
 import {
   faChevronLeft,
@@ -10,7 +14,7 @@ import {
   faSortDown,
   faChevronDown,
   faCircleArrowUp,
-  faCircleArrowDown
+  faCircleArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const solidIcons = {
@@ -23,12 +27,13 @@ export const solidIcons = {
   faSortDown,
   faChevronDown,
   faCircleArrowUp,
-  faCircleArrowDown
+  faCircleArrowDown,
 };
 
 export const brandIcons = {
   faFacebook,
   faGithub,
+  faNpm,
 };
 
 export const regularIcons = {

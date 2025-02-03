@@ -1,32 +1,36 @@
-/* Wrapper for the entire app */
 .rgx-app {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Take full height */
+  height: 100vh;
 }
 
-/* Main content area */
+header {
+  /* Ensure header stays fixed at the top */
+  position: fixed;
+  width: 98%;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
 .rgx-main-content {
-  margin-left: 250px;
-  padding: 10px;
-  flex-grow: 1;
+  display: flex;
+  flex: 1;
+  margin-top: 60px; /* Adjust according to the height of your header */
 }
 
-/* Page content styles */
+.sidebar {
+  position: fixed;
+  top: 60px; /* Adjust according to the height of your header */
+  left: 0;
+  width: 250px; /* Sidebar width */
+  bottom: 0;
+  background-color: #f0f0f0; /* Sidebar background color */
+  z-index: 9; /* Ensure it stays below the header */
+  overflow-y: auto; /* Make sidebar content scrollable if necessary */
+}
+
 .rgx-page-content {
-}
-
-/* Make sure sidebar doesn't overlap on mobile */
-@media (max-width: 768px) {
-  .rgx-sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    top: 0;
-  }
-
-  .rgx-main-content {
-    margin-left: 0;
-    margin-top: 0;
-  }
+  margin-left: 250px; /* Adjust to the width of the sidebar */
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto; /* Enable scrolling for page content */
 }

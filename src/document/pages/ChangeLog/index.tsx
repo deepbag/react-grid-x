@@ -1,13 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./change-log.css";
+import changeLog from "./changelog.json";
 
-const ChangeLog = () => {
+type ChangelogEntry = {
+  version: string;
+  date: string;
+  changes: {
+    minor?: string[];
+    major: string[];
+  };
+};
+
+// Function to process text and style backtick-wrapped portions
+const styleBackticks = (text: string) => {
+  // Replace backtick-wrapped text with styled components
+  return text.split("`").map((part, index) => {
+    if (index % 2 === 1) {
+      // Style text inside backticks
+      return (
+        <span key={index} className="rgx-backtick-text">
+          {part}
+        </span>
+      );
+    }
+    return part; // Return the rest of the text as-is
+  });
+};
+
+const ChangeLog: React.FC = () => {
+  const [changelogData, setChangelogData] = useState<ChangelogEntry[]>([]);
+
+  useEffect(() => {
+    setChangelogData(changeLog);
+  }, []);
+
   return (
-    <div
-      style={{
-        color: "#fff",
-      }}
-    >
-      WE ARE WORKING!!
+    <div className="rgx-change-log-container">
+      {changelogData.map((entry, index) => (
+        <div key={index} className="rgx-change-log-entry">
+          <h2>{`[${entry.version}] - ${entry.date}`}</h2>
+
+          {entry.changes.minor && (
+            <>
+              <h3>Changed (Minor)</h3>
+              <ul>
+                {entry.changes.minor.map((change, idx) => (
+                  <li key={idx}>{styleBackticks(change)}</li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          <h3>Added (Major)</h3>
+          <ul>
+            {entry.changes.major.map((change, idx) => (
+              <li key={idx}>{styleBackticks(change)}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };

@@ -29,14 +29,29 @@ const Header: React.FC = () => {
           React-Grid-X {version && <span>({version})</span>}
         </Link>
       </div>
-      <div className="rgx-header-github">
-        <a
-          href="https://github.com/deepbag/react-grid-x"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon icon={brandIcons.faGithub} size="2x" color="white" />
-        </a>
+      <div className="rgx-icons">
+        <div className="rgx-header-npm">
+          <a
+            href="https://www.npmjs.com/package/@deepbag/react-grid-x"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={brandIcons.faNpm} size="2x" color="white" />
+          </a>
+        </div>
+        <div className="rgx-header-github">
+          <a
+            href="https://github.com/deepbag/react-grid-x"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon
+              icon={brandIcons.faGithub}
+              size="2x"
+              color="white"
+            />
+          </a>
+        </div>
       </div>
     </header>
   );

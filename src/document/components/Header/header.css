@@ -21,6 +21,13 @@
   font-size: 11px;
 }
 
+.rgx-icons {
+  display: flex;
+}
+.rgx-header-npm {
+  margin-right: 15px;
+}
+
 /* Navigation Section */
 .rgx-header-nav ul {
   display: flex;
