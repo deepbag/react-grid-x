@@ -1,5 +1,3 @@
-export const HOMEPAGEURL = "react-grid-x";
-
 export const LABELS = {
   GETTING_STARTED: "Getting Started",
   OVERVIEW: "Overview",
@@ -10,9 +8,9 @@ export const LABELS = {
 };
 
 export const PATHS = {
-  OVERVIEW: `/${HOMEPAGEURL}/overview`,
-  INSTALLATION: `/${HOMEPAGEURL}/installation`,
-  SUPPORT: `/${HOMEPAGEURL}/support`,
-  CHANGE_LOG: `/${HOMEPAGEURL}/change-log`,
-  DEVELOPMENT: `/${HOMEPAGEURL}/development`,
+  OVERVIEW: `/overview`,
+  INSTALLATION: `/installation`,
+  SUPPORT: `/support`,
+  CHANGE_LOG: `/change-log`,
+  DEVELOPMENT: `/development`,
 };

@@ -332,7 +332,7 @@ The package exports the following components and props interfaces:
 
 ## Changelog
 
-You can view the full changelog of updates and changes in the [Changelog](https://deepbag.github.io/react-grid-x/change-log).
+You can view the full changelog of updates and changes in the [Changelog](https://deepbag.github.io/react-grid-x/#/change-log).
 
 ## Contributers
 
