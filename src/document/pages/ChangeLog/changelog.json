@@ -15,7 +15,7 @@
   },
   {
     "version": "0.1.2",
-    "date": "2025-02-02",
+    "date": "2025-02-01",
     "changes": {
       "major": [
         "Customizable columns: Define columns with dynamic rendering of data using custom render functions.",
