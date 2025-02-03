@@ -11,7 +11,7 @@
 ## Features
 
 - **Customizable columns**: Define columns with dynamic rendering of data using custom render functions.
-- **Sorting support**: Supports sorting by column, including both numerical and alphabetical sorting.
+- **Sorting support**: Supports sorting by multiple columns, including both numerical and alphabetical sorting and "Clear Sorting" popup is available when sorting is enabled.
 - **Server-side sorting**: Optionally support server-side sorting for large datasets.
 - **Pagination support**: Choose from different pagination types (`rgx-table-pagination` or `rgx-arrow-pagination`) with configurable rows per page and pagination controls.
 - **Customizable styling**: Apply custom themes and styles to the table and pagination components.
@@ -20,6 +20,7 @@
 - **Row click event**: Capture row clicks using the onRowClick callback to handle user interactions.
 - **Expandable rows**: Expand rows with a customizable `expandedComponent` to show additional details or content within the same row.
 - **Loader support**: Customize the loader displayed when the table is in a loading state using the `loaderComponent` prop. If not provided, the default loader will be used.
+- **Row selection**: Supports row selection with checkboxes, allowing both single and select-all functionality.
 - **Under development**: More features coming soon!
 
 ## Installation
@@ -49,6 +50,7 @@ import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import t
 import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
 import "@deepbag/react-grid-x/dist/themes/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
 import "@deepbag/react-grid-x/dist/themes/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
+import "@deepbag/react-grid-x/dist/themes/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
 ```
 
 The above CSS files can be found in the `dist` folder after installation.
@@ -67,6 +69,7 @@ import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import t
 import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
 import "@deepbag/react-grid-x/dist/themes/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
 import "@deepbag/react-grid-x/dist/themes/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
+import "@deepbag/react-grid-x/dist/themes/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
 
 const App = () => {
   const columns = [
@@ -133,7 +136,7 @@ You can customize the loader displayed when the table is in a loading state by s
 
 ## Sorting
 
-`ReactGridX` supports sorting functionality for both numeric and alphabetical data. You can enable sorting on a column by setting the `sortable` property to `true`.
+`ReactGridX` supports multi-column sorting for both numeric and alphabetical data. You can enable sorting on multiple columns by setting the `sortable` property to `true`. Users can sort by multiple columns by holding the Shift key while clicking on column headers.
 
 ### Example:
 
@@ -152,13 +155,34 @@ You can provide a custom sorting function using the `onSort` prop for finer cont
 ```tsx
 const columns = [
   {
-    name: "Age",
-    key: "age",
+    name: "Name",
+    key: "name",
     sortable: true,
-    onSort: (data, order) => {
-      return data.sort((a, b) =>
-        order === "asc" ? a.age - b.age : b.age - a.age
-      );
+    onSort: (a, b, direction) => {
+      const comparison = a.localeCompare(b);
+      return direction === "asc" ? comparison : -comparison;
+    },
+  },
+  {
+    name: "Number",
+    key: "number",
+    sortable: true,
+    onSort: (a, b, direction) => {
+      const comparison = a - b;
+      return direction === "asc" ? comparison : -comparison;
+    },
+  },
+  {
+    key: "status",
+    onSort: (a, b, direction) => {
+      // Define custom order for status
+      const order = ["Pending", "Complete"];
+      // Get the index of the statuses in the custom order array
+      const aIndex = order.indexOf(a);
+      const bIndex = order.indexOf(b);
+      // Compare the indices
+      const comparison = aIndex - bIndex;
+      return direction === "asc" ? comparison : -comparison;
     },
   },
 ];
@@ -226,41 +250,62 @@ You can display additional content when a row is expanded by using the `expanded
 />
 ```
 
+## Row Selection (Individual/All)
+
+You can enable row selection using checkboxes by setting the `selectionCheckbox` prop to `true`. This allows users to select individual rows or select all rows at once. You can handle selection changes using the `onSelectionCheck` callback, which provides the selected rows and whether all rows are selected.
+
+### Example:
+
+```tsx
+<ReactGridX
+  columns={columns}
+  data={data}
+  selectionCheckbox={true}
+  onSelectionCheck={(selectedRows, isAllChecked) => {
+    console.log("Selected Rows:", selectedRows);
+    console.log("Is All Checked:", isAllChecked);
+  }}
+/>
+```
+
 ## Table Props
 
-| Prop                           | Type                                                 | Description                                                                                                                                          |
-| ------------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `columns`                      | `ReactGridXColumnProps[]`                            | An array of column definitions, each containing a `name` and optional `render` function for custom rendering.                                        |
-| `data`                         | `any[]`                                              | The data to be displayed in the table. Each object should correspond to a row.                                                                       |
-| `theme`                        | `string`                                             | The theme for the table (default is `"rgx-theme"`).                                                                                                  |
-| `rowsPerPageOptions`           | `number[]`                                           | Options for rows per page (default is `[5, 10, 15]`).                                                                                                |
-| `paginationType`               | `"rgx-table-pagination" \| "rgx-arrow-pagination"`   | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                                                        |
-| `paginationStyle`              | `Record<string, React.CSSProperties>`                | Custom styles for pagination components.                                                                                                             |
-| `tableStyle`                   | `Record<string, React.CSSProperties>`                | Custom styles for the table and its elements.                                                                                                        |
-| `serverSideSorting`            | `boolean`                                            | Flag to indicate if server-side pagination should be used (default is `false`).                                                                      |
-| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`        | Callback function for pagination and row size changes.                                                                                               |
-| `totalRows`                    | `number`                                             | The total number of rows in the database (required for server-side pagination).                                                                      |
-| `sortable`                     | `boolean`                                            | Enables sorting on a column (default is `false`).                                                                                                    |
-| `serverSideSorting`            | `boolean`                                            | Enables server-side sorting (default is `false`).                                                                                                    |
-| `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void` | Callback function to handle server-side sorting logic.                                                                                               |
-| `onRowClick`                   | `(rowData: any) => void`                             | Callback function triggered when a row is clicked, receiving the clicked row's data.                                                                 |
-| `expandedComponent`            | `(rowData: any) => JSX.Element`                      | A function that returns a component to render when a row is expanded, receiving the clicked row's data.                                              |
-| `loading`                      | `boolean`                                            | A boolean value indicating whether the table is in a loading state. When set to `true`, the table will show a loader.                                |
-| `loaderComponent`              | `() => JSX.Element`                                  | A function that returns a custom loader component to display when the table is in a loading state. If not provided, the default loader will be used. |
+| Prop                           | Type                                                   | Description                                                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `columns`                      | `ReactGridXColumnProps[]`                              | An array of column definitions, each containing a `name` and optional `render` function for custom rendering.                                               |
+| `data`                         | `any[]`                                                | The data to be displayed in the table. Each object should correspond to a row.                                                                              |
+| `theme`                        | `string`                                               | The theme for the table (default is `"rgx-theme"`).                                                                                                         |
+| `rowsPerPageOptions`           | `number[]`                                             | Options for rows per page (default is `[5, 10, 15]`).                                                                                                       |
+| `paginationType`               | `"rgx-table-pagination" \| "rgx-arrow-pagination"`     | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                                                               |
+| `paginationStyle`              | `Record<string, React.CSSProperties>`                  | Custom styles for pagination components.                                                                                                                    |
+| `tableStyle`                   | `Record<string, React.CSSProperties>`                  | Custom styles for the table and its elements.                                                                                                               | 
+| `serverSideSorting`            | `boolean`                                              | Flag to indicate if server-side pagination should be used (default is `false`).                                                                             |
+| `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`          | Callback function for pagination and row size changes.                                                                                                      |
+| `totalRows`                    | `number`                                               | The total number of rows in the database (required for server-side pagination).                                                                             |
+| `sortable`                     | `boolean`                                              | Enables sorting on a column (default is `false`).                                                                                                           |
+| `serverSideSorting`            | `boolean`                                              | Enables server-side sorting (default is `false`).                                                                                                           |
+| `onSortChange`                 | `(sortKey: string, sortOrder: "asc" "desc") => void`   | Callback function to handle server-side sorting logic.                                                                                                      |
+| `onRowClick`                   | `(rowData: any) => void`                               | Callback function triggered when a row is clicked, receiving the clicked row's data.                                                                        |
+| `expandedComponent`            | `(rowData: any) => JSX.Element`                        | A function that returns a component to render when a row is expanded, receiving the clicked row's data.                                                     |
+| `loading`                      | `boolean`                                              | A boolean value indicating whether the table is in a loading state. When set to `true`, the table will show a loader.                                       |
+| `loaderComponent`              | `() => JSX.Element`                                    | A function that returns a custom loader component to display when the table is in a loading state. If not provided, the default loader will be used.        |
+| `selectionCheckbox`            | `boolean`                                              | A boolean value that determines whether the table rows will have a checkbox for selection. If set to `true`, checkboxes will be shown for selecting rows.   |
+| `onSelectionCheck`             | `(selectedRows: any[], isAllChecked: boolean) => void` | A callback triggered when the selection state changes, receiving an array of selected rows and a boolean indicating if all rows are selected                |
+
 
 ## Column Props (`ReactGridXColumnProps`)
 
 The `ReactGridXColumnProps` interface defines the properties that can be set for each column in the `ReactGridX` component.
 
-| Prop                   | Type                                             | Description                                                                  |
-| ---------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------- |
-| `name`                 | `string`                                         | The column name displayed in the table header.                               |
-| `key`                  | `string`                                         | The unique key that matches the data field for this column.                  |
-| `render`               | `(data: any) => JSX.Element \| string`           | Optional function to customize how cell data is rendered.                    |
-| `sortable`             | `boolean`                                        | Determines whether sorting is enabled for this column.                       |
-| `onSort`               | `(data: any[], order: "asc" \| "desc") => any[]` | Optional custom sorting function. If provided, it overrides default sorting. |
-| `tooltip`              | `boolean`                                        | Enables tooltips for this column when set to `true`.                         |
-| `tooltipCustomContent` | `(data: any) => string`                          | Defines custom tooltip content for the column header.                        |
+| Prop                   | Type                                                     | Description                                                                  |
+| ---------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `name`                 | `string`                                                 | The column name displayed in the table header.                               |
+| `key`                  | `string`                                                 | The unique key that matches the data field for this column.                  |
+| `render`               | `(data: any) => JSX.Element \| string`                   | Optional function to customize how cell data is rendered.                    |
+| `sortable`             | `boolean`                                                | Determines whether sorting is enabled for this column.                       |
+| `onSort`               | `(a: any, b: any, direction: "asc" \| "desc") => number` | Optional custom sorting function. If provided, it overrides default sorting. |
+| `tooltip`              | `boolean`                                                | Enables tooltips for this column when set to `true`.                         |
+| `tooltipCustomContent` | `(data: any) => string`                                  | Defines custom tooltip content for the column header.                        |
 
 ## Exports
 
@@ -273,6 +318,7 @@ The package exports the following components and props interfaces:
 - `RGXArrowPagination`: Pagination component with arrow-based navigation.
 - `RGXTooltip`: The default tooltip component displayed for columns.
 - `RGXLoader`: The default loader component displayed when the table is in a loading state, which can be customized using the `loaderComponent` prop.
+- `RGXPopover`: The default popover component displayed for sorting and clearing sorting icons in the header.
 
 ### Interfaces (Props)
 
@@ -280,18 +326,17 @@ The package exports the following components and props interfaces:
 - `RGXTablePaginationProps`: Props for the `RGXTablePagination` component.
 - `RGXArrowPaginationProps`: Props for the `RGXArrowPagination` component.
 - `ReactGridXColumnProps`: Column props for defining columns in the `ReactGridX` component.
-- `TooltipProps`: Props for the `RGXTooltip` component.
-- `LoaderProps`: Props for the `RGXLoader` component.
+- `RGXTooltipProps`: Props for the `RGXTooltip` component.
+- `RGXLoaderProps`: Props for the `RGXLoader` component.
+- `RGXPopoverProps`: Props for the `RGXPopover` component.
 
 ## Changelog
 
-You can view the full changelog of updates and changes in the [Changelog](https://github.com/deepbag/react-grid-x/blob/main/CHANGE_LOG.md).
+You can view the full changelog of updates and changes in the [Changelog](https://deepbag.github.io/react-grid-x/change-log).
 
 ## Contributers
 
 We welcome contributions from the community! If you find a bug, have a feature request, or would like to contribute code, please open an issue or pull request on our GitHub repository. [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deepbag/react-grid-x)
-
-<!-- https://contrib.rocks/preview?repo=angular%2Fangular-ja -->
 
 <a href="https://github.com/deepbag/react-grid-x/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=deepbag/react-grid-x" />
