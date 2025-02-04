@@ -17,6 +17,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   paginationType = "rgx-table-pagination",
   paginationStyle = {},
   tableStyle = {},
+  loaderStyle = {},
+  popupStyle = {},
+  tooltipStyle = {},
   serverSidePagination = false,
   onPaginationAndRowSizeChange,
   totalRows,
@@ -25,7 +28,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   onRowClick,
   expandedComponent,
   loading = false,
-  loaderComponent = () => <RGXLoader />,
+  loaderComponent = ({ style }) => <RGXLoader style={style} />,
   multiColumnSort = true,
   selectionCheckbox = false,
   onSelectionCheck,
@@ -339,7 +342,11 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         }
       >
         {/* Conditionally render the loader if loading is true */}
-        {loading && loaderComponent && loaderComponent()}
+        {loading &&
+          loaderComponent &&
+          loaderComponent({
+            style: loaderStyle,
+          })}
 
         {/* Render the table structure */}
         <table
@@ -454,6 +461,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             onClose={() => {
                               setIsDotPopover(null);
                             }}
+                            style={popupStyle}
                           >
                             {sortConfig.find((sort) => sort.key === column.key)
                               ?.direction === "desc" && (
@@ -709,6 +717,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               ? column.tooltipCustomContent(row)
                               : row[column.key] // Display custom tooltip content if provided
                           }
+                          style={tooltipStyle}
                         >
                           {
                             column.render

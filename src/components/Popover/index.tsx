@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { RGXPopoverProps } from "types/pop-over-props";
 import "../../themes/rgx-theme/rgx-popover.css";
 

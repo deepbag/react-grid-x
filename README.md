@@ -104,13 +104,20 @@ const App = () => {
         data={data}
         rowsPerPageOptions={[5, 10, 15]}
         paginationType="rgx-table-pagination"
-        paginationStyle={{ "rgx-pagination": { backgroundColor: "#f5f5f5" } }}
-        tableStyle={{
-          table: { width: "100%", borderCollapse: "collapse" },
-          "thead-tr": { backgroundColor: "#ddd" },
-          th: { padding: "8px", textAlign: "left" },
-          td: { padding: "8px" },
+        paginationStyle={{
+          "rgx-table-pagination": { backgroundColor: "#f5f5f5" },
         }}
+        tableStyle={{
+          "rgx-table": { width: "100%", borderCollapse: "collapse" },
+          "rgx-table-head-tr": { backgroundColor: "#ddd" },
+          "rgx-table-head-th": { padding: "8px", textAlign: "left" },
+          "rgx-table-body-td": { padding: "8px" },
+        }}
+        loaderStyle={{
+          "rgx-loader-containe": {},
+        }}
+        popupStyle={{ "rgx-popover-content": {} }}
+        tooltipStyle={{ "rgx-tooltip-container": {} }}
       />
     </div>
   );
@@ -279,6 +286,9 @@ You can enable row selection using checkboxes by setting the `selectionCheckbox`
 | `paginationType`               | `"rgx-table-pagination" \| "rgx-arrow-pagination"`     | The pagination type to use. Options are `"rgx-table-pagination"` or `"rgx-arrow-pagination"`.                                                             |
 | `paginationStyle`              | `Record<string, React.CSSProperties>`                  | Custom styles for pagination components.                                                                                                                  |
 | `tableStyle`                   | `Record<string, React.CSSProperties>`                  | Custom styles for the table and its elements.                                                                                                             |
+| `loaderStyle`                  | `Record<string, React.CSSProperties>`                  | Custom styles for the loader component and its elements.                                                                                                  |
+| `popupStyle`                   | `Record<string, React.CSSProperties>`                  | Custom styles for the popop component and its elements.                                                                                                   |
+| `tooltipStyle`                 | `Record<string, React.CSSProperties>`                  | Custom styles for the tooltip component and its elements.                                                                                                 |
 | `serverSideSorting`            | `boolean`                                              | Flag to indicate if server-side pagination should be used (default is `false`).                                                                           |
 | `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`          | Callback function for pagination and row size changes.                                                                                                    |
 | `totalRows`                    | `number`                                               | The total number of rows in the database (required for server-side pagination).                                                                           |
@@ -288,7 +298,7 @@ You can enable row selection using checkboxes by setting the `selectionCheckbox`
 | `onRowClick`                   | `(rowData: any) => void`                               | Callback function triggered when a row is clicked, receiving the clicked row's data.                                                                      |
 | `expandedComponent`            | `(rowData: any) => JSX.Element`                        | A function that returns a component to render when a row is expanded, receiving the clicked row's data.                                                   |
 | `loading`                      | `boolean`                                              | A boolean value indicating whether the table is in a loading state. When set to `true`, the table will show a loader.                                     |
-| `loaderComponent`              | `() => JSX.Element`                                    | A function that returns a custom loader component to display when the table is in a loading state. If not provided, the default loader will be used.      |
+| `loaderComponent`              | `({style}:{style?:{}}) => JSX.Element`                 | A function returning a custom loader when the table is loading. The `style` prop is optional for custom styling.                                          |
 | `selectionCheckbox`            | `boolean`                                              | A boolean value that determines whether the table rows will have a checkbox for selection. If set to `true`, checkboxes will be shown for selecting rows. |
 | `onSelectionCheck`             | `(selectedRows: any[], isAllChecked: boolean) => void` | A callback triggered when the selection state changes, receiving an array of selected rows and a boolean indicating if all rows are selected              |
 
