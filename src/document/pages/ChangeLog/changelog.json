@@ -1,5 +1,22 @@
 [
   {
+    "version": "0.1.5",
+    "date": "2025-02-05",
+    "changes": {
+      "minor": [
+        "Removed Google Fonts import from CSS files, allowing projects to use their own fonts.",
+        "Added `classnames` in the table component for better theme management.",
+        "Updated CSS file paths from `theme/*.css` to `theme/rgx-theme/*.css`, grouping all theme-related styles under `theme/rgx-theme/*.css`."
+      ]
+    },
+    "added": {
+      "minor": [
+        "Added `style` prop support in `loader`, `tooltip`, and `popover` components for inline custom styling.",
+        "Introduced `loaderStyle`, `popupStyle`, and `tooltipStyle` props in the table component for easier customization."
+      ]
+    }
+  },
+  {
     "version": "0.1.4",
     "date": "2025-02-04",
     "changes": {
