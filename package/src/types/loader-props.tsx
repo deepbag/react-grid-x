@@ -11,4 +11,10 @@ export interface RGXLoaderProps {
    * @example "Fetching data..."
    */
   message?: string; // Optional custom message
+
+  /**
+   * An optional style object to customize the CSS styling for loader.
+   * This allows users to apply custom styles for loader.
+   */
+  style?: Record<string, React.CSSProperties>;
 }

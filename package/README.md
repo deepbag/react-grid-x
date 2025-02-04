@@ -45,12 +45,12 @@ To use the component styles, you need to manually import the required CSS files.
 
 ```tsx
 // Import the necessary CSS files
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme (Required)
-import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
-import "@deepbag/react-grid-x/dist/themes/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
-import "@deepbag/react-grid-x/dist/themes/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css"; // Import the default theme (Required)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
 ```
 
 The above CSS files can be found in the `dist` folder after installation.
@@ -63,13 +63,13 @@ Here's a basic example of how to use the `ReactGridX` component in your React pr
 import React from "react";
 import { ReactGridX } from "@deepbag/react-grid-x";
 
-// Import the CSS files for styling
-import "@deepbag/react-grid-x/dist/themes/rgx-theme.css"; // Import the default theme (Required)
-import "@deepbag/react-grid-x/dist/themes/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
-import "@deepbag/react-grid-x/dist/themes/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
-import "@deepbag/react-grid-x/dist/themes/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
+// Import the necessary CSS files
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css"; // Import the default theme (Required)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
 
 const App = () => {
   const columns = [

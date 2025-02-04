@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
 /* Popover container, styled with background, border, shadow, padding, and positioning. */
-.popover-content {
+.rgx-theme .rgx-popover-content {
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
@@ -16,12 +14,12 @@
 }
 
 /* Show popover when the "show" class is applied. */
-.popover-content.show {
+.rgx-theme .rgx-popover-content.rgx-show {
   display: block;
 }
 
 /* Small arrow pointing to the trigger element, created with a rotated square. */
-.popover-arrow {
+.rgx-theme .rgx-popover-arrow {
   position: absolute;
   top: -5px;
   left: 90%;

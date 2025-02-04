@@ -1,25 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
 /* Pagination container styling */
-.rgx-arrow-pagination {
+.rgx-theme .rgx-arrow-pagination {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "DM Sans", sans-serif;
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
   gap: 10px; /* Space between elements when wrapped */
 }
 
 /* Information section in pagination (like current page and total pages) */
-.rgx-arrow-pagination-info {
+.rgx-theme .rgx-arrow-pagination-info {
   font-size: 16px;
   color: #555;
   font-weight: 500;
 }
 
 /* Page number display, including "Page x of y" format */
-.rgx-arrow-pagination-page-of {
+.rgx-theme .rgx-arrow-pagination-page-of {
   font-size: 16px;
   color: #555;
   font-weight: 500;
@@ -29,24 +26,23 @@
 }
 
 /* Row-per-page section styling */
-.rgx-arrow-pagination-row-per-page {
+.rgx-theme .rgx-arrow-pagination-row-per-page {
   display: flex;
   align-items: center;
 }
 
 /* Styling for the select dropdown that controls rows per page */
-.rgx-arrow-rows-per-page-select {
-  font-family: "DM Sans", sans-serif;
+.rgx-theme .rgx-arrow-rows-per-page-select {
   height: 30px;
 }
 
 /* Disabled select dropdown style */
-.rgx-arrow-rows-per-page-select:disabled {
+.rgx-theme .rgx-arrow-rows-per-page-select:disabled {
   cursor: not-allowed; /* Indicating that the dropdown is not interactive */
 }
 
 /* Rows-per-page label and select container */
-.rgx-arrow-rows-per-page {
+.rgx-theme .rgx-arrow-rows-per-page {
   display: flex;
   align-items: center;
   margin-right: 10px;
@@ -54,14 +50,14 @@
 }
 
 /* Styling for the label inside the rows-per-page section */
-.rgx-arrow-rows-per-page label {
+.rgx-theme .rgx-theme.rgx-arrow-rows-per-page label {
   font-size: 16px;
   color: #202020;
   margin-right: 10px;
 }
 
 /* Style for the rows-per-page select dropdown */
-.rgx-arrow-rows-per-page select {
+.rgx-theme .rgx-arrow-rows-per-page select {
   padding: 5px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
@@ -71,14 +67,14 @@
 }
 
 /* Pagination button container for navigation buttons (Previous, Next, etc.) */
-.rgx-arrow-pagination-controls {
+.rgx-theme .rgx-arrow-pagination-controls {
   display: flex;
   flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
   gap: 5px; /* Space between buttons */
 }
 
 /* Style for pagination buttons */
-.rgx-arrow-pagination-button {
+.rgx-theme .rgx-arrow-pagination-button {
   padding: 5px 10px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
@@ -89,25 +85,25 @@
 }
 
 /* Hover effect for pagination buttons */
-.rgx-arrow-pagination-button:hover {
+.rgx-theme .rgx-arrow-pagination-button:hover {
   background-color: #ddd; /* Light background on hover */
 }
 
 /* Style for disabled pagination buttons */
-.rgx-arrow-pagination-button:disabled {
+.rgx-theme .rgx-arrow-pagination-button:disabled {
   background-color: #eee; /* Lighter background for disabled state */
   cursor: not-allowed; /* Indicates button is not clickable */
 }
 
 /* Style for the active pagination button */
-.rgx-arrow-pagination-button.rgx-active {
+.rgx-theme .rgx-arrow-pagination-button.rgx-active {
   background-color: #007bff; /* Blue background for active button */
   color: white; /* White text for the active button */
   border-color: #007bff; /* Matching border color */
 }
 
 /* Styling for the ellipsis (e.g., "..." for skipped page numbers) */
-.rgx-arrow-pagination-ellipsis {
+.rgx-theme .rgx-arrow-pagination-ellipsis {
   background-color: transparent;
   color: #888; /* Light gray color for ellipsis */
   cursor: not-allowed; /* Indicating ellipsis is not clickable */

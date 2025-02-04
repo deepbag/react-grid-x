@@ -14,3 +14,8 @@ export const PATHS = {
   CHANGE_LOG: `/change-log`,
   DEVELOPMENT: `/development`,
 };
+
+export const KEY_LABELS = {
+  MISCELLANEOUS: "Miscellaneous",
+  GETTING_STARTED: "Getting Started",
+};

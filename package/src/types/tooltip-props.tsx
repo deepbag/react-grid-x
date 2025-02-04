@@ -26,4 +26,10 @@ export interface RGXTooltipProps {
    * @example <button>Hover me</button>
    */
   children: React.ReactNode;
+
+  /**
+   * An optional style object to customize the CSS styling for tooltip.
+   * This allows users to apply custom styles for tooltip.
+   */
+  style?: Record<string, React.CSSProperties>;
 }

@@ -3,25 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "../../Icons/FontAwesome";
 import { RGXTablePaginationProps } from "../../../types/table-pagination-props";
 
-/**
- * RGXTablePagination Component:
- * A reusable pagination component for displaying paginated data in a table.
- * The component shows a dropdown for selecting the number of rows per page,
- * page navigation buttons, and pagination information.
- * It also dynamically generates page numbers with ellipsis when necessary.
- *
- * @param {number} currentPage - The current page being displayed.
- * @param {number} totalPages - The total number of pages available.
- * @param {number} rowsPerPage - The number of rows per page.
- * @param {number} totalRows - The total number of rows across all pages.
- * @param {Function} onPageChange - A callback function to handle page changes.
- * @param {Function} onRowsPerPageChange - A callback function to handle changes in the number of rows per page.
- * @param {number[]} rowsPerPageOptions - The available options for rows per page (default is [5, 10, 15]).
- * @param {object} style - Custom style overrides for specific elements.
- * @param {boolean} loading - A flag to disable pagination controls when loading data.
- *
- * @returns {JSX.Element} - Returns the pagination UI with navigation and control options.
- */
 const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   currentPage,
   totalPages,
@@ -32,6 +13,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   rowsPerPageOptions = [5, 10, 15],
   style = {},
   loading = false,
+  theme = "rgx-theme",
 }) => {
   /**
    * Generates an array of page numbers for pagination with ellipses if necessary.
@@ -80,11 +62,16 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   const pageNumbers = getPageNumbers(); // Generate the page numbers
 
   return (
-    <div className="rgx-table-pagination" style={style["rgx-table-pagination"]}>
+    <div
+      className={`${theme} rgx-table-pagination`}
+      style={{
+        ...style["rgx-table-pagination"],
+      }}
+    >
       {/* Display pagination information (current page range and total rows) */}
       <div
         className="rgx-table-pagination-info"
-        style={style["rgx-table-pagination-info"]}
+        style={{ ...style["rgx-table-pagination-info"] }}
       >
         Showing {(currentPage - 1) * rowsPerPage + 1} to{" "}
         {Math.min(currentPage * rowsPerPage, totalRows)} of {totalRows}
@@ -93,21 +80,32 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
       {/* Rows per page selector and pagination controls */}
       <div
         className="rgx-table-pagination-row-per-page"
-        style={style["rgx-table-pagination-row-per-page"]}
+        style={{
+          ...style["rgx-table-pagination-row-per-page"],
+        }}
       >
         {/* Rows per page dropdown */}
-        <div className="rgx-rows-per-page" style={style["rgx-rows-per-page"]}>
+        <div
+          className="rgx-rows-per-page"
+          style={{
+            ...style["rgx-rows-per-page"],
+          }}
+        >
           <label
             htmlFor="rowsPerPage"
             className="rgx-rows-per-page-label"
-            style={style["rgx-rows-per-page-label"]}
+            style={{
+              ...style["rgx-rows-per-page-label"],
+            }}
           >
             Rows per page:
           </label>
           <select
             id="rowsPerPage"
             className="rgx-rows-per-page-select"
-            style={style["rgx-rows-per-page-select"]}
+            style={{
+              ...style["rgx-rows-per-page-select"],
+            }}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
             disabled={loading}
@@ -123,14 +121,18 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
         {/* Pagination controls (previous, page numbers, next) */}
         <div
           className="rgx-table-pagination-controls"
-          style={style["rgx-table-pagination-controls"]}
+          style={{
+            ...style["rgx-table-pagination-controls"],
+          }}
         >
           {/* Previous page button */}
           <button
             disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)}
             className="rgx-table-pagination-button"
-            style={style["rgx-table-pagination-button"]}
+            style={{
+              ...style["rgx-table-pagination-button"],
+            }}
           >
             <FontAwesomeIcon icon={solidIcons.faChevronLeft} />
           </button>
@@ -149,7 +151,9 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
                         ...style["rgx-table-pagination-button"],
                         ...style["rgx-table-pagination-button-active"],
                       }
-                    : style["rgx-table-pagination-button"]
+                    : {
+                        ...style["rgx-table-pagination-button"],
+                      }
                 }
                 onClick={() => onPageChange(page)}
                 disabled={loading}
@@ -163,6 +167,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
                 className="rgx-table-pagination-button rgx-table-pagination-ellipsis"
                 style={{
                   ...style["rgx-table-pagination-button"],
+                  ...style["rgx-table-pagination-ellipsis"],
                   cursor: "default",
                   opacity: 0.6,
                 }}
@@ -177,7 +182,9 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
             disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)}
             className="rgx-table-pagination-button"
-            style={style["rgx-table-pagination-button"]}
+            style={{
+              ...style["rgx-table-pagination-button"],
+            }}
           >
             <FontAwesomeIcon icon={solidIcons.faChevronRight} />
           </button>

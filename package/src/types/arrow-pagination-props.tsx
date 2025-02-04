@@ -63,4 +63,13 @@ export interface RGXArrowPaginationProps {
    * When `true`, pagination buttons and controls should not be interactive.
    */
   loading: boolean;
+
+  /**
+   * Optional CSS class to apply custom styles to the table.
+   * This allows users to customize the table's overall appearance by passing a class name
+   * which can be used in external stylesheets.
+   *
+   * @example "rgx-theme"
+   */
+  theme?: string;
 }

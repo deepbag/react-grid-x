@@ -1,13 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
 /* Tooltip container for elements with tooltips */
-.rgx-tooltip-container {
+.rgx-theme .rgx-tooltip-container {
   position: relative; /* Positioned relative to the element */
   display: inline-block; /* Makes it inline while allowing block-level styling */
 }
 
 /* Tooltip text container */
-.rgx-tooltip-text {
+.rgx-theme .rgx-tooltip-text {
   visibility: hidden; /* Initially hidden */
   width: fit-content; /* Adjust width based on content */
   max-width: 200px; /* Max width for the tooltip */
@@ -29,7 +27,7 @@
 }
 
 /* Tooltip arrow */
-.rgx-tooltip-text::after {
+.rgx-theme .rgx-tooltip-text::after {
   content: ""; /* Empty content for the arrow */
   position: absolute; /* Positioned relative to the tooltip */
   top: 100%; /* Places the arrow at the bottom of the tooltip */
@@ -41,7 +39,7 @@
 }
 
 /* Show the tooltip on hover */
-.rgx-tooltip-container:hover .rgx-tooltip-text {
+.rgx-theme .rgx-tooltip-container:hover .rgx-tooltip-text {
   visibility: visible; /* Tooltip becomes visible */
   opacity: 1; /* Tooltip fades in */
 }

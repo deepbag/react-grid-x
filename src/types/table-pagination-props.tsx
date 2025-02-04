@@ -77,4 +77,13 @@ export interface RGXTablePaginationProps {
    * @default false
    */
   loading: boolean;
+
+    /**
+   * Optional CSS class to apply custom styles to the pagination.
+   * This allows users to customize the pagination's overall appearance by passing a class name
+   * which can be used in external stylesheets.
+   *
+   * @example "rgx-theme"
+   */
+    theme?: string;
 }

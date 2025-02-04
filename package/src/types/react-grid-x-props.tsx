@@ -32,7 +32,7 @@ export interface ReactGridXProps {
    * This allows users to customize the table's overall appearance by passing a class name
    * which can be used in external stylesheets.
    *
-   * @example "custom-table-style"
+   * @example "rgx-theme"
    */
   theme?: string;
 

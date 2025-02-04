@@ -1,11 +1,11 @@
 import React, { JSX, useEffect, useMemo, useState } from "react";
-import "../../themes/rgx-theme.css";
+import "../../themes/rgx-theme/rgx-theme.css";
 import RGXArrowPagination from "components/Paginations/RGXArrowPagination";
 import RGXTablePagination from "components/Paginations/RGXTablePagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solidIcons } from "components/Icons/FontAwesome";
-import Tooltip from "components/Tooltip";
-import Loader from "components/Loader";
+import RGXTooltip from "components/Tooltip";
+import RGXLoader from "components/Loader";
 import { ReactGridXProps } from "types/react-grid-x-props";
 import RGXPopover from "components/Popover";
 
@@ -25,7 +25,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   onRowClick,
   expandedComponent,
   loading = false,
-  loaderComponent = () => <Loader />,
+  loaderComponent = () => <RGXLoader />,
   multiColumnSort = true,
   selectionCheckbox = false,
   onSelectionCheck,
@@ -292,6 +292,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
         style={paginationStyle} // Custom styling for pagination
         loading={loading} // Show a loading indicator while data is being fetched
+        theme={theme}
       />
     ),
     // "rgx-arrow-pagination": Custom pagination with arrow-based navigation
@@ -306,6 +307,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
         style={paginationStyle} // Custom styling for pagination
         loading={loading} // Show a loading indicator while data is being fetched
+        theme={theme}
       />
     ),
   };
@@ -325,20 +327,54 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   }, [sortedItems]); // Dependency array ensures the effect runs when `sortedItems` changes
 
   return (
-    <div>
-      <div className={loading ? "rgx-table-container" : ""}>
+    <div className={theme}>
+      <div
+        className={loading ? "rgx-table-container" : ""}
+        style={
+          loading
+            ? {
+                ...tableStyle["rgx-table-container"],
+              }
+            : {}
+        }
+      >
         {/* Conditionally render the loader if loading is true */}
         {loading && loaderComponent && loaderComponent()}
 
         {/* Render the table structure */}
-        <table className={theme} style={tableStyle["table"]}>
-          <thead>
+        <table
+          className="rgx-table"
+          style={{
+            ...tableStyle["rgx-table"],
+          }}
+        >
+          <thead
+            className="rgx-table-head"
+            style={{
+              ...tableStyle["rgx-table-head"],
+            }}
+          >
             {/* Render header checkbox if enabled */}
-            <tr style={tableStyle["thead-tr"]}>
+            <tr
+              className="rgx-table-head-tr"
+              style={{
+                ...tableStyle["rgx-table-head-tr"],
+              }}
+            >
               {selectionCheckbox && (
-                <th style={{ width: "20px" }}>
+                <th
+                  className="rgx-table-head-th-checkbox"
+                  style={{
+                    width: "20px",
+                    ...tableStyle["rgx-table-head-th-checkbox"],
+                  }}
+                >
                   <input
                     type="checkbox"
+                    className="rgx-header-checkbox"
+                    style={{
+                      ...tableStyle["rgx-header-checkbox"],
+                    }}
                     checked={_selectionInfo.selectAllChecked}
                     onChange={onHeaderCheckboxChange}
                   />
@@ -348,10 +384,11 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               {columns?.map((column, index) => (
                 <th
                   key={index}
+                  className="rgx-table-head-th"
                   style={{
-                    textAlign: "left", // Align text to the left
+                    textAlign: "left",
                     width: column.width || "auto",
-                    ...tableStyle["th"], // Apply custom styles
+                    ...tableStyle["rgx-table-head-th"],
                   }}
                 >
                   <div
@@ -368,7 +405,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                           onSortingMultipleSupportHandler(column) // Trigger sorting on click
                       }
                       style={{
-                        cursor: column.sortable ? "pointer" : "default", // Show pointer cursor for sortable columns
+                        cursor: column.sortable ? "pointer" : "default",
                       }}
                     >
                       {column.name} {/* Render column name */}
@@ -384,23 +421,31 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                 : solidIcons.faSortDown
                               : solidIcons.faSort
                           }
-                          style={{ marginLeft: "8px" }} // Add margin to the icon
+                          className="rgx-sort-icon"
+                          style={{
+                            marginLeft: "8px",
+                            ...tableStyle["rgx-sort-icon"],
+                          }}
                         />
                       )}
                     </div>
                     {column.sortable && (
                       <div>
                         <div
-                          style={{ cursor: "pointer", display: "inline-block" }} // Adding cursor for pointer
+                          style={{ cursor: "pointer", display: "inline-block" }}
                           onClick={() => {
                             setIsDotPopover(
                               isDotPopover === column.key ? null : column.key
-                            ); // Toggle popover visibility
+                            );
                           }}
                         >
                           <FontAwesomeIcon
                             icon={solidIcons.faEllipsisVertical}
-                            style={{ marginRight: "8px" }} // Add margin to the icon
+                            className="rgx-ellipsis-vertical-icon"
+                            style={{
+                              marginRight: "8px",
+                              ...tableStyle["rgx-ellipsis-vertical-icon"],
+                            }}
                           />
                         </div>
                         {isDotPopover === column.key && (
@@ -414,12 +459,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               ?.direction === "desc" && (
                               <div
                                 className="rgx-popup-items"
+                                style={{
+                                  ...tableStyle["rgx-popup-items"],
+                                }}
                                 onClick={() => {
                                   column.sortable &&
                                     onSortingMultipleSupportHandler(
                                       column,
                                       "asc"
-                                    ); // Trigger sorting on click
+                                    );
                                 }}
                               >
                                 <FontAwesomeIcon
@@ -427,7 +475,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
-                                  }} // Add margin to the icon
+                                    ...tableStyle["rgx-asc-sort-icon"],
+                                  }}
+                                  className="rgx-asc-sort-icon"
                                 />
                                 <span>Sort Ascending</span>
                               </div>
@@ -437,12 +487,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               ?.direction === "asc" && (
                               <div
                                 className="rgx-popup-items"
+                                style={{
+                                  ...tableStyle["rgx-popup-items"],
+                                }}
                                 onClick={() => {
                                   column.sortable &&
                                     onSortingMultipleSupportHandler(
                                       column,
                                       "desc"
-                                    ); // Trigger sorting on click
+                                    );
                                 }}
                               >
                                 <FontAwesomeIcon
@@ -450,7 +503,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
-                                  }} // Add margin to the icon
+                                    ...tableStyle["rgx-desc-sort-icon"],
+                                  }}
+                                  className="rgx-desc-sort-icon"
                                 />
                                 <span>Sort Descending</span>
                               </div>
@@ -462,12 +517,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               <>
                                 <div
                                   className="rgx-popup-items"
+                                  style={{
+                                    ...tableStyle["rgx-popup-items"],
+                                  }}
                                   onClick={() => {
                                     column.sortable &&
                                       onSortingMultipleSupportHandler(
                                         column,
                                         "asc"
-                                      ); // Trigger sorting on click
+                                      );
                                   }}
                                 >
                                   <FontAwesomeIcon
@@ -475,18 +533,23 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                     style={{
                                       marginRight: "8px",
                                       fontSize: "14px",
-                                    }} // Add margin to the icon
+                                      ...tableStyle["rgx-asc-sort-icon"],
+                                    }}
+                                    className="rgx-asc-sort-icon"
                                   />
                                   <span>Sort Ascending</span>
                                 </div>
                                 <div
                                   className="rgx-popup-items"
+                                  style={{
+                                    ...tableStyle["rgx-popup-items"],
+                                  }}
                                   onClick={() => {
                                     column.sortable &&
                                       onSortingMultipleSupportHandler(
                                         column,
                                         "desc"
-                                      ); // Trigger sorting on click
+                                      );
                                   }}
                                 >
                                   <FontAwesomeIcon
@@ -494,7 +557,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                     style={{
                                       marginRight: "8px",
                                       fontSize: "14px",
-                                    }} // Add margin to the icon
+                                      ...tableStyle["rgx-desc-sort-icon"],
+                                    }}
+                                    className="rgx-desc-sort-icon"
                                   />
                                   <span>Sort Descending</span>
                                 </div>
@@ -506,6 +571,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             ) && (
                               <div
                                 className="rgx-popup-items"
+                                style={{
+                                  ...tableStyle["rgx-popup-items"],
+                                }}
                                 onClick={() => {
                                   onClearSort();
                                 }}
@@ -515,7 +583,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
-                                  }} // Add margin to the icon
+                                    ...tableStyle["rgx-asc-desc-sort-icon"],
+                                  }}
+                                  className="rgx-asc-desc-sort-icon"
                                 />
                                 <span>Clear Sort</span>
                               </div>
@@ -530,8 +600,19 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
             </tr>
           </thead>
           <tbody
-            style={tableStyle["tbody"]}
-            className={`${loading ? "rgx-tobody-loading" : ""}`} // Add loading class if data is loading
+            className={
+              loading ? "rgx-table-body rgx-tobody-loading" : "rgx-table-body"
+            } // Add loading class if data is loading
+            style={
+              loading
+                ? {
+                    ...tableStyle["rgx-table-body"],
+                    ...tableStyle["rgx-tobody-loading"],
+                  }
+                : {
+                    ...tableStyle["rgx-table-body"],
+                  }
+            }
           >
             {/* Render table rows for the current page */}
             {currentPageData.map((row, rowIndex) => (
@@ -540,10 +621,19 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               >
                 <tr
                   key={row.id || rowIndex} // Use a unique key for each row
-                  className={`rgx-row ${
-                    expandedRow === rowIndex ? "rgx-expanded" : ""
-                  }`} // Add class for expanded row
-                  style={tableStyle["row"]}
+                  className={
+                    expandedRow === rowIndex
+                      ? "rgx-table-body-tr rgx-table-body-tr-expanded"
+                      : "rgx-table-body-tr"
+                  } // Add class for expanded row
+                  style={
+                    expandedRow === rowIndex
+                      ? {
+                          ...tableStyle["rgx-table-body-tr"],
+                          ...tableStyle["rgx-table-body-tr-expanded"],
+                        }
+                      : { ...tableStyle["rgx-table-body-tr"] }
+                  }
                   onClick={() => {
                     // Handle row click for expanding or triggering onRowClick callback
                     expandedComponent &&
@@ -555,9 +645,19 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                 >
                   {/* Render row checkbox if enabled */}
                   {selectionCheckbox && (
-                    <td style={{ width: "20px" }}>
+                    <td
+                      className="rgx-table-body-td-checkbox"
+                      style={{
+                        width: "20px",
+                        ...tableStyle["rgx-table-body-td-checkbox"],
+                      }}
+                    >
                       <input
                         type="checkbox"
+                        className="rgx-row-checkbox"
+                        style={{
+                          ...tableStyle["rgx-row-checkbox"],
+                        }}
                         checked={_selectionInfo.selectedRows.includes(row.id)}
                         onChange={() => onRowCheckboxChange(row.id)}
                       />
@@ -567,16 +667,19 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   {columns.map((column, colIndex) => (
                     <td
                       key={colIndex}
+                      className="rgx-table-body-td"
                       style={{
                         width: column.width || "auto",
-                        ...tableStyle["td"],
+                        ...tableStyle["rgx-table-body-td"],
                       }}
                     >
                       {/* Conditionally render the arrow icon if expandedComponent is passed */}
                       {expandedComponent && colIndex === 0 && (
                         <span
                           className="rgx-expanded-arrow"
-                          style={tableStyle["rgx-expanded-arrow"]}
+                          style={{
+                            ...tableStyle["rgx-expanded-arrow"],
+                          }}
                           onClick={(e) => {
                             e.stopPropagation(); // Prevent row click event from firing
                             setExpandedRow(
@@ -590,15 +693,17 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                 ? solidIcons.faChevronDown
                                 : solidIcons.faChevronRight
                             }
-                            className="rgx-arrow-icon"
-                            style={tableStyle["rgx-arrow-icon"]}
+                            className="rgx-expanded-arrow-icon"
+                            style={{
+                              ...tableStyle["rgx-expanded-arrow-icon"],
+                            }}
                           />
                         </span>
                       )}
 
                       {/* Render cell data with optional tooltip and custom render function */}
                       {column.tooltip ? (
-                        <Tooltip
+                        <RGXTooltip
                           content={
                             column.tooltipCustomContent
                               ? column.tooltipCustomContent(row)
@@ -610,7 +715,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               ? column.render(row) // Custom render function if available
                               : row[column.key] ?? "" // Default value for cell data
                           }
-                        </Tooltip>
+                        </RGXTooltip>
                       ) : column.render ? (
                         column.render(row) // Custom render function if available
                       ) : (
@@ -623,13 +728,17 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                 {/* Render expanded row content if expandedRow matches the row index */}
                 {expandedRow === rowIndex && expandedComponent && (
                   <tr
-                    className="rgx-expanded-row"
-                    style={tableStyle["rgx-expanded-row"]}
+                    className="rgx-expanded-row-tr"
+                    style={{
+                      ...tableStyle["rgx-expanded-row-tr"],
+                    }}
                   >
                     <td
                       colSpan={columns.length} // Span across all columns for expanded row
                       className="rgx-expanded-row-td"
-                      style={tableStyle["rgx-expanded-row-td"]}
+                      style={{
+                        ...tableStyle["rgx-expanded-row-td"],
+                      }}
                     >
                       {/* Call the expanded component and pass the row data */}
                       {expandedComponent(row)}

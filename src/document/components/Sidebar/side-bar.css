@@ -17,7 +17,6 @@
   text-decoration: none;
   color: white;
   display: block;
-  /* margin: 10px 0; */
 }
 
 /* List and links */
@@ -31,11 +30,26 @@
   margin-bottom: 10px;
 }
 
-/* Sidebar links */
+/* KeyLabel (Section Headers) */
+.rgx-keyLabel {
+  font-size: 14px;
+  font-weight: bold;
+  color: #a0a0a0;
+  padding: 10px 5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ffffff34;
+  margin-bottom: 8px;
+}
+
+/* Sidebar menu items */
+.rgx-menu-items {
+  padding-left: 0;
+}
+
 .rgx-sidebar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 15px;
   padding: 5px 10px;
   display: block;
   border-radius: 5px;
@@ -44,9 +58,9 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  /* width: 100%; */
   margin: 4px 0;
 }
+
 .rgx-menu-button {
   color: white;
   text-decoration: none;
@@ -59,7 +73,7 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  width: 96%;
+  width: 100%;
 }
 
 .rgx-sidebar ul li a:hover,
@@ -70,20 +84,28 @@
 /* Active Link */
 .rgx-sidebar ul li.active > a {
   background-color: #555;
-  /* font-weight: bold; */
 }
 
 /* Submenu */
 .rgx-submenu {
-  /* margin-left: 20px; */
-  /* padding-left: 10px; */
-  border-left: 1px solid #ffffff34;
+  border-left: 1px solid rgba(255, 255, 255, 0.398);
   margin-top: 6px !important;
+  padding-left: 10px;
 }
 
 .rgx-submenu li {
-  margin: 0px 10px !important;
+  margin: 4px 0 !important;
 }
 
+/* Submenu Links */
 .rgx-submenu li a {
+  font-size: 12px;
+  padding: 5px;
+  display: block;
+  transition: background 0.3s ease;
+  margin-left: 10px !important;
+}
+
+.rgx-submenu li a:hover {
+  background-color: #555;
 }

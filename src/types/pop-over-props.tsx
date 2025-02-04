@@ -24,8 +24,8 @@ export interface RGXPopoverProps {
   onClose: () => void;
 
   /**
-   * Reference to the element that triggers the popover.
-   * Used for positioning the popover correctly.
+   * An optional style object to customize the CSS styling for popover.
+   * This allows users to apply custom styles for popover.
    */
-  // anchorRef: React.RefObject<HTMLElement>;
+  style?: Record<string, React.CSSProperties>;
 }

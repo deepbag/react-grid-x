@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
 /* Loader Container Styling */
-.rgx-loader-container {
+.rgx-theme .rgx-loader-container {
   position: absolute; /* Positioning the loader container absolutely */
   top: 50%; /* Vertically center */
   left: 50%; /* Horizontally center */
@@ -16,7 +14,7 @@
 }
 
 /* Styling for the Spinner */
-.rgx-spinner {
+.rgx-theme .rgx-spinner {
   border: 4px solid #ddd; /* Light gray border around the spinner */
   border-top: 4px solid #3498db; /* Blue top border for spinner, creating the spinner effect */
   border-radius: 50%; /* Make the spinner circular */
@@ -26,11 +24,10 @@
 }
 
 /* Loader Message Styling */
-.rgx-loader-message {
+.rgx-theme .rgx-loader-message {
   font-size: 14px; /* Set the font size for the loader message */
   color: #333; /* Dark gray text color for the message */
   margin-left: 10px; /* Space between the spinner and the loader message */
-  font-family: "DM Sans", sans-serif; /* Use DM Sans font for the message */
 }
 
 /* Spinner Animation Keyframes */

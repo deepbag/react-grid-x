@@ -1,24 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
 import { RGXPopoverProps } from "types/pop-over-props";
-import "../../themes/rgx-popover.css";
+import "../../themes/rgx-theme/rgx-popover.css";
 
-/**
- * Reusable Popover Component
- *
- * This component provides a floating UI element that appears relative to its trigger.
- * It supports automatic closing when clicking outside.
- */
 const RGXPopover: React.FC<RGXPopoverProps> = ({
   children,
   isOpen,
-  onClose
+  onClose,
+  style = {},
 }) => {
   const popoverRef = useRef<HTMLDivElement | null>(null);
-  // const [position, setPosition] = useState<{ top: number; left: number }>({
-  //   top: 0,
-  //   left: 0,
-  // });
-
   /**
    * Detects clicks outside the popover and triggers the `onClose` function.
    * This ensures the popover closes when the user clicks anywhere outside of it.
@@ -44,15 +34,19 @@ const RGXPopover: React.FC<RGXPopoverProps> = ({
 
   return (
     <div
-      className="popover-content show"
+      className="rgx-popover-content rgx-show"
       ref={popoverRef}
-      // style={{
-      //   top: `${position.top}px`,
-      //   left: `${position.left}px`,
-      //   transform: "translateX(-50%)",
-      // }}
+      style={{
+        ...style["rgx-popover-content"],
+        ...style["rgx-show"],
+      }}
     >
-      <div className="popover-arrow"></div>
+      <div
+        className="rgx-popover-arrow"
+        style={{
+          ...style["rgx-popover-arrow"],
+        }}
+      ></div>
       {children} {/* Dynamic content inside the popover */}
     </div>
   );

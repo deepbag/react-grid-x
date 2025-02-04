@@ -12,3 +12,10 @@ theme builder
 <!-- row checkbox selection (single/all) (important) -->
 
 <!-- column width (important) -->
+
+
+
+changed 
+1. theme files font removed 
+2. css changed/added
+3. css file route changed theme/rgx-theme

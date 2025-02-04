@@ -22,4 +22,10 @@ export interface RGXPopoverProps {
    * This should be triggered when clicking outside the popover.
    */
   onClose: () => void;
+
+  /**
+   * An optional style object to customize the CSS styling for popover.
+   * This allows users to apply custom styles for popover.
+   */
+  style?: Record<string, React.CSSProperties>;
 }
