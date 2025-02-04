@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-grid-x/static/css/main.fff12c40.css",
-    "main.js": "/react-grid-x/static/js/main.e8587f7b.js",
+    "main.js": "/react-grid-x/static/js/main.be35d117.js",
     "index.html": "/react-grid-x/index.html",
     "main.fff12c40.css.map": "/react-grid-x/static/css/main.fff12c40.css.map",
-    "main.e8587f7b.js.map": "/react-grid-x/static/js/main.e8587f7b.js.map"
+    "main.be35d117.js.map": "/react-grid-x/static/js/main.be35d117.js.map"
   },
   "entrypoints": [
     "static/css/main.fff12c40.css",
-    "static/js/main.e8587f7b.js"
+    "static/js/main.be35d117.js"
   ]
 }
