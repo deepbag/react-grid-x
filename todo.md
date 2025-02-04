@@ -19,3 +19,4 @@ changed
 1. theme files font removed 
 2. css changed/added
 3. css file route changed theme/rgx-theme
+4. style prop added
