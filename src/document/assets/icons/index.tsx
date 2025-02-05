@@ -15,6 +15,8 @@ import {
   faChevronDown,
   faCircleArrowUp,
   faCircleArrowDown,
+  faCircleRight,
+  faCircleLeft
 } from "@fortawesome/free-solid-svg-icons";
 
 export const solidIcons = {
@@ -28,6 +30,8 @@ export const solidIcons = {
   faChevronDown,
   faCircleArrowUp,
   faCircleArrowDown,
+  faCircleRight,
+  faCircleLeft,
 };
 
 export const brandIcons = {

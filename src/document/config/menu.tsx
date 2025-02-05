@@ -16,10 +16,14 @@ export const menu: MenuItem[] = [
         label: LABELS.OVERVIEW,
         path: PATHS.OVERVIEW,
       },
-      // {
-      //   label: LABELS.INSTALLATION,
-      //   path: PATHS.INSTALLATION,
-      // },
+      {
+        label: LABELS.INSTALLATION,
+        path: PATHS.INSTALLATION,
+      },
+      {
+        label: LABELS.FAQ,
+        path: PATHS.FAQ,
+      },
       // {
       //   label: LABELS.SUPPORT,
       //   path: PATHS.SUPPORT,

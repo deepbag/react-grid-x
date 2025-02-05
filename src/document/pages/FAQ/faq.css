@@ -1,0 +1,44 @@
+.rgx-faq-container {
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.rgx-faq-header {
+  color: #f6f8fa;
+  border-radius: 5px;
+}
+
+.rgx-faq-title {
+  font-size: 2rem;
+  color: #f6f8fa;
+  margin: 0;
+}
+
+.rgx-faq-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c5c7d0;
+}
+
+.rgx-faq-description strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.rgx-faq-section-title {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #f6f8fa;
+}
+
+.rgx-faq-usage-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #c5c7d0;
+}
+.rgx-faq-list {
+  margin-bottom: 25px;
+}

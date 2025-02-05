@@ -109,7 +109,7 @@ interface ReactGridXProps {
      * This allows users to customize the table's overall appearance by passing a class name
      * which can be used in external stylesheets.
      *
-     * @example "custom-table-style"
+     * @example "rgx-theme"
      */
     theme?: string;
     /**
@@ -315,27 +315,16 @@ interface RGXTablePaginationProps {
      * @default false
      */
     loading: boolean;
+    /**
+   * Optional CSS class to apply custom styles to the pagination.
+   * This allows users to customize the pagination's overall appearance by passing a class name
+   * which can be used in external stylesheets.
+   *
+   * @example "rgx-theme"
+   */
+    theme?: string;
 }
 
-/**
- * RGXTablePagination Component:
- * A reusable pagination component for displaying paginated data in a table.
- * The component shows a dropdown for selecting the number of rows per page,
- * page navigation buttons, and pagination information.
- * It also dynamically generates page numbers with ellipsis when necessary.
- *
- * @param {number} currentPage - The current page being displayed.
- * @param {number} totalPages - The total number of pages available.
- * @param {number} rowsPerPage - The number of rows per page.
- * @param {number} totalRows - The total number of rows across all pages.
- * @param {Function} onPageChange - A callback function to handle page changes.
- * @param {Function} onRowsPerPageChange - A callback function to handle changes in the number of rows per page.
- * @param {number[]} rowsPerPageOptions - The available options for rows per page (default is [5, 10, 15]).
- * @param {object} style - Custom style overrides for specific elements.
- * @param {boolean} loading - A flag to disable pagination controls when loading data.
- *
- * @returns {JSX.Element} - Returns the pagination UI with navigation and control options.
- */
 declare const RGXTablePagination: React$1.FC<RGXTablePaginationProps>;
 
 /**
@@ -395,25 +384,16 @@ interface RGXArrowPaginationProps {
      * When `true`, pagination buttons and controls should not be interactive.
      */
     loading: boolean;
+    /**
+     * Optional CSS class to apply custom styles to the table.
+     * This allows users to customize the table's overall appearance by passing a class name
+     * which can be used in external stylesheets.
+     *
+     * @example "rgx-theme"
+     */
+    theme?: string;
 }
 
-/**
- * RGXArrowPagination Component:
- * A customizable pagination component that allows users to navigate between pages using arrow icons.
- * The component displays navigation controls (previous, next, first, last), page information, and a dropdown for rows per page.
- *
- * @param {number} currentPage - The current page number being displayed.
- * @param {number} totalPages - The total number of pages available.
- * @param {number} rowsPerPage - The number of rows per page currently selected.
- * @param {number} totalRows - The total number of rows available across all pages.
- * @param {Function} onPageChange - A callback function to handle page changes.
- * @param {Function} onRowsPerPageChange - A callback function to handle changes in the number of rows per page.
- * @param {number[]} rowsPerPageOptions - An array of options for the number of rows per page (default is [5, 10, 15]).
- * @param {object} style - Custom styles to override default styles for specific components.
- * @param {boolean} loading - A boolean to indicate if data is loading (disables controls when true).
- *
- * @returns {JSX.Element} - Returns the pagination component with all navigation controls and information.
- */
 declare const RGXArrowPagination: React$1.FC<RGXArrowPaginationProps>;
 
 /**
@@ -441,20 +421,14 @@ interface RGXTooltipProps {
      * @example <button>Hover me</button>
      */
     children: React$1.ReactNode;
+    /**
+     * An optional style object to customize the CSS styling for tooltip.
+     * This allows users to apply custom styles for tooltip.
+     */
+    style?: Record<string, React$1.CSSProperties>;
 }
 
-/**
- * Tooltip Component:
- * A reusable component for displaying tooltips when hovering over an element.
- * It shows a text message when the user hovers over the children element.
- *
- * @param {string} content - The text message to display in the tooltip.
- * @param {React.ReactNode} children - The element to which the tooltip is attached.
- *                                     The tooltip will appear when hovering over this element.
- *
- * @returns {JSX.Element} - Returns the tooltip component wrapped around the children with a visible tooltip text.
- */
-declare const Tooltip: React$1.FC<RGXTooltipProps>;
+declare const RGXTooltip: React$1.FC<RGXTooltipProps>;
 
 /**
  * Props interface for the Loader component.
@@ -469,18 +443,14 @@ interface RGXLoaderProps {
      * @example "Fetching data..."
      */
     message?: string;
+    /**
+     * An optional style object to customize the CSS styling for loader.
+     * This allows users to apply custom styles for loader.
+     */
+    style?: Record<string, React.CSSProperties>;
 }
 
-/**
- * Loader Component:
- * A simple, reusable loading spinner with an optional message.
- * Displays a spinner animation while content is loading.
- *
- * @param {string} message - The message to display alongside the spinner. Defaults to "Loading, please wait...".
- *
- * @returns {JSX.Element} - Returns the loader component with a spinner and an optional message.
- */
-declare const Loader: React$1.FC<RGXLoaderProps>;
+declare const RGXLoader: React$1.FC<RGXLoaderProps>;
 
 /**
  * Props for the Popover component
@@ -502,6 +472,11 @@ interface RGXPopoverProps {
      * This should be triggered when clicking outside the popover.
      */
     onClose: () => void;
+    /**
+     * An optional style object to customize the CSS styling for popover.
+     * This allows users to apply custom styles for popover.
+     */
+    style?: Record<string, React.CSSProperties>;
 }
 
-export { RGXArrowPagination, type RGXArrowPaginationProps, Loader as RGXLoader, type RGXLoaderProps, type RGXPopoverProps, RGXTablePagination, type RGXTablePaginationProps, Tooltip as RGXTooltip, type RGXTooltipProps, ReactGridX, type ReactGridXColumnProps, type ReactGridXProps };
+export { RGXArrowPagination, type RGXArrowPaginationProps, RGXLoader, type RGXLoaderProps, type RGXPopoverProps, RGXTablePagination, type RGXTablePaginationProps, RGXTooltip, type RGXTooltipProps, ReactGridX, type ReactGridXColumnProps, type ReactGridXProps };

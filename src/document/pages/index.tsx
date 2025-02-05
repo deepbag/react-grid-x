@@ -3,3 +3,4 @@ export { default as Installation } from "./Installation";
 export { default as Support } from "./Support";
 export { default as ChangeLog } from "./ChangeLog";
 export { default as Development } from "./Development";
+export { default as FAQ } from "./FAQ";

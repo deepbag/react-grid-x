@@ -1,0 +1,113 @@
+.rgx-code-box-install-commands {
+  background-color: #1a1f24;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid #474a4c;
+}
+
+.rgx-code-box-tabs {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.rgx-code-box-tab {
+  background-color: #333;
+  color: #eee;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  margin-right: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 500;
+}
+
+.rgx-code-box-tab:hover {
+  background-color: #444;
+  color: white;
+}
+
+.rgx-code-box-tab.active {
+  background-color: #555;
+  color: white;
+}
+
+.rgx-code-box-command {
+  display: flex;
+  margin-bottom: 8px;
+  background-color: #282828;
+  padding: 15px 20px;
+  border-radius: 4px;
+  position: relative;
+  border: 1px solid #474a4c;
+  font-size: 15px;
+}
+.rgx-code-box-command span code {
+  width: 100%;
+}
+.rgx-code-box-command span::-webkit-scrollbar {
+  display: none !important;
+}
+.rgx-code-box-command span code .react-syntax-highlighter-line-number {
+  font-style: normal !important;
+  text-align: left !important;
+  padding-right: 0 !important;
+  min-width: 2em !important;
+}
+
+.rgx-code-box-copy-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  height: 30px;
+}
+
+.rgx-code-box-copy-button:hover {
+  background-color: #0056b3;
+}
+
+.rgx-code-box-copy-button span {
+  transition: opacity 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.rgx-code-box-copy-button span:not(.copied) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.rgx-code-box-copy-button span.copied {
+  opacity: 0;
+  transform: translateX(20px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 123, 255, 0.8);
+  border-radius: 4px;
+}
+
+.rgx-code-box-copy-button span.copied::before {
+  content: "Copied!";
+  opacity: 1;
+  transform: translateX(-20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.rgx-code-box-copy-button:hover span:not(.copied)::before,
+.rgx-code-box-copy-button span.copied::before {
+  opacity: 1;
+  transform: translateX(0);
+}

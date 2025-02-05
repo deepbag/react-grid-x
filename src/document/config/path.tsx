@@ -5,6 +5,7 @@ export const LABELS = {
   SUPPORT: "Support",
   CHANGE_LOG: "Change Log",
   DEVELOPMENT: "Development",
+  FAQ: "FAQ",
 };
 
 export const PATHS = {
@@ -13,6 +14,7 @@ export const PATHS = {
   SUPPORT: `/support`,
   CHANGE_LOG: `/change-log`,
   DEVELOPMENT: `/development`,
+  FAQ: `/faq`,
 };
 
 export const KEY_LABELS = {

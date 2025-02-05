@@ -1,0 +1,40 @@
+.rgx-bottom-navigator-container {
+  background-color: #1a1f24;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #474a4c;
+}
+
+.rgx-bottom-navigator-prev {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rgx-bottom-navigator-prev-label {
+  color: #fff;
+  margin: 0;
+}
+
+.rgx-bottom-navigator-prev-icon {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.rgx-bottom-navigator-next {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rgx-bottom-navigator-next-label {
+  color: #fff;
+  margin: 0;
+}
+
+.rgx-bottom-navigator-next-icon {
+  color: #fff;
+  margin-left: 10px;
+}

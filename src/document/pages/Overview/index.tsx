@@ -1,12 +1,14 @@
 import React from "react";
 import "./over-view.css";
+import { BottomNavigator, CodeBox } from "document/components";
+import { LABELS, PATHS } from "document/config/path";
 
 const Overview: React.FC = () => {
   return (
-    <div className="rgx-ov-overview">
-      <div className="rgx-ov-header">
-        <h1 className="rgx-ov-title">Overview</h1>
-        <p className="rgx-ov-description">
+    <div className="rgx-over-view-overview">
+      <div className="rgx-over-view-header">
+        <h1 className="rgx-over-view-title">Overview</h1>
+        <p className="rgx-over-view-description">
           Welcome to the documentation site for{" "}
           <strong>
             <a
@@ -24,60 +26,66 @@ const Overview: React.FC = () => {
         </p>
       </div>
 
-      <section className="rgx-ov-features">
-        <h2 className="rgx-ov-section-title">Key Features</h2>
-        <ul className="rgx-ov-feature-list">
-          <li className="rgx-ov-feature-item">
-            <strong>Customizable Columns:</strong> Define columns dynamically
-            with custom rendering.
+      <section className="rgx-over-view-features">
+        <h2 className="rgx-over-view-section-title">Key Features</h2>
+        <ul className="rgx-over-view-feature-list">
+          <li className="rgx-over-view-feature-item">
+            <strong>Customizable Columns:</strong> Define columns with dynamic
+            rendering of data using custom render functions.
           </li>
-          <li className="rgx-ov-feature-item">
-            <strong>Pagination Support:</strong> Client-side and server-side
-            pagination to handle large data sets.
+          <li className="rgx-over-view-feature-item">
+            <strong>Sorting Support:</strong> Supports sorting by multiple
+            columns, including both numerical and alphabetical sorting and
+            "Clear Sorting" popup is available when sorting is enabled.
           </li>
-          <li className="rgx-ov-feature-item">
-            <strong>Sorting:</strong> Supports both client-side and server-side
-            sorting for data.
+          <li className="rgx-over-view-feature-item">
+            <strong>Server-side Sorting:</strong> Optionally support server-side
+            sorting for large datasets.
           </li>
-          <li className="rgx-ov-feature-item">
-            <strong>Flexible Layout:</strong> Responsive design for various
-            screen sizes.
+          <li className="rgx-over-view-feature-item">
+            <strong>Pagination support:</strong> Choose from different
+            pagination types (rgx-table-pagination or rgx-arrow-pagination) with
+            configurable rows per page and pagination controls.
           </li>
-          <li className="rgx-ov-feature-item">
-            <strong>Easy Integration:</strong> Works seamlessly with React and
-            TypeScript projects.
+          <li className="rgx-over-view-feature-item">
+            <strong>Customizable styling:</strong> Apply custom themes and
+            styles to the table and pagination components.
+          </li>
+          <li className="rgx-over-view-feature-item">
+            <strong>Server-side pagination:</strong> Optionally support
+            server-side pagination for large datasets.
+          </li>
+          <li className="rgx-over-view-feature-item">
+            <strong>Tooltip support:</strong> Enable tooltips for column headers
+            with customizable content for better user guidance.
+          </li>
+          <li className="rgx-over-view-feature-item">
+            <strong>Row click event:</strong> Capture row clicks using the
+            onRowClick callback to handle user interactions.
+          </li>
+          <li className="rgx-over-view-feature-item">
+            <strong>Expandable rows:</strong> Expand rows with a customizable
+            expandedComponent to show additional details or content within the
+            same row.
+          </li>
+          <li className="rgx-over-view-feature-item">
+            <strong>Loader support:</strong> Customize the loader displayed when
+            the table is in a loading state using the loaderComponent prop. If
+            not provided, the default loader will be used.
+          </li>
+          <li className="rgx-over-view-feature-item">
+            <strong>Row selection:</strong> Supports row selection with
+            checkboxes, allowing both single and select-all functionality.
           </li>
         </ul>
       </section>
 
-      <section className="rgx-ov-usage">
-        <h2 className="rgx-ov-section-title">Usage</h2>
-        <p className="rgx-ov-usage-text">
-          To get started, you need to install the package using npm and yarn:
-        </p>
-        <pre className="rgx-ov-usage-code">
-          npm install @deepbag/react-grid-x
-        </pre>
-        <pre className="rgx-ov-usage-code">
-          yarn add @deepbag/react-grid-x
-        </pre>
-        <p className="rgx-ov-usage-text">
-          After installation, import the component and use it in your project:
-        </p>
-        <pre className="rgx-ov-usage-code">
-          import {"{ ReactGridX }"} from '@deepbag/react-grid-x';
-        </pre>
-      </section>
-{/* 
-      <section className="rgx-ov-installation">
-        <h2 className="rgx-ov-section-title">Installation</h2>
-        <p className="rgx-ov-installation-text">
-          Install the package via npm to begin using the component:
-        </p>
-        <pre className="rgx-ov-installation-code">
-          npm install @deepbag/react-grid-x
-        </pre>
-      </section> */}
+      <BottomNavigator
+        next={{
+          label: LABELS.INSTALLATION,
+          url: PATHS.INSTALLATION,
+        }}
+      />
     </div>
   );
 };

@@ -5,13 +5,13 @@ import changeLog from "./changelog.json";
 type ChangelogEntry = {
   version: string;
   date: string;
-  changes: {
+  changes?: {
     minor?: string[];
-    major: string[];
+    major?: string[];
   };
-  added: {
+  added?: {
     minor?: string[];
-    major: string[];
+    major?: string[];
   };
 };
 
