@@ -13,7 +13,6 @@
 - **Expandable rows**: Expand rows with a customizable `expandedComponent` to show additional details or content within the same row.
 - **Loader support**: Customize the loader displayed when the table is in a loading state using the `loaderComponent` prop. If not provided, the default loader will be used.
 - **Row selection**: Supports row selection with checkboxes, allowing both single and select-all functionality.
-- **Under development**: More features coming soon!
 
 ## Installation
 

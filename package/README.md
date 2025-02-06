@@ -1,11 +1,3 @@
-# 🚧 **Under Development** 🚧
-
-> This library is currently under development. We are actively working on adding new features and improving the overall functionality. Stay tuned for future updates! You can report bugs or request features by creating an issue in the [GitHub repository](https://github.com/deepbag/react-grid-x/issues).
-
----
-
-# @deepbag/react-grid-x
-
 `@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
 
 ## Features
@@ -21,7 +13,6 @@
 - **Expandable rows**: Expand rows with a customizable `expandedComponent` to show additional details or content within the same row.
 - **Loader support**: Customize the loader displayed when the table is in a loading state using the `loaderComponent` prop. If not provided, the default loader will be used.
 - **Row selection**: Supports row selection with checkboxes, allowing both single and select-all functionality.
-- **Under development**: More features coming soon!
 
 ## Installation
 

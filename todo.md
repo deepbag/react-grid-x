@@ -7,31 +7,19 @@ Save column order, sorting, and filters in local storage or backend.
 
 <!-- clear sorting popup (important) -->
 
-change theme code
-theme builder
+<!-- change theme code -->
+
 <!-- row checkbox selection (single/all) (important) -->
 
 <!-- column width (important) -->
 
-
-
-changed 
-1. theme files font removed 
-2. css changed/added
-3. css file route changed theme/rgx-theme
-4. style prop added
-
-
-write same for Tooltip
-ReactGridX supports tooltip functionality. You can enable tooltip on a column by setting the tooltip property to true and for custom content tooltipCustomContent proprty to (rowData: any) => string.
-
-const columns = [
-  { name: "Name", key: "name", tooltip: true },
-  {
-    name: "Age",
-    key: "age",
-    tooltip: true,
-    tooltipCustomContent: (rowData: any) => "write custom content",
-  },
-  { name: "Country", key: "country" },
-];
+need to test every feature
+add react min version in document
+test application in lower version react
+test in js project
+add support of min 16 react or 18
+add theme in document how to change theme
+theme builder
+demo
+add icon of applcication tab icon chrome
+verify every page document
