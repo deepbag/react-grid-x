@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-grid-x/static/css/main.2a9ef2bc.css",
-    "main.js": "/react-grid-x/static/js/main.c328bbba.js",
+    "main.js": "/react-grid-x/static/js/main.ba953614.js",
     "react-syntax-highlighter/refractor-core-import.js": "/react-grid-x/static/js/react-syntax-highlighter/refractor-core-import.4ae1398b.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abap.0c6ac97d.chunk.js",
     "react-syntax-highlighter_languages_refractor_abnf.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abnf.8c514c76.chunk.js",
@@ -282,7 +282,7 @@
     "react-syntax-highlighter_languages_refractor_zig.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_zig.504b2497.chunk.js",
     "index.html": "/react-grid-x/index.html",
     "main.2a9ef2bc.css.map": "/react-grid-x/static/css/main.2a9ef2bc.css.map",
-    "main.c328bbba.js.map": "/react-grid-x/static/js/main.c328bbba.js.map",
+    "main.ba953614.js.map": "/react-grid-x/static/js/main.ba953614.js.map",
     "refractor-core-import.4ae1398b.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter/refractor-core-import.4ae1398b.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.0c6ac97d.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abap.0c6ac97d.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abnf.8c514c76.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abnf.8c514c76.chunk.js.map",
@@ -564,6 +564,6 @@
   },
   "entrypoints": [
     "static/css/main.2a9ef2bc.css",
-    "static/js/main.c328bbba.js"
+    "static/js/main.ba953614.js"
   ]
 }
