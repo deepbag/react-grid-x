@@ -14,7 +14,7 @@
 }
 
 /* Show popover when the "show" class is applied. */
-.rgx-theme .rgx-popover-content.rgx-show {
+.rgx-theme .rgx-popover-content.rgx-popover-show {
   display: block;
 }
 

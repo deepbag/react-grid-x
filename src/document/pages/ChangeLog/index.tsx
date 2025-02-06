@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./change-log.css";
-import changeLog from "./changelog.json";
+import { ChangeLogMock } from "document/@mock";
 
 type ChangelogEntry = {
   version: string;
@@ -35,7 +35,7 @@ const ChangeLog: React.FC = () => {
   const [changelogData, setChangelogData] = useState<ChangelogEntry[]>([]);
 
   useEffect(() => {
-    setChangelogData(changeLog);
+    setChangelogData(ChangeLogMock);
   }, []);
 
   return (
