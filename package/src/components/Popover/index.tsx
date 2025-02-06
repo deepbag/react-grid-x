@@ -33,11 +33,11 @@ const RGXPopover: React.FC<RGXPopoverProps> = ({
 
   return (
     <div
-      className="rgx-popover-content rgx-show"
+      className="rgx-popover-content rgx-popover-show"
       ref={popoverRef}
       style={{
         ...style["rgx-popover-content"],
-        ...style["rgx-show"],
+        ...style["rgx-popover-show"],
       }}
     >
       <div

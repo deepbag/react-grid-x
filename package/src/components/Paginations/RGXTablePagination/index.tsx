@@ -13,7 +13,6 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   rowsPerPageOptions = [5, 10, 15],
   style = {},
   loading = false,
-  theme = "rgx-theme",
 }) => {
   /**
    * Generates an array of page numbers for pagination with ellipses if necessary.
@@ -63,7 +62,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
 
   return (
     <div
-      className={`${theme} rgx-table-pagination`}
+      className="rgx-table-pagination"
       style={{
         ...style["rgx-table-pagination"],
       }}

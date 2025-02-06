@@ -13,9 +13,9 @@ const RGXLoader: React.FC<RGXLoaderProps> = ({
   >
     {/* Spinner element that represents the loading animation */}
     <div
-      className="rgx-spinner"
+      className="rgx-loader-spinner"
       style={{
-        ...style["rgx-spinner"],
+        ...style["rgx-loader-spinner"],
       }}
     ></div>
 

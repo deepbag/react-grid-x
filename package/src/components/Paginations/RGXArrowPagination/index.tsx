@@ -13,11 +13,10 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
   rowsPerPageOptions = [5, 10, 15],
   style = {},
   loading = false,
-  theme = "rgx-theme",
 }) => {
   return (
     <div
-      className={`${theme} rgx-arrow-pagination`}
+      className="rgx-arrow-pagination"
       style={{
         ...style["rgx-arrow-pagination"],
       }}
