@@ -181,29 +181,13 @@ The package exports the following components and props interfaces:
 - `RGXLoaderProps`: Props for the `RGXLoader` component.
 - `RGXPopoverProps`: Props for the `RGXPopover` component.
 
-## Changelog
-
-You can view the full changelog of updates and changes in the [Changelog](https://deepbag.github.io/react-grid-x/#/change-log).
-
 ## Contributers
 
-We welcome contributions from the community! If you find a bug, have a feature request, or would like to contribute code, please open an issue or pull request on our GitHub repository. [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deepbag/react-grid-x)
+We welcome contributions from the community! If you find a bug, have a feature request, or would like to contribute code, please open an issue or pull request on our GitHub repository.
 
 <a href="https://github.com/deepbag/react-grid-x/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=deepbag/react-grid-x" />
 </a>
-
-## Connect With Me
-
-If you have any feature requests, bug reports, or would like to discuss any improvements, feel free to get in touch with me through the following options:
-
-### GitHub Issues
-
-You can report bugs or request features by creating an issue in the [GitHub repository](https://github.com/deepbag/react-grid-x/issues).
-
-### Social Media
-
-Follow me on [LinkedIn](https://www.linkedin.com/in/deepbag) for updates or to connect.
 
 ## License
 
