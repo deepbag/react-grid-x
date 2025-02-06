@@ -22,7 +22,7 @@ const styleBackticks = (text: string) => {
     if (index % 2 === 1) {
       // Style text inside backticks
       return (
-        <span key={index} className="rgx-backtick-text">
+        <span key={index} className="rgx-change-log-backtick-text">
           {part}
         </span>
       );

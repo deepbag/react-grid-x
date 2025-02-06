@@ -23,7 +23,7 @@
 .rgx-installation-description strong a {
   font-size: 16px;
   line-height: 1.5;
-  color: #ffffff;
+  color: #037bff;
   text-decoration: underline;
 }
 
@@ -35,7 +35,13 @@
 }
 
 .rgx-installation-usage-text {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #c5c7d0;
-  }
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #c5c7d0;
+}
+.rgx-installation-usage-text strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}

@@ -4,3 +4,7 @@ export { default as Support } from "./Support";
 export { default as ChangeLog } from "./ChangeLog";
 export { default as Development } from "./Development";
 export { default as FAQ } from "./FAQ";
+export { default as Column } from "./Column";
+export { default as Row } from "./Row";
+export { default as Sorting } from "./Sorting";
+export { default as Pagination } from "./Pagination";

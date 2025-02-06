@@ -81,10 +81,10 @@ const Overview: React.FC = () => {
       </section>
 
       <BottomNavigator
-        next={{
-          label: LABELS.INSTALLATION,
-          url: PATHS.INSTALLATION,
-        }}
+        // next={{
+        //   label: LABELS.INSTALLATION,
+        //   url: PATHS.INSTALLATION,
+        // }}
       />
     </div>
   );

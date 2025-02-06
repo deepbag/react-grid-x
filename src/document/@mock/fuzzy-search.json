@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Introduction and Overview",
+    "description": "Welcome to the documentation site for @deepbag/react-grid-x. This library offers a powerful and customizable table component built with React and TypeScript. Whether you're building a complex data grid or a simple table, this library will help you organize and present your data with ease."
+  },
+  {
+    "title": "Installation",
+    "description": "To use @deepbag/react-grid-x in your React project, follow these simple steps to install and set up the library. npm install @deepbag/react-grid-x --force"
+  },
+  {
+    "title": "Usage",
+    "description": "To use @deepbag/react-grid-x in your React project, follow these simple steps to install and set up the library. npm install @deepbag/react-grid-x --force"
+  },
+  {
+    "title": "Support",
+    "description": "We’re here to help! If you have any questions, issues, or suggestions regarding @deepbag/react-grid-x. feel free to reach out through the following channels:"
+  }
+]

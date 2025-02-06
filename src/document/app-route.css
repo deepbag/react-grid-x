@@ -1,36 +1,18 @@
-.rgx-app {
+.rgx-app-route {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-header {
-  /* Ensure header stays fixed at the top */
-  position: fixed;
-  width: 98%;
-  z-index: 10; /* Ensure it's above other elements */
-}
-
-.rgx-main-content {
+.rgx-app-route-main-content {
   display: flex;
   flex: 1;
-  margin-top: 60px; /* Adjust according to the height of your header */
+  margin-top: 60px;
 }
 
-.sidebar {
-  position: fixed;
-  top: 60px; /* Adjust according to the height of your header */
-  left: 0;
-  width: 250px; /* Sidebar width */
-  bottom: 0;
-  background-color: #f0f0f0; /* Sidebar background color */
-  z-index: 9; /* Ensure it stays below the header */
-  overflow-y: auto; /* Make sidebar content scrollable if necessary */
-}
-
-.rgx-page-content {
-  margin-left: 250px; /* Adjust to the width of the sidebar */
+.rgx-app-route-page-content {
+  margin-left: 220px;
   flex: 1;
-  padding: 10px;
-  overflow-y: auto; /* Enable scrolling for page content */
+  padding: 0 10px 15px 10px;
+  overflow-y: auto;
 }

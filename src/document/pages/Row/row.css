@@ -1,0 +1,66 @@
+.rgx-row-overview {
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.rgx-row-header {
+  color: #f6f8fa;
+  border-radius: 5px;
+}
+
+.rgx-row-title {
+  font-size: 2rem;
+  color: #f6f8fa;
+  margin: 0;
+}
+
+.rgx-row-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c5c7d0;
+}
+
+.rgx-row-description strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}
+
+.rgx-row-section-title {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #f6f8fa;
+}
+
+.rgx-row-section-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #c5c7d0;
+}
+.rgx-row-section-text strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}
+
+.rgx-row-section-item {
+  font-size: 1rem;
+  line-height: 25px;
+  margin-bottom: 7px;
+  color: #c5c7d0;
+}
+
+.rgx-row-section-item strong {
+  color: #c5c7d0;
+  text-decoration: underline;
+}
+
+/* .rgx-row-overview   code {
+  background-color: #2c2c2c;
+  color: #f4f4f4;
+  padding: 2px 4px;
+  font-size: 0.95rem;
+} */

@@ -1,4 +1,3 @@
-/* Header styles */
 .rgx-header {
   background-color: #0e1215;
   padding: 10px 15px;
@@ -7,9 +6,11 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ffffff34;
+  position: fixed;
+  width: 98%;
+  z-index: 10;
 }
 
-/* Logo Section */
 .rgx-header-logo a {
   font-size: 17px;
   font-weight: bold;
@@ -21,38 +22,39 @@
   font-size: 11px;
 }
 
-.rgx-icons {
+.rgx-header-icons {
   display: flex;
 }
 .rgx-header-npm {
   margin-right: 15px;
 }
 
-/* Navigation Section */
-.rgx-header-nav ul {
+.rgx-header-menu {
   display: flex;
-  list-style: none;
+  align-items: center;
+}
+.rgx-header-menu-items-ul {
   padding: 0;
   margin: 0;
+  margin-right: 20px;
+  display: flex;
 }
-
-.rgx-header-nav li {
-  margin-left: 20px;
+.rgx-header-menu-items-li {
+  display: flex;
+  margin-left: 15px;
 }
-
-.rgx-header-nav a {
-  text-decoration: none;
+.rgx-header-menu-items-li a {
   color: white;
-  font-size: 16px;
-  transition: color 0.3s;
+  text-decoration: none;
+  font-size: 15px;
+  display: flex;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* Hover effect for navigation links */
-.rgx-header-nav a:hover {
-  color: #f0a500;
-}
-
-/* Responsive styling */
 @media (max-width: 768px) {
   .rgx-header {
     flex-direction: column;

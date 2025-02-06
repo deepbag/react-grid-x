@@ -14,7 +14,7 @@
 }
 
 /* Styling for the Spinner */
-.rgx-theme .rgx-spinner {
+.rgx-theme .rgx-loader-spinner {
   border: 4px solid #ddd; /* Light gray border around the spinner */
   border-top: 4px solid #3498db; /* Blue top border for spinner, creating the spinner effect */
   border-radius: 50%; /* Make the spinner circular */

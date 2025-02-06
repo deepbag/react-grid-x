@@ -26,23 +26,24 @@ const Installation = () => {
       <section className="rgx-installation-usage">
         <h2 className="rgx-installation-section-title">Install the Package</h2>
         <p className="rgx-installation-usage-text">
-          To get started, you need to install the package using npm and yarn and pnpm:
+          To get started, you need to install the package using npm and yarn and
+          pnpm:
         </p>
         <CodeBox
           commands={{
             npm: {
               code: "npm install @deepbag/react-grid-x --force",
-              language: "tsx",
+              language: "jsx",
               lineNumber: false,
             },
             yarn: {
               code: "yarn add @deepbag/react-grid-x",
-              language: "tsx",
+              language: "jsx",
               lineNumber: false,
             },
             pnpm: {
               code: "pnpm add @deepbag/react-grid-x",
-              language: "tsx",
+              language: "jsx",
               lineNumber: false,
             },
           }}
@@ -121,7 +122,7 @@ const App = () => {
 };
 
 export default App;`,
-              language: "tsx",
+              language: "jsx",
               lineNumber: true,
             },
           }}
@@ -131,20 +132,29 @@ export default App;`,
       <section className="rgx-installation-usage">
         <h2 className="rgx-installation-section-title">Next Steps</h2>
         <p className="rgx-installation-usage-text">
-          Now that you've installed @deepbag/react-grid-x, explore more features
-          like sorting, pagination, column customization, and styling in the
-          documentation.
+          Now that you've installed{" "}
+          <strong>
+            <a
+              href="https://www.npmjs.com/package/@deepbag/react-grid-x"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @deepbag/react-grid-x
+            </a>
+          </strong>
+          , explore more features like sorting, pagination, column
+          customization, and styling in the documentation.
         </p>
       </section>
       <BottomNavigator
-        prev={{
-          label: LABELS.OVERVIEW,
-          url: PATHS.OVERVIEW,
-        }}
-        next={{
-          label: LABELS.FAQ,
-          url: PATHS.FAQ,
-        }}
+      // prev={{
+      //   label: LABELS.OVERVIEW,
+      //   url: PATHS.OVERVIEW,
+      // }}
+      // next={{
+      //   label: LABELS.FAQ,
+      //   url: PATHS.FAQ,
+      // }}
       />
     </div>
   );

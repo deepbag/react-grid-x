@@ -295,7 +295,6 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
         style={paginationStyle} // Custom styling for pagination
         loading={loading} // Show a loading indicator while data is being fetched
-        theme={theme}
       />
     ),
     // "rgx-arrow-pagination": Custom pagination with arrow-based navigation
@@ -310,7 +309,6 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
         style={paginationStyle} // Custom styling for pagination
         loading={loading} // Show a loading indicator while data is being fetched
-        theme={theme}
       />
     ),
   };

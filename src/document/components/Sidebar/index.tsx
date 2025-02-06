@@ -50,7 +50,7 @@ const Sidebar: React.FC = () => {
 
   useEffect(() => {
     const label = findActiveMenuLabel(location.pathname);
-    if (label?.parentLabel) {
+    if (label?.parentLabel !== Object.keys(openMenus)[0]) {
       toggleMenu(label?.parentLabel);
     }
   }, []);
@@ -60,13 +60,13 @@ const Sidebar: React.FC = () => {
       <ul>
         {Object.entries(groupedMenus).map(([keyLabel, items]) => (
           <li key={keyLabel}>
-            <div className="rgx-keyLabel">{keyLabel}</div>{" "}
+            <div className="rgx-sidebar-keyLabel">{keyLabel}</div>{" "}
             {/* KeyLabel Header */}
-            <ul className="rgx-menu-items">
+            <ul className="rgx-sidebar-menu-items">
               {items.map((item) => (
                 <li
                   key={item.label}
-                  className={isActive(item.path) ? "active" : ""}
+                  className={isActive(item.path) ? "rgx-sidebar-active" : ""}
                 >
                   {item.path ? (
                     <Link to={item.path} onClick={() => toggleMenu()}>
@@ -75,7 +75,7 @@ const Sidebar: React.FC = () => {
                   ) : (
                     <button
                       onClick={() => toggleMenu(item.label)}
-                      className="rgx-menu-button"
+                      className="rgx-sidebar-menu-button"
                     >
                       {item.label}{" "}
                       {openMenus[item.label] ? (
@@ -92,11 +92,13 @@ const Sidebar: React.FC = () => {
                     </button>
                   )}
                   {item.children && openMenus[item.label] && (
-                    <ul className="rgx-submenu">
+                    <ul className="rgx-sidebar-submenu">
                       {item.children.map((child) => (
                         <li
                           key={child.label}
-                          className={isActive(child.path) ? "active" : ""}
+                          className={
+                            isActive(child.path) ? "rgx-sidebar-active" : ""
+                          }
                         >
                           <Link to={child.path as string}>{child.label}</Link>
                         </li>

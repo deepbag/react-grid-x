@@ -1,0 +1,79 @@
+.rgx-support-overview {
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.rgx-support-header {
+  color: #f6f8fa;
+  border-radius: 5px;
+}
+
+.rgx-support-title {
+  font-size: 2rem;
+  color: #f6f8fa;
+  margin: 0;
+}
+
+.rgx-support-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c5c7d0;
+}
+
+.rgx-support-description strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  color: #037bff;
+}
+
+.rgx-support-section-title {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #f6f8fa;
+}
+
+.rgx-support-usage-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #c5c7d0;
+}
+
+.rgx-support-features {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.rgx-support-feature-item {
+  font-size: 1rem;
+  line-height: 25px;
+  margin-bottom: 7px;
+  color: #c5c7d0;
+}
+
+.rgx-support-feature-item strong {
+  color: #c5c7d0;
+  text-decoration: underline;
+}
+.rgx-support-email-general-inquiries {
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  color: #037bff;
+}
+.rgx-support-linkedin-general-inquiries {
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  color: #037bff;
+}
+.rgx-support-bottom-navigator {
+  margin-top: 20px;
+}
+.rgx-support-github-issues {
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  color: #037bff;
+}

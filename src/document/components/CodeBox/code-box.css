@@ -30,7 +30,7 @@
   color: white;
 }
 
-.rgx-code-box-tab.active {
+.rgx-code-box-tab.rgx-code-box-active {
   background-color: #555;
   color: white;
 }

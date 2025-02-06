@@ -1,0 +1,60 @@
+.rgx-sorting-overview {
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.rgx-sorting-header {
+  color: #f6f8fa;
+  border-radius: 5px;
+}
+
+.rgx-sorting-title {
+  font-size: 2rem;
+  color: #f6f8fa;
+  margin: 0;
+}
+
+.rgx-sorting-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c5c7d0;
+}
+
+.rgx-sorting-description strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}
+
+
+.rgx-sorting-section-title {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #f6f8fa;
+}
+
+.rgx-sorting-section-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #c5c7d0;
+}
+.rgx-sorting-section-text strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}
+
+.rgx-sorting-section-item {
+  font-size: 1rem;
+  line-height: 25px;
+  margin-bottom: 7px;
+  color: #c5c7d0;
+}
+
+.rgx-sorting-section-item strong {
+  color: #c5c7d0;
+  text-decoration: underline;
+}

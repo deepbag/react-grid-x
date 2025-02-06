@@ -169,10 +169,10 @@ export default App;`,
         )}
       </div>
       <BottomNavigator
-        prev={{
-          label: LABELS.INSTALLATION,
-          url: PATHS.INSTALLATION,
-        }}
+        // prev={{
+        //   label: LABELS.INSTALLATION,
+        //   url: PATHS.INSTALLATION,
+        // }}
         // next={{
         //   label: LABELS.SUPPORT,
         //   url: PATHS.SUPPORT,
