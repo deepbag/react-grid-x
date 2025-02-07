@@ -1,7 +1,5 @@
 # @deepbag/react-grid-x
 
-> `@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
-
 ![npm](https://img.shields.io/npm/v/@deepbag/react-grid-x)
 ![npm downloads](https://img.shields.io/npm/dt/@deepbag/react-grid-x)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@deepbag/react-grid-x)
@@ -9,7 +7,8 @@
 ![GitHub license](https://img.shields.io/github/license/deepbag/react-grid-x)
 ![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=typescript)
-![Document](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=document)
+
+> `@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
 
 ## Features
 
