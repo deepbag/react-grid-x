@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.1.7",
+    "date": "2025-02-08",
+    "changes": {
+      "minor": [
+        "Refactored classname naming conventions for better consistency and readability across components.",
+        "Updated documentation to reflect the latest changes, including improved descriptions and usage examples."
+      ]
+    }
+  },
+  {
     "version": "0.1.6",
     "date": "2025-02-07",
     "changes": {

@@ -60,6 +60,11 @@ export const menu: MenuItem[] = [
     path: PATHS.LOADER,
     keyLabel: KEY_LABELS.FEATURES,
   },
+  // {
+  //   label: LABELS.TABLE_PROPS,
+  //   path: PATHS.TABLE_PROPS,
+  //   keyLabel: KEY_LABELS.PROPS,
+  // },
   {
     label: LABELS.CSS_GUIDE,
     path: PATHS.CSS_GUIDE,

@@ -25,6 +25,7 @@ export const LABELS = {
   CLASS_NAMES: "Class Names",
   CUSTOM_THEME: "Custom Theme",
   CSS_GUIDE: "CSS Guide",
+  TABLE_PROPS: "Table",
 };
 
 export const PATHS = {
@@ -49,7 +50,8 @@ export const PATHS = {
   TOOLTIP_CLASS: `/tooltip-class`,
   LOADER_CLASS: `/loader-class`,
   CUSTOM_THEME: `/custom-theme`,
-  CSS_GUIDE: `/css-guide`
+  CSS_GUIDE: `/css-guide`,
+  TABLE_PROPS: `/table-props`
 };
 
 export const KEY_LABELS = {
@@ -57,4 +59,5 @@ export const KEY_LABELS = {
   GETTING_STARTED: "Getting Started",
   FEATURES: "Features",
   THEME: "Theme",
+  PROPS: "Props"
 };

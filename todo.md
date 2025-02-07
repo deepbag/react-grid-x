@@ -18,12 +18,16 @@ add react min version in document
 test application in lower version react
 test in js project
 add support of min 16 react or 18
-add theme in document how to change theme
+<!-- add theme in document how to change theme -->
 theme builder
 demo
-add icon of applcication tab icon chrome
+add icon of application tab icon chrome
 verify every page document
-css information add in document
+<!-- css information add in document -->
 <!-- package css class names change needed with prefix -->
-menu add theme
+<!-- menu add theme -->
 <!-- make dropdown menu to normal -->
+add props menu
+explaination, tips, conclusion
+Contents needs to add every page
+update search input items
