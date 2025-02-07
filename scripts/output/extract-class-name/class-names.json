@@ -1,43 +1,43 @@
 {
+  "document/AppRoute.tsx": [
+    "rgx-app-route",
+    "rgx-app-route-main-content",
+    "rgx-app-route-page-content"
+  ],
+  "components/Tooltip/index.tsx": [
+    "rgx-tooltip-container",
+    "rgx-tooltip-text"
+  ],
   "components/ReactGridX/index.tsx": [
     "rgx-table-container",
     "rgx-table",
     "rgx-table-head",
     "rgx-table-head-tr",
     "rgx-table-head-th-checkbox",
-    "rgx-header-checkbox",
+    "rgx-table-header-checkbox",
     "rgx-table-head-th",
-    "rgx-sort-icon",
-    "rgx-ellipsis-vertical-icon",
-    "rgx-popup-items",
-    "rgx-asc-sort-icon",
-    "rgx-desc-sort-icon",
-    "rgx-asc-desc-sort-icon",
+    "rgx-table-sort-icon",
+    "rgx-table-ellipsis-vertical-icon",
+    "rgx-table-popup-items",
+    "rgx-table-asc-sort-icon",
+    "rgx-table-desc-sort-icon",
+    "rgx-table-asc-desc-sort-icon",
     "rgx-table-body",
-    "rgx-tobody-loading",
+    "rgx-table-tobody-loading",
     "rgx-table-body-tr",
     "rgx-table-body-tr-expanded",
     "rgx-table-body-td-checkbox",
-    "rgx-row-checkbox",
+    "rgx-table-row-checkbox",
     "rgx-table-body-td",
-    "rgx-expanded-arrow",
-    "rgx-expanded-arrow-icon",
-    "rgx-expanded-row-tr",
-    "rgx-expanded-row-td"
-  ],
-  "document/AppRoute.tsx": [
-    "rgx-app-route",
-    "rgx-app-route-main-content",
-    "rgx-app-route-page-content"
+    "rgx-table-expanded-arrow",
+    "rgx-table-expanded-arrow-icon",
+    "rgx-table-expanded-row-tr",
+    "rgx-table-expanded-row-td"
   ],
   "components/Popover/index.tsx": [
     "rgx-popover-content",
     "rgx-popover-show",
     "rgx-popover-arrow"
-  ],
-  "components/Tooltip/index.tsx": [
-    "rgx-tooltip-container",
-    "rgx-tooltip-text"
   ],
   "components/Loader/index.tsx": [
     "rgx-loader-container",
@@ -48,24 +48,35 @@
     "rgx-table-pagination",
     "rgx-table-pagination-info",
     "rgx-table-pagination-row-per-page",
-    "rgx-rows-per-page",
-    "rgx-rows-per-page-label",
-    "rgx-rows-per-page-select",
+    "rgx-table-pagination-rows-per-page",
+    "rgx-table-pagination-rows-per-page-label",
+    "rgx-table-pagination-rows-per-page-select",
     "rgx-table-pagination-controls",
     "rgx-table-pagination-button",
-    "rgx-active",
+    "rgx-table-pagination-active",
     "rgx-table-pagination-ellipsis"
   ],
   "components/Paginations/RGXArrowPagination/index.tsx": [
     "rgx-arrow-pagination",
     "rgx-arrow-pagination-info",
     "rgx-arrow-pagination-row-per-page",
-    "rgx-arrow-rows-per-page",
-    "rgx-arrow-rows-per-page-label",
-    "rgx-arrow-rows-per-page-select",
+    "rgx-arrow-pagination-rows-per-page",
+    "rgx-arrow-pagination-rows-per-page-label",
+    "rgx-arrow-pagination-rows-per-page-select",
     "rgx-arrow-pagination-controls",
     "rgx-arrow-pagination-button",
     "rgx-arrow-pagination-page-of"
+  ],
+  "document/pages/Tooltip/index.tsx": [
+    "rgx-tooltip-overview",
+    "rgx-tooltip-header",
+    "rgx-tooltip-title",
+    "rgx-tooltip-description",
+    "rgx-tooltip-section",
+    "rgx-tooltip-section-title",
+    "rgx-tooltip-section-text",
+    "rgx-tooltip-section-list",
+    "rgx-tooltip-section-item"
   ],
   "document/pages/Support/index.tsx": [
     "rgx-support-overview",
@@ -83,6 +94,17 @@
     "rgx-support-linkedin-general-inquiries",
     "rgx-support-bottom-navigator"
   ],
+  "document/pages/Sorting/index.tsx": [
+    "rgx-sorting-overview",
+    "rgx-sorting-header",
+    "rgx-sorting-title",
+    "rgx-sorting-description",
+    "rgx-sorting-section",
+    "rgx-sorting-section-title",
+    "rgx-sorting-section-text",
+    "rgx-sorting-section-list",
+    "rgx-sorting-section-item"
+  ],
   "document/pages/Row/index.tsx": [
     "rgx-row-overview",
     "rgx-row-header",
@@ -93,6 +115,19 @@
     "rgx-row-section-text",
     "rgx-row-section-list",
     "rgx-row-section-item"
+  ],
+  "document/pages/Pagination/index.tsx": [
+    "rgx-pagination-overview",
+    "rgx-pagination-header",
+    "rgx-pagination-title",
+    "rgx-pagination-description",
+    "rgx-pagination-section",
+    "rgx-pagination-section-title",
+    "rgx-pagination-section-text",
+    "rgx-pagination-type-list",
+    "rgx-pagination-type-item",
+    "rgx-pagination-section-list",
+    "rgx-pagination-section-item"
   ],
   "document/pages/Overview/index.tsx": [
     "rgx-over-view-overview",
@@ -134,22 +169,14 @@
     "rgx-faq-section-title",
     "rgx-faq-usage-text"
   ],
-  "document/pages/Tooltip/index.tsx": [
-    "rgx-tooltip-overview",
-    "rgx-tooltip-header",
-    "rgx-tooltip-title",
-    "rgx-tooltip-description",
-    "rgx-tooltip-section",
-    "rgx-tooltip-section-title",
-    "rgx-tooltip-section-text",
-    "rgx-tooltip-section-list",
-    "rgx-tooltip-section-item"
-  ],
-  "document/pages/Pagination/index.tsx": [
-    "rgx-pagination-overview",
-    "rgx-pagination-header",
-    "rgx-pagination-title",
-    "rgx-pagination-description"
+  "document/pages/Column/index.tsx": [
+    "rgx-column-overview",
+    "rgx-column-header",
+    "rgx-column-title",
+    "rgx-column-description",
+    "rgx-column-section",
+    "rgx-column-section-title",
+    "rgx-column-section-text"
   ],
   "document/pages/ChangeLog/index.tsx": [
     "rgx-change-log-backtick-text",
@@ -164,25 +191,17 @@
     "rgx-sidebar-menu-button",
     "rgx-sidebar-submenu"
   ],
-  "document/pages/Sorting/index.tsx": [
-    "rgx-sorting-overview",
-    "rgx-sorting-header",
-    "rgx-sorting-title",
-    "rgx-sorting-description",
-    "rgx-sorting-section",
-    "rgx-sorting-section-title",
-    "rgx-sorting-section-text",
-    "rgx-sorting-section-list",
-    "rgx-sorting-section-item"
-  ],
-  "document/pages/Column/index.tsx": [
-    "rgx-column-overview",
-    "rgx-column-header",
-    "rgx-column-title",
-    "rgx-column-description",
-    "rgx-column-section",
-    "rgx-column-section-title",
-    "rgx-column-section-text"
+  "document/components/SearchInputFuzzy/index.tsx": [
+    "rgx-search-input-fuzzy-container",
+    "rgx-search-input-fuzzy-input-wrapper",
+    "rgx-search-input-fuzzy-icon",
+    "rgx-search-input-fuzzy-custom-input",
+    "rgx-search-input-fuzzy-popover",
+    "rgx-search-input-fuzzy-popover-list",
+    "rgx-search-input-fuzzy-popover-item",
+    "rgx-search-input-fuzzy-result-list",
+    "rgx-search-input-fuzzy-result-list-h4",
+    "rgx-search-input-fuzzy-result-list-p"
   ],
   "document/components/Header/index.tsx": [
     "rgx-header",
@@ -203,17 +222,12 @@
     "rgx-code-editor-container",
     "rgx-code-editor-editor"
   ],
-  "document/components/SearchInputFuzzy/index.tsx": [
-    "rgx-search-input-fuzzy-container",
-    "rgx-search-input-fuzzy-input-wrapper",
-    "rgx-search-input-fuzzy-icon",
-    "rgx-search-input-fuzzy-custom-input",
-    "rgx-search-input-fuzzy-popover",
-    "rgx-search-input-fuzzy-popover-list",
-    "rgx-search-input-fuzzy-popover-item",
-    "rgx-search-input-fuzzy-result-list",
-    "rgx-search-input-fuzzy-result-list-h4",
-    "rgx-search-input-fuzzy-result-list-p"
+  "document/components/CodeBox/index.tsx": [
+    "rgx-code-box-install-commands",
+    "rgx-code-box-tabs",
+    "rgx-code-box-active",
+    "rgx-code-box-command",
+    "rgx-code-box-copy-button"
   ],
   "document/components/BottomNavigator/index.tsx": [
     "rgx-bottom-navigator-container",
@@ -223,12 +237,5 @@
     "rgx-bottom-navigator-next",
     "rgx-bottom-navigator-next-label",
     "rgx-bottom-navigator-next-icon"
-  ],
-  "document/components/CodeBox/index.tsx": [
-    "rgx-code-box-install-commands",
-    "rgx-code-box-tabs",
-    "rgx-code-box-active",
-    "rgx-code-box-command",
-    "rgx-code-box-copy-button"
   ]
 }

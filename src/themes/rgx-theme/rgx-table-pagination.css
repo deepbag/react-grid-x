@@ -22,17 +22,17 @@
 }
 
 /* Styling for rows per page select dropdown. */
-.rgx-theme .rgx-rows-per-page-select {
+.rgx-theme .rgx-table-pagination-rows-per-page-select {
   height: 30px;
 }
 
 /* Disabled select element appearance, with a "not-allowed" cursor. */
-.rgx-theme .rgx-rows-per-page-select:disabled {
+.rgx-theme .rgx-table-pagination-rows-per-page-select:disabled {
   cursor: not-allowed;
 }
 
 /* Rows per page section label and select element, styled with margins and font weight. */
-.rgx-theme .rgx-rows-per-page {
+.rgx-theme .rgx-table-pagination-rows-per-page {
   display: flex;
   align-items: center;
   margin-right: 10px;
@@ -40,14 +40,14 @@
 }
 
 /* Label within rows per page section, with spacing and font styling. */
-.rgx-theme .rgx-rows-per-page label {
+.rgx-theme .rgx-table-pagination-rows-per-page label {
   font-size: 16px;
   color: #202020;
   margin-right: 10px;
 }
 
 /* Styling for the select dropdown within rows per page section. */
-.rgx-theme .rgx-rows-per-page select {
+.rgx-theme .rgx-table-pagination-rows-per-page select {
   padding: 5px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
@@ -86,7 +86,7 @@
 }
 
 /* Active pagination button styling with custom background and border color. */
-.rgx-theme .rgx-table-pagination-button.rgx-active {
+.rgx-theme .rgx-table-pagination-button.rgx-table-pagination-active {
   background-color: #007bff;
   color: white;
   border-color: #007bff;

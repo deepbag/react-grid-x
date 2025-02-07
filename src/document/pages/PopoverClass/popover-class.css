@@ -1,0 +1,47 @@
+.rgx-popover-class-overview {
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.rgx-popover-class-header {
+  color: #f6f8fa;
+  border-radius: 5px;
+}
+
+.rgx-popover-class-title {
+  font-size: 2rem;
+  color: #f6f8fa;
+  margin: 0;
+}
+
+.rgx-popover-class-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #c5c7d0;
+}
+
+.rgx-popover-class-description strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}
+
+.rgx-popover-class-section-title {
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #f6f8fa;
+}
+
+.rgx-popover-class-section-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #c5c7d0;
+}
+.rgx-popover-class-section-text strong a {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #037bff;
+  text-decoration: underline;
+}

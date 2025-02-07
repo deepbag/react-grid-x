@@ -5,17 +5,22 @@
   "main": "index.js",
   "scripts": {
     "extract-class-names": "ts-node extract-class-name.ts",
-    "find-unused-classes": "ts-node find-unused-classes.ts"
+    "find-unused-classes": "ts-node find-unused-classes.ts",
+    "minified-css": "ts-node minified-css.ts",
+    "minified-types": "ts-node minified-types.ts",
+    "merge-css": "ts-node merge-css.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "clean-css": "^5.3.3",
     "glob": "^11.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.5.5"
   },
   "devDependencies": {
-    "typescript": "^5.7.3",
-    "@types/node": "^16.11.7"
+    "@types/clean-css": "^4.2.11",
+    "@types/node": "^16.11.7",
+    "typescript": "^5.7.3"
   }
 }

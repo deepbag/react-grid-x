@@ -1,6 +1,10 @@
 import React from "react";
 import "./over-view.css";
-import { BottomNavigator, CodeBox } from "document/components";
+import {
+  BottomNavigator,
+  CodeBox,
+  ImportantBoldTypography,
+} from "document/components";
 import { LABELS, PATHS } from "document/config/path";
 
 const Overview: React.FC = () => {
@@ -44,8 +48,15 @@ const Overview: React.FC = () => {
           </li>
           <li className="rgx-over-view-feature-item">
             <strong>Pagination support:</strong> Choose from different
-            pagination types (rgx-table-pagination or rgx-arrow-pagination) with
-            configurable rows per page and pagination controls.
+            pagination types (
+            <ImportantBoldTypography>
+              rgx-table-pagination
+            </ImportantBoldTypography>{" "}
+            or{" "}
+            <ImportantBoldTypography>
+              rgx-arrow-pagination
+            </ImportantBoldTypography>
+            ) with configurable rows per page and pagination controls.
           </li>
           <li className="rgx-over-view-feature-item">
             <strong>Customizable styling:</strong> Apply custom themes and
@@ -81,10 +92,10 @@ const Overview: React.FC = () => {
       </section>
 
       <BottomNavigator
-        // next={{
-        //   label: LABELS.INSTALLATION,
-        //   url: PATHS.INSTALLATION,
-        // }}
+      // next={{
+      //   label: LABELS.INSTALLATION,
+      //   url: PATHS.INSTALLATION,
+      // }}
       />
     </div>
   );

@@ -1,45 +1,45 @@
 /* Tooltip container for elements with tooltips */
 .rgx-theme .rgx-tooltip-container {
-  position: relative; /* Positioned relative to the element */
-  display: inline-block; /* Makes it inline while allowing block-level styling */
+  position: relative;
+  display: inline-block;
 }
 
 /* Tooltip text container */
 .rgx-theme .rgx-tooltip-text {
-  visibility: hidden; /* Initially hidden */
-  width: fit-content; /* Adjust width based on content */
-  max-width: 200px; /* Max width for the tooltip */
-  background-color: rgba(0, 0, 0, 0.75); /* Dark background with transparency */
-  color: #fff; /* White text color */
-  text-align: center; /* Center text inside the tooltip */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Padding around the text */
-  position: absolute; /* Positioned relative to the parent container */
-  z-index: 1; /* Makes sure tooltip stays above other content */
-  opacity: 0; /* Tooltip is initially transparent */
-  transition: opacity 0.3s ease-in-out; /* Smooth fade-in transition */
-  bottom: 100%; /* Positions tooltip above the element */
-  left: 50%; /* Horizontally centers the tooltip */
-  transform: translateX(-50%); /* Centers tooltip relative to the element */
-  white-space: wrap; /* Ensures the text wraps within the tooltip */
-  margin-bottom: 8px; /* Space between the tooltip and the element */
-  font-size: 14px; /* Text size inside the tooltip */
+  visibility: hidden;
+  width: fit-content;
+  max-width: 200px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: wrap;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 /* Tooltip arrow */
 .rgx-theme .rgx-tooltip-text::after {
-  content: ""; /* Empty content for the arrow */
-  position: absolute; /* Positioned relative to the tooltip */
-  top: 100%; /* Places the arrow at the bottom of the tooltip */
-  left: 50%; /* Horizontally centers the arrow */
-  transform: translateX(-50%); /* Centers arrow */
-  border-width: 6px; /* Size of the arrow */
-  border-style: solid; /* Solid arrow with border */
-  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent; /* Arrow color */
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
 }
 
 /* Show the tooltip on hover */
 .rgx-theme .rgx-tooltip-container:hover .rgx-tooltip-text {
-  visibility: visible; /* Tooltip becomes visible */
-  opacity: 1; /* Tooltip fades in */
+  visibility: visible;
+  opacity: 1;
 }

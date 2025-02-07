@@ -1,6 +1,10 @@
 import React from "react";
 import "./pagination.css";
-import { CodeBox, CustomTable } from "document/components";
+import {
+  CodeBox,
+  CustomTable,
+  ImportantBoldTypography,
+} from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
 
 const Pagination: React.FC = () => {
@@ -135,8 +139,8 @@ const Pagination: React.FC = () => {
         <h2 className="rgx-pagination-section-title">Server-Side Pagination</h2>
         <p className="rgx-pagination-section-text">
           For large datasets, enable server-side pagination by setting{" "}
-          <code>serverSideSorting</code> to true. This allows efficient handling
-          of paginated data.
+          <ImportantBoldTypography>serverSideSorting</ImportantBoldTypography>{" "}
+          to true. This allows efficient handling of paginated data.
         </p>
         <CodeBox
           commands={{
@@ -175,7 +179,7 @@ const Pagination: React.FC = () => {
             request only the necessary data from the backend.
           </li>
           <li className="rgx-pagination-section-item">
-            The <code>onPaginationAndRowSizeChange</code> callback can be used
+            The <ImportantBoldTypography>onPaginationAndRowSizeChange</ImportantBoldTypography> callback can be used
             to handle user interactions and request updated data accordingly.
           </li>
         </ul>

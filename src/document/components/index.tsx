@@ -5,3 +5,4 @@ export { default as BottomNavigator } from "./BottomNavigator";
 export { default as SearchInputFuzzy } from "./SearchInputFuzzy";
 export { default as CustomTable } from "./CustomTable";
 export { default as CodeEditor } from "./CodeEditor";
+export { default as ImportantBoldTypography } from "./ImportantBoldTypography";

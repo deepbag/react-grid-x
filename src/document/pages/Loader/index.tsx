@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import "./loader.css";
-import { CodeBox, CustomTable } from "document/components";
+import {
+  CodeBox,
+  CustomTable,
+  ImportantBoldTypography,
+} from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
 
 const Loader: React.FC = () => {
@@ -11,8 +15,9 @@ const Loader: React.FC = () => {
         <p className="rgx-loader-description">
           The ReactGridX component allows you to customize the loader that
           appears when the table is in a loading state. By using the loading
-          prop, you can control the visibility of the loader, and the
-          loaderComponent prop allows you to provide a custom loader.
+          prop, you can control the visibility of the loader, and the 
+          <ImportantBoldTypography>loaderComponent</ImportantBoldTypography> prop allows you to
+          provide a custom loader.
         </p>
       </div>
 
@@ -105,10 +110,11 @@ const Loader: React.FC = () => {
       >
         <h2 className="rgx-loader-section-title">Default Loader</h2>
         <p className="rgx-loader-section-text">
-          If the loaderComponent prop is not specified, ReactGridX will use a
-          default loading spinner or animation. This default loader provides a
-          simple yet effective visual cue indicating that the table is in a
-          loading state.
+          If the{" "}
+          <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
+          prop is not specified, ReactGridX will use a default loading spinner
+          or animation. This default loader provides a simple yet effective
+          visual cue indicating that the table is in a loading state.
         </p>
       </section>
 
@@ -119,13 +125,16 @@ const Loader: React.FC = () => {
         <h2 className="rgx-loader-section-title">Custom Loader</h2>
         <p className="rgx-loader-section-text">
           You can easily customize the loader by passing a custom React
-          component to the loaderComponent prop. This allows you to control the
-          look and feel of the loader, ensuring it aligns with your app's design
-          and user experience.
+          component to the{" "}
+          <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
+          prop. This allows you to control the look and feel of the loader,
+          ensuring it aligns with your app's design and user experience.
         </p>
         <p className="rgx-loader-section-text">
-          Here’s an example of how to use the loading and loaderComponent props
-          to display a custom loader while the table is in a loading state:
+          Here’s an example of how to use the loading and{" "}
+          <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
+          props to display a custom loader while the table is in a loading
+          state:
         </p>
         <CodeBox
           commands={{
@@ -154,16 +163,20 @@ const Loader: React.FC = () => {
             columns and data.
           </li>
           <li className="rgx-loader-section-item">
-            The loading prop is set to true to indicate that the table is in a
-            loading state.
+            The <ImportantBoldTypography>loading</ImportantBoldTypography> prop
+            is set to true to indicate that the table is in a loading state.
           </li>
           <li className="rgx-loader-section-item">
-            The loaderComponent prop is passed a custom Loader component. This
-            component will be rendered in place of the default loader.
+            The{" "}
+            <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
+            prop is passed a custom Loader component. This component will be
+            rendered in place of the default loader.
           </li>
           <li className="rgx-loader-section-item">
-            If the loaderComponent prop is not specified, the default loader
-            (usually a spinner or animated element) will be used.
+            If the{" "}
+            <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
+            prop is not specified, the default loader (usually a spinner or
+            animated element) will be used.
           </li>
         </ul>
       </section>

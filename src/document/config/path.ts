@@ -2,7 +2,7 @@ export const LABELS = {
   GETTING_STARTED: "Getting Started",
   OVERVIEW: "Overview",
   INSTALLATION: "Installation",
-  SUPPORT: "Support & Bug Report",
+  SUPPORT: "Support",
   CHANGE_LOG: "Change Log",
   DEVELOPMENT: "Development",
   FAQ: "FAQs",
@@ -16,6 +16,15 @@ export const LABELS = {
   THEME_BUILDER: "Theme Builder",
   DOCUMENT: "Docs",
   FEATURES: "Features",
+  TABLE_CLASS: "Table",
+  POPOVER_CLASS: "PopOver",
+  ARROW_PAGINATION_CLASS: "Arrow Pagination",
+  TABLE_PAGINATION_CLASS: "Table Pagination",
+  TOOLTIP_CLASS: "Tooltip",
+  LOADER_CLASS: "Loader",
+  CLASS_NAMES: "Class Names",
+  CUSTOM_THEME: "Custom Theme",
+  CSS_GUIDE: "CSS Guide",
 };
 
 export const PATHS = {
@@ -32,11 +41,20 @@ export const PATHS = {
   TOOLTIP: `/tooltip`,
   LOADER: `/loader`,
   DEMO: `/demo`,
-  THEME_BUILDER: `/theme-builder`
+  THEME_BUILDER: `/theme-builder`,
+  TABLE_CLASS: `/table-class`,
+  POPOVER_CLASS: `/popover-class`,
+  ARROW_PAGINATION_CLASS: `/arrow-pagination-class`,
+  TABLE_PAGINATION_CLASS: `/table-pagination-class`,
+  TOOLTIP_CLASS: `/tooltip-class`,
+  LOADER_CLASS: `/loader-class`,
+  CUSTOM_THEME: `/custom-theme`,
+  CSS_GUIDE: `/css-guide`
 };
 
 export const KEY_LABELS = {
   MISCELLANEOUS: "Miscellaneous",
   GETTING_STARTED: "Getting Started",
   FEATURES: "Features",
+  THEME: "Theme",
 };

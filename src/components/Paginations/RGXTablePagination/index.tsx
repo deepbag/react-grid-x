@@ -86,25 +86,25 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
       >
         {/* Rows per page dropdown */}
         <div
-          className="rgx-rows-per-page"
+          className="rgx-table-pagination-rows-per-page"
           style={{
-            ...style["rgx-rows-per-page"],
+            ...style["rgx-table-pagination-rows-per-page"],
           }}
         >
           <label
             htmlFor="rowsPerPage"
-            className="rgx-rows-per-page-label"
+            className="rgx-table-pagination-rows-per-page-label"
             style={{
-              ...style["rgx-rows-per-page-label"],
+              ...style["rgx-table-pagination-rows-per-page-label"],
             }}
           >
             Rows per page:
           </label>
           <select
             id="rowsPerPage"
-            className="rgx-rows-per-page-select"
+            className="rgx-table-pagination-rows-per-page-select"
             style={{
-              ...style["rgx-rows-per-page-select"],
+              ...style["rgx-table-pagination-rows-per-page-select"],
             }}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
@@ -143,7 +143,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
               <button
                 key={index}
                 className={`rgx-table-pagination-button ${
-                  currentPage === page ? "rgx-active" : ""
+                  currentPage === page ? "rgx-table-pagination-active" : ""
                 }`}
                 style={
                   currentPage === page

@@ -14,7 +14,7 @@
 }
 
 /* Loader effect for table body while loading, applies blur and disables pointer events. */
-.rgx-theme .rgx-tobody-loading {
+.rgx-theme .rgx-table-tobody-loading {
   filter: blur(0.8px);
   pointer-events: none;
 }
@@ -61,36 +61,36 @@
 }
 
 /* Expanded row with extra padding on the left side for content clarity. */
-.rgx-theme .rgx-expanded-row-tr {
+.rgx-theme .rgx-table-expanded-row-tr {
   background-color: #f9f9f9;
   padding-left: 20px;
 }
 
 /* Styling for expanded row cells, with additional padding and no top border. */
-.rgx-theme .rgx-expanded-row-tr .rgx-expanded-row-td {
+.rgx-theme .rgx-table-expanded-row-tr .rgx-table-expanded-row-td {
   padding: 20px;
   border-top: 0;
 }
 
 /* Styling for the expanded arrow icon, aligning it with the text. */
-.rgx-theme .rgx-expanded-arrow {
+.rgx-theme .rgx-table-expanded-arrow {
   cursor: pointer;
   margin-right: 10px;
   text-align: center;
 }
 
 /* Additional padding for expanded row table data cells. */
-.rgx-theme .rgx-expanded-row-td {
+.rgx-theme .rgx-table-expanded-row-td {
   padding: 20px;
 }
 
 /* Font size for the arrow icon used in expanded rows. */
-.rgx-theme .rgx-expanded-arrow-icon {
+.rgx-theme .rgx-table-expanded-arrow-icon {
   font-size: 14px;
 }
 
 /* Popup items in the table with font styling, padding, and hover effects. */
-.rgx-theme .rgx-popup-items {
+.rgx-theme .rgx-table-popup-items {
   font-weight: 400;
   padding: 8px;
   font-size: 15px;
@@ -98,7 +98,7 @@
 }
 
 /* Hover effect for popup items, with a light background color. */
-.rgx-theme .rgx-popup-items:hover {
+.rgx-theme .rgx-table-popup-items:hover {
   background-color: #ededed;
 }
 

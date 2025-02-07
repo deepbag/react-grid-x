@@ -8,6 +8,7 @@ import {
 import {
   ChangeLog,
   Column,
+  TooltipClass,
   Development,
   FAQ,
   Installation,
@@ -16,6 +17,13 @@ import {
   Row,
   Sorting,
   Support,
+  LoaderClass,
+  PopoverClass,
+  TableClass,
+  TablePaginationClass,
+  ArrowPaginationClass,
+  CustomTheme,
+  CSSGuide,
 } from "./pages";
 import { Header, Sidebar } from "./components";
 import "./app-route.css";
@@ -48,6 +56,14 @@ const RoutesItem: React.FC = () => {
     { path: PATHS.PAGINATION, element: <Pagination /> },
     { path: PATHS.TOOLTIP, element: <Tooltip /> },
     { path: PATHS.LOADER, element: <Loader /> },
+    { path: PATHS.TOOLTIP_CLASS, element: <TooltipClass /> },
+    { path: PATHS.LOADER_CLASS, element: <LoaderClass /> },
+    { path: PATHS.POPOVER_CLASS, element: <PopoverClass /> },
+    { path: PATHS.TABLE_CLASS, element: <TableClass /> },
+    { path: PATHS.TABLE_PAGINATION_CLASS, element: <TablePaginationClass /> },
+    { path: PATHS.ARROW_PAGINATION_CLASS, element: <ArrowPaginationClass /> },
+    { path: PATHS.CUSTOM_THEME, element: <CustomTheme /> },
+    { path: PATHS.CSS_GUIDE, element: <CSSGuide /> },
   ]);
 };
 

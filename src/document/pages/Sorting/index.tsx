@@ -1,6 +1,10 @@
 import React from "react";
 import "./sorting.css";
-import { CodeBox, CustomTable } from "document/components";
+import {
+  CodeBox,
+  CustomTable,
+  ImportantBoldTypography,
+} from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
 
 const Sorting: React.FC = () => {
@@ -11,8 +15,10 @@ const Sorting: React.FC = () => {
         <p className="rgx-sorting-description">
           ReactGridX supports multi-column sorting for both numeric and
           alphabetical data. You can enable sorting on multiple columns by
-          setting the `sortable` property to true. Users can sort by multiple
-          columns by holding the Shift key while clicking on column headers.
+          setting the{" "}
+          <ImportantBoldTypography>sortable</ImportantBoldTypography> property
+          to true. Users can sort by multiple columns by holding the Shift key
+          while clicking on column headers.
         </p>
       </div>
 
@@ -152,10 +158,11 @@ const Sorting: React.FC = () => {
       >
         <h2 className="rgx-sorting-section-title">Default Sorting</h2>
         <p className="rgx-sorting-section-text">
-          To enable sorting on a column, set the `sortable` prop to true. Users
-          can click on the column headers to toggle sorting between ascending
-          and descending order. Multi-column sorting can be done by holding the
-          Shift key while clicking on additional columns.
+          To enable sorting on a column, set the{" "}
+          <ImportantBoldTypography>sortable</ImportantBoldTypography> prop to
+          true. Users can click on the column headers to toggle sorting between
+          ascending and descending order. Multi-column sorting can be done by
+          holding the Shift key while clicking on additional columns.
         </p>
         <CodeBox
           commands={{
@@ -178,10 +185,15 @@ const Sorting: React.FC = () => {
       >
         <h2 className="rgx-sorting-section-title">Custom Sorting</h2>
         <p className="rgx-sorting-section-text">
-          You can provide a custom sorting function using the `onSort` prop for
+          You can provide a custom sorting function using the{" "}
+          <ImportantBoldTypography>onSort</ImportantBoldTypography> prop for
           finer control over sorting behavior. The function receives the two
-          values to be compared (`a` and `b`), and the sorting direction (`asc`
-          or `desc`), allowing you to customize the sorting logic.
+          values to be compared (
+          <ImportantBoldTypography>a</ImportantBoldTypography> and{" "}
+          <ImportantBoldTypography>b</ImportantBoldTypography>), and the sorting
+          direction (<ImportantBoldTypography>asc</ImportantBoldTypography> or{" "}
+          <ImportantBoldTypography>desc</ImportantBoldTypography>), allowing you
+          to customize the sorting logic.
         </p>
         <CodeBox
           commands={{
@@ -226,7 +238,8 @@ const Sorting: React.FC = () => {
         <h2 className="rgx-sorting-section-title">Server-Side Sorting</h2>
         <p className="rgx-sorting-section-text">
           For large datasets, you may want to handle sorting on the server-side.
-          You can enable server-side sorting by setting the `serverSideSorting`
+          You can enable server-side sorting by setting the{" "}
+          <ImportantBoldTypography>serverSideSorting</ImportantBoldTypography>
           prop to true. The sorting logic can be handled externally, for
           example, by making an API request to fetch the sorted data.
         </p>
@@ -252,10 +265,12 @@ const Sorting: React.FC = () => {
       >
         <h2 className="rgx-sorting-section-title">Multi-Column Sort</h2>
         <p className="rgx-sorting-section-text">
-          When `multiColumnSort` is enabled (default: true), users can sort by
-          multiple columns at the same time. To do this, hold down the Shift key
-          while clicking on additional column headers. This allows sorting to be
-          applied to multiple columns sequentially.
+          When{" "}
+          <ImportantBoldTypography>multiColumnSort</ImportantBoldTypography> is
+          enabled (default: true), users can sort by multiple columns at the
+          same time. To do this, hold down the Shift key while clicking on
+          additional column headers. This allows sorting to be applied to
+          multiple columns sequentially.
         </p>
         <CodeBox
           commands={{
@@ -279,23 +294,24 @@ const Sorting: React.FC = () => {
         <h2 className="rgx-sorting-section-title">Explanation</h2>
         <ul className="rgx-sorting-section-list">
           <li className="rgx-sorting-section-item">
-            The `sortable` prop enables sorting on a column by clicking its
-            header.
+            The <ImportantBoldTypography>sortable</ImportantBoldTypography> prop
+            enables sorting on a column by clicking its header.
           </li>
           <li className="rgx-sorting-section-item">
             When multi-column sorting is enabled, users can hold the Shift key
             to sort by multiple columns.
           </li>
           <li className="rgx-sorting-section-item">
-            The `onSort` prop allows you to define custom sorting behavior based
-            on your requirements.
+            The <ImportantBoldTypography>onSort</ImportantBoldTypography> prop
+            allows you to define custom sorting behavior based on your
+            requirements.
           </li>
           <li className="rgx-sorting-section-item">
             Server-side sorting is useful for handling large datasets where
             sorting logic is managed externally.
           </li>
           <li className="rgx-sorting-section-item">
-            The `multiColumnSort` prop (default: `true`) enables users to sort
+            The <ImportantBoldTypography>multiColumnSort</ImportantBoldTypography> prop (default: `true`) enables users to sort
             by multiple columns simultaneously by holding the Shift key.
           </li>
         </ul>

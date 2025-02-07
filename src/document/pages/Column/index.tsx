@@ -1,6 +1,6 @@
 import React from "react";
 import "./column.css";
-import { CodeBox, CustomTable } from "document/components";
+import { CodeBox, CustomTable, ImportantBoldTypography } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
 
 const Column: React.FC = () => {
@@ -142,7 +142,7 @@ const Column: React.FC = () => {
         >
           <h2 className="rgx-column-section-title">Column Customization</h2>
           <p className="rgx-column-section-text">
-            Customize how columns are rendered with the `render` function. This
+            Customize how columns are rendered with the <ImportantBoldTypography>render</ImportantBoldTypography> function. This
             allows you to apply custom formatting or use additional components
             inside the column cells.
           </p>
@@ -171,8 +171,8 @@ const Column: React.FC = () => {
           </p>
           <p className="rgx-column-section-text">
             You can enable sorting for columns by setting the{" "}
-            <code>sortable</code> prop to <code>true</code>. Additionally, you
-            can customize the sorting behavior using the <code>onSort</code>{" "}
+            <ImportantBoldTypography>sortable</ImportantBoldTypography> prop to <ImportantBoldTypography>true</ImportantBoldTypography>. Additionally, you
+            can customize the sorting behavior using the <ImportantBoldTypography>onSort</ImportantBoldTypography>{" "}
             prop, which accepts a custom sorting function.
           </p>
 
@@ -243,15 +243,15 @@ const Column: React.FC = () => {
         <section className="rgx-column-section" id="rgx-column-section-width">
           <h2 className="rgx-column-section-title">Width and Layout</h2>
           <p className="rgx-column-section-text">
-            Define the width of your columns using the <code>width</code> prop.
+            Define the width of your columns using the <ImportantBoldTypography>width</ImportantBoldTypography> prop.
             This allows for precise control over how the table is laid out,
             ensuring a better user experience.
           </p>
 
           <p className="rgx-column-section-text">
             You can specify the width of individual columns by passing a string
-            value with a "px" unit. For example, setting the width of a column
-            to "200px" will ensure that the column is 200px wide.
+            value with a <ImportantBoldTypography>"px"</ImportantBoldTypography> unit. For example, setting the width of a column
+            to <ImportantBoldTypography>"200px"</ImportantBoldTypography> will ensure that the column is 200px wide.
           </p>
 
           <CodeBox

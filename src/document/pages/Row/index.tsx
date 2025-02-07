@@ -1,6 +1,10 @@
 import React from "react";
 import "./row.css";
-import { CodeBox, CustomTable } from "document/components";
+import {
+  CodeBox,
+  CustomTable,
+  ImportantBoldTypography,
+} from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
 
 const Row: React.FC = () => {
@@ -11,8 +15,11 @@ const Row: React.FC = () => {
         <p className="rgx-row-description">
           The ReactGridX component allows you to manage row interactions,
           including handling row clicks, expandable rows, and row selection. By
-          using the <code>onRowClick</code>, <code>expandedComponent</code>, and{" "}
-          <code>selectionCheckbox</code>
+          using the{" "}
+          <ImportantBoldTypography>onRowClick</ImportantBoldTypography>,{" "}
+          <ImportantBoldTypography>expandedComponent</ImportantBoldTypography>,
+          and{" "}
+          <ImportantBoldTypography>selectionCheckbox</ImportantBoldTypography>
           props, you can enhance user interaction with rows.
         </p>
       </div>
@@ -62,7 +69,7 @@ const Row: React.FC = () => {
       <section className="rgx-row-section" id="rgx-row-section-click">
         <h2 className="rgx-row-section-title">Row Click Event</h2>
         <p className="rgx-row-section-text">
-          Capture row clicks using the <code>onRowClick</code> callback to
+          Capture row clicks using the <ImportantBoldTypography>onRowClick</ImportantBoldTypography> callback to
           handle user interactions. This allows you to respond to row selections
           or trigger actions based on the clicked row.
         </p>
@@ -85,7 +92,7 @@ const Row: React.FC = () => {
         <h2 className="rgx-row-section-title">Expandable Rows</h2>
         <p className="rgx-row-section-text">
           Expand rows to display additional content within the same row. The
-          <code>expandedComponent</code> prop receives the clicked row data and
+          <ImportantBoldTypography>expandedComponent</ImportantBoldTypography> prop receives the clicked row data and
           returns a JSX component to be rendered.
         </p>
         <CodeBox
@@ -107,14 +114,14 @@ const Row: React.FC = () => {
         <h2 className="rgx-row-section-title">Row Selection</h2>
         <p className="rgx-row-section-text">
           Enable row selection with checkboxes for both individual and
-          select-all functionality. Use the <code>selectionCheckbox</code> prop
+          select-all functionality. Use the <ImportantBoldTypography>selectionCheckbox</ImportantBoldTypography> prop
           to enable selection and handle changes with the{" "}
-          <code>onSelectionCheck</code> callback.
+          <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography> callback.
         </p>
         <p className="rgx-row-section-text">
-          The <code>onSelectionCheck</code> callback provides the selected rows
+          The <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography> callback provides the selected rows
           and the
-          <code>isAllChecked</code> flag to determine if all rows are selected.
+          <ImportantBoldTypography>isAllChecked</ImportantBoldTypography> flag to determine if all rows are selected.
         </p>
 
         <CodeBox
@@ -144,19 +151,19 @@ const Row: React.FC = () => {
             columns and data.
           </li>
           <li className="rgx-row-section-item">
-            The <code>onRowClick</code> prop is used to handle row clicks. This
+            The <ImportantBoldTypography>onRowClick</ImportantBoldTypography> prop is used to handle row clicks. This
             callback receives the clicked row data, allowing you to process or
             display additional information when a row is clicked.
           </li>
           <li className="rgx-row-section-item">
-            The <code>expandedComponent</code> prop allows you to define a
+            The <ImportantBoldTypography>expandedComponent</ImportantBoldTypography> prop allows you to define a
             component to be displayed when a row is expanded. This enables you
             to show more details within the same row.
           </li>
           <li className="rgx-row-section-item">
-            The <code>selectionCheckbox</code> prop enables row selection with
+            The <ImportantBoldTypography>selectionCheckbox</ImportantBoldTypography> prop enables row selection with
             checkboxes. You can select individual rows or select all rows at
-            once using the <code>onSelectionCheck</code> callback to handle the
+            once using the <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography> callback to handle the
             selected rows.
           </li>
         </ul>
@@ -166,26 +173,26 @@ const Row: React.FC = () => {
         <h2 className="rgx-row-section-title">Tips for Customizing Rows</h2>
         <ul className="rgx-row-section-list">
           <li className="rgx-row-section-item">
-            When using the <code>onRowClick</code> prop, ensure that you handle
+            When using the <ImportantBoldTypography>onRowClick</ImportantBoldTypography> prop, ensure that you handle
             the row data appropriately, such as displaying it in a modal or
             passing it to another component for further processing.
           </li>
           <li className="rgx-row-section-item">
-            Use the <code>expandedComponent</code> to show related or additional
+            Use the <ImportantBoldTypography>expandedComponent</ImportantBoldTypography> to show related or additional
             content when a row is expanded. This feature is ideal for displaying
             nested data, such as detailed user information or additional
             options.
           </li>
           <li className="rgx-row-section-item">
             If you're implementing row selection, ensure that the{" "}
-            <code>onSelectionCheck</code> callback is used to capture the
+            <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography> callback is used to capture the
             selected rows and apply any desired behavior, such as enabling bulk
             actions.
           </li>
           <li className="rgx-row-section-item">
             For performance optimization, avoid unnecessary re-renders when
             expanding rows or selecting rows. Use memoization or React's{" "}
-            <code>React.memo</code> to optimize rendering.
+            <ImportantBoldTypography>React.memo</ImportantBoldTypography> to optimize rendering.
           </li>
         </ul>
       </section>
