@@ -1,4 +1,14 @@
-`@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
+# @deepbag/react-grid-x
+
+> `@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
+
+![npm](https://img.shields.io/npm/v/@deepbag/react-grid-x)
+![npm downloads](https://img.shields.io/npm/dt/@deepbag/react-grid-x)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@deepbag/react-grid-x)
+![GitHub issues](https://img.shields.io/github/issues/deepbag/react-grid-x)
+![GitHub license](https://img.shields.io/github/license/deepbag/react-grid-x)
+![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?logo=typescript)
 
 ## Features
 
@@ -30,22 +40,6 @@ yarn add @deepbag/react-grid-x
 npm install @deepbag/react-grid-x
 ```
 
-## CSS Import
-
-To use the component styles, you need to manually import the required CSS files. These CSS files are **not** included by default and need to be imported in your project.
-
-```tsx
-// Import the necessary CSS files
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css"; // Import the default theme (Required)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
-```
-
-The above CSS files can be found in the `dist` folder after installation.
-
 ## Usage
 
 Here's a basic example of how to use the `ReactGridX` component in your React project:
@@ -53,46 +47,26 @@ Here's a basic example of how to use the `ReactGridX` component in your React pr
 ```tsx
 import React from "react";
 import { ReactGridX } from "@deepbag/react-grid-x";
-
-// Import the CSS files for styling
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css"; // Import the default theme (Required)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css"; // Import the table pagination CSS (Required if you use default pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css"; // Import the arrow pagination CSS (Required if you use arrow pagination)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css"; // Import the tooltip CSS (Required if you use tooltip)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css"; // Import the tooltip CSS (Required for loading effect)
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css"; // Import the popup CSS (Required if you use sorting enabled)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
 
 const App = () => {
-  const columns = [
-    { name: "Name", key: "name", sortable: true },
-    {
-      name: "Age",
-      key: "age",
-      sortable: true,
-      render: (data) => <span>{data.age}</span>,
-    },
-    {
-      name: "Country",
-      key: "country",
-      sortable: true,
-      render: (data) => <span>{data.country}</span>,
-    },
-  ];
-
-  const data = [
-    { id: 1, name: "John", age: 28, country: "USA" },
-    { id: 2, name: "Jane", age: 34, country: "Canada" },
-    { id: 3, name: "Sam", age: 22, country: "Australia" },
-    { id: 4, name: "Anna", age: 25, country: "UK" },
-    { id: 5, name: "Peter", age: 30, country: "Germany" },
-  ];
-
   return (
     <div>
       <h1>React Grid Example</h1>
       <ReactGridX
-        columns={columns}
-        data={data}
+        columns={[
+          { name: "Name", key: "name", sortable: true },
+          {
+            name: "Age",
+            key: "age",
+            sortable: true,
+            render: (data) => <span>{data.age}</span>,
+          },
+        ]}
+        data={[
+          { id: 1, name: "John", age: 28 },
+          { id: 2, name: "Jane", age: 34 },
+        ]}
         rowsPerPageOptions={[5, 10, 15]}
         paginationType="rgx-table-pagination"
         paginationStyle={{
@@ -105,7 +79,7 @@ const App = () => {
           "rgx-table-body-td": { padding: "8px" },
         }}
         loaderStyle={{
-          "rgx-loader-containe": {},
+          "rgx-loader-container": {},
         }}
         popupStyle={{ "rgx-popover-content": {} }}
         tooltipStyle={{ "rgx-tooltip-container": {} }}
