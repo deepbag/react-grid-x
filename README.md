@@ -8,7 +8,8 @@
 ![GitHub issues](https://img.shields.io/github/issues/deepbag/react-grid-x)
 ![GitHub license](https://img.shields.io/github/license/deepbag/react-grid-x)
 ![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?logo=typescript)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=typescript)
+![Document](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=document)
 
 ## Features
 
