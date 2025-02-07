@@ -41,25 +41,25 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
       >
         {/* Rows per page dropdown */}
         <div
-          className="rgx-arrow-rows-per-page"
+          className="rgx-arrow-pagination-rows-per-page"
           style={{
-            ...style["rgx-arrow-rows-per-page"],
+            ...style["rgx-arrow-pagination-rows-per-page"],
           }}
         >
           <label
             htmlFor="rowsPerPage"
-            className="rgx-arrow-rows-per-page-label"
+            className="rgx-arrow-pagination-rows-per-page-label"
             style={{
-              ...style["rgx-arrow-rows-per-page-label"],
+              ...style["rgx-arrow-pagination-rows-per-page-label"],
             }}
           >
             Rows per page:
           </label>
           <select
             id="rowsPerPage"
-            className="rgx-arrow-rows-per-page-select"
+            className="rgx-arrow-pagination-rows-per-page-select"
             style={{
-              ...style["rgx-arrow-rows-per-page-select"],
+              ...style["rgx-arrow-pagination-rows-per-page-select"],
             }}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}

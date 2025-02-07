@@ -20,7 +20,7 @@ const RGXTooltip: React.FC<RGXTooltipProps> = ({
       <span
         className="rgx-tooltip-text"
         style={{
-          ...style["rgx-tooltip-textr"],
+          ...style["rgx-tooltip-text"],
         }}
       >
         {content}
