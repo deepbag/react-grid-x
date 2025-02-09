@@ -1,13 +1,13 @@
 import React, { JSX, useEffect, useMemo, useState } from "react";
-import "../../themes/rgx-theme/rgx-theme.css";
-import RGXArrowPagination from "components/Paginations/RGXArrowPagination";
-import RGXTablePagination from "components/Paginations/RGXTablePagination";
+import "module/themes/rgx-theme/rgx-theme.css";
+import RGXArrowPagination from "module/components/Paginations/RGXArrowPagination";
+import RGXTablePagination from "module/components/Paginations/RGXTablePagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solidIcons } from "components/Icons/FontAwesome";
-import RGXTooltip from "components/Tooltip";
-import RGXLoader from "components/Loader";
-import { ReactGridXProps } from "types/react-grid-x-props";
-import RGXPopover from "components/Popover";
+import { solidIcons } from "module/components/Icons/FontAwesome";
+import RGXTooltip from "module/components/Tooltip";
+import RGXLoader from "module/components/Loader";
+import { ReactGridXProps } from "module/types/react-grid-x-props";
+import RGXPopover from "module/components/Popover";
 
 const ReactGridX: React.FC<ReactGridXProps> = ({
   columns,

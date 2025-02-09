@@ -6,3 +6,6 @@ export { default as SearchInputFuzzy } from "./SearchInputFuzzy";
 export { default as CustomTable } from "./CustomTable";
 export { default as CodeEditor } from "./CodeEditor";
 export { default as ImportantBoldTypography } from "./ImportantBoldTypography";
+export { default as DemoSideBar } from "./DemoSideBar";
+export { default as SwitchTabs } from "./SwitchTabs";
+export { default as InputBox } from "./InputBox";

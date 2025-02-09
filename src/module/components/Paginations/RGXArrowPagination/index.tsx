@@ -1,8 +1,8 @@
 import React from "react";
-import "../../../themes/rgx-theme/rgx-arrow-pagination.css"; // Import custom styles for the arrow pagination component
+import "module/themes/rgx-theme/rgx-arrow-pagination.css"; // Import custom styles for the arrow pagination component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon for pagination buttons
-import { solidIcons } from "components/Icons/FontAwesome"; // Import solid icons used in the pagination
-import { RGXArrowPaginationProps } from "types/arrow-pagination-props"; // Import the type definition for the props
+import { solidIcons } from "module/components/Icons/FontAwesome"; // Import solid icons used in the pagination
+import { RGXArrowPaginationProps } from "module/types/arrow-pagination-props"; // Import the type definition for the props
 
 const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
   currentPage,

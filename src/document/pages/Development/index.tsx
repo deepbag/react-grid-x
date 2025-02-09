@@ -1,9 +1,9 @@
-import ReactGridX from "components/ReactGridX";
+import ReactGridX from "module/components/ReactGridX";
 // import { ReactGridX } from "@deepbag/react-grid-x";
 import React from "react";
-import "../../../themes/rgx-theme/rgx-theme.css"; // Import the default theme
-import "../../../themes/rgx-theme/rgx-table-pagination.css"; // Import the table pagination CSS
-import Loader from "components/Loader";
+import "module/themes/rgx-theme/rgx-theme.css"; // Import the default theme
+import "module/themes/rgx-theme/rgx-table-pagination.css"; // Import the table pagination CSS
+import Loader from "module/components/Loader";
 
 const Development = () => {
   return (

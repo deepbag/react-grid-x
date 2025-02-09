@@ -1,0 +1,24 @@
+.rgx-input-box-field {
+  padding: 6px;
+  border: 1px solid #cccccc81;
+  border-radius: 2px;
+  font-size: 14px;
+  background-color: #282828;
+  color: #888;
+}
+
+.rgx-input-box-field:focus {
+  border-color: #cccccc81;
+  outline: none;
+}
+
+.rgx-input-box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.rgx-input-box-label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}

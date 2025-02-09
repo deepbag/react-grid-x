@@ -91,7 +91,7 @@ const Pagination: React.FC = () => {
               description: "Number of rows displayed per page.",
             },
             {
-              propName: "serverSideSorting",
+              propName: "serverSidePagination",
               type: "boolean",
               description:
                 "Flag to indicate if server-side pagination should be used (default is false).",
@@ -139,7 +139,7 @@ const Pagination: React.FC = () => {
         <h2 className="rgx-pagination-section-title">Server-Side Pagination</h2>
         <p className="rgx-pagination-section-text">
           For large datasets, enable server-side pagination by setting{" "}
-          <ImportantBoldTypography>serverSideSorting</ImportantBoldTypography>{" "}
+          <ImportantBoldTypography>serverSidePagination</ImportantBoldTypography>{" "}
           to true. This allows efficient handling of paginated data.
         </p>
         <CodeBox
@@ -150,7 +150,7 @@ const Pagination: React.FC = () => {
     data={data}
     paginationType="rgx-table-pagination"
     rowsPerPage={10} // Set number of rows per page
-    serverSideSorting={true} // Enable server-side pagination
+    serverSidePagination={true} // Enable server-side pagination
     onPaginationAndRowSizeChange={(page, rowsPerPage) => console.log(page, rowsPerPage)}
 />`,
               language: "jsx",

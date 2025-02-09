@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  HashRouter as Router,
-  useLocation,
-  useNavigate,
-  useRoutes,
-} from "react-router-dom";
+import { useLocation, useNavigate, useRoutes } from "react-router-dom";
 import {
   ChangeLog,
   Column,
@@ -24,12 +19,14 @@ import {
   ArrowPaginationClass,
   CustomTheme,
   CSSGuide,
-} from "./pages";
-import { Header, Sidebar } from "./components";
-import "./app-route.css";
-import { PATHS } from "./config/path";
-import Tooltip from "./pages/Tooltip";
-import Loader from "./pages/Loader";
+  Demo,
+  Tooltip,
+  Loader,
+} from "document/pages";
+import { DemoSideBar, Header, Sidebar } from "document/components";
+import "document/app-route.css";
+import { PATHS } from "document/config/path";
+import useCurrentRoute from "document/hooks/useCurrentRoute";
 
 const RoutesItem: React.FC = () => {
   const navigate = useNavigate();
@@ -64,26 +61,41 @@ const RoutesItem: React.FC = () => {
     { path: PATHS.ARROW_PAGINATION_CLASS, element: <ArrowPaginationClass /> },
     { path: PATHS.CUSTOM_THEME, element: <CustomTheme /> },
     { path: PATHS.CSS_GUIDE, element: <CSSGuide /> },
+    { path: PATHS.DEMO, element: <Demo /> },
   ]);
 };
 
+interface SideBarType {
+  [key: string]: React.ReactNode;
+}
+
 const AppRoute: React.FC = () => {
+  const { label, pathWithoutSlash } = useCurrentRoute();
+  console.log(label, pathWithoutSlash);
+
+  const SideBar: SideBarType = {
+    demo: <DemoSideBar />,
+  };
+
   return (
-    <Router>
-      <div className="rgx-app-route">
-        {/* Render Header first */}
-        <Header />
+    <div className="rgx-app-route">
+      <Header />
 
-        <div className="rgx-app-route-main-content">
-          {/* Sidebar comes below the header */}
-          <Sidebar />
+      <div className="rgx-app-route-main-content">
+        {SideBar[pathWithoutSlash] && SideBar[pathWithoutSlash]}
+        {!SideBar[pathWithoutSlash] && <Sidebar />}
 
-          <div className="rgx-app-route-page-content">
-            <RoutesItem />
-          </div>
+        <div
+          className={
+            SideBar[pathWithoutSlash]
+              ? "rgx-app-route-page-content-demo"
+              : "rgx-app-route-page-content"
+          }
+        >
+          <RoutesItem />
         </div>
       </div>
-    </Router>
+    </div>
   );
 };
 

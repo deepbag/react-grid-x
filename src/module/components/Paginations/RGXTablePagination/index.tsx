@@ -1,8 +1,8 @@
 import React from "react";
-import "../../../themes/rgx-theme/rgx-table-pagination.css"; // Import custom styles for table pagination component
+import "module/themes/rgx-theme/rgx-table-pagination.css"; // Import custom styles for table pagination component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon for pagination buttons
-import { solidIcons } from "components/Icons/FontAwesome"; // Import solid icons for pagination
-import { RGXTablePaginationProps } from "types/table-pagination-props"; // Import type definition for pagination props
+import { solidIcons } from "module/components/Icons/FontAwesome"; // Import solid icons for pagination
+import { RGXTablePaginationProps } from "module/types/table-pagination-props"; // Import type definition for pagination props
 
 const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   currentPage,

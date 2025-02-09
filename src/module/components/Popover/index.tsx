@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
-import { RGXPopoverProps } from "types/pop-over-props";
-import "../../themes/rgx-theme/rgx-popover.css";
+import { RGXPopoverProps } from "module/types/pop-over-props";
+import "module/themes/rgx-theme/rgx-popover.css";
 
 const RGXPopover: React.FC<RGXPopoverProps> = ({
   children,

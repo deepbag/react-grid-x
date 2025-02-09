@@ -1,0 +1,22 @@
+.rgx-switch-tabs-container {
+  display: flex;
+  width: 100%;
+}
+
+.rgx-switch-tab {
+  padding: 8px 10px;
+  border: none;
+  background-color: #f0f0f0e5;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.rgx-switch-tab-active {
+  background-color: #037dff9f;
+  color: white;
+  font-weight: bold;
+}

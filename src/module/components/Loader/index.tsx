@@ -1,6 +1,6 @@
 import React from "react";
-import "../../themes/rgx-theme/rgx-loader.css"; // Import the custom CSS for loader styling
-import { RGXLoaderProps } from "types/loader-props"; // Import the type definition for the loader props
+import "module/themes/rgx-theme/rgx-loader.css"; // Import the custom CSS for loader styling
+import { RGXLoaderProps } from "module/types/loader-props"; // Import the type definition for the loader props
 
 const RGXLoader: React.FC<RGXLoaderProps> = ({
   message = "Loading, please wait...", // Default message if no custom message is passed
