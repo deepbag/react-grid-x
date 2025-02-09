@@ -31,3 +31,4 @@ add props menu
 explaination, tips, conclusion
 Contents needs to add every page
 update search input items
+

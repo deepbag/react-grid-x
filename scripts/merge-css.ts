@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const inputDir = path.join(__dirname, '../src/themes/rgx-theme');
+const inputDir = path.join(__dirname, '../src/module/themes/rgx-theme');
 const outputFile = path.join(inputDir, 'rgx-theme-combined.css');
 
 // Read all CSS files from the directory

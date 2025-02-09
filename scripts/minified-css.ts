@@ -3,7 +3,7 @@ import * as path from 'path';
 import CleanCSS from 'clean-css';
 
 // Directory containing CSS files
-const cssFolder = path.join(__dirname, '../src/themes/rgx-theme');
+const cssFolder = path.join(__dirname, '../src/module/themes/rgx-theme');
 
 // Path for the 'minified' folder
 const minifiedFolderPath = path.join(cssFolder, 'minified');

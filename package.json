@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://deepbag.github.io/react-grid-x",
   "dependencies": {
-    "@deepbag/react-grid-x": "^0.0.6",
+    "@deepbag/react-grid-x": "0.1.8",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",

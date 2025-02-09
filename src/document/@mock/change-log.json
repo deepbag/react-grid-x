@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.1.8",
+    "date": "2025-02-09",
+    "changes": {
+      "minor": [
+        "Minified CSS for improved performance.",
+        "Updated documentation to reflect the latest changes."
+      ]
+    }
+  },
+  {
     "version": "0.1.7",
     "date": "2025-02-08",
     "changes": {
