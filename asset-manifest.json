@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-grid-x/static/css/main.bd01a276.css",
-    "main.js": "/react-grid-x/static/js/main.6b46dadb.js",
+    "main.css": "/react-grid-x/static/css/main.08c5d55c.css",
+    "main.js": "/react-grid-x/static/js/main.1b8bf239.js",
     "react-syntax-highlighter/refractor-core-import.js": "/react-grid-x/static/js/react-syntax-highlighter/refractor-core-import.4ae1398b.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abap.0c6ac97d.chunk.js",
     "react-syntax-highlighter_languages_refractor_abnf.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abnf.8c514c76.chunk.js",
@@ -281,8 +281,8 @@
     "react-syntax-highlighter_languages_refractor_yang.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_yang.c6f24da4.chunk.js",
     "react-syntax-highlighter_languages_refractor_zig.js": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_zig.504b2497.chunk.js",
     "index.html": "/react-grid-x/index.html",
-    "main.bd01a276.css.map": "/react-grid-x/static/css/main.bd01a276.css.map",
-    "main.6b46dadb.js.map": "/react-grid-x/static/js/main.6b46dadb.js.map",
+    "main.08c5d55c.css.map": "/react-grid-x/static/css/main.08c5d55c.css.map",
+    "main.1b8bf239.js.map": "/react-grid-x/static/js/main.1b8bf239.js.map",
     "refractor-core-import.4ae1398b.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter/refractor-core-import.4ae1398b.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.0c6ac97d.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abap.0c6ac97d.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abnf.8c514c76.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_abnf.8c514c76.chunk.js.map",
@@ -563,7 +563,7 @@
     "react-syntax-highlighter_languages_refractor_zig.504b2497.chunk.js.map": "/react-grid-x/static/js/react-syntax-highlighter_languages_refractor_zig.504b2497.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd01a276.css",
-    "static/js/main.6b46dadb.js"
+    "static/css/main.08c5d55c.css",
+    "static/js/main.1b8bf239.js"
   ]
 }
