@@ -99,7 +99,7 @@ const Tooltip: React.FC = () => {
             },
             {
               propName: "tooltipCustomContent",
-              type: "(rowData: any) => string",
+              type: "(rowData: any) => string | number",
               description:
                 "A function that returns custom content for the tooltip based on the row data.",
             },

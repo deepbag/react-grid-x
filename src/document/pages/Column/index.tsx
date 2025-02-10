@@ -98,7 +98,7 @@ const Column: React.FC = () => {
               },
               {
                 propName: "render",
-                type: "() => JSX.Element | string",
+                type: "() => JSX.Element | string | number",
                 description:
                   "A custom render function for modifying how cell data is displayed.",
               },
@@ -128,9 +128,9 @@ const Column: React.FC = () => {
               },
               {
                 propName: "width",
-                type: "string",
+                type: "number",
                 description:
-                  "The width of the column, specified as a string with 'px' unit.",
+                  "The width of the column, (default is 100).",
               },
             ]}
           />

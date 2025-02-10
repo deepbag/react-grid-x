@@ -203,4 +203,6 @@ export interface ReactGridXProps {
    * @example (selectedRows) => { console.log(selectedRows); }
    */
   onSelectionCheck?: (selectedRows: any[], isAllChecked: boolean) => void;
+
+  rowPerPage?: number
 }

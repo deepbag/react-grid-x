@@ -16,7 +16,7 @@ export interface RGXTooltipProps {
    * @example "This is a tooltip"
    * @example <span>Custom Tooltip Content</span>
    */
-  content: string | JSX.Element;
+  content: string | number;
 
   /**
    * The element that will trigger the tooltip.

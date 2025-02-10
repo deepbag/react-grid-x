@@ -22,7 +22,8 @@
       {
         "ignore": [
           "text-wrap",
-          "text-wrap: wrap"
+          "text-wrap: wrap",
+          "position: sticky"
         ]
       }
     ]

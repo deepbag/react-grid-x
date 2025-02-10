@@ -8,11 +8,13 @@
     "find-unused-classes": "ts-node find-unused-classes.ts",
     "minified-css": "ts-node minified-css.ts",
     "minified-types": "ts-node minified-types.ts",
-    "merge-css": "ts-node merge-css.ts"
+    "merge-css": "ts-node merge-css.ts",
+    "generate-random-users": "ts-node generate-random-user-data.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^9.4.0",
     "clean-css": "^5.3.3",
     "glob": "^11.0.1",
     "ts-node": "^10.9.1",

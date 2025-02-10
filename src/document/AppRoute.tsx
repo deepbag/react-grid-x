@@ -71,8 +71,7 @@ interface SideBarType {
 
 const AppRoute: React.FC = () => {
   const { label, pathWithoutSlash } = useCurrentRoute();
-  console.log(label, pathWithoutSlash);
-
+  
   const SideBar: SideBarType = {
     demo: <DemoSideBar />,
   };

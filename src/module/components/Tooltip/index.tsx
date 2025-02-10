@@ -21,6 +21,7 @@ const RGXTooltip: React.FC<RGXTooltipProps> = ({
       <span
         className="rgx-tooltip-text"
         style={{
+          minWidth: String(content)?.length * 5,
           ...style["rgx-tooltip-text"],
         }}
       >

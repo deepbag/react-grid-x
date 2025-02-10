@@ -146,7 +146,7 @@ const Sorting: React.FC = () => {
               propName: "multiColumnSort",
               type: "boolean",
               description:
-                "When true, users can sort by multiple columns at the same time. By default, this is true.",
+                "When true, users can sort by multiple columns at the same time. By default, this is false.",
             },
           ]}
         />
@@ -311,7 +311,7 @@ const Sorting: React.FC = () => {
             sorting logic is managed externally.
           </li>
           <li className="rgx-sorting-section-item">
-            The <ImportantBoldTypography>multiColumnSort</ImportantBoldTypography> prop (default: `true`) enables users to sort
+            The <ImportantBoldTypography>multiColumnSort</ImportantBoldTypography> prop (default: `false`) enables users to sort
             by multiple columns simultaneously by holding the Shift key.
           </li>
         </ul>

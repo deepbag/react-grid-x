@@ -36,10 +36,7 @@ const CSSGuide: React.FC = () => {
               code: `// Normal combined version
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
 // Minified combined versions:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-combined-minified.css";
-// CDN combined version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-combined-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-combined-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },
@@ -59,10 +56,7 @@ import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme
               code: `// Normal version:
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css";
 // Minified Version:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-minified.css";
-// CDN Version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },
@@ -82,10 +76,7 @@ import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme
               code: `// Normal combined version
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css";
 // Minified combined versions:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-table-pagination-minified.css";
-// CDN combined version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-table-pagination-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-table-pagination-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },
@@ -98,10 +89,7 @@ import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme
               code: `// Normal combined version
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css";
 // Minified combined versions:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination-minified.css";
-// CDN combined version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },
@@ -121,10 +109,7 @@ import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme
               code: `// Normal combined version
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css";
 // Minified combined versions:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-tooltip-minified.css";
-// CDN combined version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-tooltip-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-tooltip-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },
@@ -144,10 +129,7 @@ import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme
               code: `// Normal combined version
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css";
 // Minified combined versions:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-loader-minified.css";
-// CDN combined version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-loader-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-loader-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },
@@ -167,10 +149,7 @@ import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme
               code: `// Normal combined version
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css";
 // Minified combined versions:
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-popover-minified.css";
-// CDN combined version:
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css";
-import "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-popover-minified.css";`,
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-popover-minified.css";`,
               language: "jsx",
               lineNumber: true,
             },

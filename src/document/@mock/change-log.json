@@ -1,7 +1,27 @@
 [
   {
-    "version": "0.1.8",
-    "date": "2025-02-09",
+    "version": "0.1.9",
+    "date": "2025-02-10",
+    "changes": {
+      "minor": [
+        "Set default column width to 100px for better consistency.",
+        "Changed column width from string ('px') to number while maintaining the same behavior.",
+        "Implemented a sticky header to keep column titles visible while scrolling.",
+        "Enhanced column rendering to support both numbers and custom render functions.",
+        "Updated tooltip behavior to accept only string and number values for clarity.",
+        "Changed default 'multiColumnSort' value to false to prevent unintended multi-column sorting."
+      ]
+    },
+    "added": {
+      "major": [
+        "Added horizontal scrolling to handle cases with many columns efficiently.",
+        "Introduced 'rowPerPage' prop to allow customization of the number of rows displayed per page."
+      ]
+    }
+  },
+  {
+    "version": "0.1.9",
+    "date": "2025-02-10",
     "changes": {
       "minor": [
         "Minified CSS for improved performance.",

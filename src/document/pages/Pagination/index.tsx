@@ -86,7 +86,7 @@ const Pagination: React.FC = () => {
                 "Selects the pagination type: standard table pagination or arrow-based pagination.",
             },
             {
-              propName: "rowsPerPage",
+              propName: "rowPerPage",
               type: "number",
               description: "Number of rows displayed per page.",
             },
@@ -149,9 +149,10 @@ const Pagination: React.FC = () => {
     columns={columns}
     data={data}
     paginationType="rgx-table-pagination"
-    rowsPerPage={10} // Set number of rows per page
+    rowPerPage={10} // Set number of rows per page
     serverSidePagination={true} // Enable server-side pagination
     onPaginationAndRowSizeChange={(page, rowsPerPage) => console.log(page, rowsPerPage)}
+    rowsPerPageOptions={[5,10,15]}
 />`,
               language: "jsx",
               lineNumber: true,

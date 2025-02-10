@@ -34,7 +34,7 @@ export interface ReactGridXColumnProps {
    *
    * @example (data) => <span style={{ color: 'red' }}>{data}</span>
    */
-  render?: (data: any) => JSX.Element | string;
+  render?: (data: any) => JSX.Element | string | number;
 
   /**
    * A flag to indicate whether the column is sortable.
@@ -80,9 +80,9 @@ export interface ReactGridXColumnProps {
   tooltipCustomContent?: (rowData: any) => string;
 
   /**
-   * The width of the column. It must be a string with "px" unit, for example: "200px".
+   * The width of the column. It must be a string with "px" unit, for example: 200.
    *
-   * @example '200px'
+   * @example 200
    */
-  width?: string; // Only accepts a string with "px" unit
+  width?: number; // Only accepts a number
 }

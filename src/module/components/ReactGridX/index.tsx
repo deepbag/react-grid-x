@@ -29,9 +29,10 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   expandedComponent,
   loading = false,
   loaderComponent = ({ style }) => <RGXLoader style={style} />,
-  multiColumnSort = true,
+  multiColumnSort = false,
   selectionCheckbox = false,
   onSelectionCheck,
+  rowPerPage = 10,
 }) => {
   // State to manage the current page of the table. Tracks the active page number for pagination purposes.
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -45,7 +46,11 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   >([]);
 
   // State to manage the number of rows per page for pagination. Default value is taken from rowsPerPageOptions.
-  const [rowsPerPage, setRowsPerPage] = useState<number>(rowsPerPageOptions[0]);
+  const [rowsPerPage, setRowsPerPage] = useState<number>(
+    rowsPerPageOptions?.find((_) => _ === rowPerPage)
+      ? rowPerPage
+      : rowsPerPageOptions[0]
+  );
 
   // State to track which row is currently expanded. Holds the index of the expanded row, or null if no row is expanded.
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
@@ -281,6 +286,12 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage * rowsPerPage // Calculate the ending index for the slice
       );
 
+  // Sums up column widths, using the specified value or defaulting to 100px if missing.
+  const totalWidth = columns.reduce(
+    (sum, column) => sum + (column.width ? column.width : 100),
+    0
+  );
+
   // Define pagination components based on the selected pagination type
   const pagination: Record<string, JSX.Element> = {
     // "rgx-table-pagination": The default pagination with table-like controls
@@ -330,13 +341,18 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   return (
     <div className={theme}>
       <div
-        className={loading ? "rgx-table-container" : ""}
+        className={
+          loading
+            ? "rgx-table-container-loading rgx-table-container"
+            : "rgx-table-container"
+        }
         style={
           loading
             ? {
+                ...tableStyle["rgx-table-container-loading"],
                 ...tableStyle["rgx-table-container"],
               }
-            : {}
+            : { ...tableStyle["rgx-table-container"] }
         }
       >
         {/* Conditionally render the loader if loading is true */}
@@ -350,6 +366,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         <table
           className="rgx-table"
           style={{
+            minWidth: `${totalWidth}px`,
             ...tableStyle["rgx-table"],
           }}
         >
@@ -392,7 +409,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   className="rgx-table-head-th"
                   style={{
                     textAlign: "left",
-                    width: column.width || "auto",
+                    width: column.width ? `${column.width}px` : "100px",
                     ...tableStyle["rgx-table-head-th"],
                   }}
                 >
@@ -589,7 +606,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
-                                    ...tableStyle["rgx-table-asc-desc-sort-icon"],
+                                    ...tableStyle[
+                                      "rgx-table-asc-desc-sort-icon"
+                                    ],
                                   }}
                                   className="rgx-table-asc-desc-sort-icon"
                                 />
@@ -607,7 +626,9 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
           </thead>
           <tbody
             className={
-              loading ? "rgx-table-body rgx-table-tobody-loading" : "rgx-table-body"
+              loading
+                ? "rgx-table-body rgx-table-tobody-loading"
+                : "rgx-table-body"
             } // Add loading class if data is loading
             style={
               loading
