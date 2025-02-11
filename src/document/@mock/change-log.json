@@ -1,5 +1,21 @@
 [
   {
+    "version": "1.2.0",
+    "date": "2025-02-12",
+    "changes": {
+      "minor": [
+        "Updated 'rowPerPage' prop to fix issues related to row pagination.",
+        "Fixed missing 'totalRows' documentation on the website."
+      ],
+      "added": {
+        "major": [
+          "Added 'page' prop to manage page number for server-side pagination.",
+          "Removed the expanded row icon, but the feature is still functional."
+        ]
+      }
+    }
+  },  
+  {
     "version": "0.1.9",
     "date": "2025-02-11",
     "changes": {

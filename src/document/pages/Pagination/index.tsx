@@ -114,6 +114,12 @@ const Pagination: React.FC = () => {
               description:
                 "Total number of rows in the dataset, used for server-side pagination.",
             },
+            {
+              propName: "page",
+              type: "number",
+              description:
+                "The current page number, used for managing server-side pagination.",
+            },
           ]}
         />
       </section>
@@ -162,6 +168,7 @@ const Pagination: React.FC = () => {
     onPaginationAndRowSizeChange={(page, rowsPerPage) => console.log(page, rowsPerPage)}
     rowsPerPageOptions={[5,10,15]}
     totalRows={100}
+    page={1}
 />`,
               language: "jsx",
               lineNumber: true,

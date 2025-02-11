@@ -22,7 +22,7 @@ add support of min 16 react or 18
 <!-- add theme in document how to change theme -->
 
 theme builder
-demo
+<!-- demo -->
 add icon of application tab icon chrome
 verify every page document
 
@@ -38,16 +38,14 @@ update search input items
 
 <!-- fixed -->
 
-1. added default 100px column width
+<!-- 1. added default 100px column width
 2. column width changed px string to number but it can behave like px
 3. added horizontal scroll if column is to much
 4. sticky header added
 5. rowsPerPage prop added for number of rows show
 6. column render support number also
 7. tooltip content changed accept string and number only
-8. multiColumnSort default set to false
-
-Problem
+8. multiColumnSort default set to false -->
 
 <!-- 1. rowPerPage not updating live -->
 
