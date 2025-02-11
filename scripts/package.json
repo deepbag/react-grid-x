@@ -9,7 +9,8 @@
     "minified-css": "ts-node minified-css.ts",
     "minified-types": "ts-node minified-types.ts",
     "merge-css": "ts-node merge-css.ts",
-    "generate-random-users": "ts-node generate-random-user-data.ts"
+    "generate-random-users": "ts-node generate-random-user-data.ts",
+    "copy-ttp": "ts-node copy-themes-types-package.ts"
   },
   "author": "",
   "license": "ISC",

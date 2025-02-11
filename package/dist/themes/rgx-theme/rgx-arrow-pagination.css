@@ -10,14 +10,14 @@
 
 /* Information section in pagination (like current page and total pages) */
 .rgx-theme .rgx-arrow-pagination-info {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   font-weight: 500;
 }
 
 /* Page number display, including "Page x of y" format */
 .rgx-theme .rgx-arrow-pagination-page-of {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   font-weight: 500;
   display: flex;
@@ -29,6 +29,10 @@
 .rgx-theme .rgx-arrow-pagination-row-per-page {
   display: flex;
   align-items: center;
+}
+
+.rgx-theme .rgx-arrow-pagination-rows-per-page-label {
+  margin-right: 10px;
 }
 
 /* Styling for the select dropdown that controls rows per page */
@@ -51,7 +55,7 @@
 
 /* Styling for the label inside the rows-per-page section */
 .rgx-theme .rgx-theme.rgx-arrow-pagination-rows-per-page label {
-  font-size: 16px;
+  font-size: 14px;
   color: #202020;
   margin-right: 10px;
 }
@@ -62,7 +66,7 @@
   border: 1px solid #ddd;
   background-color: #f9f9f9;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -80,7 +84,7 @@
   background-color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 

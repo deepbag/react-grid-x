@@ -53,3 +53,4 @@ Problem
 
 <!-- 2. total rows not added in pagination document -->
 <!-- 3. page number required -->
+<!-- 4. expanded icon removed icon only feature is working  -->

@@ -217,4 +217,18 @@ export interface ReactGridXProps {
    * rowPerPage = 20;
    */
   rowPerPage?: number;
+
+  /**
+   * The current page number in the table.
+   * This value determines which page of rows is currently displayed.
+   * If not provided, it will default to the first page.
+   *
+   * @type {number}
+   * @default 1
+   *
+   * @example
+   * // Set the current page to 2
+   * page = 2;
+   */
+  page?: number;
 }

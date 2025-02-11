@@ -11,14 +11,14 @@
 
 /* Information section in pagination (like current page and total pages) */
 .rgx-theme .rgx-arrow-pagination-info {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   font-weight: 500;
 }
 
 /* Page number display, including "Page x of y" format */
 .rgx-theme .rgx-arrow-pagination-page-of {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   font-weight: 500;
   display: flex;
@@ -30,6 +30,10 @@
 .rgx-theme .rgx-arrow-pagination-row-per-page {
   display: flex;
   align-items: center;
+}
+
+.rgx-theme .rgx-arrow-pagination-rows-per-page-label {
+  margin-right: 10px;
 }
 
 /* Styling for the select dropdown that controls rows per page */
@@ -52,7 +56,7 @@
 
 /* Styling for the label inside the rows-per-page section */
 .rgx-theme .rgx-theme.rgx-arrow-pagination-rows-per-page label {
-  font-size: 16px;
+  font-size: 14px;
   color: #202020;
   margin-right: 10px;
 }
@@ -63,7 +67,7 @@
   border: 1px solid #ddd;
   background-color: #f9f9f9;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -81,7 +85,7 @@
   background-color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -161,9 +165,9 @@
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  border-radius: 2px;
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
+  padding: 6px;
   min-width: 150px;
   z-index: 1000;
   display: block;
@@ -203,7 +207,7 @@
 
 /* Pagination info section, styled with font size, color, and weight. */
 .rgx-theme .rgx-table-pagination-info {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   font-weight: 500;
 }
@@ -234,7 +238,7 @@
 
 /* Label within rows per page section, with spacing and font styling. */
 .rgx-theme .rgx-table-pagination-rows-per-page label {
-  font-size: 16px;
+  font-size: 14px;
   color: #202020;
   margin-right: 10px;
 }
@@ -245,7 +249,7 @@
   border: 1px solid #ddd;
   background-color: #f9f9f9;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -263,7 +267,7 @@
   background-color: #f9f9f9;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -342,14 +346,16 @@
 .rgx-theme .rgx-table-head-th-checkbox {
   padding: 10px;
   text-align: left;
+  font-size: 14px;
 }
 
 .rgx-theme .rgx-table-body-td,
 .rgx-theme .rgx-table-body-td-checkbox {
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  font-size: 14px;
 }
 
 /* Alternating row colors for even rows, giving a light gray background. */
@@ -413,9 +419,10 @@
 /* Popup items in the table with font styling, padding, and hover effects. */
 .rgx-theme .rgx-table-popup-items {
   font-weight: 400;
-  padding: 8px;
-  font-size: 15px;
+  padding: 4px 8px;
+  font-size: 14px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Hover effect for popup items, with a light background color. */

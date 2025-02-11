@@ -32,9 +32,10 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   selectionCheckbox = false,
   onSelectionCheck,
   rowPerPage = 10,
+  page = 1,
 }) => {
   // State to manage the current page of the table. Tracks the active page number for pagination purposes.
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(page);
 
   // State to store the current dataset to display in the table. This can be updated when data is filtered, sorted, or paginated.
   const [currentData, setCurrentData] = useState<any[]>(data);
@@ -45,11 +46,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   >([]);
 
   // State to manage the number of rows per page for pagination. Default value is taken from rowsPerPageOptions.
-  const [rowsPerPage, setRowsPerPage] = useState<number>(
-    rowsPerPageOptions?.find((_) => _ === rowPerPage)
-      ? rowPerPage
-      : rowsPerPageOptions[0]
-  );
+  const [rowsPerPage, setRowsPerPage] = useState<number>(rowsPerPageOptions[0]);
 
   // State to track which row is currently expanded. Holds the index of the expanded row, or null if no row is expanded.
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
@@ -75,6 +72,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
    */
   const onPageChange = (page: number) => {
     setCurrentPage(page); // Update the current page state with the new page number
+    setExpandedRow(null);
     onPaginationAndRowSizeChange &&
       onPaginationAndRowSizeChange(page, rowsPerPage); // Trigger the callback with the updated page and rows per page, if provided
   };
@@ -274,7 +272,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
 
   // Calculate the total number of pages based on the pagination method (client-side or server-side)
   const totalPages = serverSidePagination
-    ? Math.ceil((totalRows ?? 0) / rowsPerPage) // For server-side pagination, calculate total pages based on totalRows (from server)
+    ? Math.ceil((totalRows || 0) / rowsPerPage) // For server-side pagination, calculate total pages based on totalRows (from server)
     : Math.ceil(currentData.length / rowsPerPage); // For client-side pagination, calculate total pages based on currentData
 
   // Slices the data for the current page based on the pagination method (client-side or server-side)
@@ -336,6 +334,20 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   useEffect(() => {
     setCurrentData(sortedItems); // Set the state with the new sorted data
   }, [sortedItems]); // Dependency array ensures the effect runs when `sortedItems` changes
+
+  useEffect(() => {
+    setRowsPerPage(
+      rowsPerPageOptions?.includes(rowPerPage)
+        ? rowPerPage
+        : rowsPerPageOptions[0]
+    );
+  }, [rowPerPage]);
+
+  useEffect(() => {
+    if (serverSidePagination && page && rowPerPage) {
+      setCurrentPage(page);
+    }
+  }, [page, serverSidePagination, rowPerPage]);
 
   return (
     <div className={theme}>
@@ -700,7 +712,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                       }}
                     >
                       {/* Conditionally render the arrow icon if expandedComponent is passed */}
-                      {expandedComponent && colIndex === 0 && (
+                      {/* {expandedComponent && colIndex === 0 && (
                         <span
                           className="rgx-table-expanded-arrow"
                           style={{
@@ -725,7 +737,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             }}
                           />
                         </span>
-                      )}
+                      )} */}
 
                       {/* Render cell data with optional tooltip and custom render function */}
                       {column.tooltip ? (
