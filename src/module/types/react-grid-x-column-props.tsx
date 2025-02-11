@@ -80,7 +80,7 @@ export interface ReactGridXColumnProps {
   tooltipCustomContent?: (rowData: any) => string;
 
   /**
-   * The width of the column. It must be a string with "px" unit, for example: 200.
+   * The width of the column. It must be a number, for example: 200.
    *
    * @example 200
    */

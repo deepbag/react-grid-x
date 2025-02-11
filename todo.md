@@ -46,3 +46,10 @@ update search input items
 6. column render support number also
 7. tooltip content changed accept string and number only
 8. multiColumnSort default set to false
+
+Problem
+
+<!-- 1. rowPerPage not updating live -->
+
+<!-- 2. total rows not added in pagination document -->
+<!-- 3. page number required -->

@@ -10,11 +10,11 @@ import React, { JSX } from "react";
 export interface RGXTooltipProps {
   /**
    * The content of the tooltip.
-   * This can either be a string or a JSX element, which will be displayed when
+   * This can either be a string or number, which will be displayed when
    * the user hovers over the tooltip trigger element.
    *
    * @example "This is a tooltip"
-   * @example <span>Custom Tooltip Content</span>
+   * @example 20
    */
   content: string | number;
 

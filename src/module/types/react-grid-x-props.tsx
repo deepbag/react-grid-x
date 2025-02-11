@@ -204,5 +204,19 @@ export interface ReactGridXProps {
    */
   onSelectionCheck?: (selectedRows: any[], isAllChecked: boolean) => void;
 
-  rowPerPage?: number
+  /**
+   * The number of rows to display per page in the table.
+   * This value determines how many rows will be visible on each page of the table.
+   * If not provided, it will default to a standard number of rows per page.
+   *
+   * @type {number}
+   * @default 10
+   *
+   * @example
+   * // Set the rows per page to 20
+   * rowPerPage = 20;
+   */
+  rowPerPage?: number;
+
+  page?: number
 }

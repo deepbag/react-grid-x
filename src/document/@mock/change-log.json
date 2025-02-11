@@ -1,7 +1,7 @@
 [
   {
     "version": "0.1.9",
-    "date": "2025-02-10",
+    "date": "2025-02-11",
     "changes": {
       "minor": [
         "Set default column width to 100px for better consistency.",

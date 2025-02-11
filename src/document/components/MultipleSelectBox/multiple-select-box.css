@@ -1,0 +1,132 @@
+.rgx-multiple-select-box-field {
+  padding: 6px;
+  border: 1px solid #cccccc81;
+  border-radius: 2px;
+  font-size: 14px;
+  background-color: #282828;
+  color: #888;
+}
+
+.rgx-multiple-select-box-field:focus {
+  border-color: #cccccc81;
+  outline: none;
+}
+
+.rgx-multiple-select-box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.rgx-multiple-select-box-label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.rgx-multiple-select-custom-select {
+  position: relative;
+  padding: 6px 10px;
+  border: 1px solid #cccccc81;
+  border-radius: 2px;
+  font-size: 14px;
+  background-color: #282828;
+  color: #888;
+  cursor: pointer;
+}
+
+.rgx-multiple-select-selected-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  color: #ededede3;
+}
+
+.rgx-multiple-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #282828;
+  border: 1px solid #cccccc81;
+  border-radius: 2px;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.rgx-multiple-select-dropdown li {
+  padding: 6px;
+  cursor: pointer;
+  color: #ffffffd1;
+}
+
+.rgx-multiple-select-dropdown li:hover {
+  background-color: #444;
+}
+
+.rgx-multiple-select-dropdown .selected {
+  background-color: #555;
+  color: #fff;
+}
+
+.rgx-multiple-select-dropdown-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  color: #888;
+}
+
+.rgx-multiple-select-dropdown-icon.open {
+  transform: rotate(180deg);
+}
+
+.rgx-multiple-select-dropdown input[type="checkbox"] {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.rgx-multiple-select-dropdown input[type="checkbox"]:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  margin-bottom: -2px;
+}
+
+.rgx-multiple-select-dropdown input[type="checkbox"]:hover {
+  background-color: #4caf4f55;
+}
+
+.rgx-multiple-select-dropdown input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-right: 7px;
+}
+
+.rgx-multiple-select-dropdown input[type="checkbox"]:checked {
+  background-color: #4caf50;
+}
+
+.rgx-multiple-select-dropdown input[type="checkbox"]:checked::before {
+  content: "✔";
+  position: absolute;
+  top: 0;
+  left: 2px;
+  color: white;
+  font-size: 10px;
+  line-height: 13px;
+}

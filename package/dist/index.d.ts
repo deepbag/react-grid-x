@@ -32,7 +32,7 @@ interface ReactGridXColumnProps {
      *
      * @example (data) => <span style={{ color: 'red' }}>{data}</span>
      */
-    render?: (data: any) => JSX.Element | string;
+    render?: (data: any) => JSX.Element | string | number;
     /**
      * A flag to indicate whether the column is sortable.
      * If set to true, the user can click the column header to sort the data.
@@ -73,11 +73,11 @@ interface ReactGridXColumnProps {
      */
     tooltipCustomContent?: (rowData: any) => string;
     /**
-     * The width of the column. It must be a string with "px" unit, for example: "200px".
+     * The width of the column. It must be a number, for example: 200.
      *
-     * @example '200px'
+     * @example 200
      */
-    width?: string;
+    width?: number;
 }
 
 /**
@@ -144,6 +144,30 @@ interface ReactGridXProps {
      * @example { table: { border: '1px solid #ddd' } }
      */
     tableStyle?: Record<string, React.CSSProperties>;
+    /**
+     * Styles for loader components.
+     * This allows customization of the loader elements' appearance using inline styles.
+     * The styles should be provided in a `Record<string, React.CSSProperties>` format.
+     *
+     * @example { container: { backgroundColor: 'lightgray' } }
+     */
+    loaderStyle?: Record<string, React.CSSProperties>;
+    /**
+     * Styles for popup components.
+     * This allows customization of the popup elements' appearance using inline styles.
+     * The styles should be provided in a `Record<string, React.CSSProperties>` format.
+     *
+     * @example { container: { backgroundColor: 'lightgray' } }
+     */
+    popupStyle?: Record<string, React.CSSProperties>;
+    /**
+     * Styles for tooltip components.
+     * This allows customization of the tooltip elements' appearance using inline styles.
+     * The styles should be provided in a `Record<string, React.CSSProperties>` format.
+     *
+     * @example { container: { backgroundColor: 'lightgray' } }
+     */
+    tooltipStyle?: Record<string, React.CSSProperties>;
     /**
      * Flag to enable or disable server-side pagination.
      * When `true`, pagination will be handled on the server-side, and only the relevant
@@ -216,7 +240,9 @@ interface ReactGridXProps {
      *
      * @example () => <div>Loading data...</div>
      */
-    loaderComponent?: () => JSX.Element;
+    loaderComponent?: ({ style }: {
+        style?: {};
+    }) => JSX.Element;
     /**
      * Flag to enable or disable multi-column sorting.
      * When `true`, users can sort by multiple columns at the same time.
@@ -240,6 +266,19 @@ interface ReactGridXProps {
      * @example (selectedRows) => { console.log(selectedRows); }
      */
     onSelectionCheck?: (selectedRows: any[], isAllChecked: boolean) => void;
+    /**
+     * The number of rows to display per page in the table.
+     * This value determines how many rows will be visible on each page of the table.
+     * If not provided, it will default to a standard number of rows per page.
+     *
+     * @type {number}
+     * @default 10
+     *
+     * @example
+     * // Set the rows per page to 20
+     * rowPerPage = 20;
+     */
+    rowPerPage?: number;
 }
 
 declare const ReactGridX: React$1.FC<ReactGridXProps>;
@@ -390,13 +429,13 @@ declare const RGXArrowPagination: React$1.FC<RGXArrowPaginationProps>;
 interface RGXTooltipProps {
     /**
      * The content of the tooltip.
-     * This can either be a string or a JSX element, which will be displayed when
+     * This can either be a string or number, which will be displayed when
      * the user hovers over the tooltip trigger element.
      *
      * @example "This is a tooltip"
-     * @example <span>Custom Tooltip Content</span>
+     * @example 20
      */
-    content: string | JSX.Element;
+    content: string | number;
     /**
      * The element that will trigger the tooltip.
      * This represents the child element that, when hovered over or focused, will

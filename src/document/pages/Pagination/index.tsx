@@ -108,6 +108,12 @@ const Pagination: React.FC = () => {
               description:
                 "Options for rows per page (default is [5, 10, 15]).",
             },
+            {
+              propName: "totalRows",
+              type: "number",
+              description:
+                "Total number of rows in the dataset, used for server-side pagination.",
+            },
           ]}
         />
       </section>
@@ -139,7 +145,9 @@ const Pagination: React.FC = () => {
         <h2 className="rgx-pagination-section-title">Server-Side Pagination</h2>
         <p className="rgx-pagination-section-text">
           For large datasets, enable server-side pagination by setting{" "}
-          <ImportantBoldTypography>serverSidePagination</ImportantBoldTypography>{" "}
+          <ImportantBoldTypography>
+            serverSidePagination
+          </ImportantBoldTypography>{" "}
           to true. This allows efficient handling of paginated data.
         </p>
         <CodeBox
@@ -153,6 +161,7 @@ const Pagination: React.FC = () => {
     serverSidePagination={true} // Enable server-side pagination
     onPaginationAndRowSizeChange={(page, rowsPerPage) => console.log(page, rowsPerPage)}
     rowsPerPageOptions={[5,10,15]}
+    totalRows={100}
 />`,
               language: "jsx",
               lineNumber: true,
@@ -180,8 +189,12 @@ const Pagination: React.FC = () => {
             request only the necessary data from the backend.
           </li>
           <li className="rgx-pagination-section-item">
-            The <ImportantBoldTypography>onPaginationAndRowSizeChange</ImportantBoldTypography> callback can be used
-            to handle user interactions and request updated data accordingly.
+            The{" "}
+            <ImportantBoldTypography>
+              onPaginationAndRowSizeChange
+            </ImportantBoldTypography>{" "}
+            callback can be used to handle user interactions and request updated
+            data accordingly.
           </li>
         </ul>
       </section>

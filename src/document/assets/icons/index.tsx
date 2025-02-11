@@ -16,7 +16,7 @@ import {
   faCircleArrowUp,
   faCircleArrowDown,
   faCircleRight,
-  faCircleLeft
+  faCircleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const solidIcons = {

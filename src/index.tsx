@@ -4,14 +4,17 @@ import "./index.css";
 import { ConfigProvider } from "document/context/ConfigContext";
 import AppRoute from "document/AppRoute";
 import { HashRouter } from "react-router-dom";
+import { DemoProvider } from "document/context/DemoContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <ConfigProvider>
-    <HashRouter>
-      <AppRoute />
-    </HashRouter>
+    <DemoProvider>
+      <HashRouter>
+        <AppRoute />
+      </HashRouter>
+    </DemoProvider>
   </ConfigProvider>
 );

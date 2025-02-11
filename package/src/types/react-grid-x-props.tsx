@@ -73,6 +73,33 @@ export interface ReactGridXProps {
   tableStyle?: Record<string, React.CSSProperties>;
 
   /**
+   * Styles for loader components.
+   * This allows customization of the loader elements' appearance using inline styles.
+   * The styles should be provided in a `Record<string, React.CSSProperties>` format.
+   *
+   * @example { container: { backgroundColor: 'lightgray' } }
+   */
+  loaderStyle?: Record<string, React.CSSProperties>;
+
+  /**
+   * Styles for popup components.
+   * This allows customization of the popup elements' appearance using inline styles.
+   * The styles should be provided in a `Record<string, React.CSSProperties>` format.
+   *
+   * @example { container: { backgroundColor: 'lightgray' } }
+   */
+  popupStyle?: Record<string, React.CSSProperties>;
+
+  /**
+   * Styles for tooltip components.
+   * This allows customization of the tooltip elements' appearance using inline styles.
+   * The styles should be provided in a `Record<string, React.CSSProperties>` format.
+   *
+   * @example { container: { backgroundColor: 'lightgray' } }
+   */
+  tooltipStyle?: Record<string, React.CSSProperties>;
+
+  /**
    * Flag to enable or disable server-side pagination.
    * When `true`, pagination will be handled on the server-side, and only the relevant
    * data for the current page will be loaded.
@@ -149,7 +176,7 @@ export interface ReactGridXProps {
    *
    * @example () => <div>Loading data...</div>
    */
-  loaderComponent?: () => JSX.Element;
+  loaderComponent?: ({ style }: { style?: {} }) => JSX.Element;
 
   /**
    * Flag to enable or disable multi-column sorting.
@@ -176,4 +203,18 @@ export interface ReactGridXProps {
    * @example (selectedRows) => { console.log(selectedRows); }
    */
   onSelectionCheck?: (selectedRows: any[], isAllChecked: boolean) => void;
+
+  /**
+   * The number of rows to display per page in the table.
+   * This value determines how many rows will be visible on each page of the table.
+   * If not provided, it will default to a standard number of rows per page.
+   *
+   * @type {number}
+   * @default 10
+   *
+   * @example
+   * // Set the rows per page to 20
+   * rowPerPage = 20;
+   */
+  rowPerPage?: number;
 }

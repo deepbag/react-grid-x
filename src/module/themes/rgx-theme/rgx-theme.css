@@ -46,14 +46,16 @@
 .rgx-theme .rgx-table-head-th-checkbox {
   padding: 10px;
   text-align: left;
+  font-size: 14px;
 }
 
 .rgx-theme .rgx-table-body-td,
 .rgx-theme .rgx-table-body-td-checkbox {
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  font-size: 14px;
 }
 
 /* Alternating row colors for even rows, giving a light gray background. */
@@ -117,9 +119,10 @@
 /* Popup items in the table with font styling, padding, and hover effects. */
 .rgx-theme .rgx-table-popup-items {
   font-weight: 400;
-  padding: 8px;
-  font-size: 15px;
+  padding: 4px 8px;
+  font-size: 14px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Hover effect for popup items, with a light background color. */

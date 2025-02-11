@@ -1,0 +1,87 @@
+.rgx-select-box-field {
+  padding: 6px;
+  border: 1px solid #cccccc81;
+  border-radius: 2px;
+  font-size: 14px;
+  background-color: #282828;
+  color: #888;
+}
+
+.rgx-select-box-field:focus {
+  border-color: #cccccc81;
+  outline: none;
+}
+
+.rgx-select-box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.rgx-select-box-label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.rgx-select-custom-select {
+  position: relative;
+  padding: 6px 10px;
+  border: 1px solid #cccccc81;
+  border-radius: 2px;
+  font-size: 14px;
+  background-color: #282828;
+  color: #888;
+  cursor: pointer;
+}
+
+.rgx-select-selected-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  color: #ededede3;
+}
+
+.rgx-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #282828;
+  border: 1px solid #e8e8e881;
+  border-radius: 2px;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.rgx-select-dropdown li {
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #ffffffd1;
+}
+
+.rgx-select-dropdown li:hover {
+  background-color: #444;
+}
+
+.rgx-select-dropdown .selected {
+  background-color: #555;
+  color: #fff;
+}
+
+.rgx-select-dropdown-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  color: #888;
+}
+
+.rgx-select-dropdown-icon.open {
+  transform: rotate(180deg);
+}

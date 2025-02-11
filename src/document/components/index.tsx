@@ -9,3 +9,5 @@ export { default as ImportantBoldTypography } from "./ImportantBoldTypography";
 export { default as DemoSideBar } from "./DemoSideBar";
 export { default as SwitchTabs } from "./SwitchTabs";
 export { default as InputBox } from "./InputBox";
+export { default as SelectBox } from "./SelectBox";
+export { default as MultipleSelectBox } from "./MultipleSelectBox";
