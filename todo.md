@@ -13,11 +13,11 @@ Save column order, sorting, and filters in local storage or backend.
 
 <!-- column width (important) -->
 
-need to test every feature
+<!-- need to test every feature -->
 add react min version in document
-test application in lower version react
+<!-- test application in lower version react ^18 -->
 test in js project
-add support of min 16 react or 18
+<!-- add support of min 18 react -->
 
 <!-- add theme in document how to change theme -->
 

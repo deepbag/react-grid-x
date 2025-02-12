@@ -5,10 +5,18 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@deepbag/react-grid-x)
 ![GitHub issues](https://img.shields.io/github/issues/deepbag/react-grid-x)
 ![GitHub license](https://img.shields.io/github/license/deepbag/react-grid-x)
-![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
+![React](https://img.shields.io/badge/React-18.0.0-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=typescript)
 
 > `@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
+
+Check out the live demo of `@deepbag/react-grid-x` [here](https://deepbag.github.io/react-grid-x/#/demo).
+
+## Compatibility
+
+- This package supports **React 18** and higher versions.
+- It is optimized to work seamlessly with the latest React features, including Concurrent Mode and Suspense, ensuring smooth performance and improved rendering.
+- Make sure your project is using React 18 or a newer version for full compatibility and performance benefits.
 
 ## Features
 
@@ -105,7 +113,7 @@ export default App;
 | `loaderStyle`                  | `Record<string, React.CSSProperties>`                       | Custom styles for the loader component and its elements.                                                                                                  |
 | `popupStyle`                   | `Record<string, React.CSSProperties>`                       | Custom styles for the popop component and its elements.                                                                                                   |
 | `tooltipStyle`                 | `Record<string, React.CSSProperties>`                       | Custom styles for the tooltip component and its elements.                                                                                                 |
-| `serverSidePagination`            | `boolean`                                                   | Flag to indicate if server-side pagination should be used (default is `false`).                                                                           |
+| `serverSidePagination`         | `boolean`                                                   | Flag to indicate if server-side pagination should be used (default is `false`).                                                                           |
 | `onPaginationAndRowSizeChange` | `(page: number, rowsPerPage: number) => void`               | Callback function for pagination and row size changes.                                                                                                    |
 | `totalRows`                    | `number`                                                    | The total number of rows in the database (required for server-side pagination).                                                                           |
 | `sortable`                     | `boolean`                                                   | Enables sorting on a column (default is `false`).                                                                                                         |
@@ -154,14 +162,6 @@ The package exports the following components and props interfaces:
 - `RGXTooltipProps`: Props for the `RGXTooltip` component.
 - `RGXLoaderProps`: Props for the `RGXLoader` component.
 - `RGXPopoverProps`: Props for the `RGXPopover` component.
-
-## Contributers
-
-We welcome contributions from the community! If you find a bug, have a feature request, or would like to contribute code, please open an issue or pull request on our GitHub repository.
-
-<a href="https://github.com/deepbag/react-grid-x/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=deepbag/react-grid-x" />
-</a>
 
 ## License
 
