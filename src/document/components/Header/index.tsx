@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { brandIcons } from "document/assets/icons";
 import axios from "axios";
 import { headerMenu } from "document/config/menu";
-import { FuzzySearchMock } from "document/@mock";
-import SearchInputFuzzy from "../SearchInputFuzzy";
+// import { FuzzySearchMock } from "document/@mock";
+// import SearchInputFuzzy from "../SearchInputFuzzy";
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -35,11 +35,11 @@ const Header: React.FC = () => {
           React-Grid-X {version && <span>({version})</span>}
         </Link>
       </div>
-      <SearchInputFuzzy
+      {/* <SearchInputFuzzy
         data={FuzzySearchMock}
         keys={["title", "description"]}
         threshold={0.3}
-      />
+      /> */}
       <div className="rgx-header-menu">
         <ul className="rgx-header-menu-items-ul">
           {headerMenu.map((_, idx) => (

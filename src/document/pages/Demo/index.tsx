@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
-import "module/themes/rgx-theme/rgx-theme.css";
+// import "module/themes/rgx-theme/rgx-theme.css";
 import { ReactGridX } from "@deepbag/react-grid-x";
 import { _paginatedResponse } from "document/utils/paginated-response";
 import { UsersRandom } from "document/@mock";

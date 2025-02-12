@@ -7,6 +7,10 @@ export default defineConfig({
   minify: true,
   sourcemap: true,
   clean: true,
+  external: ['react', 'react-dom'],
+  esbuildOptions(options) {
+    options.target = ['es2015', 'es2020']; // Set target to modern JS but compatible with older React versions
+  },
   // treeshake: true,
   // esbuildOptions(options) {
   //   options.mangleProps = /^_/; // Mangle private properties (minification)

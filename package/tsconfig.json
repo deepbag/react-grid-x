@@ -5,7 +5,7 @@
       "declaration": true,
       "declarationDir": "dist",
       "module": "ESNext",
-      "target": "ESNext",
+      "target": "ES6",
       "moduleResolution": "Node",
       "jsx": "react-jsx",
       "strict": true,

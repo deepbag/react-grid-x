@@ -1,6 +1,6 @@
 {
   "name": "@deepbag/react-grid-x",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "description": "ReactGridX is a customizable and flexible React table component that supports pagination, dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, and styling.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -11,7 +11,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup && mkdir -p dist/themes && cp -R src/themes/* dist/themes/",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react --external react-dom && mkdir -p dist/themes && cp -R src/themes/* dist/themes/",
     "prepublishOnly": "yarn build"
   },
   "repository": {
@@ -43,14 +43,17 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@fortawesome/react-fontawesome": "^0.2.2"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.8",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
     "@tsconfig/recommended": "^1.0.8",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3"

@@ -33,6 +33,7 @@
         "aria-input-field-name": "off",
         "aria-required-children": "off"
       }
-    ]
+    ],
+    "typescript-config/is-valid": "off"
   }
 }
