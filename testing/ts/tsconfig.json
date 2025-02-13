@@ -17,6 +17,6 @@
     "strict": true,
     "resolveJsonModule": true,
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "utils/paginated-response.ts"],
   "exclude": ["node_modules"]
 }

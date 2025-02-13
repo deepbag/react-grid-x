@@ -1,18 +1,18 @@
-import { UsersRandom } from "@mock";
-import { _paginatedResponse } from "paginated-response";
+import { UsersRandom } from "./@mock";
 import React, { useEffect, useState } from "react";
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
 import { ReactGridX } from "@deepbag/react-grid-x";
 import moment from "moment-timezone";
+import { _paginatedResponse } from "./utils/paginated-response";
 
 const Application = () => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(15);
-  const [data, setData] = useState<{ [key: string]: any }[]>([]);
-  const [totalRows, setTotalRows] = useState<number>(0);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(15);
+  const [data, setData] = useState([]);
+  const [totalRows, setTotalRows] = useState(0);
 
-  const onPaginationResponse = (page: number, pageSize: number) => {
+  const onPaginationResponse = (page, pageSize) => {
     setLoading(true);
     setPage(page);
     setSize(pageSize);
@@ -50,14 +50,9 @@ const Application = () => {
             {
               name: "Date Of Birth",
               key: "dateOfBirth",
-              render: (_: { dateOfBirth: moment.MomentInput }) =>
-                moment(_.dateOfBirth).format("DD-MMM-YYYY"),
+              render: (_) => moment(_.dateOfBirth).format("DD-MMM-YYYY"),
               width: 180,
-              onSort: (
-                a: moment.MomentInput,
-                b: moment.MomentInput,
-                direction: string
-              ) => {
+              onSort: (a, b, direction) => {
                 const dateA = moment(a);
                 const dateB = moment(b);
                 if (direction === "asc") {
@@ -78,8 +73,7 @@ const Application = () => {
             {
               name: "Age",
               key: "age",
-              render: (_: { dateOfBirth: moment.MomentInput }) =>
-                Number(moment().diff(_.dateOfBirth, "years")),
+              render: (_) => Number(moment().diff(_.dateOfBirth, "years")),
               width: 40,
             },
             { name: "Job Title", key: "jobTitle", width: 230, tooltip: true },
@@ -88,14 +82,12 @@ const Application = () => {
               key: "company",
               width: 240,
               tooltip: true,
-              tooltipCustomContent: (_: { name: any; company: any }) =>
-                `${_.name} Working in ${_.company}`,
+              tooltipCustomContent: (_) => `${_.name} Working in ${_.company}`,
             },
             {
               name: "Address",
               key: "address",
-              render: (_: { address: any; city: any; country: any }) =>
-                `${_.address}, ${_.city}, ${_.country}`,
+              render: (_) => `${_.address}, ${_.city}, ${_.country}`,
               width: 300,
             },
             { name: "Email", key: "email", width: 230 },
