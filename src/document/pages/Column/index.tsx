@@ -1,6 +1,10 @@
 import React from "react";
 import "./column.css";
-import { CodeBox, CustomTable, ImportantBoldTypography } from "document/components";
+import {
+  CodeBox,
+  CustomTable,
+  ImportantBoldTypography,
+} from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
 
 const Column: React.FC = () => {
@@ -129,8 +133,7 @@ const Column: React.FC = () => {
               {
                 propName: "width",
                 type: "number",
-                description:
-                  "The width of the column, (default is 100).",
+                description: "The width of the column, (default is 100).",
               },
             ]}
           />
@@ -142,9 +145,10 @@ const Column: React.FC = () => {
         >
           <h2 className="rgx-column-section-title">Column Customization</h2>
           <p className="rgx-column-section-text">
-            Customize how columns are rendered with the <ImportantBoldTypography>render</ImportantBoldTypography> function. This
-            allows you to apply custom formatting or use additional components
-            inside the column cells.
+            Customize how columns are rendered with the{" "}
+            <ImportantBoldTypography>render</ImportantBoldTypography> function.
+            This allows you to apply custom formatting or use additional
+            components inside the column cells.
           </p>
           <CodeBox
             commands={{
@@ -171,9 +175,11 @@ const Column: React.FC = () => {
           </p>
           <p className="rgx-column-section-text">
             You can enable sorting for columns by setting the{" "}
-            <ImportantBoldTypography>sortable</ImportantBoldTypography> prop to <ImportantBoldTypography>true</ImportantBoldTypography>. Additionally, you
-            can customize the sorting behavior using the <ImportantBoldTypography>onSort</ImportantBoldTypography>{" "}
-            prop, which accepts a custom sorting function.
+            <ImportantBoldTypography>sortable</ImportantBoldTypography> prop to{" "}
+            <ImportantBoldTypography>true</ImportantBoldTypography>.
+            Additionally, you can customize the sorting behavior using the{" "}
+            <ImportantBoldTypography>onSort</ImportantBoldTypography> prop,
+            which accepts a custom sorting function.
           </p>
 
           <CodeBox
@@ -243,15 +249,20 @@ const Column: React.FC = () => {
         <section className="rgx-column-section" id="rgx-column-section-width">
           <h2 className="rgx-column-section-title">Width and Layout</h2>
           <p className="rgx-column-section-text">
-            Define the width of your columns using the <ImportantBoldTypography>width</ImportantBoldTypography> prop.
-            This allows for precise control over how the table is laid out,
-            ensuring a better user experience.
+            You can define the width of your columns using the{" "}
+            <ImportantBoldTypography>width</ImportantBoldTypography> prop,
+            giving you precise control over the table layout for an improved
+            user experience.
           </p>
 
           <p className="rgx-column-section-text">
-            You can specify the width of individual columns by passing a string
-            value with a <ImportantBoldTypography>"px"</ImportantBoldTypography> unit. For example, setting the width of a column
-            to <ImportantBoldTypography>"200px"</ImportantBoldTypography> will ensure that the column is 200px wide.
+            The <ImportantBoldTypography>width</ImportantBoldTypography> prop
+            accepts a number, which is interpreted as pixels (
+            <ImportantBoldTypography>px</ImportantBoldTypography>). For example,
+            setting{" "}
+            <ImportantBoldTypography>width: 200</ImportantBoldTypography>{" "}
+            ensures that the column is{" "}
+            <ImportantBoldTypography>200px</ImportantBoldTypography> wide.
           </p>
 
           <CodeBox

@@ -1,8 +1,24 @@
 import { CodeBox, CustomTable } from "document/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./tooltip-class.css";
+import axios from "axios";
 
 const TooltipClass: React.FC = () => {
+  const [css, setCss] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-tooltip.css"
+      )
+      .then((response) => {
+        setCss(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching version:", error);
+      });
+  }, []);
+
   return (
     <div className="rgx-tooltip-class-overview">
       <div className="rgx-tooltip-class-header">
@@ -54,52 +70,7 @@ const TooltipClass: React.FC = () => {
         <CodeBox
           commands={{
             "rgx-tooltip.css": {
-              code: `/* Tooltip container for elements with tooltips */
-.rgx-theme .rgx-tooltip-container {
-    position: relative;
-    display: inline-block;
-}
-
-/* Tooltip text container */
-.rgx-theme .rgx-tooltip-text {
-    visibility: hidden;
-    width: fit-content;
-    max-width: 200px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px 10px;
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: wrap;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-/* Tooltip arrow */
-.rgx-theme .rgx-tooltip-text::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
-}
-
-/* Show the tooltip on hover */
-.rgx-theme .rgx-tooltip-container:hover .rgx-tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-`,
+              code: css,
               language: "css",
               lineNumber: true,
             },

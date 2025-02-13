@@ -1,8 +1,24 @@
 import { CodeBox, CustomTable } from "document/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./popover-class.css";
+import axios from "axios";
 
 const PopoverClass: React.FC = () => {
+  const [css, setCss] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-popover.css"
+      )
+      .then((response) => {
+        setCss(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching version:", error);
+      });
+  }, []);
+
   return (
     <div className="rgx-popover-class-overview">
       <div className="rgx-popover-class-header">
@@ -61,38 +77,7 @@ const PopoverClass: React.FC = () => {
         <CodeBox
           commands={{
             "rgx-popover.css": {
-              code: `/* Popover container, styled with background, border, shadow, padding, and positioning. */
-.rgx-theme .rgx-popover-content {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    min-width: 150px;
-    z-index: 1000;
-    display: block;
-    margin-left: -152px;
-    margin-top: 6px;
-}
-
-/* Show popover when the "show" class is applied. */
-.rgx-theme .rgx-popover-content.rgx-popover-show {
-    display: block;
-}
-
-/* Small arrow pointing to the trigger element, created with a rotated square. */
-.rgx-theme .rgx-popover-arrow {
-    position: absolute;
-    top: -5px;
-    left: 90%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-left: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-}`,
+              code: css,
               language: "css",
               lineNumber: true,
             },

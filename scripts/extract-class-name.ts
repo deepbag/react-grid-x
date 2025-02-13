@@ -139,7 +139,7 @@ const splitClassNamesAndOverwriteJson = (jsonFilePath: string) => {
 };
 
 // Path to the project directory (adjust as needed)
-const projectDir = path.resolve(__dirname, "../src");
+const projectDir = path.resolve(__dirname, "../src/module");
 
 // Extract class names and save to a JSON file
 extractClassNamesFromFiles(projectDir).then((jsonFilePath) => {

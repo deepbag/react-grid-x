@@ -1,8 +1,24 @@
 import { CodeBox, CustomTable } from "document/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./loader-class.css";
+import axios from "axios";
 
 const LoaderClass: React.FC = () => {
+  const [css, setCss] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-loader.css"
+      )
+      .then((response) => {
+        setCss(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching version:", error);
+      });
+  }, []);
+
   return (
     <div className="rgx-tooltip-class-overview">
       <div className="rgx-tooltip-class-header">
@@ -58,47 +74,7 @@ const LoaderClass: React.FC = () => {
         <CodeBox
           commands={{
             "rgx-loader.css": {
-              code: `/* Loader container styling */
-.rgx-theme .rgx-loader-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    background-color: #e2e2e2;
-    padding: 8px 10px;
-    border-radius: 4px;
-}
-
-/* Loader spinner styling */
-.rgx-theme .rgx-loader-spinner {
-    border: 4px solid #ddd;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    animation: spin 2s linear infinite;
-}
-
-/* Loader message styling */
-.rgx-theme .rgx-loader-message {
-    font-size: 14px;
-    color: #333;
-    margin-left: 10px;
-}
-
-/* Spinner animation */
-@keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-}`,
+              code: css,
               language: "css",
               lineNumber: true,
             },

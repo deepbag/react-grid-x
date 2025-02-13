@@ -39,16 +39,16 @@ const Overview: React.FC = () => {
           </li>
           <li className="rgx-over-view-feature-item">
             <strong>Sorting Support:</strong> Supports sorting by multiple
-            columns, including both numerical and alphabetical sorting and
-            "Clear Sorting" popup is available when sorting is enabled.
+            columns (both numerical and alphabetical). A Clear Sorting popup
+            appears when sorting is enabled.
           </li>
           <li className="rgx-over-view-feature-item">
             <strong>Server-side Sorting:</strong> Optionally support server-side
             sorting for large datasets.
           </li>
           <li className="rgx-over-view-feature-item">
-            <strong>Pagination support:</strong> Choose from different
-            pagination types (
+            <strong>Pagination support:</strong> Supports multiple pagination
+            types (
             <ImportantBoldTypography>
               rgx-table-pagination
             </ImportantBoldTypography>{" "}
@@ -56,7 +56,7 @@ const Overview: React.FC = () => {
             <ImportantBoldTypography>
               rgx-arrow-pagination
             </ImportantBoldTypography>
-            ) with configurable rows per page and pagination controls.
+            ) with customizable rows per page and navigation controls.
           </li>
           <li className="rgx-over-view-feature-item">
             <strong>Customizable styling:</strong> Apply custom themes and

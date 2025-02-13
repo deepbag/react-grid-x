@@ -1,8 +1,24 @@
 import { CodeBox, CustomTable } from "document/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./table-pagination-class.css";
+import axios from "axios";
 
 const TablePaginationClass: React.FC = () => {
+  const [css, setCss] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-table-pagination.css"
+      )
+      .then((response) => {
+        setCss(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching version:", error);
+      });
+  }, []);
+
   return (
     <div className="rgx-table-pagination-class-overview">
       <div className="rgx-table-pagination-class-header">
@@ -99,107 +115,7 @@ const TablePaginationClass: React.FC = () => {
         <CodeBox
           commands={{
             "rgx-table-pagination.css": {
-              code: `/* Main pagination container, aligned with space between elements, wraps on smaller screens. */
-.rgx-theme .rgx-table-pagination {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* Pagination info section, styled with font size, color, and weight. */
-.rgx-theme .rgx-table-pagination-info {
-    font-size: 16px;
-    color: #555;
-    font-weight: 500;
-}
-
-/* Rows per page section with label and select element aligned horizontally. */
-.rgx-theme .rgx-table-pagination-row-per-page {
-    display: flex;
-    align-items: center;
-}
-
-/* Styling for rows per page select dropdown. */
-.rgx-theme .rgx-table-pagination-rows-per-page-select {
-    height: 30px;
-}
-
-/* Disabled select element appearance, with a "not-allowed" cursor. */
-.rgx-theme .rgx-table-pagination-rows-per-page-select:disabled {
-    cursor: not-allowed;
-}
-
-/* Rows per page section label and select element, styled with margins and font weight. */
-.rgx-theme .rgx-table-pagination-rows-per-page {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    font-weight: 500;
-}
-
-/* Label within rows per page section, with spacing and font styling. */
-.rgx-theme .rgx-table-pagination-rows-per-page label {
-    font-size: 16px;
-    color: #202020;
-    margin-right: 10px;
-}
-
-/* Styling for the select dropdown within rows per page section. */
-.rgx-theme .rgx-table-pagination-rows-per-page select {
-    padding: 5px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-/* Pagination control buttons container with flexible wrapping and spacing. */
-.rgx-theme .rgx-table-pagination-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-/* Individual pagination button styling, including padding, background, and hover effects. */
-.rgx-theme .rgx-table-pagination-button {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-/* Hover effect for pagination buttons, changing background color. */
-.rgx-theme .rgx-table-pagination-button:hover {
-    background-color: #ddd;
-}
-
-/* Disabled pagination button styling with light background and "not-allowed" cursor. */
-.rgx-theme .rgx-table-pagination-button:disabled {
-    background-color: #eee;
-    cursor: not-allowed;
-}
-
-/* Active pagination button styling with custom background and border color. */
-.rgx-theme .rgx-table-pagination-button.rgx-table-pagination-active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-}
-
-/* Ellipsis button for pagination, styled to be transparent with a gray color. */
-.rgx-theme .rgx-table-pagination-ellipsis {
-    background-color: transparent;
-    color: #888;
-    cursor: not-allowed;
-}
-`,
+              code: css,
               language: "css",
               lineNumber: true,
             },

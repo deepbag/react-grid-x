@@ -176,62 +176,6 @@ const Pagination: React.FC = () => {
           }}
         />
       </section>
-
-      <section
-        className="rgx-pagination-section"
-        id="rgx-pagination-section-explanation"
-      >
-        <h2 className="rgx-pagination-section-title">Explanation</h2>
-        <ul className="rgx-pagination-section-list">
-          <li className="rgx-pagination-section-item">
-            Pagination helps in managing large datasets by breaking them into
-            smaller, manageable chunks.
-          </li>
-          <li className="rgx-pagination-section-item">
-            By default, ReactGridX provides client-side pagination, meaning all
-            data is loaded initially, and pagination is handled on the frontend.
-          </li>
-          <li className="rgx-pagination-section-item">
-            For larger datasets, server-side pagination should be used to
-            request only the necessary data from the backend.
-          </li>
-          <li className="rgx-pagination-section-item">
-            The{" "}
-            <ImportantBoldTypography>
-              onPaginationAndRowSizeChange
-            </ImportantBoldTypography>{" "}
-            callback can be used to handle user interactions and request updated
-            data accordingly.
-          </li>
-        </ul>
-      </section>
-
-      <section
-        className="rgx-pagination-section"
-        id="rgx-pagination-section-tips"
-      >
-        <h2 className="rgx-pagination-section-title">
-          Tips for Optimizing Pagination
-        </h2>
-        <ul className="rgx-pagination-section-list">
-          <li className="rgx-pagination-section-item">
-            Use server-side pagination for datasets with more than a few hundred
-            rows to improve performance.
-          </li>
-          <li className="rgx-pagination-section-item">
-            Set a reasonable default page size to balance data visibility and
-            performance.
-          </li>
-          <li className="rgx-pagination-section-item">
-            Ensure pagination controls are user-friendly and provide clear
-            navigation options.
-          </li>
-          <li className="rgx-pagination-section-item">
-            Lazy loading or infinite scrolling can be alternatives to
-            traditional pagination, depending on the use case.
-          </li>
-        </ul>
-      </section>
     </div>
   );
 };

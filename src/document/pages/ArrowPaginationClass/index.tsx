@@ -1,8 +1,24 @@
 import { CodeBox, CustomTable } from "document/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./arrow-pagination-class.css";
+import axios from "axios";
 
 const ArrowPaginationClass: React.FC = () => {
+  const [css, setCss] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination.css"
+      )
+      .then((response) => {
+        setCss(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching version:", error);
+      });
+  }, []);
+
   return (
     <div className="rgx-arrow-pagination-class-overview">
       <div className="rgx-arrow-pagination-class-header">
@@ -77,6 +93,11 @@ const ArrowPaginationClass: React.FC = () => {
               description:
                 "Displays the current page and the total number of pages in the pagination controls.",
             },
+            {
+              className: "rgx-arrow-pagination-ellipsis",
+              description:
+                "Style for pagination ellipses, used when there are skipped page numbers in the pagination controls.",
+            },
           ]}
         />
       </section>
@@ -94,116 +115,7 @@ const ArrowPaginationClass: React.FC = () => {
         <CodeBox
           commands={{
             "rgx-arrow-pagination.css": {
-              code: `/* Pagination container styling */
-.rgx-theme .rgx-arrow-pagination {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* Information section in pagination (like current page and total pages) */
-.rgx-theme .rgx-arrow-pagination-info {
-    font-size: 16px;
-    color: #555;
-    font-weight: 500;
-}
-
-/* Page number display, including "Page x of y" format */
-.rgx-theme .rgx-arrow-pagination-page-of {
-    font-size: 16px;
-    color: #555;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    margin: 0 7px;
-}
-
-/* Row-per-page section styling */
-.rgx-theme .rgx-arrow-pagination-row-per-page {
-    display: flex;
-    align-items: center;
-}
-
-/* Styling for the select dropdown that controls rows per page */
-.rgx-theme .rgx-arrow-pagination-rows-per-page-select {
-    height: 30px;
-}
-
-/* Disabled select dropdown style */
-.rgx-theme .rgx-arrow-pagination-rows-per-page-select:disabled {
-    cursor: not-allowed;
-}
-
-/* Rows-per-page label and select container */
-.rgx-theme .rgx-arrow-pagination-rows-per-page {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    font-weight: 500;
-}
-
-/* Styling for the label inside the rows-per-page section */
-.rgx-theme .rgx-theme.rgx-arrow-pagination-rows-per-page label {
-    font-size: 16px;
-    color: #202020;
-    margin-right: 10px;
-}
-
-/* Style for the rows-per-page select dropdown */
-.rgx-theme .rgx-arrow-pagination-rows-per-page select {
-    padding: 5px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-/* Pagination button container for navigation buttons (Previous, Next, etc.) */
-.rgx-theme .rgx-arrow-pagination-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-/* Style for pagination buttons */
-.rgx-theme .rgx-arrow-pagination-button {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-/* Hover effect for pagination buttons */
-.rgx-theme .rgx-arrow-pagination-button:hover {
-    background-color: #ddd;
-}
-
-/* Style for disabled pagination buttons */
-.rgx-theme .rgx-arrow-pagination-button:disabled {
-    background-color: #eee;
-    cursor: not-allowed;
-}
-
-/* Style for the active pagination button */
-.rgx-theme .rgx-arrow-pagination-button.rgx-active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-}
-
-/* Styling for the ellipsis (e.g., "..." for skipped page numbers) */
-.rgx-theme .rgx-arrow-pagination-ellipsis {
-    background-color: transparent;
-    color: #888;
-    cursor: not-allowed;
-}`,
+              code: css,
               language: "css",
               lineNumber: true,
             },

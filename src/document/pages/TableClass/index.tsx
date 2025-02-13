@@ -1,8 +1,24 @@
 import { CodeBox, CustomTable } from "document/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./table-class.css";
+import axios from "axios";
 
 const TableClass: React.FC = () => {
+  const [css, setCss] = useState<string>("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://cdn.jsdelivr.net/npm/@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme.css"
+      )
+      .then((response) => {
+        setCss(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching version:", error);
+      });
+  }, []);
+  
   return (
     <div className="rgx-popover-class-overview">
       <div className="rgx-popover-class-header">
@@ -144,6 +160,11 @@ const TableClass: React.FC = () => {
               description:
                 "The table cell for displaying expanded content when a row is expanded, spanning all columns.",
             },
+            {
+              className: "rgx-table-container-loading",
+              description:
+                "The class styles the table container during data loading, typically showing a loading indicator.",
+            },
           ]}
         />
       </section>
@@ -161,185 +182,7 @@ const TableClass: React.FC = () => {
         <CodeBox
           commands={{
             "rgx-theme.css": {
-              code: `/* Table theme styles, including table structure, borders, and font styling. */
-.rgx-theme {
-    width: 100%;
-}
-
-/* Container for the table, allows for relative positioning of table elements. */
-.rgx-theme .rgx-table-container {
-    position: relative;
-}
-
-.rgx-theme .rgx-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-/* Loader effect for table body while loading, applies blur and disables pointer events. */
-.rgx-theme .rgx-table-tobody-loading {
-    filter: blur(0.8px);
-    pointer-events: none;
-}
-
-/* Styling for table header (th) and table data cells (td) with padding and borders. */
-.rgx-theme .rgx-table-head-th,
-.rgx-theme .rgx-table-head-th-checkbox {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.rgx-theme .rgx-table-body-td,
-.rgx-theme .rgx-table-body-td-checkbox {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-/* Alternating row colors for even rows, giving a light gray background. */
-.rgx-theme .rgx-table-body-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Row cursor changes to pointer for better UX, indicating that it's clickable. */
-.rgx-theme .rgx-table-body-tr {
-    cursor: pointer;
-}
-
-.rgx-theme .rgx-table-body-tr:hover {
-    background-color: #ebf0f6;
-}
-
-/* Header row with a light background color and default cursor. */
-.rgx-theme .rgx-table-head {
-    background-color: #ebf0f6;
-    cursor: default;
-}
-
-/* Styling for an expanded row with a smooth background transition. */
-.rgx-theme .rgx-table-body-tr-expanded {
-    background-color: #f9f9f9;
-    transition: background-color 0.3s ease;
-}
-
-/* Expanded row with extra padding on the left side for content clarity. */
-.rgx-theme .rgx-table-expanded-row-tr {
-    background-color: #f9f9f9;
-    padding-left: 20px;
-}
-
-/* Styling for expanded row cells, with additional padding and no top border. */
-.rgx-theme .rgx-table-expanded-row-tr .rgx-table-expanded-row-td {
-    padding: 20px;
-    border-top: 0;
-}
-
-/* Styling for the expanded arrow icon, aligning it with the text. */
-.rgx-theme .rgx-table-expanded-arrow {
-    cursor: pointer;
-    margin-right: 10px;
-    text-align: center;
-}
-
-/* Additional padding for expanded row table data cells. */
-.rgx-theme .rgx-table-expanded-row-td {
-    padding: 20px;
-}
-
-/* Font size for the arrow icon used in expanded rows. */
-.rgx-theme .rgx-table-expanded-arrow-icon {
-    font-size: 14px;
-}
-
-/* Popup items in the table with font styling, padding, and hover effects. */
-.rgx-theme .rgx-table-popup-items {
-    font-weight: 400;
-    padding: 8px;
-    font-size: 15px;
-    border-radius: 5px;
-}
-
-/* Hover effect for popup items, with a light background color. */
-.rgx-theme .rgx-table-popup-items:hover {
-    background-color: #ededed;
-}
-
-/* Checkbox style for the header cell in the table, with size and cursor styling. */
-.rgx-theme .rgx-table-head-th-checkbox input[type="checkbox"] {
-    width: 17px;
-    height: 17px;
-    cursor: pointer;
-    margin: 0;
-    transition: background-color 0.2s ease;
-    margin-bottom: -2px;
-}
-
-/* Checkbox style for table rows, similar to header checkbox. */
-.rgx-theme .rgx-table-body-td-checkbox input[type="checkbox"] {
-    width: 17px;
-    height: 17px;
-    cursor: pointer;
-    margin: 0;
-    transition: background-color 0.2s ease;
-    margin-bottom: -2px;
-}
-
-/* Style for checked checkboxes, turning the background green. */
-.rgx-theme .rgx-table-body-td-checkbox input[type="checkbox"]:checked,
-.rgx-theme .rgx-table-head-th-checkbox input[type="checkbox"]:checked {
-    background-color: #4caf50;
-    border-color: #4caf50;
-    margin-bottom: -2px;
-}
-
-/* Checkbox hover effect, light green background when hovered. */
-.rgx-theme .rgx-table-body-td-checkbox input[type="checkbox"]:hover,
-.rgx-theme .rgx-table-head-th-checkbox input[type="checkbox"]:hover {
-    background-color: #4caf4f55;
-}
-
-/* Custom checkbox appearance (optional) with no default appearance styles. */
-.rgx-theme .rgx-table-body-td-checkbox input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    position: relative;
-    width: 17px;
-    height: 17px;
-}
-
-/* Custom checkbox style for header cells, similar to row checkboxes. */
-.rgx-theme .rgx-table-head-th-checkbox input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    position: relative;
-    width: 17px;
-    height: 17px;
-}
-
-/* Checked state style for checkboxes with a green background. */
-.rgx-theme .rgx-table-body-td-checkbox input[type="checkbox"]:checked,
-.rgx-theme .rgx-table-head-th-checkbox input[type="checkbox"]:checked {
-    background-color: #4caf50;
-}
-
-/* Style for the checkmark inside the checkbox when it's checked. */
-.rgx-theme .rgx-table-body-td-checkbox input[type="checkbox"]:checked::before,
-.rgx-theme .rgx-table-head-th-checkbox input[type="checkbox"]:checked::before {
-    content: "✔";
-    position: absolute;
-    top: 0;
-    left: 3px;
-    color: white;
-    font-size: 12px;
-    line-height: 16px;
-}`,
+              code: css,
               language: "css",
               lineNumber: true,
             },

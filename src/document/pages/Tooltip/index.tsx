@@ -158,55 +158,6 @@ const Tooltip: React.FC = () => {
         />
       </section>
 
-      <section
-        className="rgx-tooltip-section"
-        id="rgx-tooltip-section-explanation"
-      >
-        <h2 className="rgx-tooltip-section-title">Explanation</h2>
-        <ul className="rgx-tooltip-section-list">
-          <li className="rgx-tooltip-section-item">
-            In the example above, the{" "}
-            <ImportantBoldTypography>tooltip</ImportantBoldTypography> prop is
-            set to true to enable tooltips on columns.
-          </li>
-          <li className="rgx-tooltip-section-item">
-            The{" "}
-            <ImportantBoldTypography>
-              tooltipCustomContent
-            </ImportantBoldTypography>{" "}
-            prop is passed a function that returns custom content based on the
-            row data.
-          </li>
-          <li className="rgx-tooltip-section-item">
-            If the{" "}
-            <ImportantBoldTypography>
-              tooltipCustomContent
-            </ImportantBoldTypography>{" "}
-            prop is not specified, the default tooltip will display the column
-            name.
-          </li>
-        </ul>
-      </section>
-
-      <section className="rgx-tooltip-section" id="rgx-tooltip-section-tips">
-        <h2 className="rgx-tooltip-section-title">
-          Tips for Customizing Tooltips
-        </h2>
-        <ul className="rgx-tooltip-section-list">
-          <li className="rgx-tooltip-section-item">
-            You can format the tooltip content by adding HTML tags or styling it
-            with CSS to match your design.
-          </li>
-          <li className="rgx-tooltip-section-item">
-            Consider providing concise and clear information in tooltips to
-            improve the user experience.
-          </li>
-          <li className="rgx-tooltip-section-item">
-            Ensure that your tooltips are not too long, as they might cause UI
-            clutter or performance issues.
-          </li>
-        </ul>
-      </section>
     </div>
   );
 };

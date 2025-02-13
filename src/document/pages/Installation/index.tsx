@@ -82,20 +82,6 @@ const App = () => {
         ]}
         rowsPerPageOptions={[5, 10, 15]}
         paginationType="rgx-table-pagination"
-        paginationStyle={{
-          "rgx-table-pagination": { backgroundColor: "#f5f5f5" },
-        }}
-        tableStyle={{
-          "rgx-table": { width: "100%", borderCollapse: "collapse" },
-          "rgx-table-head-tr": { backgroundColor: "#ddd" },
-          "rgx-table-head-th": { padding: "8px", textAlign: "left" },
-          "rgx-table-body-td": { padding: "8px" },
-        }}
-        loaderStyle={{
-          "rgx-loader-container": {},
-        }}
-        popupStyle={{ "rgx-popover-content": {} }}
-        tooltipStyle={{ "rgx-tooltip-container": {} }}
       />
     </div>
   );

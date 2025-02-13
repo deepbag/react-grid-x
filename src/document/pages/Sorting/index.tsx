@@ -286,63 +286,6 @@ const Sorting: React.FC = () => {
           }}
         />
       </section>
-
-      <section
-        className="rgx-sorting-section"
-        id="rgx-sorting-section-explanation"
-      >
-        <h2 className="rgx-sorting-section-title">Explanation</h2>
-        <ul className="rgx-sorting-section-list">
-          <li className="rgx-sorting-section-item">
-            The <ImportantBoldTypography>sortable</ImportantBoldTypography> prop
-            enables sorting on a column by clicking its header.
-          </li>
-          <li className="rgx-sorting-section-item">
-            When multi-column sorting is enabled, users can hold the Shift key
-            to sort by multiple columns.
-          </li>
-          <li className="rgx-sorting-section-item">
-            The <ImportantBoldTypography>onSort</ImportantBoldTypography> prop
-            allows you to define custom sorting behavior based on your
-            requirements.
-          </li>
-          <li className="rgx-sorting-section-item">
-            Server-side sorting is useful for handling large datasets where
-            sorting logic is managed externally.
-          </li>
-          <li className="rgx-sorting-section-item">
-            The <ImportantBoldTypography>multiColumnSort</ImportantBoldTypography> prop (default: `false`) enables users to sort
-            by multiple columns simultaneously by holding the Shift key.
-          </li>
-        </ul>
-      </section>
-
-      <section className="rgx-sorting-section" id="rgx-sorting-section-tips">
-        <h2 className="rgx-sorting-section-title">Tips for Sorting</h2>
-        <ul className="rgx-sorting-section-list">
-          <li className="rgx-sorting-section-item">
-            When implementing server-side sorting, ensure that the sorting logic
-            is optimized to handle large datasets efficiently.
-          </li>
-          <li className="rgx-sorting-section-item">
-            For numeric sorting, consider using number-based comparisons rather
-            than locale-based comparisons to ensure accuracy.
-          </li>
-          <li className="rgx-sorting-section-item">
-            Provide clear visual indicators (e.g., arrows) to show the sorting
-            direction for users.
-          </li>
-          <li className="rgx-sorting-section-item">
-            If you're using custom sorting functions, ensure they handle edge
-            cases and non-standard data (e.g., null or undefined).
-          </li>
-          <li className="rgx-sorting-section-item">
-            For better user experience, ensure the multi-column sorting is
-            intuitive and easily discoverable, possibly with UI cues or
-            tooltips.
-          </li>
-        </ul>
-      </section>
     </div>
   );
 };

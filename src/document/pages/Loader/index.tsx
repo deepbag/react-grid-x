@@ -152,51 +152,6 @@ const Loader: React.FC = () => {
         />
       </section>
 
-      <section
-        className="rgx-loader-section"
-        id="rgx-loader-section-explanation"
-      >
-        <h2 className="rgx-loader-section-title">Explanation</h2>
-        <ul className="rgx-loader-section-list">
-          <li className="rgx-loader-section-item">
-            In the example above, the ReactGridX component is configured with
-            columns and data.
-          </li>
-          <li className="rgx-loader-section-item">
-            The <ImportantBoldTypography>loading</ImportantBoldTypography> prop
-            is set to true to indicate that the table is in a loading state.
-          </li>
-          <li className="rgx-loader-section-item">
-            The{" "}
-            <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
-            prop is passed a custom Loader component. This component will be
-            rendered in place of the default loader.
-          </li>
-          <li className="rgx-loader-section-item">
-            If the{" "}
-            <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
-            prop is not specified, the default loader (usually a spinner or
-            animated element) will be used.
-          </li>
-        </ul>
-      </section>
-
-      <section className="rgx-loader-section" id="rgx-loader-section-tips">
-        <h2 className="rgx-loader-section-title">
-          Tips for Customizing the Loader
-        </h2>
-        <ul className="rgx-loader-section-list">
-          <li className="rgx-loader-section-item">
-            You can pass additional props to your custom loader component, such
-            as size, color, or other styles to make the loader fit your design
-            requirements.
-          </li>
-          <li className="rgx-loader-section-item">
-            Ensure that your custom loader is optimized for performance to avoid
-            delays in the rendering of the table.
-          </li>
-        </ul>
-      </section>
     </div>
   );
 };
