@@ -1,7 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solidIcons } from "../../Icons/FontAwesome";
 import { RGXTablePaginationProps } from "../../../types/table-pagination-props";
+import SvgIcon from "../../SVGIcons";
 
 const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   currentPage,
@@ -128,12 +127,14 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           <button
             disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)}
-            className="rgx-table-pagination-button"
+            className="rgx-table-pagination-button-icon"
             style={{
-              ...style["rgx-table-pagination-button"],
+              ...style["rgx-table-pagination-button-icon"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faChevronLeft} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>`}
+            />
           </button>
 
           {/* Page number buttons */}
@@ -180,12 +181,14 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           <button
             disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)}
-            className="rgx-table-pagination-button"
+            className="rgx-table-pagination-button-icon"
             style={{
-              ...style["rgx-table-pagination-button"],
+              ...style["rgx-table-pagination-button-icon"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faChevronRight} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>`}
+            />
           </button>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solidIcons } from "../../Icons/FontAwesome";
 import { RGXArrowPaginationProps } from "../../../types/arrow-pagination-props";
+import SvgIcon from "../../SVGIcons";
 
 const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
   currentPage,
@@ -89,7 +88,9 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
               ...style["rgx-arrow-pagination-button"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faAngleDoubleLeft} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-left"><path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/></svg>`}
+            />
           </button>
           {/* Previous page button */}
           <button
@@ -100,7 +101,9 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
               ...style["rgx-arrow-pagination-button"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faChevronLeft} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>`}
+            />
           </button>
           {/* Page info (current page and total pages) */}
           <div
@@ -120,7 +123,9 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
               ...style["rgx-arrow-pagination-button"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faChevronRight} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>`}
+            />
           </button>
 
           {/* Next Last page button */}
@@ -132,7 +137,9 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
               ...style["rgx-arrow-pagination-button"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faAngleDoubleRight} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-right"><path d="m6 17 5-5-5-5"/><path d="m13 17 5-5-5-5"/></svg>`}
+            />
           </button>
         </div>
       </div>

@@ -27,7 +27,7 @@ import {
 import { DemoSideBar, Header, Sidebar } from "document/components";
 import "document/app-route.css";
 import { PATHS } from "document/config/path";
-import useCurrentRoute from "document/hooks/useCurrentRoute";
+import { useCurrentRoute } from "./hooks";
 
 const RoutesItem: React.FC = () => {
   const navigate = useNavigate();

@@ -1,5 +1,16 @@
 [
   {
+    "version": "0.2.7",
+    "date": "2025-02-17",
+    "changes": {
+      "minor": [
+        "Documentation updated to reflect the latest changes and improvements.",
+        "Fixed bugs and enhanced code.",
+        "Replaced FontAwesome icons with SVG icons for better performance and maintainability."
+      ]
+    }
+  },
+  {
     "version": "0.2.6",
     "date": "2025-02-13",
     "changes": {

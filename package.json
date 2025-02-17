@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://deepbag.github.io/react-grid-x",
   "dependencies": {
-    "@deepbag/react-grid-x": "0.2.5",
+    "@deepbag/react-grid-x": "0.2.7",
     "@monaco-editor/react": "^4.6.0",
     "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",

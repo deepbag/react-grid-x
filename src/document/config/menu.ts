@@ -14,7 +14,7 @@ export interface HeaderMenuItem {
 
 export const headerMenu: HeaderMenuItem[] = [
   { label: LABELS.DOCUMENT, path: PATHS.OVERVIEW },
-  { label: LABELS.THEME_BUILDER, path: PATHS.THEME_BUILDER },
+  // { label: LABELS.THEME_BUILDER, path: PATHS.THEME_BUILDER },
   { label: LABELS.DEMO, path: PATHS.DEMO },
   // { label: LABELS.DEVELOPMENT, path: PATHS.DEVELOPMENT },
 ];

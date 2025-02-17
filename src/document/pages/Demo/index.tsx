@@ -1,13 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
-// import "module/themes/rgx-theme/rgx-theme.css";
-// import { ReactGridX } from "@deepbag/react-grid-x";
+import React, { useEffect } from "react";
 import { _paginatedResponse } from "document/utils/paginated-response";
 import { UsersRandom } from "document/@mock";
 import moment from "moment-timezone";
 import CustomImage from "document/components/CustomImage";
-import ReactGridX from "module/components/ReactGridX";
 import { useDemoContext } from "document/context/DemoContext";
+
+import { ReactGridX } from "@deepbag/react-grid-x";
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
+
+// import ReactGridX from "module/components/ReactGridX";
+// import "module/themes/rgx-theme/rgx-theme.css";
 
 const Demo = () => {
   const { demoConfig, onUpdateDemoConfig } = useDemoContext();
