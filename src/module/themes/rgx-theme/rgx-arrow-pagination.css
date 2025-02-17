@@ -79,7 +79,7 @@
 
 /* Style for pagination buttons */
 .rgx-theme .rgx-arrow-pagination-button {
-  padding: 5px 10px;
+  padding: 4.8px 5px 1.6px 5px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
   cursor: pointer;

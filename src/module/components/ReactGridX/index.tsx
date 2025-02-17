@@ -2,12 +2,11 @@ import React, { JSX, useEffect, useMemo, useState } from "react";
 import "module/themes/rgx-theme/rgx-theme.css";
 import RGXArrowPagination from "module/components/Paginations/RGXArrowPagination";
 import RGXTablePagination from "module/components/Paginations/RGXTablePagination";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solidIcons } from "module/components/Icons/FontAwesome";
 import RGXTooltip from "module/components/Tooltip";
 import RGXLoader from "module/components/Loader";
 import { ReactGridXProps } from "module/types/react-grid-x-props";
 import RGXPopover from "module/components/Popover";
+import SvgIcon from "../SVGIcons";
 
 const ReactGridX: React.FC<ReactGridXProps> = ({
   columns,
@@ -439,21 +438,21 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                           onSortingMultipleSupportHandler(column) // Trigger sorting on click
                       }
                       style={{
+                        display: "flex",
                         cursor: column.sortable ? "pointer" : "default",
                       }}
                     >
                       {column.name} {/* Render column name */}
                       {column.sortable && (
-                        <FontAwesomeIcon
-                          icon={
-                            // Check if the column is part of the sortConfig and display appropriate icon
+                        <SvgIcon
+                          svgPath={
                             sortConfig.some((sort) => sort.key === column.key)
                               ? sortConfig.find(
                                   (sort) => sort.key === column.key
                                 )?.direction === "asc"
-                                ? solidIcons.faSortUp
-                                : solidIcons.faSortDown
-                              : solidIcons.faSort
+                                ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-wide-narrow"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="M11 12h10"/><path d="M11 16h7"/><path d="M11 20h4"/></svg>`
+                                : `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-wide-narrow"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/></svg>`
+                              : `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-up"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="m21 8-4-4-4 4"/><path d="M17 4v16"/></svg>`
                           }
                           className="rgx-table-sort-icon"
                           style={{
@@ -473,11 +472,13 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             );
                           }}
                         >
-                          <FontAwesomeIcon
-                            icon={solidIcons.faEllipsisVertical}
+                          <SvgIcon
+                            svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>`}
                             className="rgx-table-ellipsis-vertical-icon"
                             style={{
                               marginRight: "8px",
+                              marginTop: "4px",
+                              marginBottom: "-4px",
                               ...tableStyle["rgx-table-ellipsis-vertical-icon"],
                             }}
                           />
@@ -505,8 +506,8 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                     );
                                 }}
                               >
-                                <FontAwesomeIcon
-                                  icon={solidIcons.faCircleArrowUp}
+                                <SvgIcon
+                                  svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-wide-narrow"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="M11 12h10"/><path d="M11 16h7"/><path d="M11 20h4"/></svg>`}
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
@@ -533,8 +534,8 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                     );
                                 }}
                               >
-                                <FontAwesomeIcon
-                                  icon={solidIcons.faCircleArrowDown}
+                                <SvgIcon
+                                  svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-wide-narrow"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/></svg>`}
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
@@ -563,8 +564,8 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                       );
                                   }}
                                 >
-                                  <FontAwesomeIcon
-                                    icon={solidIcons.faCircleArrowUp}
+                                  <SvgIcon
+                                    svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-wide-narrow"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="M11 12h10"/><path d="M11 16h7"/><path d="M11 20h4"/></svg>`}
                                     style={{
                                       marginRight: "8px",
                                       fontSize: "14px",
@@ -587,8 +588,8 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                       );
                                   }}
                                 >
-                                  <FontAwesomeIcon
-                                    icon={solidIcons.faCircleArrowDown}
+                                  <SvgIcon
+                                    svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-wide-narrow"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/></svg>`}
                                     style={{
                                       marginRight: "8px",
                                       fontSize: "14px",
@@ -613,8 +614,8 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   onClearSort();
                                 }}
                               >
-                                <FontAwesomeIcon
-                                  icon={solidIcons.faSort}
+                                <SvgIcon
+                                  svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-up"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="m21 8-4-4-4 4"/><path d="M17 4v16"/></svg>`}
                                   style={{
                                     marginRight: "8px",
                                     fontSize: "14px",
@@ -726,11 +727,11 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             ); // Toggle expanded row
                           }}
                         >
-                          <FontAwesomeIcon
-                            icon={
+                          <SvgIcon
+                            svgPath={
                               expandedRow === rowIndex
-                                ? solidIcons.faChevronDown
-                                : solidIcons.faChevronRight
+                                ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>`
+                                : `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6"/></svg>`
                             }
                             className="rgx-table-expanded-arrow-icon"
                             style={{

@@ -16,10 +16,11 @@ export default defineConfig({
   //   options.mangleProps = /^_/; // Mangle private properties (minification)
   //   options.keepNames = false;  // Reduce function name retention
   // },
-  // bundle: true,
+  bundle: true,
   // skipNodeModulesBundle: true,
   // target: "esnext",
-  // splitting: true,
+  splitting: true,
   // platform: "browser",
   // metafile: true,
+  injectStyle: false
 });

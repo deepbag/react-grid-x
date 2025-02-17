@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.2.6",
+    "date": "2025-02-13",
+    "changes": {
+      "minor": [
+        "Documentation updated to reflect the latest changes and improvements.",
+        "Fixed bugs and code enhanced."
+      ]
+    }
+  },
+  {
     "version": "1.2.0",
     "date": "2025-02-12",
     "changes": {
@@ -14,7 +24,7 @@
         ]
       }
     }
-  },  
+  },
   {
     "version": "0.1.9",
     "date": "2025-02-11",

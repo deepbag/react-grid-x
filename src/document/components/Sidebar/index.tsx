@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./side-bar.css";
 import { menu } from "document/config/menu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solidIcons } from "document/assets/icons";
+import SvgIcon from "../SVGIcons";
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
@@ -79,13 +78,13 @@ const Sidebar: React.FC = () => {
                     >
                       {item.label}{" "}
                       {openMenus[item.label] ? (
-                        <FontAwesomeIcon
-                          icon={solidIcons.faCircleArrowUp}
+                        <SvgIcon
+                          svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-up"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>`}
                           style={{ marginLeft: "4px" }}
                         />
                       ) : (
-                        <FontAwesomeIcon
-                          icon={solidIcons.faCircleArrowDown}
+                        <SvgIcon
+                          svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-down"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="m8 12 4 4 4-4"/></svg>`}
                           style={{ marginLeft: "4px" }}
                         />
                       )}

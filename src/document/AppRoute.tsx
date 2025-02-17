@@ -22,6 +22,7 @@ import {
   Demo,
   Tooltip,
   Loader,
+  ThemeBuilder,
 } from "document/pages";
 import { DemoSideBar, Header, Sidebar } from "document/components";
 import "document/app-route.css";
@@ -62,6 +63,7 @@ const RoutesItem: React.FC = () => {
     { path: PATHS.CUSTOM_THEME, element: <CustomTheme /> },
     { path: PATHS.CSS_GUIDE, element: <CSSGuide /> },
     { path: PATHS.DEMO, element: <Demo /> },
+    { path: PATHS.THEME_BUILDER, element: <ThemeBuilder /> },
   ]);
 };
 
@@ -71,9 +73,10 @@ interface SideBarType {
 
 const AppRoute: React.FC = () => {
   const { label, pathWithoutSlash } = useCurrentRoute();
-  
+
   const SideBar: SideBarType = {
     demo: <DemoSideBar />,
+    "theme-builder": <DemoSideBar />,
   };
 
   return (

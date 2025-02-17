@@ -1,8 +1,7 @@
 import React from "react";
 import "module/themes/rgx-theme/rgx-table-pagination.css"; // Import custom styles for table pagination component
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon for pagination buttons
-import { solidIcons } from "module/components/Icons/FontAwesome"; // Import solid icons for pagination
 import { RGXTablePaginationProps } from "module/types/table-pagination-props"; // Import type definition for pagination props
+import SvgIcon from "module/components/SVGIcons";
 
 const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   currentPage,
@@ -13,7 +12,7 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   onRowsPerPageChange,
   rowsPerPageOptions = [5, 10, 15],
   style = {},
-  loading = false
+  loading = false,
 }) => {
   /**
    * Generates an array of page numbers for pagination with ellipses if necessary.
@@ -129,12 +128,14 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           <button
             disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)}
-            className="rgx-table-pagination-button"
+            className="rgx-table-pagination-button-icon"
             style={{
-              ...style["rgx-table-pagination-button"],
+              ...style["rgx-table-pagination-button-icon"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faChevronLeft} />
+            <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>`}
+            />
           </button>
 
           {/* Page number buttons */}
@@ -181,12 +182,14 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           <button
             disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)}
-            className="rgx-table-pagination-button"
+            className="rgx-table-pagination-button-icon"
             style={{
-              ...style["rgx-table-pagination-button"],
+              ...style["rgx-table-pagination-button-icon"],
             }}
           >
-            <FontAwesomeIcon icon={solidIcons.faChevronRight} />
+             <SvgIcon
+              svgPath={`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>`}
+            />
           </button>
         </div>
       </div>

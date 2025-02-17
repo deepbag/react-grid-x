@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CodeBlock, dracula } from "react-code-blocks";
 import "./code-box.css";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 export interface CodeBox {
   [tab: string]: {

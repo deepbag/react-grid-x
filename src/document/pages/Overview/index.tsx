@@ -31,6 +31,20 @@ const Overview: React.FC = () => {
       </div>
 
       <section className="rgx-over-view-features">
+        <h2 className="rgx-over-view-section-title">Supported Versions</h2>
+        <p className="rgx-installation-usage-text">
+          @deepbag/react-grid-x{" "}
+          <ImportantBoldTypography>
+            supports React 18 and later
+          </ImportantBoldTypography>
+          , ensuring compatibility with the latest React features and best
+          practices. This means you can take advantage of concurrent rendering,
+          automatic batching, useTransition, and other improvements introduced
+          in React 18.
+        </p>
+      </section>
+
+      <section className="rgx-over-view-features">
         <h2 className="rgx-over-view-section-title">Key Features</h2>
         <ul className="rgx-over-view-feature-list">
           <li className="rgx-over-view-feature-item">
@@ -90,13 +104,13 @@ const Overview: React.FC = () => {
           </li>
         </ul>
       </section>
-
+{/* 
       <BottomNavigator
-      // next={{
-      //   label: LABELS.INSTALLATION,
-      //   url: PATHS.INSTALLATION,
-      // }}
-      />
+        next={{
+          label: LABELS.INSTALLATION,
+          url: PATHS.INSTALLATION,
+        }}
+      /> */}
     </div>
   );
 };

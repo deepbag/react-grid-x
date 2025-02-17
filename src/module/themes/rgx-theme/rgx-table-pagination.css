@@ -65,7 +65,7 @@
 
 /* Individual pagination button styling, including padding, background, and hover effects. */
 .rgx-theme .rgx-table-pagination-button {
-  padding: 5px 10px;
+  padding: 4px 10px 3px 10px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
   cursor: pointer;
@@ -87,6 +87,35 @@
 
 /* Active pagination button styling with custom background and border color. */
 .rgx-theme .rgx-table-pagination-button.rgx-table-pagination-active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Individual pagination button styling, including padding, background, and hover effects. */
+.rgx-theme .rgx-table-pagination-button-icon {
+  padding: 4.8px 5px 1.6px 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Hover effect for pagination buttons, changing background color. */
+.rgx-theme .rgx-table-pagination-button-icon:hover {
+  background-color: #ddd;
+}
+
+/* Disabled pagination button styling with light background and "not-allowed" cursor. */
+.rgx-theme .rgx-table-pagination-button-icon:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+/* Active pagination button styling with custom background and border color. */
+.rgx-theme .rgx-table-pagination-button-icon.rgx-table-pagination-active {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
