@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/overview</loc>
+    <priority>1.0</priority>
+    <description>Overview of the @deepbag/react-grid-x component, including features and benefits.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/installation</loc>
+    <priority>0.8</priority>
+    <description>Installation guide for @deepbag/react-grid-x, covering setup instructions and requirements.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/support</loc>
+    <priority>0.8</priority>
+    <description>Support section providing assistance and contact information.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/change-log</loc>
+    <priority>0.8</priority>
+    <description>Change log detailing updates and version history of @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/development</loc>
+    <priority>0.8</priority>
+    <description>Development section with guidelines and contributions to the @deepbag/react-grid-x project.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/faq</loc>
+    <priority>0.8</priority>
+    <description>Frequently Asked Questions about @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/columns</loc>
+    <priority>0.8</priority>
+    <description>Information on using and customizing columns in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/row</loc>
+    <priority>0.8</priority>
+    <description>Details on working with rows in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/sorting</loc>
+    <priority>0.8</priority>
+    <description>Sorting functionality for tables using @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/pagination</loc>
+    <priority>0.8</priority>
+    <description>Pagination options and setup in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/tooltip</loc>
+    <priority>0.8</priority>
+    <description>Tooltip functionality for tables in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/loader</loc>
+    <priority>0.8</priority>
+    <description>Loader feature for displaying loading states in @deepbag/react-grid-x tables.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/tooltip-class</loc>
+    <priority>0.8</priority>
+    <description>Class customization for tooltips in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/loader-class</loc>
+    <priority>0.8</priority>
+    <description>Class customization for loaders in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/popover-class</loc>
+    <priority>0.8</priority>
+    <description>Popover class customization for @deepbag/react-grid-x tables.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/table-class</loc>
+    <priority>0.8</priority>
+    <description>Customization options for table class in @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/table-pagination-class</loc>
+    <priority>0.8</priority>
+    <description>Table pagination class customization for @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/arrow-pagination-class</loc>
+    <priority>0.8</priority>
+    <description>Arrow pagination class customization for @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/custom-theme</loc>
+    <priority>0.8</priority>
+    <description>Custom theme configuration for @deepbag/react-grid-x.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/css-guide</loc>
+    <priority>0.8</priority>
+    <description>CSS guide for styling @deepbag/react-grid-x tables.</description>
+  </url>
+  <url>
+    <loc>https://deepbag.github.io/react-grid-x/#/demo</loc>
+    <priority>0.8</priority>
+    <description>Demo showcasing the capabilities of @deepbag/react-grid-x.</description>
+  </url>
+</urlset>
