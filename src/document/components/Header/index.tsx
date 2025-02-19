@@ -34,9 +34,10 @@ const Header: React.FC = () => {
     <header
       className="rgx-header"
       style={{
-        ...(config.theme === "light" && {
-          // backgroundColor: "#fff",
-        }),
+        ...(config.theme === "light" &&
+          {
+            // backgroundColor: "#fff",
+          }),
       }}
     >
       <div className="rgx-header-logo">
@@ -87,9 +88,7 @@ const Header: React.FC = () => {
               />
             </a>
           </div>
-          <div className="rgx-header-mode-button">
-            <ThemeToggle />
-          </div>
+          <div className="rgx-header-mode-button">{/* <ThemeToggle /> */}</div>
         </div>
       </div>
     </header>

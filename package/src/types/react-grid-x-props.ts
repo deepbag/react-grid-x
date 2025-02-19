@@ -231,4 +231,13 @@ export interface ReactGridXProps {
    * page = 2;
    */
   page?: number;
+
+  /**
+   * The theme mode for the pagination component.
+   * When set to `"light"`, the component will use the light theme.
+   * When set to `"dark"`, the component will use the dark theme.
+   *
+   * @default "light"
+   */
+  mode?: "light" | "dark";
 }

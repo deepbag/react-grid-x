@@ -1,10 +1,9 @@
 /* Popover container, styled with background, border, shadow, padding, and positioning. */
 .rgx-theme .rgx-popover-content {
   position: absolute;
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 2px;
-  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
   padding: 6px;
   min-width: 150px;
   z-index: 1000;
@@ -26,7 +25,7 @@
   transform: translateX(-50%) rotate(45deg);
   width: 10px;
   height: 10px;
-  background-color: white;
+  background-color: #fff;
   border-left: 1px solid #ccc;
   border-top: 1px solid #ccc;
 }

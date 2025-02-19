@@ -28,4 +28,13 @@ export interface RGXPopoverProps {
    * This allows users to apply custom styles for popover.
    */
   style?: Record<string, React.CSSProperties>;
+
+  /**
+   * The theme mode for the pagination component.
+   * When set to `"light"`, the component will use the light theme.
+   * When set to `"dark"`, the component will use the dark theme.
+   *
+   * @default "light"
+   */
+  mode?: "light" | "dark";
 }

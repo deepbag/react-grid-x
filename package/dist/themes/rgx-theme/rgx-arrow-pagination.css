@@ -11,14 +11,12 @@
 /* Information section in pagination (like current page and total pages) */
 .rgx-theme .rgx-arrow-pagination-info {
   font-size: 14px;
-  color: #555;
   font-weight: 500;
 }
 
 /* Page number display, including "Page x of y" format */
 .rgx-theme .rgx-arrow-pagination-page-of {
   font-size: 14px;
-  color: #555;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -32,12 +30,19 @@
 }
 
 .rgx-theme .rgx-arrow-pagination-rows-per-page-label {
+  font-size: 14px;
   margin-right: 10px;
 }
 
 /* Styling for the select dropdown that controls rows per page */
 .rgx-theme .rgx-arrow-pagination-rows-per-page-select {
   height: 30px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* Disabled select dropdown style */
@@ -54,21 +59,12 @@
 }
 
 /* Styling for the label inside the rows-per-page section */
-.rgx-theme .rgx-theme.rgx-arrow-pagination-rows-per-page label {
+.rgx-theme .rgx-theme.rgx-arrow-pagination-rows-per-page-label {
   font-size: 14px;
   color: #202020;
   margin-right: 10px;
 }
 
-/* Style for the rows-per-page select dropdown */
-.rgx-theme .rgx-arrow-pagination-rows-per-page select {
-  padding: 5px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-}
 
 /* Pagination button container for navigation buttons (Previous, Next, etc.) */
 .rgx-theme .rgx-arrow-pagination-controls {

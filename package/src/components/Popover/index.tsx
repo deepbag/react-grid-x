@@ -6,7 +6,9 @@ const RGXPopover: React.FC<RGXPopoverProps> = ({
   isOpen,
   onClose,
   style = {},
+  mode = "light",
 }) => {
+  const darkMode = mode === "dark";
   const popoverRef = useRef<HTMLDivElement | null>(null);
   /**
    * Detects clicks outside the popover and triggers the `onClose` function.
@@ -33,17 +35,25 @@ const RGXPopover: React.FC<RGXPopoverProps> = ({
 
   return (
     <div
-      className="rgx-popover-content rgx-popover-show"
+      className={`rgx-popover-content rgx-popover-show ${
+        darkMode && "rgx-popover-content-dark"
+      }`}
       ref={popoverRef}
       style={{
         ...style["rgx-popover-content"],
         ...style["rgx-popover-show"],
+        ...(darkMode && {
+          ...style["rgx-popover-content-dark"],
+        }),
       }}
     >
       <div
-        className="rgx-popover-arrow"
+        className={`rgx-popover-arrow ${darkMode && "rgx-popover-arrow-dark"}`}
         style={{
           ...style["rgx-popover-arrow"],
+          ...(darkMode && {
+            ...style["rgx-popover-arrow-dark"],
+          }),
         }}
       ></div>
       {children} {/* Dynamic content inside the popover */}

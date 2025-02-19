@@ -7,6 +7,7 @@
 ![GitHub license](https://img.shields.io/github/license/deepbag/react-grid-x)
 ![React](https://img.shields.io/badge/React-18.0.0-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=typescript)
+[![Socket Badge](https://socket.dev/api/badge/npm/package/@deepbag/react-grid-x/0.2.7)](https://socket.dev/npm/package/@deepbag/react-grid-x/overview/0.2.7)
 
 > `@deepbag/react-grid-x` is a customizable and flexible React table component that supports pagination, sorting (client-side and server-side), dynamic rendering of table data, and customizable column rendering. It provides an easy-to-use interface for displaying tabular data with configurable columns, pagination, sorting, and styling.
 
@@ -31,6 +32,7 @@ Check out the live demo of `@deepbag/react-grid-x` [here](https://deepbag.github
 - **Expandable rows**: Expand rows with a customizable `expandedComponent` to show additional details or content within the same row.
 - **Loader support**: Customize the loader displayed when the table is in a loading state using the `loaderComponent` prop. If not provided, the default loader will be used.
 - **Row selection**: Supports row selection with checkboxes, allowing both single and select-all functionality.
+- **Light & Dark Mode**: Now supports both light and dark themes for better visual adaptability.
 
 ## Installation
 
@@ -76,15 +78,11 @@ const App = () => {
           { id: 2, name: "Jane", age: 34 },
         ]}
         rowsPerPageOptions={[5, 10, 15]}
-        paginationType="rgx-table-pagination"
         paginationStyle={{
           "rgx-table-pagination": { backgroundColor: "#f5f5f5" },
         }}
         tableStyle={{
           "rgx-table": { width: "100%", borderCollapse: "collapse" },
-          "rgx-table-head-tr": { backgroundColor: "#ddd" },
-          "rgx-table-head-th": { padding: "8px", textAlign: "left" },
-          "rgx-table-body-td": { padding: "8px" },
         }}
         loaderStyle={{
           "rgx-loader-container": {},
@@ -125,6 +123,7 @@ export default App;
 | `loaderComponent`              | `({style}:{style?:{}}) => JSX.Element`                      | A function returning a custom loader when the table is loading. The `style` prop is optional for custom styling.                                          |
 | `selectionCheckbox`            | `boolean`                                                   | A boolean value that determines whether the table rows will have a checkbox for selection. If set to `true`, checkboxes will be shown for selecting rows. |
 | `onSelectionCheck`             | `(selectedRows: any[], isAllChecked: boolean) => void`      | A callback triggered when the selection state changes, receiving an array of selected rows and a boolean indicating if all rows are selected              |
+| `mode`                         | `'light' or 'dark'`                                         | Defines the table's theme mode. Supports both light and dark modes for better visual adaptability. Default is `'light'`.                                  |
 
 ## Column Props (`ReactGridXColumnProps`)
 
@@ -152,6 +151,7 @@ The package exports the following components and props interfaces:
 - `RGXTooltip`: The default tooltip component displayed for columns.
 - `RGXLoader`: The default loader component displayed when the table is in a loading state, which can be customized using the `loaderComponent` prop.
 - `RGXPopover`: The default popover component displayed for sorting and clearing sorting icons in the header.
+- `RGXSVGIcon`: The default component for rendering SVG icons used in the table, ensuring consistent styling and performance.  
 
 ### Interfaces (Props)
 
@@ -162,6 +162,7 @@ The package exports the following components and props interfaces:
 - `RGXTooltipProps`: Props for the `RGXTooltip` component.
 - `RGXLoaderProps`: Props for the `RGXLoader` component.
 - `RGXPopoverProps`: Props for the `RGXPopover` component.
+- `SvgIconProps`: Props for the `RGXSVGIcon` component, used for rendering SVG icons consistently.  
 
 ## License
 

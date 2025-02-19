@@ -1,0 +1,58 @@
+/* Styles the pagination info text in dark theme for the table */
+.rgx-theme .rgx-table-pagination-info-dark {
+  color: #fff !important;
+}
+
+/* Styles the rows per page select dropdown for the table pagination */
+.rgx-theme .rgx-table-pagination-rows-per-page-select-dark {
+  border: 1px solid #474747 !important;
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+}
+
+/* Styles the 'Rows per page' label in the table pagination */
+.rgx-theme .rgx-table-pagination-rows-per-page-label-dark {
+  color: #fff !important;
+}
+
+/* Styles the pagination buttons for the table */
+.rgx-theme .rgx-table-pagination-button-dark {
+  border: 1px solid #474747 !important;
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+}
+
+/* Styles the hover effect for pagination buttons in the table */
+.rgx-theme .rgx-table-pagination-button-dark:hover {
+  background-color: #0e1215 !important;
+}
+
+/* Styles the disabled state of the ellipsis button in table pagination */
+.rgx-theme .rgx-table-pagination-ellipsis-dark:disabled {
+  background-color: #1c1c1c !important;
+  border: 1px solid #474747 !important;
+}
+
+/* Styles the pagination button icon in the table */
+.rgx-theme .rgx-table-pagination-button-icon-dark {
+  border: 1px solid #474747 !important;
+  background-color: #1c1c1c !important;
+  color: #fff !important;
+}
+
+/* Styles the hover effect for pagination button icons in the table */
+.rgx-theme .rgx-table-pagination-button-icon-dark:hover {
+  background-color: #0e1215 !important;
+}
+
+/* Styles the disabled state of pagination button icons in the table */
+.rgx-theme .rgx-table-pagination-button-icon-dark:disabled {
+  background-color: #1c1c1c !important;
+  border: 1px solid #474747 !important;
+  color: #4c4c4c !important;
+}
+
+/* Styles the ellipsis button in table pagination */
+.rgx-theme .rgx-table-pagination-ellipsis-dark {
+  background-color: #1c1c1c !important;
+}

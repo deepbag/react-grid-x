@@ -12,7 +12,10 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
   rowsPerPageOptions = [5, 10, 15],
   style = {},
   loading = false,
+  mode = "light",
 }) => {
+  const darkMode = mode === "dark";
+
   return (
     <div
       className="rgx-arrow-pagination"
@@ -22,9 +25,14 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
     >
       {/* Display pagination information: current page and total rows */}
       <div
-        className="rgx-arrow-pagination-info"
+        className={`rgx-arrow-pagination-info ${
+          darkMode && "rgx-arrow-pagination-info-dark"
+        }`}
         style={{
           ...style["rgx-arrow-pagination-info"],
+          ...(darkMode && {
+            ...style["rgx-arrow-pagination-info-dark"],
+          }),
         }}
       >
         Showing {(currentPage - 1) * rowsPerPage + 1} to{" "}
@@ -47,18 +55,28 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
         >
           <label
             htmlFor="rowsPerPage"
-            className="rgx-arrow-pagination-rows-per-page-label"
+            className={`rgx-arrow-pagination-rows-per-page-label ${
+              darkMode && "rgx-arrow-pagination-rows-per-page-label-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-rows-per-page-label"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-rows-per-page-label-dark"],
+              }),
             }}
           >
             Rows per page:
           </label>
           <select
             id="rowsPerPage"
-            className="rgx-arrow-pagination-rows-per-page-select"
+            className={`rgx-arrow-pagination-rows-per-page-select ${
+              darkMode && "rgx-arrow-pagination-rows-per-page-select-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-rows-per-page-select"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-rows-per-page-select-dark"],
+              }),
             }}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
@@ -83,9 +101,14 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           <button
             disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(1)} // Navigate to the first page
-            className="rgx-arrow-pagination-button"
+            className={`rgx-arrow-pagination-button ${
+              darkMode && "rgx-arrow-pagination-button-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-button"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-button-dark"],
+              }),
             }}
           >
             <SvgIcon
@@ -96,9 +119,14 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           <button
             disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)} // Navigate to the previous page
-            className="rgx-arrow-pagination-button"
+            className={`rgx-arrow-pagination-button ${
+              darkMode && "rgx-arrow-pagination-button-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-button"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-button-dark"],
+              }),
             }}
           >
             <SvgIcon
@@ -107,9 +135,14 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           </button>
           {/* Page info (current page and total pages) */}
           <div
-            className="rgx-arrow-pagination-page-of"
+            className={`rgx-arrow-pagination-page-of ${
+              darkMode && "rgx-arrow-pagination-page-of-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-page-of"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-page-of-dark"],
+              }),
             }}
           >
             Page {currentPage} of {totalPages}
@@ -118,9 +151,14 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           <button
             disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)} // Navigate to the next page
-            className="rgx-arrow-pagination-button"
+            className={`rgx-arrow-pagination-button ${
+              darkMode && "rgx-arrow-pagination-button-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-button"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-button-dark"],
+              }),
             }}
           >
             <SvgIcon
@@ -132,9 +170,14 @@ const RGXArrowPagination: React.FC<RGXArrowPaginationProps> = ({
           <button
             disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(totalPages)} // Navigate to the last page
-            className="rgx-arrow-pagination-button"
+            className={`rgx-arrow-pagination-button ${
+              darkMode && "rgx-arrow-pagination-button-dark"
+            }`}
             style={{
               ...style["rgx-arrow-pagination-button"],
+              ...(darkMode && {
+                ...style["rgx-arrow-pagination-button-dark"],
+              }),
             }}
           >
             <SvgIcon

@@ -292,6 +292,14 @@ interface ReactGridXProps {
      * page = 2;
      */
     page?: number;
+    /**
+     * The theme mode for the pagination component.
+     * When set to `"light"`, the component will use the light theme.
+     * When set to `"dark"`, the component will use the dark theme.
+     *
+     * @default "light"
+     */
+    mode?: "light" | "dark";
 }
 
 declare const ReactGridX: React$1.FC<ReactGridXProps>;
@@ -367,6 +375,14 @@ interface RGXTablePaginationProps {
      * @default false
      */
     loading: boolean;
+    /**
+     * The theme mode for the pagination component.
+     * When set to `"light"`, the component will use the light theme.
+     * When set to `"dark"`, the component will use the dark theme.
+     *
+     * @default "light"
+     */
+    mode?: "light" | "dark";
 }
 
 declare const RGXTablePagination: React$1.FC<RGXTablePaginationProps>;
@@ -428,6 +444,14 @@ interface RGXArrowPaginationProps {
      * When `true`, pagination buttons and controls should not be interactive.
      */
     loading: boolean;
+    /**
+     * The theme mode for the pagination component.
+     * When set to `"light"`, the component will use the light theme.
+     * When set to `"dark"`, the component will use the dark theme.
+     *
+     * @default "light"
+     */
+    mode?: "light" | "dark";
 }
 
 declare const RGXArrowPagination: React$1.FC<RGXArrowPaginationProps>;
@@ -521,6 +545,14 @@ interface RGXPopoverProps {
      * This allows users to apply custom styles for popover.
      */
     style?: Record<string, React.CSSProperties>;
+    /**
+     * The theme mode for the pagination component.
+     * When set to `"light"`, the component will use the light theme.
+     * When set to `"dark"`, the component will use the dark theme.
+     *
+     * @default "light"
+     */
+    mode?: "light" | "dark";
 }
 
 export { RGXArrowPagination, type RGXArrowPaginationProps, RGXLoader, type RGXLoaderProps, type RGXPopoverProps, SvgIcon as RGXSVGIcon, RGXTablePagination, type RGXTablePaginationProps, RGXTooltip, type RGXTooltipProps, ReactGridX, type ReactGridXColumnProps, type ReactGridXProps, type SvgIconProps };

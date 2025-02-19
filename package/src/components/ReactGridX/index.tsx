@@ -32,7 +32,10 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   onSelectionCheck,
   rowPerPage = 10,
   page = 1,
+  mode = "light",
 }) => {
+  const darkMode = mode === "dark";
+
   // State to manage the current page of the table. Tracks the active page number for pagination purposes.
   const [currentPage, setCurrentPage] = useState<number>(page);
 
@@ -302,6 +305,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
         style={paginationStyle} // Custom styling for pagination
         loading={loading} // Show a loading indicator while data is being fetched
+        mode={mode}
       />
     ),
     // "rgx-arrow-pagination": Custom pagination with arrow-based navigation
@@ -316,6 +320,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
         style={paginationStyle} // Custom styling for pagination
         loading={loading} // Show a loading indicator while data is being fetched
+        mode={mode}
       />
     ),
   };
@@ -351,19 +356,18 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   return (
     <div className={theme}>
       <div
-        className={
-          loading
-            ? "rgx-table-container-loading rgx-table-container"
-            : "rgx-table-container"
-        }
-        style={
-          loading
-            ? {
-                ...tableStyle["rgx-table-container-loading"],
-                ...tableStyle["rgx-table-container"],
-              }
-            : { ...tableStyle["rgx-table-container"] }
-        }
+        className={`rgx-table-container ${
+          loading && "rgx-table-container-loading"
+        } ${darkMode && "rgx-table-container-dark"}`}
+        style={{
+          ...tableStyle["rgx-table-container"],
+          ...(loading && {
+            ...tableStyle["rgx-table-container-loading"],
+          }),
+          ...(darkMode && {
+            ...tableStyle["rgx-table-container-dark"],
+          }),
+        }}
       >
         {/* Conditionally render the loader if loading is true */}
         {loading &&
@@ -381,9 +385,12 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
           }}
         >
           <thead
-            className="rgx-table-head"
+            className={`rgx-table-head ${darkMode && "rgx-table-head-dark"}`}
             style={{
               ...tableStyle["rgx-table-head"],
+              ...(darkMode && {
+                ...tableStyle["rgx-table-head-dark"],
+              }),
             }}
           >
             {/* Render header checkbox if enabled */}
@@ -395,10 +402,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
             >
               {selectionCheckbox && (
                 <th
-                  className="rgx-table-head-th-checkbox"
+                  className={`rgx-table-head-th-checkbox ${
+                    darkMode && "rgx-table-head-th-checkbox-dark"
+                  }`}
                   style={{
                     width: "20px",
                     ...tableStyle["rgx-table-head-th-checkbox"],
+                    ...(darkMode && {
+                      ...tableStyle["rgx-table-head-th-checkbox-dark"],
+                    }),
                   }}
                 >
                   <input
@@ -416,11 +428,16 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               {columns?.map((column, index) => (
                 <th
                   key={index}
-                  className="rgx-table-head-th"
+                  className={`rgx-table-head-th ${
+                    darkMode && "rgx-table-head-th-dark"
+                  }`}
                   style={{
                     textAlign: "left",
                     width: column.width ? `${column.width}px` : "100px",
                     ...tableStyle["rgx-table-head-th"],
+                    ...(darkMode && {
+                      ...tableStyle["rgx-table-head-th-dark"],
+                    }),
                   }}
                 >
                   <div
@@ -489,13 +506,19 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               setIsDotPopover(null);
                             }}
                             style={popupStyle}
+                            mode={mode}
                           >
                             {sortConfig.find((sort) => sort.key === column.key)
                               ?.direction === "desc" && (
                               <div
-                                className="rgx-table-popup-items"
+                                className={`rgx-table-popup-items ${
+                                  darkMode && "rgx-table-popup-items-dark"
+                                }`}
                                 style={{
                                   ...tableStyle["rgx-table-popup-items"],
+                                  ...(darkMode && {
+                                    ...tableStyle["rgx-table-popup-items-dark"],
+                                  }),
                                 }}
                                 onClick={() => {
                                   column.sortable &&
@@ -521,10 +544,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             {sortConfig.find((sort) => sort.key === column.key)
                               ?.direction === "asc" && (
                               <div
-                                className="rgx-table-popup-items"
-                                style={{
-                                  ...tableStyle["rgx-table-popup-items"],
-                                }}
+                              className={`rgx-table-popup-items ${
+                                darkMode && "rgx-table-popup-items-dark"
+                              }`}
+                              style={{
+                                ...tableStyle["rgx-table-popup-items"],
+                                ...(darkMode && {
+                                  ...tableStyle["rgx-table-popup-items-dark"],
+                                }),
+                              }}
                                 onClick={() => {
                                   column.sortable &&
                                     onSortingMultipleSupportHandler(
@@ -551,10 +579,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             ) && (
                               <>
                                 <div
-                                  className="rgx-table-popup-items"
-                                  style={{
-                                    ...tableStyle["rgx-table-popup-items"],
-                                  }}
+                                 className={`rgx-table-popup-items ${
+                                  darkMode && "rgx-table-popup-items-dark"
+                                }`}
+                                style={{
+                                  ...tableStyle["rgx-table-popup-items"],
+                                  ...(darkMode && {
+                                    ...tableStyle["rgx-table-popup-items-dark"],
+                                  }),
+                                }}
                                   onClick={() => {
                                     column.sortable &&
                                       onSortingMultipleSupportHandler(
@@ -575,10 +608,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   <span>Sort Ascending</span>
                                 </div>
                                 <div
-                                  className="rgx-table-popup-items"
-                                  style={{
-                                    ...tableStyle["rgx-table-popup-items"],
-                                  }}
+                                 className={`rgx-table-popup-items ${
+                                  darkMode && "rgx-table-popup-items-dark"
+                                }`}
+                                style={{
+                                  ...tableStyle["rgx-table-popup-items"],
+                                  ...(darkMode && {
+                                    ...tableStyle["rgx-table-popup-items-dark"],
+                                  }),
+                                }}
                                   onClick={() => {
                                     column.sortable &&
                                       onSortingMultipleSupportHandler(
@@ -605,10 +643,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               sortConfig.some((sort) => sort.key === column.key)
                             ) && (
                               <div
-                                className="rgx-table-popup-items"
-                                style={{
-                                  ...tableStyle["rgx-table-popup-items"],
-                                }}
+                              className={`rgx-table-popup-items ${
+                                darkMode && "rgx-table-popup-items-dark"
+                              }`}
+                              style={{
+                                ...tableStyle["rgx-table-popup-items"],
+                                ...(darkMode && {
+                                  ...tableStyle["rgx-table-popup-items-dark"],
+                                }),
+                              }}
                                 onClick={() => {
                                   onClearSort();
                                 }}
@@ -660,19 +703,18 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
               >
                 <tr
                   key={row.id || rowIndex} // Use a unique key for each row
-                  className={
-                    expandedRow === rowIndex
-                      ? "rgx-table-body-tr rgx-table-body-tr-expanded"
-                      : "rgx-table-body-tr"
-                  } // Add class for expanded row
-                  style={
-                    expandedRow === rowIndex
-                      ? {
-                          ...tableStyle["rgx-table-body-tr"],
-                          ...tableStyle["rgx-table-body-tr-expanded"],
-                        }
-                      : { ...tableStyle["rgx-table-body-tr"] }
-                  }
+                  className={`rgx-table-body-tr ${
+                    expandedRow === rowIndex && "rgx-table-body-tr-expanded"
+                  } ${darkMode && "rgx-table-body-tr-dark"}`} // Add class for expanded row
+                  style={{
+                    ...tableStyle["rgx-table-body-tr"],
+                    ...(expandedRow === rowIndex && {
+                      ...tableStyle["rgx-table-body-tr-expanded"],
+                    }),
+                    ...(darkMode && {
+                      ...tableStyle["rgx-table-body-tr-dark"],
+                    }),
+                  }}
                   onClick={() => {
                     // Handle row click for expanding or triggering onRowClick callback
                     expandedComponent &&
@@ -685,10 +727,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   {/* Render row checkbox if enabled */}
                   {selectionCheckbox && (
                     <td
-                      className="rgx-table-body-td-checkbox"
+                      className={`rgx-table-body-td-checkbox ${
+                        darkMode && "rgx-table-body-td-checkbox-dark"
+                      }`}
                       style={{
                         width: "20px",
                         ...tableStyle["rgx-table-body-td-checkbox"],
+                        ...(darkMode && {
+                          ...tableStyle["rgx-table-body-td-checkbox-dark"],
+                        }),
                       }}
                     >
                       <input
@@ -706,10 +753,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   {columns.map((column, colIndex) => (
                     <td
                       key={colIndex}
-                      className="rgx-table-body-td"
+                      className={`rgx-table-body-td ${
+                        darkMode && "rgx-table-body-td-dark"
+                      }`}
                       style={{
                         width: column.width || "auto",
                         ...tableStyle["rgx-table-body-td"],
+                        ...(darkMode && {
+                          ...tableStyle["rgx-table-body-td-dark"],
+                        }),
                       }}
                     >
                       {/* Conditionally render the arrow icon if expandedComponent is passed */}
@@ -726,7 +778,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             ); // Toggle expanded row
                           }}
                         >
-                           <SvgIcon
+                          <SvgIcon
                             svgPath={
                               expandedRow === rowIndex
                                 ? `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>`

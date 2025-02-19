@@ -11,7 +11,6 @@
 /* Pagination info section, styled with font size, color, and weight. */
 .rgx-theme .rgx-table-pagination-info {
   font-size: 14px;
-  color: #555;
   font-weight: 500;
 }
 
@@ -24,6 +23,12 @@
 /* Styling for rows per page select dropdown. */
 .rgx-theme .rgx-table-pagination-rows-per-page-select {
   height: 30px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* Disabled select element appearance, with a "not-allowed" cursor. */
@@ -40,20 +45,9 @@
 }
 
 /* Label within rows per page section, with spacing and font styling. */
-.rgx-theme .rgx-table-pagination-rows-per-page label {
+.rgx-theme .rgx-table-pagination-rows-per-page-label {
   font-size: 14px;
-  color: #202020;
   margin-right: 10px;
-}
-
-/* Styling for the select dropdown within rows per page section. */
-.rgx-theme .rgx-table-pagination-rows-per-page select {
-  padding: 5px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
 }
 
 /* Pagination control buttons container with flexible wrapping and spacing. */
@@ -80,9 +74,10 @@
 }
 
 /* Disabled pagination button styling with light background and "not-allowed" cursor. */
-.rgx-theme .rgx-table-pagination-button:disabled {
-  background-color: #eee;
-  cursor: not-allowed;
+.rgx-theme .rgx-table-pagination-ellipsis:disabled {
+  background-color: #f1f1f1;
+  cursor: not-allowed !important;
+  border: 1px solid #ddd;
 }
 
 /* Active pagination button styling with custom background and border color. */

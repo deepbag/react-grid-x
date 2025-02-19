@@ -12,7 +12,10 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
   rowsPerPageOptions = [5, 10, 15],
   style = {},
   loading = false,
+  mode = "light",
 }) => {
+  const darkMode = mode === "dark";
+
   /**
    * Generates an array of page numbers for pagination with ellipses if necessary.
    * This ensures that the number of visible pages is limited, and ellipses are displayed when
@@ -68,8 +71,15 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
     >
       {/* Display pagination information (current page range and total rows) */}
       <div
-        className="rgx-table-pagination-info"
-        style={{ ...style["rgx-table-pagination-info"] }}
+        className={`rgx-table-pagination-info ${
+          darkMode && "rgx-table-pagination-info-dark"
+        }`}
+        style={{
+          ...style["rgx-table-pagination-info"],
+          ...(darkMode && {
+            ...style["rgx-table-pagination-info-dark"],
+          }),
+        }}
       >
         Showing {(currentPage - 1) * rowsPerPage + 1} to{" "}
         {Math.min(currentPage * rowsPerPage, totalRows)} of {totalRows}
@@ -91,18 +101,28 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
         >
           <label
             htmlFor="rowsPerPage"
-            className="rgx-table-pagination-rows-per-page-label"
+            className={`rgx-table-pagination-rows-per-page-label ${
+              darkMode && "rgx-table-pagination-rows-per-page-label-dark"
+            }`}
             style={{
               ...style["rgx-table-pagination-rows-per-page-label"],
+              ...(darkMode && {
+                ...style["rgx-table-pagination-rows-per-page-label-dark"],
+              }),
             }}
           >
             Rows per page:
           </label>
           <select
             id="rowsPerPage"
-            className="rgx-table-pagination-rows-per-page-select"
+            className={`rgx-table-pagination-rows-per-page-select ${
+              darkMode && "rgx-table-pagination-rows-per-page-select-dark"
+            }`}
             style={{
               ...style["rgx-table-pagination-rows-per-page-select"],
+              ...(darkMode && {
+                ...style["rgx-table-pagination-rows-per-page-select-dark"],
+              }),
             }}
             value={rowsPerPage}
             onChange={(e) => onRowsPerPageChange(Number(e.target.value))}
@@ -127,9 +147,14 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           <button
             disabled={currentPage === 1 || loading}
             onClick={() => onPageChange(currentPage - 1)}
-            className="rgx-table-pagination-button-icon"
+            className={`rgx-table-pagination-button-icon ${
+              darkMode && "rgx-table-pagination-button-icon-dark"
+            }`}
             style={{
               ...style["rgx-table-pagination-button-icon"],
+              ...(darkMode && {
+                ...style["rgx-table-pagination-button-icon-dark"],
+              }),
             }}
           >
             <SvgIcon
@@ -143,18 +168,17 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
               <button
                 key={index}
                 className={`rgx-table-pagination-button ${
-                  currentPage === page ? "rgx-table-pagination-active" : ""
-                }`}
-                style={
-                  currentPage === page
-                    ? {
-                        ...style["rgx-table-pagination-button"],
-                        ...style["rgx-table-pagination-button-active"],
-                      }
-                    : {
-                        ...style["rgx-table-pagination-button"],
-                      }
-                }
+                  currentPage === page && "rgx-table-pagination-active"
+                } ${darkMode && "rgx-table-pagination-button-dark"}`}
+                style={{
+                  ...style["rgx-table-pagination-button"],
+                  ...(currentPage === page && {
+                    ...style["rgx-table-pagination-button-active"],
+                  }),
+                  ...(darkMode && {
+                    ...style["rgx-table-pagination-button-dark"],
+                  }),
+                }}
                 onClick={() => onPageChange(page)}
                 disabled={loading}
               >
@@ -164,10 +188,17 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
               <button
                 key={index}
                 disabled
-                className="rgx-table-pagination-button rgx-table-pagination-ellipsis"
+                className={`rgx-table-pagination-button rgx-table-pagination-ellipsis ${
+                  darkMode &&
+                  "rgx-table-pagination-button-dark rgx-table-pagination-ellipsis-dark"
+                }`}
                 style={{
                   ...style["rgx-table-pagination-button"],
                   ...style["rgx-table-pagination-ellipsis"],
+                  ...(darkMode && {
+                    ...style["rgx-table-pagination-button-dark"],
+                    ...style["rgx-table-pagination-ellipsis-dark"],
+                  }),
                   cursor: "default",
                   opacity: 0.6,
                 }}
@@ -181,9 +212,14 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
           <button
             disabled={currentPage === totalPages || loading}
             onClick={() => onPageChange(currentPage + 1)}
-            className="rgx-table-pagination-button-icon"
+            className={`rgx-table-pagination-button-icon ${
+              darkMode && "rgx-table-pagination-button-icon-dark"
+            }`}
             style={{
               ...style["rgx-table-pagination-button-icon"],
+              ...(darkMode && {
+                ...style["rgx-table-pagination-button-icon-dark"],
+              }),
             }}
           >
             <SvgIcon
@@ -195,5 +231,4 @@ const RGXTablePagination: React.FC<RGXTablePaginationProps> = ({
     </div>
   );
 };
-
 export default RGXTablePagination; // Export RGXTablePagination for use in other components
