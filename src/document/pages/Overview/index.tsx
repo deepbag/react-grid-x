@@ -6,13 +6,26 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { LABELS, PATHS } from "document/config/path";
+import { useConfig } from "document/context/ConfigContext";
 
 const Overview: React.FC = () => {
+  const { lightMode } = useConfig();
+
   return (
     <div className="rgx-over-view-overview">
       <div className="rgx-over-view-header">
-        <h1 className="rgx-over-view-title">Overview</h1>
-        <p className="rgx-over-view-description">
+        <h1
+          className={`rgx-over-view-title ${
+            lightMode && "rgx-over-view-title-light"
+          }`}
+        >
+          Overview
+        </h1>
+        <p
+          className={`rgx-over-view-description ${
+            lightMode && "rgx-over-view-description-light"
+          }`}
+        >
           Welcome to the documentation site for{" "}
           <strong>
             <a
@@ -104,7 +117,7 @@ const Overview: React.FC = () => {
           </li>
         </ul>
       </section>
-{/* 
+      {/* 
       <BottomNavigator
         next={{
           label: LABELS.INSTALLATION,

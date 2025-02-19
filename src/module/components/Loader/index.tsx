@@ -1,5 +1,4 @@
 import React from "react";
-import "module/themes/rgx-theme/rgx-loader.css"; // Import the custom CSS for loader styling
 import { RGXLoaderProps } from "module/types/loader-props"; // Import the type definition for the loader props
 
 const RGXLoader: React.FC<RGXLoaderProps> = ({

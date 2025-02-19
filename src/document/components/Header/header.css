@@ -1,5 +1,5 @@
 .rgx-header {
-  background-color: #0e1215;
+  background-color: #101115;
   padding: 10px 15px;
   color: white;
   display: flex;
@@ -15,7 +15,7 @@
   font-size: 17px;
   font-weight: bold;
   text-decoration: underline;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
 }
 .rgx-header-logo a span {
@@ -24,6 +24,7 @@
 
 .rgx-header-icons {
   display: flex;
+  align-items: center;
 }
 .rgx-header-npm {
   margin-right: 15px;
@@ -53,6 +54,10 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.rgx-header-mode-button {
+  margin-left: 12px;
 }
 
 @media (max-width: 768px) {

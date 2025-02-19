@@ -12,3 +12,4 @@ export { default as InputBox } from "./InputBox";
 export { default as SelectBox } from "./SelectBox";
 export { default as MultipleSelectBox } from "./MultipleSelectBox";
 export { default as SvgIcon } from "./SVGIcons";
+export { default as ThemeToggle } from "./ThemeToggle";

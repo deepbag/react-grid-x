@@ -6,7 +6,7 @@ import CustomImage from "document/components/CustomImage";
 import { useDemoContext } from "document/context/DemoContext";
 
 import { ReactGridX } from "@deepbag/react-grid-x";
-import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
+// import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
 
 // import ReactGridX from "module/components/ReactGridX";
 // import "module/themes/rgx-theme/rgx-theme.css";

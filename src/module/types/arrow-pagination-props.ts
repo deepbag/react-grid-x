@@ -63,4 +63,13 @@ export interface RGXArrowPaginationProps {
    * When `true`, pagination buttons and controls should not be interactive.
    */
   loading: boolean;
+
+  /**
+   * The theme mode for the pagination component.
+   * When set to `"light"`, the component will use the light theme.
+   * When set to `"dark"`, the component will use the dark theme.
+   *
+   * @default "light"
+   */
+  mode?: "light" | "dark";
 }

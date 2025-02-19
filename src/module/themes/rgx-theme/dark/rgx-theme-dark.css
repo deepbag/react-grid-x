@@ -1,0 +1,43 @@
+/* Styles the container of the table in dark theme */
+.rgx-theme .rgx-table-container-dark {
+  border: 1px solid #474747 !important;
+}
+
+/* Styles the table header cell and checkbox header in dark theme */
+.rgx-theme .rgx-table-head-th-dark,
+.rgx-theme .rgx-table-head-th-checkbox-dark {
+  color: #fff !important;
+}
+
+/* Styles the table body cells and checkbox cells in dark theme */
+.rgx-theme .rgx-table-body-td-dark,
+.rgx-theme .rgx-table-body-td-checkbox-dark {
+  border-top: 1px solid #474747 !important;
+  border-bottom: 1px solid #474747 !important;
+  color: #fff !important;
+}
+
+/* Styles even rows in the table body in dark theme */
+.rgx-theme .rgx-table-body-tr-dark:nth-child(even) {
+  background-color: #1c1c1c !important;
+}
+
+/* Styles odd rows in the table body in dark theme */
+.rgx-theme .rgx-table-body-tr-dark:nth-child(odd) {
+  background-color: #2f2f2f !important;
+}
+
+/* Styles the hover effect for table rows in dark theme */
+.rgx-theme .rgx-table-body-tr-dark:hover {
+  background-color: #1c1c1c !important;
+}
+
+/* Styles the table header in dark theme */
+.rgx-theme .rgx-table-head-dark {
+  background-color: #1c1c1c !important;
+}
+
+/* Styles the hover effect for table popup items in dark theme */
+.rgx-theme .rgx-table-popup-items-dark:hover {
+  background-color: #0e1215 !important;
+}

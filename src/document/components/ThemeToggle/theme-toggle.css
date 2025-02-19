@@ -1,0 +1,34 @@
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.rgx-theme-toggle-button {
+  padding: 7px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.rgx-theme-toggle-button:hover {
+  opacity: 0.8;
+}
+
+.rgx-theme-mode-light {
+  color: #2f2f2f;
+  background-color: #fff;
+}
+
+.rgx-theme-mode-dark {
+  color: #fff;
+  background-color: #2f2f2f;
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import "module/themes/rgx-theme/rgx-tooltip.css"; // Import the custom CSS for tooltip styling
 import { RGXTooltipProps } from "module/types/tooltip-props"; // Import the type definition for the tooltip props
 
 const RGXTooltip: React.FC<RGXTooltipProps> = ({
@@ -18,15 +17,15 @@ const RGXTooltip: React.FC<RGXTooltipProps> = ({
       {children}
 
       {/* The tooltip text, shown on hover */}
-      <span
+      <div
         className="rgx-tooltip-text"
         style={{
-          minWidth: String(content)?.length * 5,
+          minWidth: String(content)?.length * 4,
           ...style["rgx-tooltip-text"],
         }}
       >
         {content}
-      </span>
+      </div>
     </div>
   );
 };

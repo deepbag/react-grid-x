@@ -12,10 +12,13 @@ interface ConfigContextType {
   setConfigKey: (key: string, value: any) => void;
   removeConfigKey: (key: string) => void;
   clearConfig: () => void;
+  darkMode: boolean;
+  lightMode: boolean;
 }
 
 interface ConfigProviderProps {
   children: ReactNode; // `children` can be any valid React element
+  defaultConfig?: Record<string, any>; // Optional defaultConfig prop
 }
 
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
@@ -48,9 +51,23 @@ const saveConfigToStorage = (config: Record<string, any>) => {
   }
 };
 
-export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
+export const ConfigProvider: React.FC<ConfigProviderProps> = ({
+  children,
+  defaultConfig = {},
+}) => {
+  // Load config from storage or set default config if none exists
+  const storedConfig = loadConfigFromStorage();
+
+  // If there's no config in storage, save the default config to storage
+  useEffect(() => {
+    if (Object.keys(storedConfig).length === 0) {
+      saveConfigToStorage(defaultConfig);
+    }
+  }, [defaultConfig, storedConfig]);
+
+  // Initialize state with stored config or defaultConfig
   const [config, setConfig] = useState<Record<string, any>>(
-    loadConfigFromStorage()
+    Object.keys(storedConfig).length > 0 ? storedConfig : defaultConfig
   );
 
   // Update localStorage when config changes
@@ -80,7 +97,14 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
 
   return (
     <ConfigContext.Provider
-      value={{ config, setConfigKey, removeConfigKey, clearConfig }}
+      value={{
+        config,
+        setConfigKey,
+        removeConfigKey,
+        clearConfig,
+        darkMode: config.theme === "dark",
+        lightMode: config.theme === "light",
+      }}
     >
       {children}
     </ConfigContext.Provider>

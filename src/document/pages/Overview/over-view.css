@@ -13,11 +13,18 @@
   color: #f6f8fa;
   margin: 0;
 }
+.rgx-over-view-title-light {
+  color: #101314;
+}
 
 .rgx-over-view-description {
   font-size: 16px;
   line-height: 1.5;
   color: #c5c7d0;
+}
+
+.rgx-over-view-description-light {
+  color: #101314;
 }
 
 .rgx-over-view-description strong a {
