@@ -5,23 +5,25 @@ import moment from "moment-timezone";
 import CustomImage from "document/components/CustomImage";
 import { useDemoContext } from "document/context/DemoContext";
 
-// import { ReactGridX } from "@deepbag/react-grid-x";
-// import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
+import { ReactGridX } from "@deepbag/react-grid-x";
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/dark/rgx-theme-dark-combined.css";
 
-import ReactGridX from "module/components/ReactGridX";
+// import ReactGridX from "module/components/ReactGridX";
 // import "module/themes/rgx-theme/rgx-theme-combined.css";
 
-import "module/themes/rgx-theme/rgx-theme.css";
-import "module/themes/rgx-theme/rgx-table-pagination.css";
-import "module/themes/rgx-theme/rgx-arrow-pagination.css";
-import "module/themes/rgx-theme/rgx-popover.css";
-import "module/themes/rgx-theme/rgx-tooltip.css";
-import "module/themes/rgx-theme/rgx-loader.css";
+// import "module/themes/rgx-theme/rgx-theme.css";
+// import "module/themes/rgx-theme/rgx-table-pagination.css";
+// import "module/themes/rgx-theme/rgx-arrow-pagination.css";
+// import "module/themes/rgx-theme/rgx-popover.css";
+// import "module/themes/rgx-theme/rgx-tooltip.css";
+// import "module/themes/rgx-theme/rgx-loader.css";
 
-import "module/themes/rgx-theme/dark/rgx-theme-dark.css";
-import "module/themes/rgx-theme/dark/rgx-table-pagination-dark.css";
-import "module/themes/rgx-theme/dark/rgx-arrow-pagination-dark.css";
-import "module/themes/rgx-theme/dark/rgx-popover-dark.css";
+// import "module/themes/rgx-theme/dark/rgx-theme-dark.css";
+// import "module/themes/rgx-theme/dark/rgx-table-pagination-dark.css";
+// import "module/themes/rgx-theme/dark/rgx-arrow-pagination-dark.css";
+// import "module/themes/rgx-theme/dark/rgx-popover-dark.css";
+
 import { useConfig } from "document/context/ConfigContext";
 
 const Demo = () => {

@@ -1,11 +1,6 @@
 import React from "react";
 import "./over-view.css";
-import {
-  BottomNavigator,
-  CodeBox,
-  ImportantBoldTypography,
-} from "document/components";
-import { LABELS, PATHS } from "document/config/path";
+import { ImportantBoldTypography } from "document/components";
 import { useConfig } from "document/context/ConfigContext";
 
 const Overview: React.FC = () => {
@@ -44,8 +39,18 @@ const Overview: React.FC = () => {
       </div>
 
       <section className="rgx-over-view-features">
-        <h2 className="rgx-over-view-section-title">Supported Versions</h2>
-        <p className="rgx-installation-usage-text">
+        <h2
+          className={`rgx-over-view-section-title ${
+            lightMode && "rgx-over-view-section-title-light"
+          }`}
+        >
+          Supported Versions
+        </h2>
+        <p
+          className={`rgx-over-view-usage-text ${
+            lightMode && "rgx-over-view-usage-text-light"
+          }`}
+        >
           @deepbag/react-grid-x{" "}
           <ImportantBoldTypography>
             supports React 18 and later
@@ -58,24 +63,72 @@ const Overview: React.FC = () => {
       </section>
 
       <section className="rgx-over-view-features">
-        <h2 className="rgx-over-view-section-title">Key Features</h2>
+        <h2
+          className={`rgx-over-view-section-title ${
+            lightMode && "rgx-over-view-section-title-light"
+          }`}
+        >
+          Key Features
+        </h2>
         <ul className="rgx-over-view-feature-list">
-          <li className="rgx-over-view-feature-item">
-            <strong>Customizable Columns:</strong> Define columns with dynamic
-            rendering of data using custom render functions.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Customizable Columns:
+            </strong>{" "}
+            Define columns with dynamic rendering of data using custom render
+            functions.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Sorting Support:</strong> Supports sorting by multiple
-            columns (both numerical and alphabetical). A Clear Sorting popup
-            appears when sorting is enabled.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Sorting Support:
+            </strong>{" "}
+            Supports sorting by multiple columns (both numerical and
+            alphabetical). A Clear Sorting popup appears when sorting is
+            enabled.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Server-side Sorting:</strong> Optionally support server-side
-            sorting for large datasets.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Server-side Sorting:
+            </strong>{" "}
+            Optionally support server-side sorting for large datasets.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Pagination support:</strong> Supports multiple pagination
-            types (
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Pagination support:
+            </strong>{" "}
+            Supports multiple pagination types (
             <ImportantBoldTypography>
               rgx-table-pagination
             </ImportantBoldTypography>{" "}
@@ -85,35 +138,125 @@ const Overview: React.FC = () => {
             </ImportantBoldTypography>
             ) with customizable rows per page and navigation controls.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Customizable styling:</strong> Apply custom themes and
-            styles to the table and pagination components.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Customizable styling:
+            </strong>{" "}
+            Apply custom themes and styles to the table and pagination
+            components.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Server-side pagination:</strong> Optionally support
-            server-side pagination for large datasets.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Server-side pagination:
+            </strong>{" "}
+            Optionally support server-side pagination for large datasets.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Tooltip support:</strong> Enable tooltips for column headers
-            with customizable content for better user guidance.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Tooltip support:
+            </strong>{" "}
+            Enable tooltips for column headers with customizable content for
+            better user guidance.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Row click event:</strong> Capture row clicks using the
-            onRowClick callback to handle user interactions.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Row click event:
+            </strong>{" "}
+            Capture row clicks using the onRowClick callback to handle user
+            interactions.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Expandable rows:</strong> Expand rows with a customizable
-            expandedComponent to show additional details or content within the
-            same row.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Expandable rows:
+            </strong>{" "}
+            Expand rows with a customizable expandedComponent to show additional
+            details or content within the same row.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Loader support:</strong> Customize the loader displayed when
-            the table is in a loading state using the loaderComponent prop. If
-            not provided, the default loader will be used.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Loader support:
+            </strong>{" "}
+            Customize the loader displayed when the table is in a loading state
+            using the loaderComponent prop. If not provided, the default loader
+            will be used.
           </li>
-          <li className="rgx-over-view-feature-item">
-            <strong>Row selection:</strong> Supports row selection with
-            checkboxes, allowing both single and select-all functionality.
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Row selection:
+            </strong>{" "}
+            Supports row selection with checkboxes, allowing both single and
+            select-all functionality.
+          </li>
+          <li
+            className={`rgx-over-view-feature-item ${
+              lightMode && "rgx-over-view-feature-item-light"
+            }`}
+          >
+            <strong
+              className={`rgx-over-view-feature-item-strong ${
+                lightMode && "rgx-over-view-feature-item-strong-light"
+              }`}
+            >
+              Light & Dark Mode:
+            </strong>{" "}
+            Now supports both light and dark themes for better visual
+            adaptability.
           </li>
         </ul>
       </section>

@@ -1,5 +1,15 @@
 [
   {
+    "version": "0.2.8",
+    "date": "2025-02-20",
+    "changes": {
+      "major": ["Updated documentation to reflect the latest changes."]
+    },
+    "added": {
+      "major": ["Added light/dark mode toggle for better user experience."]
+    }
+  },
+  {
     "version": "0.2.7",
     "date": "2025-02-17",
     "changes": {

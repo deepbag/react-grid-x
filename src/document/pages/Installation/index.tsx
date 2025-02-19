@@ -61,6 +61,7 @@ const Installation = () => {
               code: `import React from "react";
 import { ReactGridX } from "@deepbag/react-grid-x";
 import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-theme-combined.css";
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/dark/rgx-theme-dark-combined.css";
 
 const App = () => {
   return (

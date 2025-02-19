@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+
+:root {
+  --text-color-light: #f6f8fa;
+  --text-color-dark: #101314;
+  --text-color-blue: #037bff;
+  --text-color-lighter: #c5c7d0;
+}
+
 body {
   margin: 0;
   background-color: #0e1215;

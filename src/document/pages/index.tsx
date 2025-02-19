@@ -20,3 +20,4 @@ export { default as CustomTheme } from "./CustomTheme";
 export { default as CSSGuide } from "./CSSGuide";
 export { default as Demo } from "./Demo";
 export { default as ThemeBuilder } from "./ThemeBuilder";
+export { default as DarkLightMode } from "./DarkLightMode";

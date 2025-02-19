@@ -13,3 +13,4 @@ export { default as SelectBox } from "./SelectBox";
 export { default as MultipleSelectBox } from "./MultipleSelectBox";
 export { default as SvgIcon } from "./SVGIcons";
 export { default as ThemeToggle } from "./ThemeToggle";
+export { default as NewsBar } from "./NewsBar";

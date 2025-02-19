@@ -23,11 +23,13 @@ import {
   Tooltip,
   Loader,
   ThemeBuilder,
+  DarkLightMode,
 } from "document/pages";
-import { DemoSideBar, Header, Sidebar } from "document/components";
+import { DemoSideBar, Header, NewsBar, Sidebar } from "document/components";
 import "document/app-route.css";
 import { PATHS } from "document/config/path";
 import { useCurrentRoute } from "./hooks";
+import Contribution from "./pages/Contribution";
 
 const RoutesItem: React.FC = () => {
   const navigate = useNavigate();
@@ -64,6 +66,8 @@ const RoutesItem: React.FC = () => {
     { path: PATHS.CSS_GUIDE, element: <CSSGuide /> },
     { path: PATHS.DEMO, element: <Demo /> },
     { path: PATHS.THEME_BUILDER, element: <ThemeBuilder /> },
+    { path: PATHS.DARK_LIGHT_MODE, element: <DarkLightMode /> },
+    { path: PATHS.CONTRIBUTION, element: <Contribution /> },
   ]);
 };
 
@@ -81,6 +85,7 @@ const AppRoute: React.FC = () => {
 
   return (
     <div className="rgx-app-route">
+      <NewsBar />
       <Header />
 
       <div className="rgx-app-route-main-content">

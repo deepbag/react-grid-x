@@ -31,15 +31,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header
-      className="rgx-header"
-      style={{
-        ...(config.theme === "light" &&
-          {
-            // backgroundColor: "#fff",
-          }),
-      }}
-    >
+    <header className="rgx-header">
       <div className="rgx-header-logo">
         <Link to={PATHS.OVERVIEW}>
           React-Grid-X {version && <span>({version})</span>}
@@ -88,7 +80,9 @@ const Header: React.FC = () => {
               />
             </a>
           </div>
-          <div className="rgx-header-mode-button">{/* <ThemeToggle /> */}</div>
+          <div className="rgx-header-mode-button">
+            {/* <ThemeToggle /> */}
+          </div>
         </div>
       </div>
     </header>
