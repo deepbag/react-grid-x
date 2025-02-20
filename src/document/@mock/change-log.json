@@ -1,5 +1,12 @@
 [
   {
+    "version": "0.2.9",
+    "date": "2025-02-20",
+    "changes": {
+      "minor": ["Updated documentation and npm document to reflect the latest changes."]
+    }
+  },
+  {
     "version": "0.2.8",
     "date": "2025-02-20",
     "changes": {
