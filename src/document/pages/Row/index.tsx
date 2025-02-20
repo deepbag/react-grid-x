@@ -6,13 +6,21 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
+import { useConfig } from "document/context/ConfigContext";
 
 const Row: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-row-overview">
       <div className="rgx-row-header">
-        <h1 className="rgx-row-title">Row</h1>
-        <p className="rgx-row-description">
+        <h1 className={`rgx-row-title ${lightMode && "rgx-row-title-light"}`}>
+          Row
+        </h1>
+        <p
+          className={`rgx-row-description ${
+            lightMode && "rgx-row-description-light"
+          }`}
+        >
           The ReactGridX component allows you to manage row interactions,
           including handling row clicks, expandable rows, and row selection. By
           using the{" "}
@@ -25,8 +33,18 @@ const Row: React.FC = () => {
       </div>
 
       <section className="rgx-row-section">
-        <h2 className="rgx-row-section-title">Contents</h2>
-        <p className="rgx-row-section-text">
+        <h2
+          className={`rgx-row-section-title ${
+            lightMode && "rgx-row-section-title-light"
+          }`}
+        >
+          Contents
+        </h2>
+        <p
+          className={`rgx-row-section-text ${
+            lightMode && "rgx-row-section-text-light"
+          }`}
+        >
           Explore the various sections and detailed information available on
           this page. Each section is designed to provide you with a
           comprehensive overview of row configuration.
@@ -67,11 +85,22 @@ const Row: React.FC = () => {
       </section>
 
       <section className="rgx-row-section" id="rgx-row-section-click">
-        <h2 className="rgx-row-section-title">Row Click Event</h2>
-        <p className="rgx-row-section-text">
-          Capture row clicks using the <ImportantBoldTypography>onRowClick</ImportantBoldTypography> callback to
-          handle user interactions. This allows you to respond to row selections
-          or trigger actions based on the clicked row.
+        <h2
+          className={`rgx-row-section-title ${
+            lightMode && "rgx-row-section-title-light"
+          }`}
+        >
+          Row Click Event
+        </h2>
+        <p
+          className={`rgx-row-section-text ${
+            lightMode && "rgx-row-section-text-light"
+          }`}
+        >
+          Capture row clicks using the{" "}
+          <ImportantBoldTypography>onRowClick</ImportantBoldTypography> callback
+          to handle user interactions. This allows you to respond to row
+          selections or trigger actions based on the clicked row.
         </p>
         <CodeBox
           commands={{
@@ -89,11 +118,24 @@ const Row: React.FC = () => {
       </section>
 
       <section className="rgx-row-section" id="rgx-row-section-expandable">
-        <h2 className="rgx-row-section-title">Expandable Rows</h2>
-        <p className="rgx-row-section-text">
+        <h2
+          className={`rgx-row-section-title ${
+            lightMode && "rgx-row-section-title-light"
+          }`}
+        >
+          Expandable Rows
+        </h2>
+        <p
+          className={`rgx-row-section-text ${
+            lightMode && "rgx-row-section-text-light"
+          }`}
+        >
           Expand rows to display additional content within the same row. The
-          <ImportantBoldTypography>expandedComponent</ImportantBoldTypography> prop receives the clicked row data and
-          returns a JSX component to be rendered.
+          <ImportantBoldTypography>
+            expandedComponent
+          </ImportantBoldTypography>{" "}
+          prop receives the clicked row data and returns a JSX component to be
+          rendered.
         </p>
         <CodeBox
           commands={{
@@ -111,17 +153,35 @@ const Row: React.FC = () => {
       </section>
 
       <section className="rgx-row-section" id="rgx-row-section-selection">
-        <h2 className="rgx-row-section-title">Row Selection</h2>
-        <p className="rgx-row-section-text">
+        <h2
+          className={`rgx-row-section-title ${
+            lightMode && "rgx-row-section-title-light"
+          }`}
+        >
+          Row Selection
+        </h2>
+        <p
+          className={`rgx-row-section-text ${
+            lightMode && "rgx-row-section-text-light"
+          }`}
+        >
           Enable row selection with checkboxes for both individual and
-          select-all functionality. Use the <ImportantBoldTypography>selectionCheckbox</ImportantBoldTypography> prop
-          to enable selection and handle changes with the{" "}
-          <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography> callback.
+          select-all functionality. Use the{" "}
+          <ImportantBoldTypography>selectionCheckbox</ImportantBoldTypography>{" "}
+          prop to enable selection and handle changes with the{" "}
+          <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography>{" "}
+          callback.
         </p>
-        <p className="rgx-row-section-text">
-          The <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography> callback provides the selected rows
-          and the
-          <ImportantBoldTypography>isAllChecked</ImportantBoldTypography> flag to determine if all rows are selected.
+        <p
+          className={`rgx-row-section-text ${
+            lightMode && "rgx-row-section-text-light"
+          }`}
+        >
+          The{" "}
+          <ImportantBoldTypography>onSelectionCheck</ImportantBoldTypography>{" "}
+          callback provides the selected rows and the
+          <ImportantBoldTypography>isAllChecked</ImportantBoldTypography> flag
+          to determine if all rows are selected.
         </p>
 
         <CodeBox

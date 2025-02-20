@@ -6,13 +6,15 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
+import { useConfig } from "document/context/ConfigContext";
 
 const Tooltip: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-tooltip-overview">
       <div className="rgx-tooltip-header">
-        <h1 className="rgx-tooltip-title">Tooltip</h1>
-        <p className="rgx-tooltip-description">
+        <h1 className={`rgx-tooltip-title ${lightMode && "rgx-tooltip-title-light"}`}>Tooltip</h1>
+        <p className={`rgx-tooltip-description ${lightMode && 'rgx-tooltip-description-light'}`}>
           ReactGridX allows you to enable tooltips on columns, providing
           additional information when a user hovers over a cell. You can control
           the visibility of the tooltip with the{" "}
@@ -26,8 +28,8 @@ const Tooltip: React.FC = () => {
       </div>
 
       <section className="rgx-tooltip-section">
-        <h2 className="rgx-tooltip-section-title">Contents</h2>
-        <p className="rgx-tooltip-section-text">
+        <h2 className={`rgx-tooltip-section-title ${lightMode && 'rgx-tooltip-section-title-light'}`}>Contents</h2>
+        <p className={`rgx-tooltip-section-text ${lightMode && 'rgx-tooltip-section-text-light'}`}>
           Explore the various sections and detailed information available on
           this page. Each section is designed to give you a comprehensive
           overview of how to use the tooltip functionality.
@@ -80,8 +82,8 @@ const Tooltip: React.FC = () => {
       </section>
 
       <section className="rgx-tooltip-section" id="rgx-tooltip-section-props">
-        <h2 className="rgx-tooltip-section-title">Props</h2>
-        <p className="rgx-tooltip-section-text">
+        <h2 className={`rgx-tooltip-section-title ${lightMode && 'rgx-tooltip-section-title-light'}`}>Props</h2>
+        <p className={`rgx-tooltip-section-text ${lightMode && 'rgx-tooltip-section-text-light'}`}>
           Learn about the available props that control the tooltip behavior.
         </p>
         <CustomTable
@@ -111,8 +113,8 @@ const Tooltip: React.FC = () => {
         className="rgx-tooltip-section"
         id="rgx-tooltip-section-default-tooltip"
       >
-        <h2 className="rgx-tooltip-section-title">Default Tooltip</h2>
-        <p className="rgx-tooltip-section-text">
+        <h2 className={`rgx-tooltip-section-title ${lightMode && 'rgx-tooltip-section-title-light'}`}>Default Tooltip</h2>
+        <p className={`rgx-tooltip-section-text ${lightMode && 'rgx-tooltip-section-text-light'}`}>
           When the <ImportantBoldTypography>tooltip</ImportantBoldTypography>{" "}
           prop is set to true, ReactGridX will display a default tooltip with
           the column name when you hover over a cell. This provides a simple way
@@ -124,8 +126,8 @@ const Tooltip: React.FC = () => {
         className="rgx-tooltip-section"
         id="rgx-tooltip-section-custom-tooltip"
       >
-        <h2 className="rgx-tooltip-section-title">Custom Tooltip</h2>
-        <p className="rgx-tooltip-section-text">
+        <h2 className={`rgx-tooltip-section-title ${lightMode && 'rgx-tooltip-section-title-light'}`}>Custom Tooltip</h2>
+        <p className={`rgx-tooltip-section-text ${lightMode && 'rgx-tooltip-section-text-light'}`}>
           You can customize the content of the tooltip by passing a function to
           the{" "}
           <ImportantBoldTypography>
@@ -134,7 +136,7 @@ const Tooltip: React.FC = () => {
           prop. This function should return the content you want to display in
           the tooltip based on the row data.
         </p>
-        <p className="rgx-tooltip-section-text">
+        <p className={`rgx-tooltip-section-text ${lightMode && 'rgx-tooltip-section-text-light'}`}>
           Here’s an example of how to use the{" "}
           <ImportantBoldTypography>tooltip</ImportantBoldTypography> and
           <ImportantBoldTypography>

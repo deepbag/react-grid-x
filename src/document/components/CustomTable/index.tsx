@@ -1,5 +1,6 @@
 import React from "react";
 import "./custom-table.css";
+import { useConfig } from "document/context/ConfigContext";
 
 interface CustomTableProps {
   columns: {
@@ -17,8 +18,13 @@ const CustomTable: React.FC<CustomTableProps> = ({
   data,
   hideHeader = false,
 }) => {
+  const { lightMode } = useConfig();
   return (
-    <table className="rgx-custom-table-props-table">
+    <table
+      className={`rgx-custom-table-props-table ${
+        lightMode && "rgx-custom-table-props-table-light"
+      }`}
+    >
       {!hideHeader && (
         <thead>
           <tr>

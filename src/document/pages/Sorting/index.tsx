@@ -6,13 +6,15 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
+import { useConfig } from "document/context/ConfigContext";
 
 const Sorting: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-sorting-overview">
       <div className="rgx-sorting-header">
-        <h1 className="rgx-sorting-title">Sorting</h1>
-        <p className="rgx-sorting-description">
+        <h1 className={`rgx-sorting-title ${lightMode && 'rgx-sorting-title-light'}`}>Sorting</h1>
+        <p className={`rgx-sorting-description ${lightMode && 'rgx-sorting-description-light'}`}>
           ReactGridX supports multi-column sorting for both numeric and
           alphabetical data. You can enable sorting on multiple columns by
           setting the{" "}
@@ -23,8 +25,8 @@ const Sorting: React.FC = () => {
       </div>
 
       <section className="rgx-sorting-section">
-        <h2 className="rgx-sorting-section-title">Contents</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Contents</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           Explore the sections and detailed information available on sorting in
           ReactGridX. This guide covers how to enable sorting, custom sorting
           logic, and server-side sorting for large datasets.
@@ -84,8 +86,8 @@ const Sorting: React.FC = () => {
         className="rgx-sorting-section"
         id="rgx-sorting-section-column-props"
       >
-        <h2 className="rgx-sorting-section-title">Column Props</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Column Props</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           These props are used to control sorting behavior at the column level.
           You can specify whether a column is sortable and define custom sorting
           logic for individual columns.
@@ -117,8 +119,8 @@ const Sorting: React.FC = () => {
         className="rgx-sorting-section"
         id="rgx-sorting-section-table-props"
       >
-        <h2 className="rgx-sorting-section-title">Table Props</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Table Props</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           These props control sorting behavior at the table level, including
           enabling server-side sorting and handling the sorting logic
           externally.
@@ -156,8 +158,8 @@ const Sorting: React.FC = () => {
         className="rgx-sorting-section"
         id="rgx-sorting-section-default-sorting"
       >
-        <h2 className="rgx-sorting-section-title">Default Sorting</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Default Sorting</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           To enable sorting on a column, set the{" "}
           <ImportantBoldTypography>sortable</ImportantBoldTypography> prop to
           true. Users can click on the column headers to toggle sorting between
@@ -183,8 +185,8 @@ const Sorting: React.FC = () => {
         className="rgx-sorting-section"
         id="rgx-sorting-section-custom-sorting"
       >
-        <h2 className="rgx-sorting-section-title">Custom Sorting</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Custom Sorting</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           You can provide a custom sorting function using the{" "}
           <ImportantBoldTypography>onSort</ImportantBoldTypography> prop for
           finer control over sorting behavior. The function receives the two
@@ -235,8 +237,8 @@ const Sorting: React.FC = () => {
         className="rgx-sorting-section"
         id="rgx-sorting-section-server-side-sorting"
       >
-        <h2 className="rgx-sorting-section-title">Server-Side Sorting</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Server-Side Sorting</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           For large datasets, you may want to handle sorting on the server-side.
           You can enable server-side sorting by setting the{" "}
           <ImportantBoldTypography>serverSideSorting</ImportantBoldTypography>
@@ -263,8 +265,8 @@ const Sorting: React.FC = () => {
         className="rgx-sorting-section"
         id="rgx-sorting-section-multi-column-sort"
       >
-        <h2 className="rgx-sorting-section-title">Multi-Column Sort</h2>
-        <p className="rgx-sorting-section-text">
+        <h2 className={`rgx-sorting-section-title ${lightMode && 'rgx-sorting-section-title-light'}`}>Multi-Column Sort</h2>
+        <p className={`rgx-sorting-section-text ${lightMode && 'rgx-sorting-section-text-light'}`}>
           When{" "}
           <ImportantBoldTypography>multiColumnSort</ImportantBoldTypography> is
           enabled (default: true), users can sort by multiple columns at the

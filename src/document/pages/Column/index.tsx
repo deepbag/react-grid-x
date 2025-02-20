@@ -6,14 +6,26 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
+import { useConfig } from "document/context/ConfigContext";
 
 const Column: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <>
       <div className="rgx-column-overview">
         <div className="rgx-column-header">
-          <h1 className="rgx-column-title">Column</h1>
-          <p className="rgx-column-description">
+          <h1
+            className={`rgx-column-title ${
+              lightMode && "rgx-column-title-light"
+            }`}
+          >
+            Column
+          </h1>
+          <p
+            className={`rgx-column-description ${
+              lightMode && "rgx-column-description-light"
+            }`}
+          >
             The ReactGridX component allows you to define and customize columns.
             By using the `name`, `key`, and other props, you can control how
             each column behaves, including sorting, rendering custom content,
@@ -22,8 +34,18 @@ const Column: React.FC = () => {
         </div>
 
         <section className="rgx-column-section">
-          <h2 className="rgx-column-section-title">Contents</h2>
-          <p className="rgx-column-section-text">
+          <h2
+            className={`rgx-column-section-title ${
+              lightMode && "rgx-column-section-title-light"
+            }`}
+          >
+            Contents
+          </h2>
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             Explore the various sections and detailed information available on
             this page. Each section is designed to provide you with a
             comprehensive overview of column configuration.
@@ -76,8 +98,18 @@ const Column: React.FC = () => {
         </section>
 
         <section className="rgx-column-section" id="rgx-column-section-props">
-          <h2 className="rgx-column-section-title">Props</h2>
-          <p className="rgx-column-section-text">
+          <h2
+            className={`rgx-column-section-title ${
+              lightMode && "rgx-column-section-title-light"
+            }`}
+          >
+            Props
+          </h2>
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             Learn about the available props for customizing columns in
             ReactGridX.
           </p>
@@ -143,8 +175,18 @@ const Column: React.FC = () => {
           className="rgx-column-section"
           id="rgx-column-section-customization"
         >
-          <h2 className="rgx-column-section-title">Column Customization</h2>
-          <p className="rgx-column-section-text">
+          <h2
+            className={`rgx-column-section-title ${
+              lightMode && "rgx-column-section-title-light"
+            }`}
+          >
+            Column Customization
+          </h2>
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             Customize how columns are rendered with the{" "}
             <ImportantBoldTypography>render</ImportantBoldTypography> function.
             This allows you to apply custom formatting or use additional
@@ -167,13 +209,27 @@ const Column: React.FC = () => {
         </section>
 
         <section className="rgx-column-section" id="rgx-column-section-sorting">
-          <h2 className="rgx-column-section-title">Sorting Columns</h2>
-          <p className="rgx-column-section-text">
+          <h2
+            className={`rgx-column-section-title ${
+              lightMode && "rgx-column-section-title-light"
+            }`}
+          >
+            Sorting Columns
+          </h2>
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             Sorting functionality allows users to click on the column headers to
             reorder the data. You can also provide a custom sorting function to
             control the sorting behavior based on specific requirements.
           </p>
-          <p className="rgx-column-section-text">
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             You can enable sorting for columns by setting the{" "}
             <ImportantBoldTypography>sortable</ImportantBoldTypography> prop to{" "}
             <ImportantBoldTypography>true</ImportantBoldTypography>.
@@ -224,8 +280,18 @@ const Column: React.FC = () => {
           className="rgx-column-section"
           id="rgx-column-section-tooltips"
         >
-          <h2 className="rgx-column-section-title">Tooltips</h2>
-          <p className="rgx-column-section-text">
+          <h2
+            className={`rgx-column-section-title ${
+              lightMode && "rgx-column-section-title-light"
+            }`}
+          >
+            Tooltips
+          </h2>
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             Add tooltips to your column headers to provide more information to
             users when they hover over the headers. You can customize the
             tooltip content dynamically based on row data.
@@ -247,15 +313,29 @@ const Column: React.FC = () => {
         </section>
 
         <section className="rgx-column-section" id="rgx-column-section-width">
-          <h2 className="rgx-column-section-title">Width and Layout</h2>
-          <p className="rgx-column-section-text">
+          <h2
+            className={`rgx-column-section-title ${
+              lightMode && "rgx-column-section-title-light"
+            }`}
+          >
+            Width and Layout
+          </h2>
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             You can define the width of your columns using the{" "}
             <ImportantBoldTypography>width</ImportantBoldTypography> prop,
             giving you precise control over the table layout for an improved
             user experience.
           </p>
 
-          <p className="rgx-column-section-text">
+          <p
+            className={`rgx-column-section-text ${
+              lightMode && "rgx-column-section-text-light"
+            }`}
+          >
             The <ImportantBoldTypography>width</ImportantBoldTypography> prop
             accepts a number, which is interpreted as pixels (
             <ImportantBoldTypography>px</ImportantBoldTypography>). For example,

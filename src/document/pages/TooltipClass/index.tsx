@@ -1,9 +1,11 @@
-import { CodeBox, CustomTable } from "document/components";
+import { CodeBox } from "document/components";
 import React, { useEffect, useState } from "react";
 import "./tooltip-class.css";
 import axios from "axios";
+import { useConfig } from "document/context/ConfigContext";
 
 const TooltipClass: React.FC = () => {
+  const { lightMode } = useConfig();
   const [css, setCss] = useState<string>("");
 
   useEffect(() => {
@@ -22,47 +24,40 @@ const TooltipClass: React.FC = () => {
   return (
     <div className="rgx-tooltip-class-overview">
       <div className="rgx-tooltip-class-header">
-        <h1 className="rgx-tooltip-class-title">Tooltip Class</h1>
-        <p className="rgx-tooltip-class-description">
+        <h1
+          className={`rgx-tooltip-class-title ${
+            lightMode && "rgx-tooltip-class-title-light"
+          }`}
+        >
+          Tooltip Class
+        </h1>
+        <p
+          className={`rgx-tooltip-class-description ${
+            lightMode && "rgx-tooltip-class-description-light"
+          }`}
+        >
           The Tooltip component in ReactGridX allows you to display additional
           information when users hover over an element. The styles can be
           customized by overriding the default CSS classes.
         </p>
       </div>
 
-      <section className="rgx-tooltip-class-section">
-        <h2 className="rgx-tooltip-class-section-title">CSS Classes</h2>
-        <p className="rgx-tooltip-class-section-text">
-          Below are the CSS classes used in the Tooltip component. You can
-          override these styles to customize the tooltip's appearance.
-        </p>
-        <CustomTable
-          hideHeader={true}
-          columns={[
-            { header: "Class Name", accessor: "className" },
-            { header: "Description", accessor: "description" },
-          ]}
-          data={[
-            {
-              className: "rgx-tooltip-container",
-              description:
-                "The main container for the tooltip component, which wraps the element and tooltip text.",
-            },
-            {
-              className: "rgx-tooltip-text",
-              description:
-                "The tooltip text that appears when the user hovers over the element.",
-            },
-          ]}
-        />
-      </section>
-
       <section
         className="rgx-tooltip-class-section"
         id="rgx-tooltip-class-section-customization"
       >
-        <h2 className="rgx-tooltip-class-section-title">CSS</h2>
-        <p className="rgx-tooltip-class-section-text">
+        <h2
+          className={`rgx-tooltip-class-section-title ${
+            lightMode && "rgx-tooltip-class-section-title-light"
+          }`}
+        >
+          CSS
+        </h2>
+        <p
+          className={`rgx-tooltip-class-section-text ${
+            lightMode && "rgx-tooltip-class-section-text-light"
+          }`}
+        >
           Customize how tooltips are styled using CSS classes. This allows you
           to modify positioning, colors, and animations to match your design
           needs.

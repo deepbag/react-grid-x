@@ -3,9 +3,9 @@
 
 :root {
   --text-color-light: #f6f8fa;
+  --text-color-lighter: #c5c7d0;
   --text-color-dark: #101314;
   --text-color-blue: #037bff;
-  --text-color-lighter: #c5c7d0;
 }
 
 body {

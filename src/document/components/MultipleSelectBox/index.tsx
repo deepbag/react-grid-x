@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./multiple-select-box.css";
 import SvgIcon from "../SVGIcons";
+import { useConfig } from "document/context/ConfigContext";
 
 interface MultipleSelectBoxProps {
   id: string;
@@ -21,6 +22,7 @@ const MultipleSelectBox: React.FC<MultipleSelectBoxProps> = ({
   label,
   style = {},
 }) => {
+  const { lightMode } = useConfig();
   const menuRef = useRef<HTMLUListElement | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -64,7 +66,7 @@ const MultipleSelectBox: React.FC<MultipleSelectBoxProps> = ({
       )}
       <div className="rgx-multiple-select-custom-select">
         <div
-          className="rgx-multiple-select-selected-options"
+          className={`rgx-multiple-select-selected-options ${lightMode && 'rgx-multiple-select-selected-options-light'}`}
           onClick={() => {
             toggleDropdown();
           }}
@@ -87,7 +89,7 @@ const MultipleSelectBox: React.FC<MultipleSelectBoxProps> = ({
 
         {isOpen && (
           <ul
-            className="rgx-multiple-select-dropdown"
+            className={`rgx-multiple-select-dropdown ${lightMode && 'rgx-multiple-select-dropdown-light'}`}
             ref={menuRef}
             role="listbox"
           >

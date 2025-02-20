@@ -6,13 +6,25 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
+import { useConfig } from "document/context/ConfigContext";
 
 const Pagination: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-pagination-overview">
       <div className="rgx-pagination-header">
-        <h1 className="rgx-pagination-title">Pagination</h1>
-        <p className="rgx-pagination-description">
+        <h1
+          className={`rgx-pagination-title ${
+            lightMode && "rgx-pagination-title-light"
+          }`}
+        >
+          Pagination
+        </h1>
+        <p
+          className={`rgx-pagination-description ${
+            lightMode && "rgx-pagination-description-light"
+          }`}
+        >
           ReactGridX provides flexible pagination options to manage large
           datasets efficiently. Choose from different pagination types and
           configure rows per page as needed. Server-side pagination is also
@@ -21,7 +33,13 @@ const Pagination: React.FC = () => {
       </div>
 
       <section className="rgx-pagination-section">
-        <h2 className="rgx-pagination-section-title">Contents</h2>
+        <h2
+          className={`rgx-pagination-section-title ${
+            lightMode && "rgx-pagination-section-title-light"
+          }`}
+        >
+          Contents
+        </h2>
         <CustomTable
           hideHeader={true}
           columns={[
@@ -71,7 +89,13 @@ const Pagination: React.FC = () => {
         className="rgx-pagination-section"
         id="rgx-pagination-section-props"
       >
-        <h2 className="rgx-pagination-section-title">Props</h2>
+        <h2
+          className={`rgx-pagination-section-title ${
+            lightMode && "rgx-pagination-section-title-light"
+          }`}
+        >
+          Props
+        </h2>
         <CustomTable
           columns={[
             { header: "Prop Name", accessor: "propName" },
@@ -128,16 +152,34 @@ const Pagination: React.FC = () => {
         className="rgx-pagination-section"
         id="rgx-pagination-section-types"
       >
-        <h2 className="rgx-pagination-section-title">Pagination Types</h2>
-        <p className="rgx-pagination-section-text">
+        <h2
+          className={`rgx-pagination-section-title ${
+            lightMode && "rgx-pagination-section-title-light"
+          }`}
+        >
+          Pagination Types
+        </h2>
+        <p
+          className={`rgx-pagination-section-text ${
+            lightMode && "rgx-pagination-section-text-light"
+          }`}
+        >
           ReactGridX supports two types of pagination:
         </p>
         <ul className="rgx-pagination-type-list">
-          <li className="rgx-pagination-type-item">
+          <li
+            className={`rgx-pagination-type-item ${
+              lightMode && "rgx-pagination-type-item-light"
+            }`}
+          >
             <strong>rgx-table-pagination:</strong> Displays numbered pages with
             navigation buttons.
           </li>
-          <li className="rgx-pagination-type-item">
+          <li
+            className={`rgx-pagination-type-item ${
+              lightMode && "rgx-pagination-type-item-light"
+            }`}
+          >
             <strong>rgx-arrow-pagination:</strong> Uses previous and next arrows
             for simpler navigation.
           </li>
@@ -148,8 +190,18 @@ const Pagination: React.FC = () => {
         className="rgx-pagination-section"
         id="rgx-pagination-section-server-pagination"
       >
-        <h2 className="rgx-pagination-section-title">Server-Side Pagination</h2>
-        <p className="rgx-pagination-section-text">
+        <h2
+          className={`rgx-pagination-section-title ${
+            lightMode && "rgx-pagination-section-title-light"
+          }`}
+        >
+          Server-Side Pagination
+        </h2>
+        <p
+          className={`rgx-pagination-section-text ${
+            lightMode && "rgx-pagination-section-text-light"
+          }`}
+        >
           For large datasets, enable server-side pagination by setting{" "}
           <ImportantBoldTypography>
             serverSidePagination

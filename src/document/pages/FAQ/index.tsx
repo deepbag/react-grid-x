@@ -1,14 +1,21 @@
 import { BottomNavigator, CodeBox } from "document/components";
-import { LABELS, PATHS } from "document/config/path";
 import React from "react";
 import "./faq.css";
+import { useConfig } from "document/context/ConfigContext";
 
 const FAQ = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-faq-container">
       <div className="rgx-faq-header">
-        <h1 className="rgx-faq-title">Frequently Asked Questions (FAQ)</h1>
-        <p className="rgx-faq-description">
+        <h1 className={`rgx-faq-title ${lightMode && "rgx-faq-title-light"}`}>
+          Frequently Asked Questions (FAQ)
+        </h1>
+        <p
+          className={`rgx-faq-description ${
+            lightMode && "rgx-faq-description-light"
+          }`}
+        >
           Encountering an issue? Take a look at these frequently asked questions
           for quick fixes!
         </p>
@@ -152,10 +159,20 @@ export default App;`,
           ) => {
             return (
               <section className="rgx-faq-usage">
-                <h2 className="rgx-faq-section-title">
+                <h2
+                  className={`rgx-faq-section-title ${
+                    lightMode && "rgx-faq-section-title-light"
+                  }`}
+                >
                   {idx + 1}. {_.question}
                 </h2>
-                <p className="rgx-faq-usage-text">{_.answer}</p>
+                <p
+                  className={`rgx-faq-usage-text ${
+                    lightMode && "rgx-faq-usage-text-light"
+                  }`}
+                >
+                  {_.answer}
+                </p>
                 {_.code && (
                   <CodeBox commands={_.code} limitHeight={_.limitHeight} />
                 )}
@@ -164,16 +181,6 @@ export default App;`,
           }
         )}
       </div>
-      <BottomNavigator
-        // prev={{
-        //   label: LABELS.INSTALLATION,
-        //   url: PATHS.INSTALLATION,
-        // }}
-        // next={{
-        //   label: LABELS.SUPPORT,
-        //   url: PATHS.SUPPORT,
-        // }}
-      />
     </div>
   );
 };

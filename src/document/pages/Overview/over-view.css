@@ -24,7 +24,7 @@
 }
 
 .rgx-over-view-description-light {
-  color: var(--text-color-lighter);
+  color: var(--text-color-dark);
 }
 
 .rgx-over-view-description strong a {

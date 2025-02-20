@@ -1,8 +1,6 @@
 /* Sidebar styles */
 .rgx-sidebar {
   width: 200px;
-  background-color: #0e1215;
-  color: white;
   padding: 15px;
   position: fixed;
   top: 87.5px; /* Position below the header */
@@ -10,9 +8,13 @@
   left: 0;
   z-index: 100;
   transition: width 0.3s ease;
-  border-right: 1px solid #ffffff34;
+  border-right: 1px solid rgba(238, 238, 238, 0.524);
   overflow-y: auto;
   max-height: calc(100vh - 58px);
+}
+
+.rgx-sidebar-light {
+  border-right: 1px solid var(--text-color-lighter);
 }
 
 .rgx-sidebar::-webkit-scrollbar {
@@ -28,9 +30,22 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.rgx-sidebar-light::-webkit-scrollbar {
+  width: 4px;
+}
+
+.rgx-sidebar-light::-webkit-scrollbar-thumb {
+  background-color: rgba(158, 158, 158, 0.3);
+  border-radius: 3px;
+}
+
+.rgx-sidebar-light::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(167, 167, 167, 0.5);
+}
+
 .rgx-sidebar a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color-light);
   display: block;
 }
 
@@ -49,11 +64,15 @@
 .rgx-sidebar-keyLabel {
   font-size: 14px;
   font-weight: bold;
-  color: #a0a0a0;
+  color: var(--text-color-lighter);
   padding: 10px 5px;
   text-transform: uppercase;
-  border-bottom: 1px solid #ffffff34;
+  border-bottom: 1px solid var(--text-color-lighter);
   margin-bottom: 8px;
+}
+
+.rgx-sidebar-keyLabel-light {
+  color: var(--text-color-dark);
 }
 
 /* Sidebar menu items */
@@ -62,7 +81,7 @@
 }
 
 .rgx-sidebar ul li a {
-  color: white;
+  color: var(--text-color-light);
   text-decoration: none;
   font-size: 15px;
   padding: 5px 10px;
@@ -76,8 +95,12 @@
   margin: 4px 0;
 }
 
+.rgx-sidebar-light ul li a {
+  color: var(--text-color-dark);
+}
+
 .rgx-sidebar-menu-button {
-  color: white;
+  color: var(--text-color-light);
   text-decoration: none;
   font-size: 15px;
   padding: 8px 10px;
@@ -91,14 +114,27 @@
   width: 100%;
 }
 
+.rgx-sidebar-menu-button-light {
+  color: var(--text-color-dark);
+}
+
 .rgx-sidebar ul li a:hover,
 .rgx-sidebar-menu-button:hover {
   background-color: #444;
 }
 
+.rgx-sidebar-light ul li a:hover,
+.rgx-sidebar-menu-button-light:hover {
+  background-color: #e2e2e2;
+}
+
 /* Active Link */
 .rgx-sidebar ul li.rgx-sidebar-active > a {
   background-color: #555;
+}
+
+.rgx-sidebar-light ul li.rgx-sidebar-active > a {
+  background-color: #e2e2e2;
 }
 
 /* Submenu */

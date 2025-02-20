@@ -1,37 +1,56 @@
-
 .rgx-custom-table-props-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #2a2a2a; /* Slightly lighter dark background for the table */
-    border-radius: 8px;
-  }
-  
-  .rgx-custom-table-props-table th,
-  .rgx-custom-table-props-table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #444444; /* Darker border for dark theme */
-  }
-  
-  .rgx-custom-table-props-table th {
-    background-color: #333333; /* Darker header */
-    color: #f1f1f1; /* Light text for headers */
-  }
-  
-  .rgx-custom-table-props-table td {
-    color: #e1e1e1; /* Light text for table data */
-  }
-  
-  .rgx-custom-table-props-table tr:hover {
-    background-color: #3c3c3c; /* Slight hover effect for rows */
-  }
-  
-  .rgx-custom-table-props-table tr:nth-child(even) {
-    background-color: #242424; /* Alternate row background color */
-  }
-  .rgx-custom-table-link-text{
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #2a2a2a;
+}
+
+.rgx-custom-table-props-table-light {
+  background-color: var(--text-color-light);
+}
+
+.rgx-custom-table-props-table th,
+.rgx-custom-table-props-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #444444;
+}
+
+.rgx-custom-table-props-table th {
+  background-color: #333333;
+  color: #f1f1f1;
+}
+
+.rgx-custom-table-props-table-light th {
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+}
+
+.rgx-custom-table-props-table td {
+  color: #e1e1e1;
+}
+
+.rgx-custom-table-props-table-light td {
+  color: var(--text-color-dark);
+}
+
+.rgx-custom-table-props-table tr:hover {
+  background-color: #3c3c3c;
+}
+
+.rgx-custom-table-props-table-light tr:hover {
+  background-color: #ebeff5;
+}
+
+.rgx-custom-table-props-table tr:nth-child(even) {
+  background-color: #242424;
+}
+
+.rgx-custom-table-props-table-light tr:nth-child(even) {
+  background-color: #ececec;
+}
+
+.rgx-custom-table-link-text {
+  text-decoration: underline;
+  cursor: pointer;
+}

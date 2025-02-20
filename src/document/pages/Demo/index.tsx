@@ -141,7 +141,7 @@ const Demo = () => {
         data={demoConfig.data}
         tableStyle={{
           "rgx-table-container": {
-            height: "80vh",
+            height: "78vh",
           },
         }}
         paginationStyle={{}}

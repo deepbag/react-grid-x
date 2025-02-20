@@ -5,17 +5,20 @@ import InputBox from "document/components/InputBox";
 import SelectBox from "../SelectBox";
 import MultipleSelectBox from "../MultipleSelectBox";
 import { useDemoContext } from "document/context/DemoContext";
+import { useConfig } from "document/context/ConfigContext";
 
 const DemoSideBar: React.FC = () => {
+  const { lightMode } = useConfig();
   const { demoConfig, onUpdateDemoConfig } = useDemoContext();
   const [activeTab, setActiveTab] = useState<string>("table");
 
   return (
-    <nav className="rgx-demo-sidebar">
+    <nav
+      className={`rgx-demo-sidebar ${lightMode && "rgx-demo-sidebar-light"}`}
+    >
       <SwitchTabs
         options={[
           { name: "Table", id: "table" },
-          // { name: "Columns", id: "column" },
         ]}
         activeTab={activeTab}
         onToggle={(tabId: string) => {
@@ -24,7 +27,7 @@ const DemoSideBar: React.FC = () => {
       />
       <div className="rgx-demo-input-items">
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Pagination Type</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Pagination Type</p>
           <SelectBox
             id="rgx-demo-select-pagination"
             options={demoConfig?.options?.paginationType || []}
@@ -39,29 +42,8 @@ const DemoSideBar: React.FC = () => {
             }}
           />
         </div>
-        {/* <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Row Per Page</p>
-          <SelectBox
-            id="rgx-demo-select-row-per-page"
-            options={
-              demoConfig?.options?.rowPerPage?.map((_) => ({
-                label: _,
-                value: _,
-              })) || []
-            }
-            value={demoConfig?.rowPerPage}
-            onChange={(e) => {
-              onUpdateDemoConfig("rowPerPage", e);
-            }}
-            style={{
-              "rgx-select-box-container": {
-                width: "180px",
-              },
-            }}
-          />
-        </div> */}
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Sort By</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Sort By</p>
           <MultipleSelectBox
             id="rgx-demo-select-sort-by"
             options={demoConfig?.options?.sortBy || []}
@@ -77,7 +59,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div>
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Multiple Sort</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Multiple Sort</p>
           <SelectBox
             id="rgx-demo-select-multiple-sort"
             options={demoConfig?.options?.sortMultiple || []}
@@ -93,7 +75,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div>
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Tooltip</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Tooltip</p>
           <MultipleSelectBox
             id="rgx-demo-select-tooltip"
             options={demoConfig?.options?.tooltip || []}
@@ -109,7 +91,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div>
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Row Click Event</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Row Click Event</p>
           <SelectBox
             id="rgx-demo-select-row-press-event"
             options={demoConfig?.options?.rowClickEvent || []}
@@ -125,7 +107,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div>
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Row Selection</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Row Selection</p>
           <SelectBox
             id="rgx-demo-select-row-selection"
             options={demoConfig?.options?.rowSelection || []}
@@ -141,7 +123,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div>
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Row Expand</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Row Expand</p>
           <SelectBox
             id="rgx-demo-select-row-expand"
             options={demoConfig?.options?.rowExpand || []}
@@ -157,7 +139,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div>
         {/* <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Loader</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Loader</p>
           <SelectBox
             id="rgx-demo-select-loader"
             options={demoConfig?.options?.loader || []}
@@ -178,7 +160,7 @@ const DemoSideBar: React.FC = () => {
           />
         </div> */}
         <div className="rgx-demo-input-item">
-          <p className="rgx-demo-input-item-label">Server Pagination</p>
+          <p className={`rgx-demo-input-item-label ${lightMode && 'rgx-demo-input-item-label-light'}`}>Server Pagination</p>
           <SelectBox
             id="rgx-demo-select-server-pagination"
             options={demoConfig?.options?.serverPagination || []}

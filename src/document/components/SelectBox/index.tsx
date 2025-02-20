@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./select-box.css";
 import SvgIcon from "../SVGIcons";
+import { useConfig } from "document/context/ConfigContext";
 
 interface SelectBoxProps {
   id: string;
@@ -21,10 +22,13 @@ const SelectBox: React.FC<SelectBoxProps> = ({
   label,
   style = {},
 }) => {
+  const { lightMode } = useConfig();
   const menuRef = useRef<HTMLUListElement | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleDropdown = (): void => setIsOpen(!isOpen);
+  const toggleDropdown = (): void => {
+    setIsOpen(!isOpen);
+  };
 
   const onSelection = (selectedValue: string): void => {
     onChange(selectedValue);
@@ -58,7 +62,11 @@ const SelectBox: React.FC<SelectBoxProps> = ({
         </label>
       )}
       <div className="rgx-select-custom-select" onClick={toggleDropdown}>
-        <div className="rgx-select-selected-options">
+        <div
+          className={`rgx-select-selected-options ${
+            lightMode && "rgx-select-selected-options-light"
+          }`}
+        >
           {value
             ? options.find((_) => _.value === value)?.label
             : placeholder || "Select Option"}
@@ -73,7 +81,13 @@ const SelectBox: React.FC<SelectBoxProps> = ({
         </div>
 
         {isOpen && (
-          <ul className="rgx-select-dropdown" ref={menuRef} role="listbox">
+          <ul
+            className={`rgx-select-dropdown ${
+              lightMode && "rgx-select-dropdown-light"
+            }`}
+            ref={menuRef}
+            role="listbox"
+          >
             {options.map((option) => (
               <li
                 key={option.value}

@@ -1,13 +1,25 @@
 import React from "react";
 import "./custom-theme.css";
 import { CodeBox, ImportantBoldTypography } from "document/components";
+import { useConfig } from "document/context/ConfigContext";
 
 const CustomTheme: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-custom-theme-overview">
       <div className="rgx-custom-theme-header">
-        <h1 className="rgx-custom-theme-title">Custom Theme</h1>
-        <p className="rgx-custom-theme-description">
+        <h1
+          className={`rgx-custom-theme-title ${
+            lightMode && "rgx-custom-theme-title-light"
+          }`}
+        >
+          Custom Theme
+        </h1>
+        <p
+          className={`rgx-custom-theme-description ${
+            lightMode && "rgx-custom-theme-description-light"
+          }`}
+        >
           ReactGridX provides a built-in theme called{" "}
           <ImportantBoldTypography>rgx-theme</ImportantBoldTypography> to style
           the table components. However, you can easily create your own custom
@@ -20,10 +32,18 @@ const CustomTheme: React.FC = () => {
         className="rgx-custom-theme-section"
         id="rgx-custom-theme-section-custom-tooltip"
       >
-        <h2 className="rgx-custom-theme-section-title">
+        <h2
+          className={`rgx-custom-theme-section-title ${
+            lightMode && "rgx-custom-theme-section-title-light"
+          }`}
+        >
           1. Creating Your Custom CSS
         </h2>
-        <p className="rgx-custom-theme-section-text">
+        <p
+          className={`rgx-custom-theme-section-text ${
+            lightMode && "rgx-custom-theme-section-text-light"
+          }`}
+        >
           You can create your own CSS file and follow the same structure used in
           the default{" "}
           <ImportantBoldTypography>rgx-theme</ImportantBoldTypography> to define
@@ -43,7 +63,11 @@ const CustomTheme: React.FC = () => {
             },
           }}
         />
-        <p className="rgx-custom-theme-section-text">
+        <p
+          className={`rgx-custom-theme-section-text ${
+            lightMode && "rgx-custom-theme-section-text-light"
+          }`}
+        >
           You can create your CSS files with the same class names used in the
           default theme (e.g., .rgx-table-pagination , .rgx-arrow-pagination
           ,.rgx-tooltip, .rgx-loader, .rgx-popover). The only difference is that
@@ -56,10 +80,18 @@ const CustomTheme: React.FC = () => {
         className="rgx-custom-theme-section"
         id="rgx-custom-theme-section-custom-tooltip"
       >
-        <h2 className="rgx-custom-theme-section-title">
+        <h2
+          className={`rgx-custom-theme-section-title ${
+            lightMode && "rgx-custom-theme-section-title-light"
+          }`}
+        >
           2. Importing Your Custom CSS
         </h2>
-        <p className="rgx-custom-theme-section-text">
+        <p
+          className={`rgx-custom-theme-section-text ${
+            lightMode && "rgx-custom-theme-section-text-light"
+          }`}
+        >
           Once you've created your custom CSS file, import it into your project
           like this:
         </p>
@@ -84,10 +116,18 @@ import "./path-to-your-custom-theme/rgx-popover.css";`,
         className="rgx-custom-theme-section"
         id="rgx-custom-theme-section-custom-tooltip"
       >
-        <h2 className="rgx-custom-theme-section-title">
+        <h2
+          className={`rgx-custom-theme-section-title ${
+            lightMode && "rgx-custom-theme-section-title-light"
+          }`}
+        >
           3. Applying Your Custom Theme in the Table Component
         </h2>
-        <p className="rgx-custom-theme-section-text">
+        <p
+          className={`rgx-custom-theme-section-text ${
+            lightMode && "rgx-custom-theme-section-text-light"
+          }`}
+        >
           To apply your custom theme, use the theme prop in the ReactGridX Table
           component. For example, to use your custom theme{" "}
           <ImportantBoldTypography>rgx-custom-theme</ImportantBoldTypography>,
@@ -107,7 +147,11 @@ import "./path-to-your-custom-theme/rgx-popover.css";`,
             },
           }}
         />
-        <p className="rgx-custom-theme-section-text">
+        <p
+          className={`rgx-custom-theme-section-text ${
+            lightMode && "rgx-custom-theme-section-text-light"
+          }`}
+        >
           This will tell the table to apply styles from the{" "}
           <ImportantBoldTypography>rgx-custom-theme</ImportantBoldTypography>
           class, and your custom CSS definitions will be used instead of the
@@ -119,12 +163,23 @@ import "./path-to-your-custom-theme/rgx-popover.css";`,
         className="rgx-custom-theme-section"
         id="rgx-custom-theme-section-custom-tooltip"
       >
-        <h2 className="rgx-custom-theme-section-title">Conclusion</h2>
-        <p className="rgx-custom-theme-section-text">
+        <h2
+          className={`rgx-custom-theme-section-title ${
+            lightMode && "rgx-custom-theme-section-title-light"
+          }`}
+        >
+          Conclusion
+        </h2>
+        <p
+          className={`rgx-custom-theme-section-text ${
+            lightMode && "rgx-custom-theme-section-text-light"
+          }`}
+        >
           By following this structure, you can fully customize the look and feel
           of your ReactGridX Table component by creating your own theme. Just
           ensure that the class names in your custom CSS match the ones in the
-          default <ImportantBoldTypography>rgx-theme</ImportantBoldTypography>, and pass the custom theme name via the theme prop.
+          default <ImportantBoldTypography>rgx-theme</ImportantBoldTypography>,
+          and pass the custom theme name via the theme prop.
         </p>
       </section>
     </div>

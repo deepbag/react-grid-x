@@ -1,17 +1,19 @@
 .rgx-demo-sidebar {
   width: 300px;
-  background-color: #0e1215;
-  color: white;
   padding: 6px 10px;
   position: fixed;
-  top: 53px;
+  top: 87.5px;
   bottom: 0;
   left: 0;
   z-index: 100;
   transition: width 0.3s ease;
-  border-right: 1px solid #ffffff34;
+  border-right: 1px solid rgba(238, 238, 238, 0.524);
   overflow-y: auto;
   max-height: calc(100vh - 58px);
+}
+
+.rgx-demo-sidebar-light {
+  border-right: 1px solid var(--text-color-lighter);
 }
 
 .rgx-demo-sidebar::-webkit-scrollbar {
@@ -43,4 +45,9 @@
   margin: 0;
   font-size: 14px;
   font-weight: 300;
+  color:var(--text-color-light);
+}
+
+.rgx-demo-input-item-label-light{
+  color:var(--text-color-dark);
 }

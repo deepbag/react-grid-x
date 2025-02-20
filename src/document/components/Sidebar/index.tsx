@@ -3,8 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import "./side-bar.css";
 import { menu } from "document/config/menu";
 import SvgIcon from "../SVGIcons";
+import { useConfig } from "document/context/ConfigContext";
 
 const Sidebar: React.FC = () => {
+  const { lightMode } = useConfig();
   const location = useLocation();
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
 
@@ -55,11 +57,17 @@ const Sidebar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="rgx-sidebar">
+    <nav className={`rgx-sidebar ${lightMode && "rgx-sidebar-light"}`}>
       <ul>
         {Object.entries(groupedMenus).map(([keyLabel, items]) => (
           <li key={keyLabel}>
-            <div className="rgx-sidebar-keyLabel">{keyLabel}</div>{" "}
+            <div
+              className={`rgx-sidebar-keyLabel ${
+                lightMode && "rgx-sidebar-keyLabel-light"
+              }`}
+            >
+              {keyLabel}
+            </div>{" "}
             {/* KeyLabel Header */}
             <ul className="rgx-sidebar-menu-items">
               {items.map((item) => (
@@ -74,7 +82,9 @@ const Sidebar: React.FC = () => {
                   ) : (
                     <button
                       onClick={() => toggleMenu(item.label)}
-                      className="rgx-sidebar-menu-button"
+                      className={`rgx-sidebar-menu-button ${
+                        lightMode && "rgx-sidebar-menu-button-light"
+                      }`}
                     >
                       {item.label}{" "}
                       {openMenus[item.label] ? (

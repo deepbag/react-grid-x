@@ -4,26 +4,34 @@
 }
 
 .rgx-table-pagination-class-header {
-  color: #f6f8fa;
+  color: var(--text-color-light);
   border-radius: 5px;
 }
 
 .rgx-table-pagination-class-title {
   font-size: 2rem;
-  color: #f6f8fa;
+  color: var(--text-color-light);
   margin: 0;
+}
+
+.rgx-table-pagination-class-title-light {
+  color: var(--text-color-dark);
 }
 
 .rgx-table-pagination-class-description {
   font-size: 16px;
   line-height: 1.5;
-  color: #c5c7d0;
+  color: var(--text-color-lighter);
+}
+
+.rgx-table-pagination-class-description-light {
+  color: var(--text-color-dark);
 }
 
 .rgx-table-pagination-class-description strong a {
   font-size: 16px;
   line-height: 1.5;
-  color: #037bff;
+  color: var(--text-color-blue);
   text-decoration: underline;
 }
 
@@ -31,17 +39,25 @@
   font-size: 1.3rem;
   margin-top: 30px;
   margin-bottom: 15px;
-  color: #f6f8fa;
+  color: var(--text-color-light);
+}
+
+.rgx-table-pagination-class-section-title-light {
+  color: var(--text-color-dark);
 }
 
 .rgx-table-pagination-class-section-text {
   font-size: 1rem;
   margin-bottom: 15px;
-  color: #c5c7d0;
+  color: var(--text-color-lighter);
 }
+.rgx-table-pagination-class-section-text-light {
+  color: var(--text-color-dark);
+}
+
 .rgx-table-pagination-class-section-text strong a {
   font-size: 16px;
   line-height: 1.5;
-  color: #037bff;
+  color: var(--text-color-blue);
   text-decoration: underline;
 }

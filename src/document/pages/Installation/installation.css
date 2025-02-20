@@ -4,20 +4,27 @@
 }
 
 .rgx-installation-header {
-  color: #f6f8fa;
+  color: var(--text-color-light);
   border-radius: 5px;
 }
 
 .rgx-installation-title {
   font-size: 2rem;
-  color: #f6f8fa;
+  color: var(--text-color-light);
   margin: 0;
+}
+
+.rgx-installation-title-light {
+  color: var(--text-color-dark);
 }
 
 .rgx-installation-description {
   font-size: 16px;
   line-height: 1.5;
-  color: #c5c7d0;
+  color: var(--text-color-lighter);
+}
+.rgx-installation-description-light {
+  color: var(--text-color-dark);
 }
 
 .rgx-installation-description strong a {
@@ -31,17 +38,24 @@
   font-size: 1.3rem;
   margin-top: 30px;
   margin-bottom: 15px;
-  color: #f6f8fa;
+  color: var(--text-color-light);
+}
+
+.rgx-installation-section-title-light {
+  color: var(--text-color-dark);
 }
 
 .rgx-installation-usage-text {
   font-size: 1rem;
   margin-bottom: 15px;
-  color: #c5c7d0;
+  color: var(--text-color-light);
+}
+.rgx-installation-usage-text-light{
+  color: var(--text-color-dark);
 }
 .rgx-installation-usage-text strong a {
   font-size: 16px;
   line-height: 1.5;
-  color: #037bff;
+  color: var(--text-color-blue);
   text-decoration: underline;
 }

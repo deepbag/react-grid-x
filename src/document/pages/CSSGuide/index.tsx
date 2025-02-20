@@ -1,18 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./css-guide.css";
-import {
-  CodeBox,
-  CustomTable,
-  ImportantBoldTypography,
-} from "document/components";
-import { scrollToSection } from "document/utils/scroll-to-section";
+import { CodeBox } from "document/components";
+import { useConfig } from "document/context/ConfigContext";
 
 const CSSGuide: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
-    <div className="rgx-loader-overview">
-      <div className="rgx-loader-header">
-        <h1 className="rgx-loader-title">CSS Guide</h1>
-        <p className="rgx-loader-description">
+    <div className="rgx-css-guide-overview">
+      <div className="rgx-css-guide-header">
+        <h1
+          className={`rgx-css-guide-title ${
+            lightMode && "rgx-css-guide-title-light"
+          }`}
+        >
+          CSS Guide
+        </h1>
+        <p
+          className={`rgx-css-guide-description ${
+            lightMode && "rgx-css-guide-description-light"
+          }`}
+        >
           ReactGridX provides several prebuilt themes and styles to enhance the
           appearance of tables, pagination, tooltips, loaders, and popovers.
           These styles can be included in your project by importing the
@@ -21,11 +28,21 @@ const CSSGuide: React.FC = () => {
       </div>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Full Theme Import</h2>
-        <p className="rgx-loader-section-text">
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Full Theme Import
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
           To apply styles for all components in one file, import the combined
           theme. The minified version is optimized for performance and
           recommended for production use.
@@ -45,11 +62,57 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-combined-
       </section>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Table</h2>
-        <p className="rgx-loader-section-text">For table:</p>
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Dark Mode
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          To apply styles for all components in dark mode, import the combined
+          dark theme. The minified version is optimized for performance and
+          recommended for production use.
+        </p>
+        <CodeBox
+          commands={{
+            tsx: {
+              code: `// Normal combined version (Dark Theme)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/dark/rgx-theme-dark-combined.css";
+// Minified combined version (Dark Theme)
+import "@deepbag/react-grid-x/dist/themes/rgx-theme/dark/minified/rgx-theme-dark-combined-minified.css";`,
+              language: "jsx",
+              lineNumber: true,
+            },
+          }}
+        />
+      </section>
+
+      <section
+        className="rgx-css-guide-section"
+        id="rgx-loader-section-default-loader"
+      >
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Table
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          For table:
+        </p>
         <CodeBox
           commands={{
             tsx: {
@@ -65,11 +128,23 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-theme-minified.
       </section>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Pagination</h2>
-        <p className="rgx-loader-section-text">For table pagination:</p>
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Pagination
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          For table pagination:
+        </p>
         <CodeBox
           commands={{
             tsx: {
@@ -82,7 +157,13 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-table-paginatio
             },
           }}
         />
-        <p className="rgx-loader-section-text">For arrow pagination:</p>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          For arrow pagination:
+        </p>
         <CodeBox
           commands={{
             tsx: {
@@ -98,11 +179,23 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/rgx-arrow-pagination-minifie
       </section>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Tooltip</h2>
-        <p className="rgx-loader-section-text">For tooltips:</p>
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Tooltip
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          For tooltips:
+        </p>
         <CodeBox
           commands={{
             tsx: {
@@ -118,11 +211,23 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-tooltip-minifie
       </section>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Loader</h2>
-        <p className="rgx-loader-section-text">For loaders:</p>
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Loader
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          For loaders:
+        </p>
         <CodeBox
           commands={{
             tsx: {
@@ -138,11 +243,23 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-loader-minified
       </section>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Popover</h2>
-        <p className="rgx-loader-section-text">For popovers:</p>
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
+          Popover
+        </h2>
+        <p
+          className={`rgx-css-guide-section-text ${
+            lightMode && "rgx-css-guide-section-text-light"
+          }`}
+        >
+          For popovers:
+        </p>
         <CodeBox
           commands={{
             tsx: {
@@ -158,18 +275,30 @@ import "@deepbag/react-grid-x/dist/themes/rgx-theme/minified/rgx-popover-minifie
       </section>
 
       <section
-        className="rgx-loader-section"
+        className="rgx-css-guide-section"
         id="rgx-loader-section-explanation"
       >
-        <h2 className="rgx-loader-section-title">
+        <h2
+          className={`rgx-css-guide-section-title ${
+            lightMode && "rgx-css-guide-section-title-light"
+          }`}
+        >
           Minified vs. Unminified Styles
         </h2>
-        <ul className="rgx-loader-section-list">
-          <li className="rgx-loader-section-item">
+        <ul className="rgx-css-guide-section-list">
+          <li
+            className={`rgx-css-guide-section-item ${
+              lightMode && "rgx-css-guide-section-item-light"
+            }`}
+          >
             Minified CSS: Smaller file size, better performance, recommended for
             production.
           </li>
-          <li className="rgx-loader-section-item">
+          <li
+            className={`rgx-css-guide-section-item ${
+              lightMode && "rgx-css-guide-section-item-light"
+            }`}
+          >
             Unminified CSS: Easier for debugging, better for development and
             customization.
           </li>

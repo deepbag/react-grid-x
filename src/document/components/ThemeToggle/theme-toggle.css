@@ -1,12 +1,10 @@
 body.light-mode {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--text-color-light);
   transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-  background-color: #1e1e1e;
-  color: #ffffff;
+  background-color: var(--text-color-dark);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -24,11 +22,11 @@ body.dark-mode {
 }
 
 .rgx-theme-mode-light {
-  color: #2f2f2f;
-  background-color: #fff;
+  color: var(--text-color-light);
+  background-color: var(--text-color-dark);
 }
 
 .rgx-theme-mode-dark {
-  color: #fff;
-  background-color: #2f2f2f;
+  color: var(--text-color-dark);
+  background-color: var(--text-color-light);
 }

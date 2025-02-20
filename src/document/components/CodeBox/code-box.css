@@ -6,6 +6,9 @@
   overflow: hidden;
   border: 1px solid #474a4c;
 }
+.rgx-code-box-install-commands-light {
+  background-color: #ececec;
+}
 
 .rgx-code-box-tabs {
   display: flex;
@@ -45,6 +48,7 @@
   border: 1px solid #474a4c;
   font-size: 15px;
 }
+
 .rgx-code-box-command span code {
   width: 100%;
 }

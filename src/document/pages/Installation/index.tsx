@@ -1,14 +1,25 @@
 import { BottomNavigator, CodeBox } from "document/components";
-import { LABELS, PATHS } from "document/config/path";
 import React from "react";
 import "./installation.css";
+import { useConfig } from "document/context/ConfigContext";
 
 const Installation = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-installation-container">
       <div className="rgx-installation-header">
-        <h1 className="rgx-installation-title">Installation</h1>
-        <p className="rgx-installation-description">
+        <h1
+          className={`rgx-installation-title ${
+            lightMode && "rgx-installation-title-light"
+          }`}
+        >
+          Installation
+        </h1>
+        <p
+          className={`rgx-installation-description ${
+            lightMode && "rgx-installation-description-light"
+          }`}
+        >
           To use{" "}
           <strong>
             <a
@@ -24,8 +35,18 @@ const Installation = () => {
         </p>
       </div>
       <section className="rgx-installation-usage">
-        <h2 className="rgx-installation-section-title">Install the Package</h2>
-        <p className="rgx-installation-usage-text">
+        <h2
+          className={`rgx-installation-section-title ${
+            lightMode && "rgx-installation-section-title-light"
+          }`}
+        >
+          Install the Package
+        </h2>
+        <p
+          className={`rgx-installation-usage-text ${
+            lightMode && "rgx-installation-usage-text-light"
+          }`}
+        >
           To get started, you need to install the package using npm and yarn and
           pnpm:
         </p>
@@ -50,8 +71,18 @@ const Installation = () => {
         />
       </section>
       <section className="rgx-installation-usage">
-        <h2 className="rgx-installation-section-title">Import and Use</h2>
-        <p className="rgx-installation-usage-text">
+        <h2
+          className={`rgx-installation-section-title ${
+            lightMode && "rgx-installation-section-title-light"
+          }`}
+        >
+          Import and Use
+        </h2>
+        <p
+          className={`rgx-installation-usage-text ${
+            lightMode && "rgx-installation-usage-text-light"
+          }`}
+        >
           Once installed, you can start using the GridTable component in your
           project.
         </p>
@@ -96,8 +127,18 @@ export default App;`,
         />
       </section>
       <section className="rgx-installation-usage">
-        <h2 className="rgx-installation-section-title">Next Steps</h2>
-        <p className="rgx-installation-usage-text">
+        <h2
+          className={`rgx-installation-section-title ${
+            lightMode && "rgx-installation-section-title-light"
+          }`}
+        >
+          Next Steps
+        </h2>
+        <p
+          className={`rgx-installation-usage-text ${
+            lightMode && "rgx-installation-usage-text-light"
+          }`}
+        >
           Now that you've installed{" "}
           <strong>
             <a
@@ -112,16 +153,6 @@ export default App;`,
           customization, and styling in the documentation.
         </p>
       </section>
-      <BottomNavigator
-      // prev={{
-      //   label: LABELS.OVERVIEW,
-      //   url: PATHS.OVERVIEW,
-      // }}
-      // next={{
-      //   label: LABELS.FAQ,
-      //   url: PATHS.FAQ,
-      // }}
-      />
     </div>
   );
 };

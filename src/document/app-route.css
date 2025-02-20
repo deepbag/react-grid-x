@@ -13,14 +13,14 @@
 .rgx-app-route-page-content {
   margin-left: 220px;
   flex: 1;
-  padding: 0 10px 15px 10px;
+  padding: 10px 10px 15px 20px;
   overflow-y: auto;
 }
 
 .rgx-app-route-page-content-demo {
   margin-left: 320px;
   flex: 1;
-  padding: 0 10px 15px 10px;
+  padding: 10px 10px 15px 10px;
   overflow-y: auto;
   overflow-x: hidden;
 }

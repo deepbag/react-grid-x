@@ -6,13 +6,15 @@ import {
   ImportantBoldTypography,
 } from "document/components";
 import { scrollToSection } from "document/utils/scroll-to-section";
+import { useConfig } from "document/context/ConfigContext";
 
 const Loader: React.FC = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-loader-overview">
       <div className="rgx-loader-header">
-        <h1 className="rgx-loader-title">Loader</h1>
-        <p className="rgx-loader-description">
+        <h1 className={`rgx-loader-title ${lightMode && 'rgx-loader-title-light'}`}>Loader</h1>
+        <p className={`rgx-loader-description ${lightMode && 'rgx-loader-description-light'}`}>
           The ReactGridX component allows you to customize the loader that
           appears when the table is in a loading state. By using the loading
           prop, you can control the visibility of the loader, and the 
@@ -22,8 +24,8 @@ const Loader: React.FC = () => {
       </div>
 
       <section className="rgx-loader-section">
-        <h2 className="rgx-loader-section-title">Contents</h2>
-        <p className="rgx-loader-section-text">
+        <h2 className={`rgx-loader-section-title ${lightMode && 'rgx-loader-section-title-light'}`}>Contents</h2>
+        <p className={`rgx-loader-section-text ${lightMode && 'rgx-loader-section-text-light'}`}>
           Explore the various sections and detailed information available on
           this page. Each section is carefully designed to provide you with a
           comprehensive overview of the topic at hand.
@@ -76,8 +78,8 @@ const Loader: React.FC = () => {
       </section>
 
       <section className="rgx-loader-section" id="rgx-loader-section-props">
-        <h2 className="rgx-loader-section-title">Props</h2>
-        <p className="rgx-loader-section-text">
+        <h2 className={`rgx-loader-section-title ${lightMode && 'rgx-loader-section-title-light'}`}>Props</h2>
+        <p className={`rgx-loader-section-text ${lightMode && 'rgx-loader-section-text-light'}`}>
           Learn about the available props that control the loader and table
           behavior.
         </p>
@@ -108,8 +110,8 @@ const Loader: React.FC = () => {
         className="rgx-loader-section"
         id="rgx-loader-section-default-loader"
       >
-        <h2 className="rgx-loader-section-title">Default Loader</h2>
-        <p className="rgx-loader-section-text">
+        <h2 className={`rgx-loader-section-title ${lightMode && 'rgx-loader-section-title-light'}`}>Default Loader</h2>
+        <p className={`rgx-loader-section-text ${lightMode && 'rgx-loader-section-text-light'}`}>
           If the{" "}
           <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
           prop is not specified, ReactGridX will use a default loading spinner
@@ -122,15 +124,15 @@ const Loader: React.FC = () => {
         className="rgx-loader-section"
         id="rgx-loader-section-custom-loader"
       >
-        <h2 className="rgx-loader-section-title">Custom Loader</h2>
-        <p className="rgx-loader-section-text">
+        <h2 className={`rgx-loader-section-title ${lightMode && 'rgx-loader-section-title-light'}`}>Custom Loader</h2>
+        <p className={`rgx-loader-section-text ${lightMode && 'rgx-loader-section-text-light'}`}>
           You can easily customize the loader by passing a custom React
           component to the{" "}
           <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
           prop. This allows you to control the look and feel of the loader,
           ensuring it aligns with your app's design and user experience.
         </p>
-        <p className="rgx-loader-section-text">
+        <p className={`rgx-loader-section-text ${lightMode && 'rgx-loader-section-text-light'}`}>
           Here’s an example of how to use the loading and{" "}
           <ImportantBoldTypography>loaderComponent</ImportantBoldTypography>{" "}
           props to display a custom loader while the table is in a loading

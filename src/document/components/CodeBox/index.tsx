@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CodeBlock, dracula } from "react-code-blocks";
 import "./code-box.css";
+import { useConfig } from "document/context/ConfigContext";
 
 export interface CodeBox {
   [tab: string]: {
@@ -17,6 +18,7 @@ interface CodeBoxProps {
 }
 
 const CodeBox: React.FC<CodeBoxProps> = ({ commands, limitHeight = false }) => {
+  const { lightMode } = useConfig();
   const [activeTab, setActiveTab] = useState<string | undefined>(undefined);
   const copyRef = useRef<HTMLSpanElement>(null);
 
@@ -53,7 +55,11 @@ const CodeBox: React.FC<CodeBoxProps> = ({ commands, limitHeight = false }) => {
   }, [commands]); // Re-run effect if commands changes
 
   return (
-    <div className="rgx-code-box-install-commands">
+    <div
+      className={`rgx-code-box-install-commands ${
+        lightMode && "rgx-code-box-install-commands-light"
+      }`}
+    >
       <div className="rgx-code-box-tabs">
         {Object.keys(commands).map((tab) => (
           <button
@@ -69,7 +75,11 @@ const CodeBox: React.FC<CodeBoxProps> = ({ commands, limitHeight = false }) => {
       </div>
       <div>
         {activeCommand && (
-          <div className="rgx-code-box-command">
+          <div
+            className={`rgx-code-box-command ${
+              lightMode && "rgx-code-box-command-light"
+            }`}
+          >
             <CodeBlock
               language={activeCommand.language}
               text={activeCommand.code}

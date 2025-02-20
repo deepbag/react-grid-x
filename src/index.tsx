@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <ConfigProvider
     defaultConfig={{
-      theme: "dark",
+      theme: "light",
     }}
   >
     <DemoProvider>

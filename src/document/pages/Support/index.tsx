@@ -1,14 +1,25 @@
 import React from "react";
 import "./support.css";
 import { BottomNavigator } from "document/components";
-import { LABELS, PATHS } from "document/config/path";
+import { useConfig } from "document/context/ConfigContext";
 
 const Support = () => {
+  const { lightMode } = useConfig();
   return (
     <div className="rgx-support-overview">
       <div className="rgx-support-header">
-        <h1 className="rgx-support-title">Support</h1>
-        <p className="rgx-support-description">
+        <h1
+          className={`rgx-support-title ${
+            lightMode && "rgx-support-title-light"
+          }`}
+        >
+          Support
+        </h1>
+        <p
+          className={`rgx-support-description ${
+            lightMode && "rgx-support-description-light"
+          }`}
+        >
           We’re here to help! If you have any questions, issues, or suggestions
           regarding{" "}
           <strong>
@@ -23,13 +34,23 @@ const Support = () => {
           . feel free to reach out through the following channels:
         </p>
       </div>
+
       <section className="rgx-support-usage">
-        <h2 className="rgx-support-section-title">
+        <h2
+          className={`rgx-support-section-title ${
+            lightMode && "rgx-support-section-title-light"
+          }`}
+        >
           📌 GitHub Issues (Community Support)
         </h2>
-        <p className="rgx-support-usage-text">
+        <p
+          className={`rgx-support-usage-text ${
+            lightMode && "rgx-support-usage-text-light"
+          }`}
+        >
           For general discussions, bug reports, or feature requests, please use
-          the  <strong>
+          the{" "}
+          <strong>
             <a
               href="https://github.com/deepbag/react-grid-x/issues"
               target="_blank"
@@ -38,46 +59,91 @@ const Support = () => {
             >
               GitHub Issues
             </a>
-          </strong> tab. This allows the community and maintainers to
-          track and resolve issues transparently.
+          </strong>{" "}
+          tab. This allows the community and maintainers to track and resolve
+          issues transparently.
         </p>
+      </section>
 
-        <section className="rgx-support-features">
-          <h2 className="rgx-support-section-title">📝 New Issue Guidelines</h2>
-          <p className="rgx-support-usage-text">
-            Before creating a new issue, please follow these guidelines:
-          </p>
-          <ul className="rgx-support-feature-list">
-            <li className="rgx-support-feature-item">
-              <strong>Search for Existing Issues:</strong> Check if a similar
-              issue has already been reported.
-            </li>
-            <li className="rgx-support-feature-item">
-              <strong>Use a Clear Title:</strong> Summarize the issue concisely.
-            </li>
-            <li className="rgx-support-feature-item">
-              <strong>Provide Detailed Information:</strong> Describe the issue,
-              include logs, error messages, or screenshots.
-            </li>
-            <li className="rgx-support-feature-item">
-              <strong>Steps to Reproduce (For Bugs):</strong> Share a
-              step-by-step guide to reproduce the issue.
-            </li>
-            <li className="rgx-support-feature-item">
-              <strong>Environment Details:</strong> Mention the React version,
-              TypeScript version, and dependencies.
-            </li>
-            <li className="rgx-support-feature-item">
-              <strong>Minimal Reproducible Example:</strong> If possible,
-              provide a CodeSandbox or GitHub repo demonstrating the issue.
-            </li>
-          </ul>
-        </section>
+      <section className="rgx-support-features">
+        <h2
+          className={`rgx-support-section-title ${
+            lightMode && "rgx-support-section-title-light"
+          }`}
+        >
+          📝 New Issue Guidelines
+        </h2>
+        <p
+          className={`rgx-support-usage-text ${
+            lightMode && "rgx-support-usage-text-light"
+          }`}
+        >
+          Before creating a new issue, please follow these guidelines:
+        </p>
+        <ul className="rgx-support-feature-list">
+          <li
+            className={`rgx-support-feature-item ${
+              lightMode && "rgx-support-feature-item-light"
+            }`}
+          >
+            <strong>Search for Existing Issues:</strong> Check if a similar
+            issue has already been reported.
+          </li>
+          <li
+            className={`rgx-support-feature-item ${
+              lightMode && "rgx-support-feature-item-light"
+            }`}
+          >
+            <strong>Use a Clear Title:</strong> Summarize the issue concisely.
+          </li>
+          <li
+            className={`rgx-support-feature-item ${
+              lightMode && "rgx-support-feature-item-light"
+            }`}
+          >
+            <strong>Provide Detailed Information:</strong> Describe the issue,
+            include logs, error messages, or screenshots.
+          </li>
+          <li
+            className={`rgx-support-feature-item ${
+              lightMode && "rgx-support-feature-item-light"
+            }`}
+          >
+            <strong>Steps to Reproduce (For Bugs):</strong> Share a step-by-step
+            guide to reproduce the issue.
+          </li>
+          <li
+            className={`rgx-support-feature-item ${
+              lightMode && "rgx-support-feature-item-light"
+            }`}
+          >
+            <strong>Environment Details:</strong> Mention the React version,
+            TypeScript version, and dependencies.
+          </li>
+          <li
+            className={`rgx-support-feature-item ${
+              lightMode && "rgx-support-feature-item-light"
+            }`}
+          >
+            <strong>Minimal Reproducible Example:</strong> If possible, provide
+            a CodeSandbox or GitHub repo demonstrating the issue.
+          </li>
+        </ul>
       </section>
 
       <section className="rgx-support-usage">
-        <h2 className="rgx-support-section-title">📧 General Inquiries</h2>
-        <p className="rgx-support-usage-text">
+        <h2
+          className={`rgx-support-section-title ${
+            lightMode && "rgx-support-section-title-light"
+          }`}
+        >
+          📧 General Inquiries
+        </h2>
+        <p
+          className={`rgx-support-usage-text ${
+            lightMode && "rgx-support-usage-text-light"
+          }`}
+        >
           For non-technical inquiries, partnerships, or collaborations, feel
           free to reach out via email: 📩{" "}
           <strong>
@@ -92,8 +158,18 @@ const Support = () => {
       </section>
 
       <section className="rgx-support-usage">
-        <h2 className="rgx-support-section-title">💼 LinkedIn</h2>
-        <p className="rgx-support-usage-text">
+        <h2
+          className={`rgx-support-section-title ${
+            lightMode && "rgx-support-section-title-light"
+          }`}
+        >
+          💼 LinkedIn
+        </h2>
+        <p
+          className={`rgx-support-usage-text ${
+            lightMode && "rgx-support-usage-text-light"
+          }`}
+        >
           Connect with us on LinkedIn for updates, discussions, and networking
           opportunities: 📩{" "}
           <strong>
@@ -108,15 +184,6 @@ const Support = () => {
           </strong>
         </p>
       </section>
-
-      <div className="rgx-support-bottom-navigator">
-        <BottomNavigator
-          // next={{
-          //   label: LABELS.INSTALLATION,
-          //   url: PATHS.INSTALLATION,
-          // }}
-        />
-      </div>
     </div>
   );
 };
