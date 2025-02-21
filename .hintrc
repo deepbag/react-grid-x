@@ -31,7 +31,8 @@
       "default",
       {
         "aria-input-field-name": "off",
-        "aria-required-children": "off"
+        "aria-required-children": "off",
+        "aria-valid-attr-value": "off"
       }
     ],
     "typescript-config/is-valid": "off"

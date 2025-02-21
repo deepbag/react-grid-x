@@ -1,0 +1,85 @@
+.rgx-toggle-switch-bird-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.rgx-toggle-switch-bird {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 34px;
+}
+
+.rgx-toggle-switch-bird input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.rgx-toggle-switch-slider-bird {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #e4e4e4, #e0e0e0);
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.rgx-toggle-switch-slider-bird:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.rgx-toggle-switch-bird-enabled,
+.rgx-toggle-switch-bird-disabled {
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rgx-toggle-switch-bird-enabled {
+  left: 6px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.rgx-toggle-switch-bird-disabled {
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.rgx-toggle-switch-bird input:checked + .rgx-toggle-switch-slider-bird {
+  background: linear-gradient(90deg, #4b79a1, #283e51);
+}
+
+.rgx-toggle-switch-bird input:checked + .rgx-toggle-switch-slider-bird:before {
+  transform: translateX(46px);
+}
+
+.rgx-toggle-switch-bird
+  input:checked
+  + .rgx-toggle-switch-slider-bird
+  .rgx-toggle-switch-bird-enabled {
+  opacity: 0;
+}
+
+.rgx-toggle-switch-bird
+  input:checked
+  + .rgx-toggle-switch-slider-bird
+  .rgx-toggle-switch-bird-disabled {
+  opacity: 1;
+}

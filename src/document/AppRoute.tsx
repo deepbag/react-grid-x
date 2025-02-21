@@ -25,11 +25,18 @@ import {
   ThemeBuilder,
   DarkLightMode,
 } from "document/pages";
-import { DemoSideBar, Header, NewsBar, Sidebar } from "document/components";
+import {
+  Bird,
+  DemoSideBar,
+  Header,
+  NewsBar,
+  Sidebar,
+} from "document/components";
 import "document/app-route.css";
 import { PATHS } from "document/config/path";
 import { useCurrentRoute } from "./hooks";
 import Contribution from "./pages/Contribution";
+import { useConfig } from "./context/ConfigContext";
 
 const RoutesItem: React.FC = () => {
   const navigate = useNavigate();
@@ -76,6 +83,7 @@ interface SideBarType {
 }
 
 const AppRoute: React.FC = () => {
+  const { config, setConfigKey } = useConfig();
   const { label, pathWithoutSlash } = useCurrentRoute();
 
   const SideBar: SideBarType = {
@@ -85,6 +93,7 @@ const AppRoute: React.FC = () => {
 
   return (
     <div className="rgx-app-route">
+      {config.bird === "enabled" && <Bird />}
       <NewsBar />
       <Header />
 

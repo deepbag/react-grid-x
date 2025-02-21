@@ -1,0 +1,141 @@
+/* Bird.css */
+.bird-container {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  
+  .bird-svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .nest-svg {
+    width: 100px; /* Larger nest */
+    height: 100px;
+    position: absolute;
+    top: -20px; /* Offset to center bird */
+    left: -20px;
+    z-index: 1;
+  }
+  
+  .wing {
+    transform-origin: center;
+  }
+  
+  .left-wing {
+    animation: flapLeft 0.4s infinite alternate ease-in-out;
+  }
+  
+  .right-wing {
+    animation: flapRight 0.4s infinite alternate ease-in-out;
+  }
+  
+  @keyframes flapLeft {
+    0% { transform: translateX(-5px) translateY(-5px) rotate(-30deg); }
+    100% { transform: translateX(0) translateY(5px) rotate(20deg); }
+  }
+  
+  @keyframes flapRight {
+    0% { transform: translateX(5px) translateY(-5px) rotate(30deg); }
+    100% { transform: translateX(0) translateY(5px) rotate(-20deg); }
+  }
+  
+  .bird-container:hover:not(.caught):not(.sleeping) {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+  
+  .caught {
+    animation: caughtAnimation 0.7s ease forwards;
+  }
+  
+  @keyframes caughtAnimation {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(180deg); }
+    100% { transform: scale(0) rotate(360deg); }
+  }
+  
+  .bird-container:not(.caught):not(.sleeping) .bird-svg {
+    animation: fly 1.2s infinite ease-in-out;
+  }
+  
+  @keyframes fly {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  
+  .sleeping .left-wing,
+  .sleeping .right-wing {
+    animation: none;
+  }
+  
+  .sleeping .bird-svg {
+    animation: sleepBob 2s infinite ease-in-out;
+  }
+  
+  @keyframes sleepBob {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .sleep-z {
+    opacity: 0;
+  }
+  
+  .sleeping .z1 {
+    animation: zFloat 2s infinite ease-in-out;
+  }
+  
+  .sleeping .z2 {
+    animation: zFloat 2s infinite ease-in-out 0.5s;
+  }
+  
+  @keyframes zFloat {
+    0% { opacity: 0; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-5px); }
+    100% { opacity: 0; transform: translateY(-10px); }
+  }
+  
+  .bird-container {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  }
+
+  .popup {
+    position: absolute;
+    top: -40px; /* Position above the bird */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 1001;
+    animation: popupFade 2s ease-in-out;
+  }
+  
+  .click-wrapper {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    left: 0;
+  }
+  
+  @keyframes popupFade {
+    0% { opacity: 0; transform: translateX(-50%) translateY(5px); }
+    20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+  }

@@ -70,6 +70,7 @@
 
 .rgx-header-mode-button {
   margin-left: 12px;
+  display: flex;
 }
 
 @media (max-width: 768px) {

@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
+  position: relative;
+  /* overflow: hidden; */
 }
 
 .rgx-app-route-main-content {

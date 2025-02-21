@@ -5,7 +5,7 @@ import RGXTooltip from "module/components/Tooltip";
 import RGXLoader from "module/components/Loader";
 import { ReactGridXProps } from "module/types/react-grid-x-props";
 import RGXPopover from "module/components/Popover";
-import SvgIcon from "../SVGIcons";
+import SvgIcon from "module/components/SVGIcons";
 
 const ReactGridX: React.FC<ReactGridXProps> = ({
   columns,
@@ -34,29 +34,27 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
   page = 1,
   mode = "light",
 }) => {
+  // Constant to determine if dark mode is active based on the mode prop
   const darkMode = mode === "dark";
 
-  // State to manage the current page of the table. Tracks the active page number for pagination purposes.
+  // State for managing the current page number in pagination
   const [currentPage, setCurrentPage] = useState<number>(page);
 
-  // State to store the current dataset to display in the table. This can be updated when data is filtered, sorted, or paginated.
-  const [currentData, setCurrentData] = useState<any[]>(data);
-
-  // State to manage the sorting configuration for multiple columns. Allows multi-column sorting with a key and direction.
+  // State for storing sorting configuration (column key and direction)
   const [sortConfig, setSortConfig] = useState<
     { key: string; direction: "asc" | "desc" }[]
   >([]);
 
-  // State to manage the number of rows per page for pagination. Default value is taken from rowsPerPageOptions.
+  // State for controlling the number of rows displayed per page
   const [rowsPerPage, setRowsPerPage] = useState<number>(rowsPerPageOptions[0]);
 
-  // State to track which row is currently expanded. Holds the index of the expanded row, or null if no row is expanded.
+  // State for tracking the currently expanded row index (null if none)
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
 
-  // State to manage the popover state for each column. Tracks which column's dot menu is active.
+  // State for managing which column's popover menu is open (null if none)
   const [isDotPopover, setIsDotPopover] = useState<string | null>(null);
 
-  // State to manage selection info: `selectedRows` for selected row IDs and `selectAllChecked` for the "select all" checkbox state
+  // State for selection info: selected row IDs and "select all" checkbox status
   const [_selectionInfo, _setSelectionInfo] = useState<{
     selectedRows: any[];
     selectAllChecked: boolean;
@@ -65,13 +63,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     selectAllChecked: false,
   });
 
-  /**
-   * Handle page change event for pagination.
-   * This function updates the current page and triggers the callback to inform the parent component
-   * of the new page number and the number of rows per page.
-   *
-   * @param page - The new page number to navigate to.
-   */
+  // Function to handle page changes and notify parent component
   const onPageChange = (page: number) => {
     setCurrentPage(page); // Update the current page state with the new page number
     setExpandedRow(null);
@@ -79,28 +71,14 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
       onPaginationAndRowSizeChange(page, rowsPerPage); // Trigger the callback with the updated page and rows per page, if provided
   };
 
-  /**
-   * Handle rows per page change event for pagination.
-   * This function updates the number of rows per page, resets the current page to 1,
-   * and triggers the callback to inform the parent component about the new rows per page and the reset page number.
-   *
-   * @param rows - The new number of rows per page to display.
-   */
+  // Function to handle changes in rows per page, resetting to page 1
   const onRowsPerPageChange = (rows: number) => {
     setRowsPerPage(rows); // Update the rows per page state with the new number of rows
     setCurrentPage(1); // Reset to the first page as the rows per page changed
     onPaginationAndRowSizeChange && onPaginationAndRowSizeChange(1, rows); // Trigger the callback with page 1 and the updated rows per page
   };
 
-  /**
-   * Handles the "select all" checkbox functionality in the table header.
-   *
-   * This function toggles the state of the "select all" checkbox and updates
-   * the `selectedRows` state to select or deselect all rows. It calls the
-   * `onSelectionCheck` callback with the updated selection data.
-   *
-   * @note Triggered when the user interacts with the "select all" checkbox in the header.
-   */
+  // Function to toggle the "select all" checkbox in the header
   const onHeaderCheckboxChange = () => {
     const _newSelectAllChecked = !_selectionInfo.selectAllChecked;
     const _newSelectedRows = _newSelectAllChecked
@@ -116,17 +94,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
       onSelectionCheck(_newSelectedRows, _newSelectAllChecked);
   };
 
-  /**
-   * Handles the row-level checkbox functionality.
-   *
-   * This function updates the selection state of an individual row when its
-   * checkbox is toggled. It updates the `selectedRows` state accordingly and
-   * also checks if the "select all" checkbox needs to be updated based on the
-   * current selection. The `onSelectionCheck` callback is called with the updated selection data.
-   *
-   * @param rowId - The unique ID of the row that was selected or deselected.
-   * @note Triggered when the user interacts with an individual row checkbox.
-   */
+  // Function to handle individual row checkbox changes
   const onRowCheckboxChange = (rowId: string | number) => {
     const _newSelectedRows = _selectionInfo.selectedRows.includes(rowId)
       ? _selectionInfo.selectedRows.filter((id) => id !== rowId)
@@ -143,17 +111,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
       onSelectionCheck(_newSelectedRows, _newSelectAllChecked);
   };
 
-  /**
-   * Handles the event when the user changes the sorting configuration
-   * for multiple columns (ascending or descending).
-   *
-   * This function manages the sorting state, toggles the sorting direction
-   * when the same column is clicked, or adds a new column to the sort order
-   * if it's not already included. It also handles multi-column sorting based
-   * on the `multiColumnSort` flag.
-   *
-   * @param column - The column for which the sorting needs to be changed.
-   */
+  // Function to handle sorting, supporting single or multi-column sorting
   const onSortingMultipleSupportHandler = (
     column: { key: string },
     customDirection?: "asc" | "desc" // Optional custom direction
@@ -212,15 +170,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     });
   };
 
-  /**
-   * Clears the sorting configuration and resets the table's sorting state.
-   *
-   * This function resets the `sortConfig` state to an empty array, effectively clearing any applied sorting.
-   * If server-side sorting is enabled, it also triggers a server-side reset by calling the `onSorting` callback
-   * with an empty array to reset sorting on the server.
-   *
-   * @returns {void} - No return value, the sorting is cleared.
-   */
+  // Function to clear all sorting configurations
   const onClearSort = () => {
     // Clear the sorting configuration by resetting the sortConfig state to an empty array
     setSortConfig([]);
@@ -231,15 +181,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     }
   };
 
-  /**
-   * Sorts the data based on the current sorting configuration.
-   *
-   * This function applies multi-column sorting by iterating over the sorting configuration (`sortConfig`),
-   * sorting the data in ascending or descending order depending on the direction defined for each column.
-   * It supports both client-side sorting and server-side sorting by checking the `serverSideSorting` flag.
-   *
-   * @returns {Array} - The sorted data based on the current sorting configuration.
-   */
+  // Memoized sorted data based on sort configuration
   const sortedItems = useMemo(() => {
     if (serverSideSorting) return data; // Skip sorting if using server-side sorting
 
@@ -270,17 +212,17 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     });
 
     return sorted; // Return the sorted array
-  }, [data, sortConfig, columns, serverSideSorting]); // Recompute whenever data or sorting configuration changes
+  }, [data, sortConfig, columns, serverSideSorting, multiColumnSort]); // Recompute whenever data or sorting configuration changes
 
   // Calculate the total number of pages based on the pagination method (client-side or server-side)
   const totalPages = serverSidePagination
-    ? Math.ceil((totalRows || 0) / rowsPerPage) // For server-side pagination, calculate total pages based on totalRows (from server)
-    : Math.ceil(currentData.length / rowsPerPage); // For client-side pagination, calculate total pages based on currentData
+    ? Math.ceil((totalRows ?? 0) / rowsPerPage) // For server-side pagination, calculate total pages based on totalRows (from server)
+    : Math.ceil(sortedItems.length / rowsPerPage); // For client-side pagination, calculate total pages based on currentData
 
   // Slices the data for the current page based on the pagination method (client-side or server-side)
   const currentPageData = serverSidePagination
-    ? currentData // Use full data for server-side pagination; parent component handles slicing
-    : currentData.slice(
+    ? data // Use full data for server-side pagination; parent component handles slicing
+    : sortedItems.slice(
         (currentPage - 1) * rowsPerPage, // Calculate the starting index for the slice
         currentPage * rowsPerPage // Calculate the ending index for the slice
       );
@@ -299,7 +241,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage} // Current page number
         totalPages={totalPages} // Total number of pages
         rowsPerPage={rowsPerPage} // Number of rows per page
-        totalRows={serverSidePagination ? totalRows ?? 0 : currentData.length} // Total rows count based on server-side or client-side pagination
+        totalRows={serverSidePagination ? totalRows ?? 0 : sortedItems.length} // Total rows count based on server-side or client-side pagination
         onPageChange={onPageChange} // Callback to handle page changes
         onRowsPerPageChange={onRowsPerPageChange} // Callback to handle changes in the number of rows per page
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
@@ -314,7 +256,7 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage={currentPage} // Current page number
         totalPages={totalPages} // Total number of pages
         rowsPerPage={rowsPerPage} // Number of rows per page
-        totalRows={serverSidePagination ? totalRows ?? 0 : currentData.length} // Total rows count based on server-side or client-side pagination
+        totalRows={serverSidePagination ? totalRows ?? 0 : sortedItems.length} // Total rows count based on server-side or client-side pagination
         onPageChange={onPageChange} // Callback to handle page changes
         onRowsPerPageChange={onRowsPerPageChange} // Callback to handle changes in the number of rows per page
         rowsPerPageOptions={rowsPerPageOptions} // Options for how many rows per page the user can select
@@ -325,33 +267,24 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
     ),
   };
 
-  /**
-   * Updates the `currentData` state whenever the `sortedItems` array changes.
-   *
-   * This effect listens for changes in the `sortedItems` array and updates the
-   * `currentData` state accordingly. This ensures that the component always
-   * renders the most up-to-date sorted data.
-   *
-   * @note This effect is triggered every time the `sortedItems` array changes
-   * due to sorting changes or any other dependency in `sortedItems`.
-   */
+  // Sync rowsPerPage state with the rowPerPage prop when it changes
   useEffect(() => {
-    setCurrentData(sortedItems); // Set the state with the new sorted data
-  }, [sortedItems]); // Dependency array ensures the effect runs when `sortedItems` changes
-
-  useEffect(() => {
+    // Update the rowsPerPage state based on the rowPerPage prop
     setRowsPerPage(
+      // Check if the provided rowPerPage is a valid option in rowsPerPageOptions
       rowsPerPageOptions?.includes(rowPerPage)
-        ? rowPerPage
-        : rowsPerPageOptions[0]
+        ? rowPerPage // If valid, use the prop value
+        : rowsPerPageOptions[0] // Otherwise, default to the first option in the array
     );
-  }, [rowPerPage]);
+  }, [rowPerPage]); // Run this effect whenever the rowPerPage prop changes
 
+  // Sync currentPage state with the page prop when using server-side pagination
   useEffect(() => {
+    // Only update currentPage if server-side pagination is enabled and both page and rowPerPage are provided
     if (serverSidePagination && page && rowPerPage) {
-      setCurrentPage(page);
+      setCurrentPage(page); // Set the current page to match the page prop
     }
-  }, [page, serverSidePagination, rowPerPage]);
+  }, [page, serverSidePagination, rowPerPage]); // Run this effect when page, serverSidePagination, or rowPerPage changes
 
   return (
     <div className={theme}>
@@ -544,15 +477,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             {sortConfig.find((sort) => sort.key === column.key)
                               ?.direction === "asc" && (
                               <div
-                              className={`rgx-table-popup-items ${
-                                darkMode && "rgx-table-popup-items-dark"
-                              }`}
-                              style={{
-                                ...tableStyle["rgx-table-popup-items"],
-                                ...(darkMode && {
-                                  ...tableStyle["rgx-table-popup-items-dark"],
-                                }),
-                              }}
+                                className={`rgx-table-popup-items ${
+                                  darkMode && "rgx-table-popup-items-dark"
+                                }`}
+                                style={{
+                                  ...tableStyle["rgx-table-popup-items"],
+                                  ...(darkMode && {
+                                    ...tableStyle["rgx-table-popup-items-dark"],
+                                  }),
+                                }}
                                 onClick={() => {
                                   column.sortable &&
                                     onSortingMultipleSupportHandler(
@@ -579,15 +512,17 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                             ) && (
                               <>
                                 <div
-                                 className={`rgx-table-popup-items ${
-                                  darkMode && "rgx-table-popup-items-dark"
-                                }`}
-                                style={{
-                                  ...tableStyle["rgx-table-popup-items"],
-                                  ...(darkMode && {
-                                    ...tableStyle["rgx-table-popup-items-dark"],
-                                  }),
-                                }}
+                                  className={`rgx-table-popup-items ${
+                                    darkMode && "rgx-table-popup-items-dark"
+                                  }`}
+                                  style={{
+                                    ...tableStyle["rgx-table-popup-items"],
+                                    ...(darkMode && {
+                                      ...tableStyle[
+                                        "rgx-table-popup-items-dark"
+                                      ],
+                                    }),
+                                  }}
                                   onClick={() => {
                                     column.sortable &&
                                       onSortingMultipleSupportHandler(
@@ -608,15 +543,17 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                                   <span>Sort Ascending</span>
                                 </div>
                                 <div
-                                 className={`rgx-table-popup-items ${
-                                  darkMode && "rgx-table-popup-items-dark"
-                                }`}
-                                style={{
-                                  ...tableStyle["rgx-table-popup-items"],
-                                  ...(darkMode && {
-                                    ...tableStyle["rgx-table-popup-items-dark"],
-                                  }),
-                                }}
+                                  className={`rgx-table-popup-items ${
+                                    darkMode && "rgx-table-popup-items-dark"
+                                  }`}
+                                  style={{
+                                    ...tableStyle["rgx-table-popup-items"],
+                                    ...(darkMode && {
+                                      ...tableStyle[
+                                        "rgx-table-popup-items-dark"
+                                      ],
+                                    }),
+                                  }}
                                   onClick={() => {
                                     column.sortable &&
                                       onSortingMultipleSupportHandler(
@@ -643,15 +580,15 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                               sortConfig.some((sort) => sort.key === column.key)
                             ) && (
                               <div
-                              className={`rgx-table-popup-items ${
-                                darkMode && "rgx-table-popup-items-dark"
-                              }`}
-                              style={{
-                                ...tableStyle["rgx-table-popup-items"],
-                                ...(darkMode && {
-                                  ...tableStyle["rgx-table-popup-items-dark"],
-                                }),
-                              }}
+                                className={`rgx-table-popup-items ${
+                                  darkMode && "rgx-table-popup-items-dark"
+                                }`}
+                                style={{
+                                  ...tableStyle["rgx-table-popup-items"],
+                                  ...(darkMode && {
+                                    ...tableStyle["rgx-table-popup-items-dark"],
+                                  }),
+                                }}
                                 onClick={() => {
                                   onClearSort();
                                 }}

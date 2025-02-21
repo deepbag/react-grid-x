@@ -13,6 +13,7 @@ root.render(
   <ConfigProvider
     defaultConfig={{
       theme: "light",
+      bird: "enabled",
     }}
   >
     <DemoProvider>

@@ -13,6 +13,8 @@
 
 Check out the live demo of `@deepbag/react-grid-x` [here](https://deepbag.github.io/react-grid-x/#/demo).
 
+![React Grid X](https://raw.githubusercontent.com/deepbag/react-grid-x/main/react-grid-x.png)
+
 ## Compatibility
 
 - This package supports **React 18** and higher versions.

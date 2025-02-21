@@ -1,0 +1,25 @@
+.rgx-snake-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.rgx-title {
+  margin-bottom: 10px;
+}
+
+.rgx-score {
+  margin: 10px 0;
+}
+
+.rgx-canvas {
+  border: 1px solid black;
+}
+
+.rgx-restart-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

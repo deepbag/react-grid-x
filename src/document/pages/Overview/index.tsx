@@ -260,13 +260,6 @@ const Overview: React.FC = () => {
           </li>
         </ul>
       </section>
-      {/* 
-      <BottomNavigator
-        next={{
-          label: LABELS.INSTALLATION,
-          url: PATHS.INSTALLATION,
-        }}
-      /> */}
     </div>
   );
 };

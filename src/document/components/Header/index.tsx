@@ -7,6 +7,8 @@ import { headerMenu } from "document/config/menu";
 import SvgIcon from "../SVGIcons";
 import ThemeToggle from "../ThemeToggle";
 import { useConfig } from "document/context/ConfigContext";
+import ToggleSwitch from "../ToggleSwitch";
+import ToggleSwitchBird from "../ToggleSwitchBird";
 // import { FuzzySearchMock } from "document/@mock";
 // import SearchInputFuzzy from "../SearchInputFuzzy";
 
@@ -83,7 +85,8 @@ const Header: React.FC = () => {
             </a>
           </div>
           <div className="rgx-header-mode-button">
-            <ThemeToggle />
+            <ToggleSwitchBird />
+            <ToggleSwitch />
           </div>
         </div>
       </div>
