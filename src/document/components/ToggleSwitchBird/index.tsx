@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./toggle-switch.css";
+import "./toggle-switch-bird.css";
 import { useConfig } from "document/context/ConfigContext";
 
 const ToggleSwitchBird: React.FC = () => {

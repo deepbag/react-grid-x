@@ -9,7 +9,7 @@
   position: relative;
   display: inline-block;
   width: 35px;
-  height: 34px;
+  height: 35px;
 }
 
 .rgx-toggle-switch-bird input {
@@ -39,7 +39,7 @@
   bottom: 4px;
   background-color: white;
   border-radius: 50%;
-  transition: 0.4s;
+  /* transition: 0.4s; */
 }
 
 .rgx-toggle-switch-bird-enabled,
@@ -67,7 +67,7 @@
 }
 
 .rgx-toggle-switch-bird input:checked + .rgx-toggle-switch-slider-bird:before {
-  transform: translateX(46px);
+  transform: translateX(100px);
 }
 
 .rgx-toggle-switch-bird

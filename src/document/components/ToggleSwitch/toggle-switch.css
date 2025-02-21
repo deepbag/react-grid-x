@@ -7,8 +7,8 @@
 .rgx-toggle-switch {
   position: relative;
   display: inline-block;
-  width: 80px;
-  height: 34px;
+  width: 35px;
+  height: 35px;
 }
 
 .rgx-toggle-switch input {
@@ -38,7 +38,7 @@
   bottom: 4px;
   background-color: white;
   border-radius: 50%;
-  transition: 0.4s;
+  /* transition: 0.4s; */
 }
 
 .rgx-toggle-switch-sun,
@@ -66,7 +66,7 @@
 }
 
 .rgx-toggle-switch input:checked + .rgx-toggle-switch-slider:before {
-  transform: translateX(46px);
+  transform: translateX(100px);
 }
 
 .rgx-toggle-switch
