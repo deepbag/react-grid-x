@@ -227,22 +227,6 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
         currentPage * rowsPerPage // Calculate the ending index for the slice
       );
 
-  // Calculate total width for fixed and non-fixed columns
-  const fixedLeftColumns = columns.filter(
-    (col) => col.fixed && col.fixedPosition !== "right"
-  );
-  const fixedRightColumns = columns.filter(
-    (col) => col.fixed && col.fixedPosition === "right"
-  );
-  const nonFixedColumns = columns.filter((col) => !col.fixed);
-  const fixedLeftWidth = fixedLeftColumns.reduce(
-    (sum, column) => sum + (column.width ? column.width : 100),
-    0
-  );
-  const fixedRightWidth = fixedRightColumns.reduce(
-    (sum, column) => sum + (column.width ? column.width : 100),
-    0
-  );
   // Sums up column widths, using the specified value or defaulting to 100px if missing.
   const totalWidth = columns.reduce(
     (sum, column) => sum + (column.width ? column.width : 100),
@@ -383,41 +367,6 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                   style={{
                     textAlign: "left",
                     width: column.width ? `${column.width}px` : "100px",
-                    position: column.fixed ? "sticky" : "relative",
-                    left:
-                      column.fixed && column.fixedPosition !== "right"
-                        ? `${fixedLeftColumns
-                            .slice(0, fixedLeftColumns.indexOf(column))
-                            .reduce(
-                              (sum, col) => sum + (col.width || 100),
-                              0
-                            )}px`
-                        : undefined,
-                    right:
-                      column.fixed && column.fixedPosition === "right"
-                        ? `${fixedRightColumns
-                            .slice(fixedRightColumns.indexOf(column) + 1)
-                            .reduce(
-                              (sum, col) => sum + (col.width || 100),
-                              0
-                            )}px`
-                        : undefined,
-                    zIndex: column.fixed ? 2 : 1,
-                    // background: column.fixed
-                    //   ? darkMode
-                    //     ? "#3d3d3d"
-                    //     : "#e0e0e0"
-                    //   : darkMode
-                    //   ? "#2d2d2d"
-                    //   : "#fff", // Distinct background for fixed columns
-                    borderRight: column.fixed
-                      ? darkMode
-                        ? "1px solid #4d4d4d"
-                        : "1px solid #ccc"
-                      : "none", // Border for separation
-                    boxShadow: column.fixed
-                      ? "2px 0 5px rgba(0, 0, 0, 0.1)"
-                      : "none", // Subtle shadow for depth
                     ...tableStyle["rgx-table-head-th"],
                     ...(darkMode && {
                       ...tableStyle["rgx-table-head-th-dark"],
@@ -746,41 +695,6 @@ const ReactGridX: React.FC<ReactGridXProps> = ({
                       }`}
                       style={{
                         width: column.width || "auto",
-                        position: column.fixed ? "sticky" : "relative",
-                        left:
-                          column.fixed && column.fixedPosition !== "right"
-                            ? `${fixedLeftColumns
-                                .slice(0, fixedLeftColumns.indexOf(column))
-                                .reduce(
-                                  (sum, col) => sum + (col.width || 100),
-                                  0
-                                )}px`
-                            : undefined,
-                        right:
-                          column.fixed && column.fixedPosition === "right"
-                            ? `${fixedRightColumns
-                                .slice(fixedRightColumns.indexOf(column) + 1)
-                                .reduce(
-                                  (sum, col) => sum + (col.width || 100),
-                                  0
-                                )}px`
-                            : undefined,
-                        zIndex: column.fixed ? 2 : 1,
-                        // background: column.fixed
-                        //   ? darkMode
-                        //     ? "#3d3d3d"
-                        //     : "#e0e0e0"
-                        //   : darkMode
-                        //   ? "#2d2d2d"
-                        //   : "#fff", // Match header background
-                        borderRight: column.fixed
-                          ? darkMode
-                            ? "1px solid #4d4d4d"
-                            : "1px solid #ccc"
-                          : "none", // Border for separation
-                        boxShadow: column.fixed
-                          ? "2px 0 5px rgba(0, 0, 0, 0.1)"
-                          : "none", // Subtle shadow for depth
                         ...tableStyle["rgx-table-body-td"],
                         ...(darkMode && {
                           ...tableStyle["rgx-table-body-td-dark"],

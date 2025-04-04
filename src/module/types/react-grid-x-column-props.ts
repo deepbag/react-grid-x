@@ -85,17 +85,4 @@ export interface ReactGridXColumnProps {
    * @example 200
    */
   width?: number; // Only accepts a number
-
-  /**
-   * Indicates if the column is fixed (sticky).
-   * @default false
-   */
-  fixed?: boolean;
-
-  /**
-   * Specifies the position where the column is fixed.
-   * @default "left" if fixed is true and not specified
-   * "left" | "right"
-   */
-  fixedPosition?: string;
 }

@@ -69,8 +69,6 @@ const Demo = () => {
               <CustomImage src={_.avatar} width={40} />
             ),
             width: 100,
-            // fixed: true,
-            // fixedPosition: "left",
           },
           {
             name: "Name",
@@ -137,9 +135,7 @@ const Demo = () => {
           {
             name: "Country",
             key: "country",
-            width: 150,
-            fixed: true,
-            fixedPosition: "right",
+            width: 150
           },
         ].map((_) => ({
           ..._,
