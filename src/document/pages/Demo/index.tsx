@@ -69,6 +69,8 @@ const Demo = () => {
               <CustomImage src={_.avatar} width={40} />
             ),
             width: 100,
+            // fixed: true,
+            // fixedPosition: "left",
           },
           {
             name: "Name",
@@ -132,7 +134,13 @@ const Demo = () => {
             width: 300,
           },
           { name: "Email", key: "email", width: 230 },
-          { name: "Country", key: "country", width: 150 },
+          {
+            name: "Country",
+            key: "country",
+            width: 150,
+            fixed: true,
+            fixedPosition: "right",
+          },
         ].map((_) => ({
           ..._,
           sortable: demoConfig?.sortBy?.includes(_.key),
